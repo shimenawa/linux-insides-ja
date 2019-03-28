@@ -1,0 +1,1587 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Elf64 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="asm.html" />
+    
+    
+    <link rel="prev" href="Paging.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Summary</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Booting/">
+            
+                <a href="../Booting/">
+            
+                    
+                    Booting
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Booting/linux-bootstrap-1.html">
+            
+                <a href="../Booting/linux-bootstrap-1.html">
+            
+                    
+                    From bootloader to kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Booting/linux-bootstrap-2.html">
+            
+                <a href="../Booting/linux-bootstrap-2.html">
+            
+                    
+                    First steps in the kernel setup code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Booting/linux-bootstrap-3.html">
+            
+                <a href="../Booting/linux-bootstrap-3.html">
+            
+                    
+                    Video mode initialization and transition to protected mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../Booting/linux-bootstrap-4.html">
+            
+                <a href="../Booting/linux-bootstrap-4.html">
+            
+                    
+                    Transition to 64-bit mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../Booting/linux-bootstrap-5.html">
+            
+                <a href="../Booting/linux-bootstrap-5.html">
+            
+                    
+                    Kernel decompression
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Initialization/">
+            
+                <a href="../Initialization/">
+            
+                    
+                    Initialization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Initialization/linux-initialization-1.html">
+            
+                <a href="../Initialization/linux-initialization-1.html">
+            
+                    
+                    First steps in the kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Initialization/linux-initialization-2.html">
+            
+                <a href="../Initialization/linux-initialization-2.html">
+            
+                    
+                    Early interrupts handler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Initialization/linux-initialization-3.html">
+            
+                <a href="../Initialization/linux-initialization-3.html">
+            
+                    
+                    Last preparations before the kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Initialization/linux-initialization-4.html">
+            
+                <a href="../Initialization/linux-initialization-4.html">
+            
+                    
+                    Kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../Initialization/linux-initialization-5.html">
+            
+                <a href="../Initialization/linux-initialization-5.html">
+            
+                    
+                    Continue architecture-specific boot-time initializations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../Initialization/linux-initialization-6.html">
+            
+                <a href="../Initialization/linux-initialization-6.html">
+            
+                    
+                    Architecture-specific initializations, again...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../Initialization/linux-initialization-7.html">
+            
+                <a href="../Initialization/linux-initialization-7.html">
+            
+                    
+                    End of the architecture-specific initializations, almost...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../Initialization/linux-initialization-8.html">
+            
+                <a href="../Initialization/linux-initialization-8.html">
+            
+                    
+                    Scheduler initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../Initialization/linux-initialization-9.html">
+            
+                <a href="../Initialization/linux-initialization-9.html">
+            
+                    
+                    RCU initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../Initialization/linux-initialization-10.html">
+            
+                <a href="../Initialization/linux-initialization-10.html">
+            
+                    
+                    End of initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../interrupts/">
+            
+                <a href="../interrupts/">
+            
+                    
+                    Interrupts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../interrupts/interrupts-1.html">
+            
+                <a href="../interrupts/interrupts-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../interrupts/interrupts-2.html">
+            
+                <a href="../interrupts/interrupts-2.html">
+            
+                    
+                    Start to dive into interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../interrupts/interrupts-3.html">
+            
+                <a href="../interrupts/interrupts-3.html">
+            
+                    
+                    Interrupt handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../interrupts/interrupts-4.html">
+            
+                <a href="../interrupts/interrupts-4.html">
+            
+                    
+                    Initialization of non-early interrupt gates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../interrupts/interrupts-5.html">
+            
+                <a href="../interrupts/interrupts-5.html">
+            
+                    
+                    Implementation of some exception handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../interrupts/interrupts-6.html">
+            
+                <a href="../interrupts/interrupts-6.html">
+            
+                    
+                    Handling Non-Maskable interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../interrupts/interrupts-7.html">
+            
+                <a href="../interrupts/interrupts-7.html">
+            
+                    
+                    Dive into external hardware interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../interrupts/interrupts-8.html">
+            
+                <a href="../interrupts/interrupts-8.html">
+            
+                    
+                    Initialization of external hardware interrupts structures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../interrupts/interrupts-9.html">
+            
+                <a href="../interrupts/interrupts-9.html">
+            
+                    
+                    Softirq, Tasklets and Workqueues
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../interrupts/interrupts-10.html">
+            
+                <a href="../interrupts/interrupts-10.html">
+            
+                    
+                    Last part
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../SysCall/">
+            
+                <a href="../SysCall/">
+            
+                    
+                    System calls
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../SysCall/syscall-1.html">
+            
+                <a href="../SysCall/syscall-1.html">
+            
+                    
+                    Introduction to system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../SysCall/syscall-2.html">
+            
+                <a href="../SysCall/syscall-2.html">
+            
+                    
+                    How the Linux kernel handles a system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../SysCall/syscall-3.html">
+            
+                <a href="../SysCall/syscall-3.html">
+            
+                    
+                    vsyscall and vDSO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../SysCall/syscall-4.html">
+            
+                <a href="../SysCall/syscall-4.html">
+            
+                    
+                    How the Linux kernel runs a program
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../SysCall/syscall-5.html">
+            
+                <a href="../SysCall/syscall-5.html">
+            
+                    
+                    Implementation of the open system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Timers/">
+            
+                <a href="../Timers/">
+            
+                    
+                    Timers and time management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../Timers/timers-1.html">
+            
+                <a href="../Timers/timers-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Timers/timers-2.html">
+            
+                <a href="../Timers/timers-2.html">
+            
+                    
+                    Clocksource framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Timers/timers-3.html">
+            
+                <a href="../Timers/timers-3.html">
+            
+                    
+                    The tick broadcast framework and dyntick
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../Timers/timers-4.html">
+            
+                <a href="../Timers/timers-4.html">
+            
+                    
+                    Introduction to timers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Timers/timers-5.html">
+            
+                <a href="../Timers/timers-5.html">
+            
+                    
+                    Clockevents framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../Timers/timers-6.html">
+            
+                <a href="../Timers/timers-6.html">
+            
+                    
+                    x86 related clock sources
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../Timers/timers-7.html">
+            
+                <a href="../Timers/timers-7.html">
+            
+                    
+                    Time related system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../SyncPrim/">
+            
+                <a href="../SyncPrim/">
+            
+                    
+                    Synchronization primitives
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../SyncPrim/sync-1.html">
+            
+                <a href="../SyncPrim/sync-1.html">
+            
+                    
+                    Introduction to spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../SyncPrim/sync-2.html">
+            
+                <a href="../SyncPrim/sync-2.html">
+            
+                    
+                    Queued spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../SyncPrim/sync-3.html">
+            
+                <a href="../SyncPrim/sync-3.html">
+            
+                    
+                    Semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../SyncPrim/sync-4.html">
+            
+                <a href="../SyncPrim/sync-4.html">
+            
+                    
+                    Mutex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../SyncPrim/sync-5.html">
+            
+                <a href="../SyncPrim/sync-5.html">
+            
+                    
+                    Reader/Writer semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../SyncPrim/sync-6.html">
+            
+                <a href="../SyncPrim/sync-6.html">
+            
+                    
+                    SeqLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" >
+            
+                <span>
+            
+                    
+                    RCU
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" >
+            
+                <span>
+            
+                    
+                    Lockdep
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../mm/">
+            
+                <a href="../mm/">
+            
+                    
+                    Memory management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../mm/linux-mm-1.html">
+            
+                <a href="../mm/linux-mm-1.html">
+            
+                    
+                    Memblock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../mm/linux-mm-2.html">
+            
+                <a href="../mm/linux-mm-2.html">
+            
+                    
+                    Fixmaps and ioremap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../mm/linux-mm-3.html">
+            
+                <a href="../mm/linux-mm-3.html">
+            
+                    
+                    kmemcheck
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../Cgroups/">
+            
+                <a href="../Cgroups/">
+            
+                    
+                    Cgroups
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../Cgroups/cgroups1.html">
+            
+                <a href="../Cgroups/cgroups1.html">
+            
+                    
+                    Introduction to Control Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    SMP
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../Concepts/">
+            
+                <a href="../Concepts/">
+            
+                    
+                    Concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../Concepts/per-cpu.html">
+            
+                <a href="../Concepts/per-cpu.html">
+            
+                    
+                    Per-CPU variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../Concepts/cpumask.html">
+            
+                <a href="../Concepts/cpumask.html">
+            
+                    
+                    Cpumasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../Concepts/initcall.html">
+            
+                <a href="../Concepts/initcall.html">
+            
+                    
+                    The initcall mechanism
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../DataStructures/">
+            
+                <a href="../DataStructures/">
+            
+                    
+                    Data Structures in the Linux Kernel
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../DataStructures/dlist.html">
+            
+                <a href="../DataStructures/dlist.html">
+            
+                    
+                    Doubly linked list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../DataStructures/radix-tree.html">
+            
+                <a href="../DataStructures/radix-tree.html">
+            
+                    
+                    Radix tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../DataStructures/bitmap.html">
+            
+                <a href="../DataStructures/bitmap.html">
+            
+                    
+                    Bit arrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Theory
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="Paging.html">
+            
+                <a href="Paging.html">
+            
+                    
+                    Paging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.13.2" data-path="ELF.html">
+            
+                <a href="ELF.html">
+            
+                    
+                    Elf64
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="asm.html">
+            
+                <a href="asm.html">
+            
+                    
+                    Inline assembly
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" >
+            
+                <span>
+            
+                    
+                    CPUID
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" >
+            
+                <span>
+            
+                    
+                    MSR
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" >
+            
+                <span>
+            
+                    
+                    Initial ram disk
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" >
+            
+                <span>
+            
+                    
+                    initrd
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../Misc/">
+            
+                <a href="../Misc/">
+            
+                    
+                    Misc
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../Misc/how_kernel_compiled.html">
+            
+                <a href="../Misc/how_kernel_compiled.html">
+            
+                    
+                    How the kernel is compiled
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../Misc/linkers.html">
+            
+                <a href="../Misc/linkers.html">
+            
+                    
+                    Linkers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.3" data-path="../Misc/contribute.html">
+            
+                <a href="../Misc/contribute.html">
+            
+                    
+                    Linux kernel development
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.4" data-path="../Misc/program_startup.html">
+            
+                <a href="../Misc/program_startup.html">
+            
+                    
+                    Program startup process in userspace
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.5" >
+            
+                <span>
+            
+                    
+                    Write and Submit your first Linux kernel Patch
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.6" >
+            
+                <span>
+            
+                    
+                    Data types in the kernel
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../KernelStructures/">
+            
+                <a href="../KernelStructures/">
+            
+                    
+                    KernelStructures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../KernelStructures/idt.html">
+            
+                <a href="../KernelStructures/idt.html">
+            
+                    
+                    IDT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../LINKS.html">
+            
+                <a href="../LINKS.html">
+            
+                    
+                    Useful links
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../contributors.html">
+            
+                <a href="../contributors.html">
+            
+                    
+                    Contributors
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Elf64</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="executable-and-linkable-format">Executable and Linkable Format</h1>
+<p>ELF (Executable and Linkable Format) is a standard file format for executable files, object code, shared libraries and core dumps. Linux and many UNIX-like operating systems use this format. Let&apos;s look at the structure of the ELF-64 Object File Format and some definitions in the linux kernel source code which related with it.</p>
+<p>An ELF object file consists of the following parts:</p>
+<ul>
+<li>ELF header - describes the main characteristics of the object file: type, CPU architecture, the virtual address of the entry point, the size and offset of the remaining parts, etc...;</li>
+<li>Program header table - lists the available segments and their attributes. Program header table need loaders for placing sections of the file as virtual memory segments;</li>
+<li>Section header table - contains the description of the sections.</li>
+</ul>
+<p>Now let&apos;s have a closer look on these components.</p>
+<p><strong>ELF header</strong></p>
+<p>The ELF header is located at the beginning of the object file. Its main purpose is to locate all other parts of the object file. The File header contains the following fields:</p>
+<ul>
+<li>ELF identification - array of bytes which helps identify the file as an ELF object file and also provides information about general object file characteristic;</li>
+<li>Object file type - identifies the object file type. This field can describe that ELF file is a relocatable object file, an executable file, etc...;</li>
+<li>Target architecture;</li>
+<li>Version of the object file format;</li>
+<li>Virtual address of the program entry point;</li>
+<li>File offset of the program header table;</li>
+<li>File offset of the section header table;</li>
+<li>Size of an ELF header;</li>
+<li>Size of a program header table entry;</li>
+<li>and other fields...</li>
+</ul>
+<p>You can find the <code>elf64_hdr</code> structure which presents ELF64 header in the linux kernel source code:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> elf64_hdr {
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span>    e_ident[EI_NIDENT];
+    Elf64_Half e_type;
+    Elf64_Half e_machine;
+    Elf64_Word e_version;
+    Elf64_Addr e_entry;
+    Elf64_Off e_phoff;
+    Elf64_Off e_shoff;
+    Elf64_Word e_flags;
+    Elf64_Half e_ehsize;
+    Elf64_Half e_phentsize;
+    Elf64_Half e_phnum;
+    Elf64_Half e_shentsize;
+    Elf64_Half e_shnum;
+    Elf64_Half e_shstrndx;
+} Elf64_Ehdr;
+</code></pre>
+<p>This structure defined in the <a href="https://github.com/torvalds/linux/blob/master/include/uapi/linux/elf.h#L220" target="_blank">elf.h</a></p>
+<p><strong>Sections</strong></p>
+<p>All data stores in a sections in an Elf object file. Sections identified by index in the section header table. Section header contains following fields:</p>
+<ul>
+<li>Section name;</li>
+<li>Section type;</li>
+<li>Section attributes;</li>
+<li>Virtual address in memory;</li>
+<li>Offset in file;</li>
+<li>Size of section;</li>
+<li>Link to other section;</li>
+<li>Miscellaneous information;</li>
+<li>Address alignment boundary;</li>
+<li>Size of entries, if section has table;</li>
+</ul>
+<p>And presented with the following <code>elf64_shdr</code> structure in the linux kernel:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> elf64_shdr {
+    Elf64_Word sh_name;
+    Elf64_Word sh_type;
+    Elf64_Xword sh_flags;
+    Elf64_Addr sh_addr;
+    Elf64_Off sh_offset;
+    Elf64_Xword sh_size;
+    Elf64_Word sh_link;
+    Elf64_Word sh_info;
+    Elf64_Xword sh_addralign;
+    Elf64_Xword sh_entsize;
+} Elf64_Shdr;
+</code></pre>
+<p><a href="https://github.com/torvalds/linux/blob/master/include/uapi/linux/elf.h#L312" target="_blank">elf.h</a></p>
+<p><strong>Program header table</strong></p>
+<p>All sections are grouped into segments in an executable or shared object file. Program header is an array of structures which describe every segment. It looks like:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> elf64_phdr {
+    Elf64_Word p_type;
+    Elf64_Word p_flags;
+    Elf64_Off p_offset;
+    Elf64_Addr p_vaddr;
+    Elf64_Addr p_paddr;
+    Elf64_Xword p_filesz;
+    Elf64_Xword p_memsz;
+    Elf64_Xword p_align;
+} Elf64_Phdr;
+</code></pre>
+<p>in the linux kernel source code.</p>
+<p><code>elf64_phdr</code> defined in the same <a href="https://github.com/torvalds/linux/blob/master/include/uapi/linux/elf.h#L254" target="_blank">elf.h</a>.</p>
+<p>The ELF object file also contains other fields/structures which you can find in the <a href="http://www.uclibc.org/docs/elf-64-gen.pdf" target="_blank">Documentation</a>. Now let&apos;s a look at the <code>vmlinux</code> ELF object.</p>
+<h2 id="vmlinux">vmlinux</h2>
+<p><code>vmlinux</code> is also a relocatable ELF object file . We can take a look at it with the <code>readelf</code> util. First of all let&apos;s look at the header:</p>
+<pre><code>$ readelf -h  vmlinux
+ELF Header:
+  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF64
+  Data:                              2&apos;s complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              EXEC (Executable file)
+  Machine:                           Advanced Micro Devices X86-64
+  Version:                           0x1
+  Entry point address:               0x1000000
+  Start of program headers:          64 (bytes into file)
+  Start of section headers:          381608416 (bytes into file)
+  Flags:                             0x0
+  Size of this header:               64 (bytes)
+  Size of program headers:           56 (bytes)
+  Number of program headers:         5
+  Size of section headers:           64 (bytes)
+  Number of section headers:         73
+  Section header string table index: 70
+</code></pre><p>Here we can see that <code>vmlinux</code> is a 64-bit executable file.</p>
+<p>We can read from the <a href="https://github.com/torvalds/linux/blob/master/Documentation/x86/x86_64/mm.txt#L21" target="_blank">Documentation/x86/x86_64/mm.txt</a>:</p>
+<pre><code>ffffffff80000000 - ffffffffa0000000 (=512 MB)  kernel text mapping, from phys 0
+</code></pre><p>We can then look this address up in the <code>vmlinux</code> ELF object with:</p>
+<pre><code>$ readelf -s vmlinux | grep ffffffff81000000
+     1: ffffffff81000000     0 SECTION LOCAL  DEFAULT    1 
+ 65099: ffffffff81000000     0 NOTYPE  GLOBAL DEFAULT    1 _text
+ 90766: ffffffff81000000     0 NOTYPE  GLOBAL DEFAULT    1 startup_64
+</code></pre><p>Note that the address of the <code>startup_64</code> routine is not <code>ffffffff80000000</code>, but <code>ffffffff81000000</code> and now I&apos;ll explain why.</p>
+<p>We can see following definition in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/kernel/vmlinux.lds.S" target="_blank">arch/x86/kernel/vmlinux.lds.S</a>:</p>
+<pre><code>    . = __START_KERNEL;
+    ...
+    ...
+    ..
+    /* Text and read-only data */
+    .text :  AT(ADDR(.text) - LOAD_OFFSET) {
+        _text = .;
+        ...
+        ...
+        ...
+    }
+</code></pre><p>Where <code>__START_KERNEL</code> is:</p>
+<pre><code>#define __START_KERNEL        (__START_KERNEL_map + __PHYSICAL_START)
+</code></pre><p><code>__START_KERNEL_map</code> is the value from the documentation - <code>ffffffff80000000</code> and <code>__PHYSICAL_START</code> is <code>0x1000000</code>. That&apos;s why address of the <code>startup_64</code> is <code>ffffffff81000000</code>.</p>
+<p>And at last we can get program headers from <code>vmlinux</code> with the following command:</p>
+<pre><code>readelf -l vmlinux
+
+Elf file type is EXEC (Executable file)
+Entry point 0x1000000
+There are 5 program headers, starting at offset 64
+
+Program Headers:
+  Type           Offset             VirtAddr           PhysAddr
+                 FileSiz            MemSiz              Flags  Align
+  LOAD           0x0000000000200000 0xffffffff81000000 0x0000000001000000
+                 0x0000000000cfd000 0x0000000000cfd000  R E    200000
+  LOAD           0x0000000001000000 0xffffffff81e00000 0x0000000001e00000
+                 0x0000000000100000 0x0000000000100000  RW     200000
+  LOAD           0x0000000001200000 0x0000000000000000 0x0000000001f00000
+                 0x0000000000014d98 0x0000000000014d98  RW     200000
+  LOAD           0x0000000001315000 0xffffffff81f15000 0x0000000001f15000
+                 0x000000000011d000 0x0000000000279000  RWE    200000
+  NOTE           0x0000000000b17284 0xffffffff81917284 0x0000000001917284
+                 0x0000000000000024 0x0000000000000024         4
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     .text .notes __ex_table .rodata __bug_table .pci_fixup .builtin_fw
+          .tracedata __ksymtab __ksymtab_gpl __kcrctab __kcrctab_gpl
+          __ksymtab_strings __param __modver 
+   01     .data .vvar 
+   02     .data..percpu 
+   03     .init.text .init.data .x86_cpu_dev.init .altinstructions
+          .altinstr_replacement .iommu_table .apicdrivers .exit.text
+          .smp_locks .data_nosave .bss .brk
+</code></pre><p>Here we can see five segments with sections list. You can find all of these sections in the generated linker script at - <code>arch/x86/kernel/vmlinux.lds</code>.</p>
+<p>That&apos;s all. Of course it&apos;s not a full description of ELF (Executable and Linkable Format), but if you want to know more, you can find the documentation - <a href="http://www.uclibc.org/docs/elf-64-gen.pdf" target="_blank">here</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Paging.html" class="navigation navigation-prev " aria-label="Previous page: Paging">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="asm.html" class="navigation navigation-next " aria-label="Next page: Inline assembly">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Elf64","level":"1.13.2","depth":2,"next":{"title":"Inline assembly","level":"1.13.3","depth":2,"path":"Theory/asm.md","ref":"Theory/asm.md","articles":[]},"previous":{"title":"Paging","level":"1.13.1","depth":2,"path":"Theory/Paging.md","ref":"Theory/Paging.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Theory/ELF.md","mtime":"2019-03-28T07:54:50.406Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-28T08:02:31.511Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

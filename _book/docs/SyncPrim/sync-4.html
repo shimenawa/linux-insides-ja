@@ -1,0 +1,1728 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Mutex · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="sync-5.html" />
+    
+    
+    <link rel="prev" href="sync-3.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Summary</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Booting/">
+            
+                <a href="../Booting/">
+            
+                    
+                    Booting
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Booting/linux-bootstrap-1.html">
+            
+                <a href="../Booting/linux-bootstrap-1.html">
+            
+                    
+                    From bootloader to kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Booting/linux-bootstrap-2.html">
+            
+                <a href="../Booting/linux-bootstrap-2.html">
+            
+                    
+                    First steps in the kernel setup code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Booting/linux-bootstrap-3.html">
+            
+                <a href="../Booting/linux-bootstrap-3.html">
+            
+                    
+                    Video mode initialization and transition to protected mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../Booting/linux-bootstrap-4.html">
+            
+                <a href="../Booting/linux-bootstrap-4.html">
+            
+                    
+                    Transition to 64-bit mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../Booting/linux-bootstrap-5.html">
+            
+                <a href="../Booting/linux-bootstrap-5.html">
+            
+                    
+                    Kernel decompression
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Initialization/">
+            
+                <a href="../Initialization/">
+            
+                    
+                    Initialization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Initialization/linux-initialization-1.html">
+            
+                <a href="../Initialization/linux-initialization-1.html">
+            
+                    
+                    First steps in the kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Initialization/linux-initialization-2.html">
+            
+                <a href="../Initialization/linux-initialization-2.html">
+            
+                    
+                    Early interrupts handler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Initialization/linux-initialization-3.html">
+            
+                <a href="../Initialization/linux-initialization-3.html">
+            
+                    
+                    Last preparations before the kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Initialization/linux-initialization-4.html">
+            
+                <a href="../Initialization/linux-initialization-4.html">
+            
+                    
+                    Kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../Initialization/linux-initialization-5.html">
+            
+                <a href="../Initialization/linux-initialization-5.html">
+            
+                    
+                    Continue architecture-specific boot-time initializations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../Initialization/linux-initialization-6.html">
+            
+                <a href="../Initialization/linux-initialization-6.html">
+            
+                    
+                    Architecture-specific initializations, again...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../Initialization/linux-initialization-7.html">
+            
+                <a href="../Initialization/linux-initialization-7.html">
+            
+                    
+                    End of the architecture-specific initializations, almost...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../Initialization/linux-initialization-8.html">
+            
+                <a href="../Initialization/linux-initialization-8.html">
+            
+                    
+                    Scheduler initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../Initialization/linux-initialization-9.html">
+            
+                <a href="../Initialization/linux-initialization-9.html">
+            
+                    
+                    RCU initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../Initialization/linux-initialization-10.html">
+            
+                <a href="../Initialization/linux-initialization-10.html">
+            
+                    
+                    End of initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../interrupts/">
+            
+                <a href="../interrupts/">
+            
+                    
+                    Interrupts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../interrupts/interrupts-1.html">
+            
+                <a href="../interrupts/interrupts-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../interrupts/interrupts-2.html">
+            
+                <a href="../interrupts/interrupts-2.html">
+            
+                    
+                    Start to dive into interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../interrupts/interrupts-3.html">
+            
+                <a href="../interrupts/interrupts-3.html">
+            
+                    
+                    Interrupt handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../interrupts/interrupts-4.html">
+            
+                <a href="../interrupts/interrupts-4.html">
+            
+                    
+                    Initialization of non-early interrupt gates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../interrupts/interrupts-5.html">
+            
+                <a href="../interrupts/interrupts-5.html">
+            
+                    
+                    Implementation of some exception handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../interrupts/interrupts-6.html">
+            
+                <a href="../interrupts/interrupts-6.html">
+            
+                    
+                    Handling Non-Maskable interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../interrupts/interrupts-7.html">
+            
+                <a href="../interrupts/interrupts-7.html">
+            
+                    
+                    Dive into external hardware interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../interrupts/interrupts-8.html">
+            
+                <a href="../interrupts/interrupts-8.html">
+            
+                    
+                    Initialization of external hardware interrupts structures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../interrupts/interrupts-9.html">
+            
+                <a href="../interrupts/interrupts-9.html">
+            
+                    
+                    Softirq, Tasklets and Workqueues
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../interrupts/interrupts-10.html">
+            
+                <a href="../interrupts/interrupts-10.html">
+            
+                    
+                    Last part
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../SysCall/">
+            
+                <a href="../SysCall/">
+            
+                    
+                    System calls
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../SysCall/syscall-1.html">
+            
+                <a href="../SysCall/syscall-1.html">
+            
+                    
+                    Introduction to system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../SysCall/syscall-2.html">
+            
+                <a href="../SysCall/syscall-2.html">
+            
+                    
+                    How the Linux kernel handles a system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../SysCall/syscall-3.html">
+            
+                <a href="../SysCall/syscall-3.html">
+            
+                    
+                    vsyscall and vDSO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../SysCall/syscall-4.html">
+            
+                <a href="../SysCall/syscall-4.html">
+            
+                    
+                    How the Linux kernel runs a program
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../SysCall/syscall-5.html">
+            
+                <a href="../SysCall/syscall-5.html">
+            
+                    
+                    Implementation of the open system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Timers/">
+            
+                <a href="../Timers/">
+            
+                    
+                    Timers and time management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../Timers/timers-1.html">
+            
+                <a href="../Timers/timers-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Timers/timers-2.html">
+            
+                <a href="../Timers/timers-2.html">
+            
+                    
+                    Clocksource framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Timers/timers-3.html">
+            
+                <a href="../Timers/timers-3.html">
+            
+                    
+                    The tick broadcast framework and dyntick
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../Timers/timers-4.html">
+            
+                <a href="../Timers/timers-4.html">
+            
+                    
+                    Introduction to timers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Timers/timers-5.html">
+            
+                <a href="../Timers/timers-5.html">
+            
+                    
+                    Clockevents framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../Timers/timers-6.html">
+            
+                <a href="../Timers/timers-6.html">
+            
+                    
+                    x86 related clock sources
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../Timers/timers-7.html">
+            
+                <a href="../Timers/timers-7.html">
+            
+                    
+                    Time related system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Synchronization primitives
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="sync-1.html">
+            
+                <a href="sync-1.html">
+            
+                    
+                    Introduction to spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="sync-2.html">
+            
+                <a href="sync-2.html">
+            
+                    
+                    Queued spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="sync-3.html">
+            
+                <a href="sync-3.html">
+            
+                    
+                    Semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7.4" data-path="sync-4.html">
+            
+                <a href="sync-4.html">
+            
+                    
+                    Mutex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="sync-5.html">
+            
+                <a href="sync-5.html">
+            
+                    
+                    Reader/Writer semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="sync-6.html">
+            
+                <a href="sync-6.html">
+            
+                    
+                    SeqLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" >
+            
+                <span>
+            
+                    
+                    RCU
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" >
+            
+                <span>
+            
+                    
+                    Lockdep
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../mm/">
+            
+                <a href="../mm/">
+            
+                    
+                    Memory management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../mm/linux-mm-1.html">
+            
+                <a href="../mm/linux-mm-1.html">
+            
+                    
+                    Memblock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../mm/linux-mm-2.html">
+            
+                <a href="../mm/linux-mm-2.html">
+            
+                    
+                    Fixmaps and ioremap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../mm/linux-mm-3.html">
+            
+                <a href="../mm/linux-mm-3.html">
+            
+                    
+                    kmemcheck
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../Cgroups/">
+            
+                <a href="../Cgroups/">
+            
+                    
+                    Cgroups
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../Cgroups/cgroups1.html">
+            
+                <a href="../Cgroups/cgroups1.html">
+            
+                    
+                    Introduction to Control Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    SMP
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../Concepts/">
+            
+                <a href="../Concepts/">
+            
+                    
+                    Concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../Concepts/per-cpu.html">
+            
+                <a href="../Concepts/per-cpu.html">
+            
+                    
+                    Per-CPU variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../Concepts/cpumask.html">
+            
+                <a href="../Concepts/cpumask.html">
+            
+                    
+                    Cpumasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../Concepts/initcall.html">
+            
+                <a href="../Concepts/initcall.html">
+            
+                    
+                    The initcall mechanism
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../DataStructures/">
+            
+                <a href="../DataStructures/">
+            
+                    
+                    Data Structures in the Linux Kernel
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../DataStructures/dlist.html">
+            
+                <a href="../DataStructures/dlist.html">
+            
+                    
+                    Doubly linked list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../DataStructures/radix-tree.html">
+            
+                <a href="../DataStructures/radix-tree.html">
+            
+                    
+                    Radix tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../DataStructures/bitmap.html">
+            
+                <a href="../DataStructures/bitmap.html">
+            
+                    
+                    Bit arrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../Theory/">
+            
+                <a href="../Theory/">
+            
+                    
+                    Theory
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../Theory/Paging.html">
+            
+                <a href="../Theory/Paging.html">
+            
+                    
+                    Paging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../Theory/ELF.html">
+            
+                <a href="../Theory/ELF.html">
+            
+                    
+                    Elf64
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../Theory/asm.html">
+            
+                <a href="../Theory/asm.html">
+            
+                    
+                    Inline assembly
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" >
+            
+                <span>
+            
+                    
+                    CPUID
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" >
+            
+                <span>
+            
+                    
+                    MSR
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" >
+            
+                <span>
+            
+                    
+                    Initial ram disk
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" >
+            
+                <span>
+            
+                    
+                    initrd
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../Misc/">
+            
+                <a href="../Misc/">
+            
+                    
+                    Misc
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../Misc/how_kernel_compiled.html">
+            
+                <a href="../Misc/how_kernel_compiled.html">
+            
+                    
+                    How the kernel is compiled
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../Misc/linkers.html">
+            
+                <a href="../Misc/linkers.html">
+            
+                    
+                    Linkers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.3" data-path="../Misc/contribute.html">
+            
+                <a href="../Misc/contribute.html">
+            
+                    
+                    Linux kernel development
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.4" data-path="../Misc/program_startup.html">
+            
+                <a href="../Misc/program_startup.html">
+            
+                    
+                    Program startup process in userspace
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.5" >
+            
+                <span>
+            
+                    
+                    Write and Submit your first Linux kernel Patch
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.6" >
+            
+                <span>
+            
+                    
+                    Data types in the kernel
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../KernelStructures/">
+            
+                <a href="../KernelStructures/">
+            
+                    
+                    KernelStructures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../KernelStructures/idt.html">
+            
+                <a href="../KernelStructures/idt.html">
+            
+                    
+                    IDT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../LINKS.html">
+            
+                <a href="../LINKS.html">
+            
+                    
+                    Useful links
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../contributors.html">
+            
+                <a href="../contributors.html">
+            
+                    
+                    Contributors
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Mutex</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="synchronization-primitives-in-the-linux-kernel-part-4">Synchronization primitives in the Linux kernel. Part 4.</h1>
+<h2 id="introduction">Introduction</h2>
+<p>This is the fourth part of the <a href="https://0xax.gitbooks.io/linux-insides/content/SyncPrim/index.html" target="_blank">chapter</a> which describes synchronization primitives in the Linux kernel and in the previous parts we finished to consider different types <a href="https://en.wikipedia.org/wiki/Spinlock" target="_blank">spinlocks</a> and <a href="https://en.wikipedia.org/wiki/Semaphore_%28programming%29" target="_blank">semaphore</a> synchronization primitives. We will continue to learn <a href="https://en.wikipedia.org/wiki/Synchronization_%28computer_science%29" target="_blank">synchronization primitives</a> in this part and consider yet another one which is called - <a href="https://en.wikipedia.org/wiki/Mutual_exclusion" target="_blank">mutex</a> which is stands for <code>MUTual EXclusion</code>.</p>
+<p>As in all previous parts of this <a href="https://0xax.gitbooks.io/linux-insides/content" target="_blank">book</a>, we will try to consider this synchronization primitive from the theoretical side and only than we will consider <a href="https://en.wikipedia.org/wiki/Application_programming_interface" target="_blank">API</a> provided by the Linux kernel to manipulate with <code>mutexes</code>.</p>
+<p>So, let&apos;s start.</p>
+<h2 id="concept-of-mutex">Concept of <code>mutex</code></h2>
+<p>We already familiar with the <a href="https://en.wikipedia.org/wiki/Semaphore_%28programming%29" target="_blank">semaphore</a> synchronization primitive from the previous <a href="https://0xax.gitbooks.io/linux-insides/content/SyncPrim/sync-3.html" target="_blank">part</a>. It represented by the:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">struct</span> semaphore {
+    <span class="hljs-keyword">raw_spinlock_t</span>        lock;
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span>        count;
+    <span class="hljs-keyword">struct</span> list_head    wait_list;
+};
+</code></pre>
+<p>structure which holds information about state of a <a href="https://en.wikipedia.org/wiki/Lock_%28computer_science%29" target="_blank">lock</a> and list of a lock waiters. Depends on the value of the <code>count</code> field, a <code>semaphore</code> can provide access to a resource of more than one wishing of this resource. The <a href="https://en.wikipedia.org/wiki/Mutual_exclusion" target="_blank">mutex</a> concept is very similar to a <a href="https://en.wikipedia.org/wiki/Semaphore_%28programming%29" target="_blank">semaphore</a> concept. But it has some differences. The main difference between <code>semaphore</code> and <code>mutex</code> synchronization primitive is that <code>mutex</code> has more strict semantic. Unlike a <code>semaphore</code>, only one <a href="https://en.wikipedia.org/wiki/Process_%28computing%29" target="_blank">process</a> may hold <code>mutex</code> at one time and only the <code>owner</code> of a <code>mutex</code> may release or unlock it. Additional difference in implementation of <code>lock</code> <a href="https://en.wikipedia.org/wiki/Application_programming_interface" target="_blank">API</a>. The <code>semaphore</code> synchronization primitive forces rescheduling of processes which are in waiters list. The implementation of <code>mutex</code> lock <code>API</code> allows to avoid this situation and as a result expensive <a href="https://en.wikipedia.org/wiki/Context_switch" target="_blank">context switches</a>.</p>
+<p>The <code>mutex</code> synchronization primitive represented by the following:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">struct</span> mutex {
+        <span class="hljs-keyword">atomic_t</span>                count;
+        <span class="hljs-keyword">spinlock_t</span>              wait_lock;
+        <span class="hljs-keyword">struct</span> list_head        wait_list;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> defined(CONFIG_DEBUG_MUTEXES) || defined(CONFIG_MUTEX_SPIN_ON_OWNER)</span>
+        <span class="hljs-keyword">struct</span> task_struct      *owner;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> CONFIG_MUTEX_SPIN_ON_OWNER</span>
+        <span class="hljs-keyword">struct</span> optimistic_spin_queue osq;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> CONFIG_DEBUG_MUTEXES</span>
+        <span class="hljs-keyword">void</span>                    *magic;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> CONFIG_DEBUG_LOCK_ALLOC</span>
+        <span class="hljs-keyword">struct</span> lockdep_map      dep_map;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+};
+</code></pre>
+<p>structure in the Linux kernel. This structure is defined in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/mutex.h" target="_blank">include/linux/mutex.h</a> header file and contains similar to the <code>semaphore</code> structure set of fields. The first field of the <code>mutex</code> structure is - <code>count</code>. Value of this field represents state of a <code>mutex</code>. In a case when the value of the <code>count</code> field is <code>1</code>, a <code>mutex</code> is in <code>unlocked</code> state. When the value of the <code>count</code> field is <code>zero</code>, a <code>mutex</code> is in the <code>locked</code> state. Additionally value of the <code>count</code> field may be <code>negative</code>. In this case a <code>mutex</code> is in the <code>locked</code> state and has possible waiters.</p>
+<p>The next two fields of the <code>mutex</code> structure - <code>wait_lock</code> and <code>wait_list</code> are <a href="https://github.com/torvalds/linux/blob/master/include/linux/mutex.h" target="_blank">spinlock</a> for the protection of a <code>wait queue</code> and list of waiters which represents this <code>wait queue</code> for a certain lock. As you may notice, the similarity of the <code>mutex</code> and <code>semaphore</code> structures ends. Remaining fields of the <code>mutex</code> structure, as we may see depends on different configuration options of the Linux kernel.</p>
+<p>The first field - <code>owner</code> represents <a href="https://en.wikipedia.org/wiki/Process_%28computing%29" target="_blank">process</a> which acquired a lock. As we may see, existence of this field in the <code>mutex</code> structure depends on the <code>CONFIG_DEBUG_MUTEXES</code> or <code>CONFIG_MUTEX_SPIN_ON_OWNER</code> kernel configuration options. Main point of this field and the next <code>osq</code> fields is support of <code>optimistic spinning</code> which we will see later. The last two fields - <code>magic</code> and <code>dep_map</code> are used only in <a href="https://en.wikipedia.org/wiki/Debugging" target="_blank">debugging</a> mode. The <code>magic</code> field is to storing a <code>mutex</code> related information for debugging and the second field - <code>lockdep_map</code> is for <a href="https://www.kernel.org/doc/Documentation/locking/lockdep-design.txt" target="_blank">lock validator</a> of the Linux kernel.</p>
+<p>Now, after we have considered the <code>mutex</code> structure, we may consider how this synchronization primitive works in the Linux kernel. As you may guess, a process which wants to acquire a lock, must to decrease value of the <code>mutex-&gt;count</code> if possible. And if a process wants to release a lock, it must to increase the same value. That&apos;s true. But as you may also guess, it is not so simple in the Linux kernel.</p>
+<p>Actually, when a process try to acquire a <code>mutex</code>, there three possible paths:</p>
+<ul>
+<li><code>fastpath</code>;</li>
+<li><code>midpath</code>;</li>
+<li><code>slowpath</code>.</li>
+</ul>
+<p>which may be taken, depending on the current state of the <code>mutex</code>. The first path or <code>fastpath</code> is the fastest as you may understand from its name. Everything is easy in this case. Nobody acquired a <code>mutex</code>, so the value of the <code>count</code> field of the <code>mutex</code> structure may be directly decremented. In a case of unlocking of a <code>mutex</code>, the algorithm is the same. A process just increments the value of the <code>count</code> field of the <code>mutex</code> structure. Of course, all of these operations must be <a href="https://en.wikipedia.org/wiki/Linearizability" target="_blank">atomic</a>.</p>
+<p>Yes, this looks pretty easy. But what happens if a process wants to acquire a <code>mutex</code> which is already acquired by other process? In this case, the control will be transferred to the second path - <code>midpath</code>. The <code>midpath</code> or <code>optimistic spinning</code> tries to <a href="https://en.wikipedia.org/wiki/Spinlock" target="_blank">spin</a> with already familiar for us <a href="http://www.cs.rochester.edu/~scott/papers/1991_TOCS_synch.pdf" target="_blank">MCS lock</a> while the lock owner is running. This path will be executed only if there are no other processes ready to run that have higher priority. This path is called <code>optimistic</code> because the waiting task will not be sleep and rescheduled. This allows to avoid expensive <a href="https://en.wikipedia.org/wiki/Context_switch" target="_blank">context switch</a>.</p>
+<p>In the last case, when the <code>fastpath</code> and <code>midpath</code> may not be executed, the last path - <code>slowpath</code> will be executed. This path acts like a <a href="https://en.wikipedia.org/wiki/Semaphore_%28programming%29" target="_blank">semaphore</a> lock. If the lock is unable to be acquired by a process, this process will be added to <code>wait queue</code> which is represented by the following:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">struct</span> mutex_waiter {
+        <span class="hljs-keyword">struct</span> list_head        <span class="hljs-built_in">list</span>;
+        <span class="hljs-keyword">struct</span> task_struct      *task;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> CONFIG_DEBUG_MUTEXES</span>
+        <span class="hljs-keyword">void</span>                    *magic;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+};
+</code></pre>
+<p>structure from the <a href="https://github.com/torvalds/linux/blob/master/include/linux/mutex.h" target="_blank">include/linux/mutex.h</a> header file and will be sleep. Before we will consider <a href="https://en.wikipedia.org/wiki/Application_programming_interface" target="_blank">API</a> which is provided by the Linux kernel for manipulation with <code>mutexes</code>, let&apos;s consider the <code>mutex_waiter</code> structure. If you have read the <a href="https://0xax.gitbooks.io/linux-insides/content/SyncPrim/sync-3.html" target="_blank">previous part</a> of this chapter, you may notice that the <code>mutex_waiter</code> structure is similar to the <code>semaphore_waiter</code> structure from the <a href="https://github.com/torvalds/linux/blob/master/kernel/locking/semaphore.c" target="_blank">kernel/locking/semaphore.c</a> source code file:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">struct</span> semaphore_waiter {
+        <span class="hljs-keyword">struct</span> list_head <span class="hljs-built_in">list</span>;
+        <span class="hljs-keyword">struct</span> task_struct *task;
+        <span class="hljs-keyword">bool</span> up;
+};
+</code></pre>
+<p>It also contains <code>list</code> and <code>task</code> fields which are represent entry of the mutex wait queue. The one difference here that the <code>mutex_waiter</code> does not contains <code>up</code> field, but contains the <code>magic</code> field which depends on the <code>CONFIG_DEBUG_MUTEXES</code> kernel configuration option and used to store a <code>mutex</code> related information for debugging purpose.</p>
+<p>Now we know what is it <code>mutex</code> and how it is represented the Linux kernel. In this case, we may go ahead and start to look at the <a href="https://en.wikipedia.org/wiki/Application_programming_interface" target="_blank">API</a> which the Linux kernel provides for manipulation of <code>mutexes</code>.</p>
+<h2 id="mutex-api">Mutex API</h2>
+<p>Ok, in the previous paragraph we knew what is it <code>mutex</code> synchronization primitive and saw the <code>mutex</code> structure which represents <code>mutex</code> in the Linux kernel. Now it&apos;s time to consider <a href="https://en.wikipedia.org/wiki/Application_programming_interface" target="_blank">API</a> for manipulation of mutexes. Description of the <code>mutex</code> API is located in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/mutex.h" target="_blank">include/linux/mutex.h</a> header file. As always, before we will consider how to acquire and release a <code>mutex</code>, we need to know how to initialize it.</p>
+<p>There are two approaches to initialize a <code>mutex</code>. The first is to do it statically. For this purpose the Linux kernel provides following:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> DEFINE_MUTEX(mutexname) \
+        struct mutex mutexname = __MUTEX_INITIALIZER(mutexname)</span>
+</code></pre>
+<p>macro. Let&apos;s consider implementation of this macro. As we may see, the <code>DEFINE_MUTEX</code> macro takes name for the <code>mutex</code> and expands to the definition of the new <code>mutex</code> structure. Additionally new <code>mutex</code> structure get initialized with the <code>__MUTEX_INITIALIZER</code> macro. Let&apos;s look at the implementation of the <code>__MUTEX_INITIALIZER</code>:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> __MUTEX_INITIALIZER(lockname)         \
+{                                                             \
+       .count = ATOMIC_INIT(1),                               \
+       .wait_lock = __SPIN_LOCK_UNLOCKED(lockname.wait_lock), \
+       .wait_list = LIST_HEAD_INIT(lockname.wait_list)        \
+}</span>
+</code></pre>
+<p>This macro is defined in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/mutex.h" target="_blank">same</a> header file and as we may understand it initializes fields of the <code>mutex</code> structure the initial values. The <code>count</code> field get initialized with the <code>1</code> which represents <code>unlocked</code> state of a mutex. The <code>wait_lock</code> <a href="https://en.wikipedia.org/wiki/Spinlock" target="_blank">spinlock</a> get initialized to the unlocked state and the last field <code>wait_list</code> to empty <a href="https://0xax.gitbooks.io/linux-insides/content/DataStructures/dlist.html" target="_blank">doubly linked list</a>.</p>
+<p>The second approach allows us to initialize a <code>mutex</code> dynamically. To do this we need to call the <code>__mutex_init</code> function from the <a href="https://github.com/torvalds/linux/blob/master/kernel/locking/mutex.c" target="_blank">kernel/locking/mutex.c</a> source code file. Actually, the <code>__mutex_init</code> function rarely called directly. Instead of the <code>__mutex_init</code>, the:</p>
+<pre><code class="lang-C"><span class="hljs-meta"># <span class="hljs-meta-keyword">define</span> mutex_init(mutex)                \
+do {                                                    \
+        static struct lock_class_key __key;             \
+                                                        \
+        __mutex_init((mutex), #mutex, &amp;__key);          \
+} while (0)</span>
+</code></pre>
+<p>macro is used. We may see that the <code>mutex_init</code> macro just defines the <code>lock_class_key</code> and call the <code>__mutex_init</code> function. Let&apos;s look at the implementation of this function:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">void</span>
+__mutex_init(<span class="hljs-keyword">struct</span> mutex *lock, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *name, <span class="hljs-keyword">struct</span> lock_class_key *key)
+{
+        atomic_set(&amp;lock-&gt;count, <span class="hljs-number">1</span>);
+        spin_lock_init(&amp;lock-&gt;wait_lock);
+        INIT_LIST_HEAD(&amp;lock-&gt;wait_list);
+        mutex_clear_owner(lock);
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> CONFIG_MUTEX_SPIN_ON_OWNER</span>
+        osq_lock_init(&amp;lock-&gt;osq);
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+        debug_mutex_init(lock, name, key);
+}
+</code></pre>
+<p>As we may see the <code>__mutex_init</code> function takes three arguments:</p>
+<ul>
+<li><code>lock</code> - a mutex itself;</li>
+<li><code>name</code> - name of mutex for debugging purpose;</li>
+<li><code>key</code>  - key for <a href="https://www.kernel.org/doc/Documentation/locking/lockdep-design.txt" target="_blank">lock validator</a>.</li>
+</ul>
+<p>At the beginning of the <code>__mutex_init</code> function, we may see initialization of the <code>mutex</code> state. We set it to <code>unlocked</code> state with the <code>atomic_set</code> function which atomically set the give variable to the given value. After this we may see initialization of the <code>spinlock</code> to the unlocked state which will protect <code>wait queue</code> of the <code>mutex</code> and initialization of the <code>wait queue</code> of the <code>mutex</code>. After this we clear owner of the <code>lock</code> and initialize optimistic queue by the call of the <code>osq_lock_init</code> function from the <a href="https://github.com/torvalds/linux/blob/master/include/linux/osq_lock.h" target="_blank">include/linux/osq_lock.h</a> header file. This function just sets the tail of the optimistic queue to the unlocked state:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-keyword">bool</span> <span class="hljs-title">osq_is_locked</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> optimistic_spin_queue *lock)</span>
+</span>{
+        <span class="hljs-keyword">return</span> atomic_read(&amp;lock-&gt;tail) != OSQ_UNLOCKED_VAL;
+}
+</code></pre>
+<p>In the end of the <code>__mutex_init</code> function we may see the call of the <code>debug_mutex_init</code> function, but as I already wrote in previous parts of this <a href="https://0xax.gitbooks.io/linux-insides/content/SyncPrim/index.html" target="_blank">chapter</a>, we will not consider debugging related stuff in this chapter.</p>
+<p>After the <code>mutex</code> structure is initialized, we may go ahead and will look at the <code>lock</code> and <code>unlock</code> API of <code>mutex</code> synchronization primitive. Implementation of <code>mutex_lock</code> and <code>mutex_unlock</code> functions located in the <a href="https://github.com/torvalds/linux/blob/master/kernel/locking/mutex.c" target="_blank">kernel/locking/mutex.c</a> source code file. First of all let&apos;s start from the implementation of the <code>mutex_lock</code>. It looks:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">void</span> __<span class="hljs-function">sched <span class="hljs-title">mutex_lock</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> mutex *lock)</span>
+</span>{
+        might_sleep();
+        __mutex_fastpath_lock(&amp;lock-&gt;count, __mutex_lock_slowpath);
+        mutex_set_owner(lock);
+}
+</code></pre>
+<p>We may see the call of the <code>might_sleep</code> macro from the <a href="https://github.com/torvalds/linux/blob/master/include/linux/kernel.h" target="_blank">include/linux/kernel.h</a> header file at the beginning of the <code>mutex_lock</code> function. Implementation of this macro depends on the <code>CONFIG_DEBUG_ATOMIC_SLEEP</code> kernel configuration option and if this option is enabled, this macro just prints a stack trace if it was executed in <a href="https://en.wikipedia.org/wiki/Linearizability" target="_blank">atomic</a> context. This macro is helper for debugging purposes. In other way this macro does nothing.</p>
+<p>After the <code>might_sleep</code> macro, we may see the call of the <code>__mutex_fastpath_lock</code> function. This function is architecture-specific and as we consider <a href="https://en.wikipedia.org/wiki/X86-64" target="_blank">x86_64</a> architecture in this book, the implementation of the <code>__mutex_fastpath_lock</code> is located in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/mutex_64.h" target="_blank">arch/x86/include/asm/mutex_64.h</a> header file. As we may understand from the name of the <code>__mutex_fastpath_lock</code> function, this function will try to acquire lock in a fast path or in other words this function will try to decrement the value of the <code>count</code> of the given mutex.</p>
+<p>Implementation of the <code>__mutex_fastpath_lock</code> function consists from two parts. The first part is <a href="https://0xax.gitbooks.io/linux-insides/content/Theory/asm.html" target="_blank">inline assembly</a> statement. Let&apos;s look at it:</p>
+<pre><code class="lang-C">asm_volatile_goto(LOCK_PREFIX <span class="hljs-string">&quot;   decl %0\n&quot;</span>
+                              <span class="hljs-string">&quot;   jns %l[exit]\n&quot;</span>
+                              : : <span class="hljs-string">&quot;m&quot;</span> (v-&gt;counter)
+                              : <span class="hljs-string">&quot;memory&quot;</span>, <span class="hljs-string">&quot;cc&quot;</span>
+                              : <span class="hljs-built_in">exit</span>);
+</code></pre>
+<p>First of all, let&apos;s pay attention to the <code>asm_volatile_goto</code>. This macro is defined in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/compiler-gcc.h" target="_blank">include/linux/compiler-gcc.h</a> header file and just expands to the two inline assembly statements:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> asm_volatile_goto(x...) do { asm goto(x); asm (<span class="hljs-string">&quot;&quot;</span>); } while (0)</span>
+</code></pre>
+<p>The first assembly statement contains <code>goto</code> specificator and the second empty inline assembly statement is <a href="https://en.wikipedia.org/wiki/Memory_barrier" target="_blank">barrier</a>. Now let&apos;s return to the our inline assembly statement. As we may see it starts from the definition of the <code>LOCK_PREFIX</code> macro which just expands to the <a href="http://x86.renejeschke.de/html/file_module_x86_id_159.html" target="_blank">lock</a> instruction:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> LOCK_PREFIX LOCK_PREFIX_HERE <span class="hljs-string">&quot;\n\tlock; &quot;</span></span>
+</code></pre>
+<p>As we already know from the previous parts, this instruction allows to execute prefixed instruction <a href="https://en.wikipedia.org/wiki/Linearizability" target="_blank">atomically</a>. So, at the first step in the our assembly statement we try decrement value of the given <code>mutex-&gt;counter</code>. At the next step the <a href="http://unixwiz.net/techtips/x86-jumps.html" target="_blank">jns</a> instruction will execute jump at the <code>exit</code> label if the value of the decremented <code>mutex-&gt;counter</code> is not negative. The <code>exit</code> label is the second part of the <code>__mutex_fastpath_lock</code> function and it just points to the exit from this function:</p>
+<pre><code class="lang-C"><span class="hljs-built_in">exit</span>:
+        <span class="hljs-keyword">return</span>;
+</code></pre>
+<p>For this moment he implementation of the <code>__mutex_fastpath_lock</code> function looks pretty easy. But the value of the <code>mutex-&gt;counter</code> may be negative after increment. In this case the: </p>
+<pre><code class="lang-C">fail_fn(v);
+</code></pre>
+<p>will be called after our inline assembly statement. The <code>fail_fn</code> is the second parameter of the <code>__mutex_fastpath_lock</code> function and represents pointer to function which represents <code>midpath/slowpath</code> paths to acquire the given lock. In our case the <code>fail_fn</code> is the <code>__mutex_lock_slowpath</code> function. Before we will look at the implementation of the <code>__mutex_lock_slowpath</code> function, let&apos;s finish with the implementation of the <code>mutex_lock</code> function. In the simplest way, the lock will be acquired successfully by a process and the <code>__mutex_fastpath_lock</code> will be finished. In this case, we just call the</p>
+<pre><code class="lang-C">mutex_set_owner(lock);
+</code></pre>
+<p>in the end of the <code>mutex_lock</code>. The <code>mutex_set_owner</code> function is defined in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/mutex.h" target="_blank">kernel/locking/mutex.h</a> header file and just sets owner of a lock to the current process:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">mutex_set_owner</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> mutex *lock)</span>
+</span>{
+        lock-&gt;owner = current;
+}
+</code></pre>
+<p>In other way, let&apos;s consider situation when a process which wants to acquire a lock is unable to do it, because another process already acquired the same lock. We already know that the <code>__mutex_lock_slowpath</code> function will be called in this case. Let&apos;s consider implementation of this function. This function is defined in the <a href="https://github.com/torvalds/linux/blob/master/kernel/locking/mutex.c" target="_blank">kernel/locking/mutex.c</a> source code file and starts from the obtaining of the proper mutex by the mutex state given from the <code>__mutex_fastpath_lock</code> with the <code>container_of</code> macro:</p>
+<pre><code class="lang-C">__visible <span class="hljs-keyword">void</span> __sched
+__mutex_lock_slowpath(<span class="hljs-keyword">atomic_t</span> *lock_count)
+{
+        <span class="hljs-keyword">struct</span> mutex *lock = container_of(lock_count, <span class="hljs-keyword">struct</span> mutex, count);
+
+        __mutex_lock_common(lock, TASK_UNINTERRUPTIBLE, <span class="hljs-number">0</span>,
+                            <span class="hljs-literal">NULL</span>, _RET_IP_, <span class="hljs-literal">NULL</span>, <span class="hljs-number">0</span>);
+}
+</code></pre>
+<p>and call the <code>__mutex_lock_common</code> function with the obtained <code>mutex</code>. The <code>__mutex_lock_common</code> function starts from <a href="https://en.wikipedia.org/wiki/Preemption_%28computing%29" target="_blank">preemtion</a> disabling until rescheduling:</p>
+<pre><code class="lang-C">preempt_disable();
+</code></pre>
+<p>After this comes the stage of optimistic spinning. As we already know this stage depends on the <code>CONFIG_MUTEX_SPIN_ON_OWNER</code> kernel configuration option. If this option is disabled, we skip this stage and move at the last path - <code>slowpath</code> of a <code>mutex</code> acquisition:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (mutex_optimistic_spin(lock, ww_ctx, use_ww_ctx)) {
+        preempt_enable();
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>First of all the <code>mutex_optimistic_spin</code> function check that we don&apos;t need to reschedule or in other words there are no other tasks ready to run that have higher priority. If this check was successful we need to update <code>MCS</code> lock wait queue with the current spin. In this way only one spinner can complete for the mutex at one time:</p>
+<pre><code class="lang-C">osq_lock(&amp;lock-&gt;osq)
+</code></pre>
+<p>At the next step we start to spin in the next loop:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) {
+    owner = READ_ONCE(lock-&gt;owner);
+
+    <span class="hljs-keyword">if</span> (owner &amp;&amp; !mutex_spin_on_owner(lock, owner))
+        <span class="hljs-keyword">break</span>;
+
+    <span class="hljs-keyword">if</span> (mutex_try_to_acquire(lock)) {
+        lock_acquired(&amp;lock-&gt;dep_map, ip);
+
+        mutex_set_owner(lock);
+        osq_unlock(&amp;lock-&gt;osq);
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    }
+}
+</code></pre>
+<p>and try to acquire a lock. First of all we try to take current owner and if the owner exists (it may not exists in a case when a process already released a mutex) and we wait for it in the <code>mutex_spin_on_owner</code> function before the owner will release a lock. If new task with higher priority have appeared during wait of the lock owner, we break the loop and go to sleep. In other case, the process already may release a lock, so we try to acquire a lock with the <code>mutex_try_to_acquired</code>. If this operation finished successfully, we set new owner for the given mutex, removes ourself from the <code>MCS</code> wait queue and exit from the <code>mutex_optimistic_spin</code> function. At this state a lock will be acquired by a process and we enable <a href="https://en.wikipedia.org/wiki/Preemption_%28computing%29" target="_blank">preemtion</a> and exit from the <code>__mutex_lock_common</code> function:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (mutex_optimistic_spin(lock, ww_ctx, use_ww_ctx)) {
+    preempt_enable();
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>That&apos;s all for this case.</p>
+<p>In other case all may not be so successful. For example new task may occur during we spinning in the loop from the <code>mutex_optimistic_spin</code> or even we may not get to this loop from the <code>mutex_optimistic_spin</code> in a case when there were task(s) with higher priority before this loop. Or finally the <code>CONFIG_MUTEX_SPIN_ON_OWNER</code> kernel configuration option disabled. In this case the <code>mutex_optimistic_spin</code> will do nothing:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">ifndef</span> CONFIG_MUTEX_SPIN_ON_OWNER</span>
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">bool</span> <span class="hljs-title">mutex_optimistic_spin</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> mutex *lock,
+                                  <span class="hljs-keyword">struct</span> ww_acquire_ctx *ww_ctx, <span class="hljs-keyword">const</span> <span class="hljs-keyword">bool</span> use_ww_ctx)</span>
+</span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+}
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+</code></pre>
+<p>In all of these cases, the <code>__mutex_lock_common</code> function will acct like a <code>semaphore</code>. We try to acquire a lock again because the owner of a lock might already release a lock before this time:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (!mutex_is_locked(lock) &amp;&amp;
+   (atomic_xchg_acquire(&amp;lock-&gt;count, <span class="hljs-number">0</span>) == <span class="hljs-number">1</span>))
+      <span class="hljs-keyword">goto</span> skip_wait;
+</code></pre>
+<p>In a failure case the process which wants to acquire a lock will be added to the waiters list</p>
+<pre><code class="lang-C">list_add_tail(&amp;waiter.<span class="hljs-built_in">list</span>, &amp;lock-&gt;wait_list);
+waiter.task = task;
+</code></pre>
+<p>In a successful case we update the owner of a lock, enable preemption and exit from the <code>__mutex_lock_common</code> function:</p>
+<pre><code class="lang-C">skip_wait:
+        mutex_set_owner(lock);
+        preempt_enable();
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+</code></pre>
+<p>In this case a lock will be acquired. If can&apos;t acquire a lock for now, we enter into the following loop:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">for</span> (;;) {
+
+    <span class="hljs-keyword">if</span> (atomic_read(&amp;lock-&gt;count) &gt;= <span class="hljs-number">0</span> &amp;&amp; (atomic_xchg_acquire(&amp;lock-&gt;count, <span class="hljs-number">-1</span>) == <span class="hljs-number">1</span>))
+        <span class="hljs-keyword">break</span>;
+
+    <span class="hljs-keyword">if</span> (unlikely(signal_pending_state(state, task))) {
+        ret = -EINTR;
+        <span class="hljs-keyword">goto</span> err;
+    } 
+
+    __set_task_state(task, state);
+
+     schedule_preempt_disabled();
+}
+</code></pre>
+<p>where try to acquire a lock again and exit if this operation was successful. Yes, we try to acquire a lock again right after unsuccessful try  before the loop. We need to do it to make sure that we get a wakeup once a lock will be unlocked. Besides this, it allows us to acquire a lock after sleep.  In other case we check the current process for pending <a href="https://en.wikipedia.org/wiki/Unix_signal" target="_blank">signals</a> and exit if the process was interrupted by a <code>signal</code> during wait for a lock acquisition. In the end of loop we didn&apos;t acquire a lock, so we set the task state for <code>TASK_UNINTERRUPTIBLE</code> and go to sleep with call of the <code>schedule_preempt_disabled</code> function.</p>
+<p>That&apos;s all. We have considered all three possible paths through which a process may pass when it will wan to acquire a lock. Now let&apos;s consider how <code>mutex_unlock</code> is implemented. When the <code>mutex_unlock</code> will be called by a process which wants to release a lock, the <code>__mutex_fastpath_unlock</code> will be called from the  <a href="https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/mutex_64.h" target="_blank">arch/x86/include/asm/mutex_64.h</a>  header file:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">void</span> __<span class="hljs-function">sched <span class="hljs-title">mutex_unlock</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> mutex *lock)</span>
+</span>{
+    __mutex_fastpath_unlock(&amp;lock-&gt;count, __mutex_unlock_slowpath);
+}
+</code></pre>
+<p>Implementation of the <code>__mutex_fastpath_unlock</code> function is very similar to the implementation of the <code>__mutex_fastpath_lock</code> function:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> __mutex_fastpath_unlock(<span class="hljs-keyword">atomic_t</span> *v,
+                                           <span class="hljs-keyword">void</span> (*fail_fn)(<span class="hljs-keyword">atomic_t</span> *))
+{
+       asm_volatile_goto(LOCK_PREFIX <span class="hljs-string">&quot;   incl %0\n&quot;</span>
+                         <span class="hljs-string">&quot;   jg %l[exit]\n&quot;</span>
+                         : : <span class="hljs-string">&quot;m&quot;</span> (v-&gt;counter)
+                         : <span class="hljs-string">&quot;memory&quot;</span>, <span class="hljs-string">&quot;cc&quot;</span>
+                         : <span class="hljs-built_in">exit</span>);
+       fail_fn(v);
+<span class="hljs-built_in">exit</span>:
+       <span class="hljs-keyword">return</span>;
+}
+</code></pre>
+<p>Actually, there is only one difference. We increment value if the <code>mutex-&gt;count</code>. So it will represent <code>unlocked</code> state after this operation. As <code>mutex</code> released, but we have something in the <code>wait queue</code> we need to update it. In this case the <code>fail_fn</code> function will be called which is <code>__mutex_unlock_slowpath</code>. The <code>__mutex_unlock_slowpath</code> function just gets the correct <code>mutex</code> instance by the given <code>mutex-&gt;count</code> and calls the <code>__mutex_unlock_common_slowpath</code> function:</p>
+<pre><code class="lang-C">__mutex_unlock_slowpath(<span class="hljs-keyword">atomic_t</span> *lock_count)
+{
+      <span class="hljs-keyword">struct</span> mutex *lock = container_of(lock_count, <span class="hljs-keyword">struct</span> mutex, count);
+
+      __mutex_unlock_common_slowpath(lock, <span class="hljs-number">1</span>);
+}
+</code></pre>
+<p>In the <code>__mutex_unlock_common_slowpath</code> function we will get the first entry from the wait queue if the wait queue is not empty and wakeup related process:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (!list_empty(&amp;lock-&gt;wait_list)) {
+    <span class="hljs-keyword">struct</span> mutex_waiter *waiter =
+           list_entry(lock-&gt;wait_list.next, <span class="hljs-keyword">struct</span> mutex_waiter, <span class="hljs-built_in">list</span>); 
+                wake_up_process(waiter-&gt;task);
+}
+</code></pre>
+<p>After this, a mutex will be released by previous process and will be acquired by another process from a wait queue.</p>
+<p>That&apos;s all. We have considered main <code>API</code> for manipulation with <code>mutexes</code>: <code>mutex_lock</code> and <code>mutex_unlock</code>. Besides this the Linux kernel provides following API:</p>
+<ul>
+<li><code>mutex_lock_interruptible</code>;</li>
+<li><code>mutex_lock_killable</code>;</li>
+<li><code>mutex_trylock</code>.</li>
+</ul>
+<p>and corresponding versions of <code>unlock</code> prefixed functions. This part will not describe this <code>API</code>, because it is similar to corresponding <code>API</code> of <code>semaphores</code>. More about it you may read in the <a href="https://0xax.gitbooks.io/linux-insides/content/SyncPrim/sync-3.html" target="_blank">previous part</a>.</p>
+<p>That&apos;s all.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This is the end of the fourth part of the <a href="https://en.wikipedia.org/wiki/Synchronization_%28computer_science%29" target="_blank">synchronization primitives</a> chapter in the Linux kernel. In this part we met with new synchronization primitive which is called - <code>mutex</code>. From the theoretical side, this synchronization primitive very similar on a <a href="https://en.wikipedia.org/wiki/Semaphore_%28programming%29" target="_blank">semaphore</a>. Actually, <code>mutex</code> represents binary semaphore. But its implementation differs from the implementation of <code>semaphore</code> in the Linux kernel. In the next part we will continue to dive into synchronization primitives in the Linux kernel.</p>
+<p>If you have questions or suggestions, feel free to ping me in twitter <a href="https://twitter.com/0xAX" target="_blank">0xAX</a>, drop me <a href="anotherworldofworld@gmail.com">email</a> or just create <a href="https://github.com/0xAX/linux-insides/issues/new" target="_blank">issue</a>.</p>
+<p><strong>Please note that English is not my first language and I am really sorry for any inconvenience. If you found any mistakes please send me PR to <a href="https://github.com/0xAX/linux-insides" target="_blank">linux-insides</a>.</strong></p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Mutual_exclusion" target="_blank">Mutex</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Spinlock" target="_blank">Spinlock</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Semaphore_%28programming%29" target="_blank">Semaphore</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Synchronization_%28computer_science%29" target="_blank">Synchronization primitives</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Application_programming_interface" target="_blank">API</a> </li>
+<li><a href="https://en.wikipedia.org/wiki/Lock_%28computer_science%29" target="_blank">Locking mechanism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Context_switch" target="_blank">Context switches</a></li>
+<li><a href="https://www.kernel.org/doc/Documentation/locking/lockdep-design.txt" target="_blank">lock validator</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Linearizability" target="_blank">Atomic</a></li>
+<li><a href="http://www.cs.rochester.edu/~scott/papers/1991_TOCS_synch.pdf" target="_blank">MCS lock</a></li>
+<li><a href="https://0xax.gitbooks.io/linux-insides/content/DataStructures/dlist.html" target="_blank">Doubly linked list</a></li>
+<li><a href="https://en.wikipedia.org/wiki/X86-64" target="_blank">x86_64</a></li>
+<li><a href="https://0xax.gitbooks.io/linux-insides/content/Theory/asm.html" target="_blank">Inline assembly</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Memory_barrier" target="_blank">Memory barrier</a></li>
+<li><a href="http://x86.renejeschke.de/html/file_module_x86_id_159.html" target="_blank">Lock instruction</a></li>
+<li><a href="http://unixwiz.net/techtips/x86-jumps.html" target="_blank">JNS instruction</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Preemption_%28computing%29" target="_blank">preemtion</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Unix_signal" target="_blank">Unix signals</a></li>
+<li><a href="https://0xax.gitbooks.io/linux-insides/content/SyncPrim/sync-3.html" target="_blank">Previous part</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="sync-3.html" class="navigation navigation-prev " aria-label="Previous page: Semaphores">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="sync-5.html" class="navigation navigation-next " aria-label="Next page: Reader/Writer semaphores">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Mutex","level":"1.7.4","depth":2,"next":{"title":"Reader/Writer semaphores","level":"1.7.5","depth":2,"path":"SyncPrim/sync-5.md","ref":"SyncPrim/sync-5.md","articles":[]},"previous":{"title":"Semaphores","level":"1.7.3","depth":2,"path":"SyncPrim/sync-3.md","ref":"SyncPrim/sync-3.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"SyncPrim/sync-4.md","mtime":"2019-03-28T07:54:50.402Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-28T08:02:31.511Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

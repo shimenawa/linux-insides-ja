@@ -1,0 +1,1750 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Program startup process in userspace · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="contribute.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Summary</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Booting/">
+            
+                <a href="../Booting/">
+            
+                    
+                    Booting
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Booting/linux-bootstrap-1.html">
+            
+                <a href="../Booting/linux-bootstrap-1.html">
+            
+                    
+                    From bootloader to kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Booting/linux-bootstrap-2.html">
+            
+                <a href="../Booting/linux-bootstrap-2.html">
+            
+                    
+                    First steps in the kernel setup code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Booting/linux-bootstrap-3.html">
+            
+                <a href="../Booting/linux-bootstrap-3.html">
+            
+                    
+                    Video mode initialization and transition to protected mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../Booting/linux-bootstrap-4.html">
+            
+                <a href="../Booting/linux-bootstrap-4.html">
+            
+                    
+                    Transition to 64-bit mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../Booting/linux-bootstrap-5.html">
+            
+                <a href="../Booting/linux-bootstrap-5.html">
+            
+                    
+                    Kernel decompression
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Initialization/">
+            
+                <a href="../Initialization/">
+            
+                    
+                    Initialization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Initialization/linux-initialization-1.html">
+            
+                <a href="../Initialization/linux-initialization-1.html">
+            
+                    
+                    First steps in the kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Initialization/linux-initialization-2.html">
+            
+                <a href="../Initialization/linux-initialization-2.html">
+            
+                    
+                    Early interrupts handler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Initialization/linux-initialization-3.html">
+            
+                <a href="../Initialization/linux-initialization-3.html">
+            
+                    
+                    Last preparations before the kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Initialization/linux-initialization-4.html">
+            
+                <a href="../Initialization/linux-initialization-4.html">
+            
+                    
+                    Kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../Initialization/linux-initialization-5.html">
+            
+                <a href="../Initialization/linux-initialization-5.html">
+            
+                    
+                    Continue architecture-specific boot-time initializations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../Initialization/linux-initialization-6.html">
+            
+                <a href="../Initialization/linux-initialization-6.html">
+            
+                    
+                    Architecture-specific initializations, again...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../Initialization/linux-initialization-7.html">
+            
+                <a href="../Initialization/linux-initialization-7.html">
+            
+                    
+                    End of the architecture-specific initializations, almost...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../Initialization/linux-initialization-8.html">
+            
+                <a href="../Initialization/linux-initialization-8.html">
+            
+                    
+                    Scheduler initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../Initialization/linux-initialization-9.html">
+            
+                <a href="../Initialization/linux-initialization-9.html">
+            
+                    
+                    RCU initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../Initialization/linux-initialization-10.html">
+            
+                <a href="../Initialization/linux-initialization-10.html">
+            
+                    
+                    End of initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../interrupts/">
+            
+                <a href="../interrupts/">
+            
+                    
+                    Interrupts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../interrupts/interrupts-1.html">
+            
+                <a href="../interrupts/interrupts-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../interrupts/interrupts-2.html">
+            
+                <a href="../interrupts/interrupts-2.html">
+            
+                    
+                    Start to dive into interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../interrupts/interrupts-3.html">
+            
+                <a href="../interrupts/interrupts-3.html">
+            
+                    
+                    Interrupt handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../interrupts/interrupts-4.html">
+            
+                <a href="../interrupts/interrupts-4.html">
+            
+                    
+                    Initialization of non-early interrupt gates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../interrupts/interrupts-5.html">
+            
+                <a href="../interrupts/interrupts-5.html">
+            
+                    
+                    Implementation of some exception handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../interrupts/interrupts-6.html">
+            
+                <a href="../interrupts/interrupts-6.html">
+            
+                    
+                    Handling Non-Maskable interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../interrupts/interrupts-7.html">
+            
+                <a href="../interrupts/interrupts-7.html">
+            
+                    
+                    Dive into external hardware interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../interrupts/interrupts-8.html">
+            
+                <a href="../interrupts/interrupts-8.html">
+            
+                    
+                    Initialization of external hardware interrupts structures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../interrupts/interrupts-9.html">
+            
+                <a href="../interrupts/interrupts-9.html">
+            
+                    
+                    Softirq, Tasklets and Workqueues
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../interrupts/interrupts-10.html">
+            
+                <a href="../interrupts/interrupts-10.html">
+            
+                    
+                    Last part
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../SysCall/">
+            
+                <a href="../SysCall/">
+            
+                    
+                    System calls
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../SysCall/syscall-1.html">
+            
+                <a href="../SysCall/syscall-1.html">
+            
+                    
+                    Introduction to system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../SysCall/syscall-2.html">
+            
+                <a href="../SysCall/syscall-2.html">
+            
+                    
+                    How the Linux kernel handles a system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../SysCall/syscall-3.html">
+            
+                <a href="../SysCall/syscall-3.html">
+            
+                    
+                    vsyscall and vDSO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../SysCall/syscall-4.html">
+            
+                <a href="../SysCall/syscall-4.html">
+            
+                    
+                    How the Linux kernel runs a program
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../SysCall/syscall-5.html">
+            
+                <a href="../SysCall/syscall-5.html">
+            
+                    
+                    Implementation of the open system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Timers/">
+            
+                <a href="../Timers/">
+            
+                    
+                    Timers and time management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../Timers/timers-1.html">
+            
+                <a href="../Timers/timers-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Timers/timers-2.html">
+            
+                <a href="../Timers/timers-2.html">
+            
+                    
+                    Clocksource framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Timers/timers-3.html">
+            
+                <a href="../Timers/timers-3.html">
+            
+                    
+                    The tick broadcast framework and dyntick
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../Timers/timers-4.html">
+            
+                <a href="../Timers/timers-4.html">
+            
+                    
+                    Introduction to timers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Timers/timers-5.html">
+            
+                <a href="../Timers/timers-5.html">
+            
+                    
+                    Clockevents framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../Timers/timers-6.html">
+            
+                <a href="../Timers/timers-6.html">
+            
+                    
+                    x86 related clock sources
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../Timers/timers-7.html">
+            
+                <a href="../Timers/timers-7.html">
+            
+                    
+                    Time related system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../SyncPrim/">
+            
+                <a href="../SyncPrim/">
+            
+                    
+                    Synchronization primitives
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../SyncPrim/sync-1.html">
+            
+                <a href="../SyncPrim/sync-1.html">
+            
+                    
+                    Introduction to spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../SyncPrim/sync-2.html">
+            
+                <a href="../SyncPrim/sync-2.html">
+            
+                    
+                    Queued spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../SyncPrim/sync-3.html">
+            
+                <a href="../SyncPrim/sync-3.html">
+            
+                    
+                    Semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../SyncPrim/sync-4.html">
+            
+                <a href="../SyncPrim/sync-4.html">
+            
+                    
+                    Mutex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../SyncPrim/sync-5.html">
+            
+                <a href="../SyncPrim/sync-5.html">
+            
+                    
+                    Reader/Writer semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../SyncPrim/sync-6.html">
+            
+                <a href="../SyncPrim/sync-6.html">
+            
+                    
+                    SeqLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" >
+            
+                <span>
+            
+                    
+                    RCU
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" >
+            
+                <span>
+            
+                    
+                    Lockdep
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../mm/">
+            
+                <a href="../mm/">
+            
+                    
+                    Memory management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../mm/linux-mm-1.html">
+            
+                <a href="../mm/linux-mm-1.html">
+            
+                    
+                    Memblock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../mm/linux-mm-2.html">
+            
+                <a href="../mm/linux-mm-2.html">
+            
+                    
+                    Fixmaps and ioremap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../mm/linux-mm-3.html">
+            
+                <a href="../mm/linux-mm-3.html">
+            
+                    
+                    kmemcheck
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../Cgroups/">
+            
+                <a href="../Cgroups/">
+            
+                    
+                    Cgroups
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../Cgroups/cgroups1.html">
+            
+                <a href="../Cgroups/cgroups1.html">
+            
+                    
+                    Introduction to Control Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    SMP
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../Concepts/">
+            
+                <a href="../Concepts/">
+            
+                    
+                    Concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../Concepts/per-cpu.html">
+            
+                <a href="../Concepts/per-cpu.html">
+            
+                    
+                    Per-CPU variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../Concepts/cpumask.html">
+            
+                <a href="../Concepts/cpumask.html">
+            
+                    
+                    Cpumasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../Concepts/initcall.html">
+            
+                <a href="../Concepts/initcall.html">
+            
+                    
+                    The initcall mechanism
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../DataStructures/">
+            
+                <a href="../DataStructures/">
+            
+                    
+                    Data Structures in the Linux Kernel
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../DataStructures/dlist.html">
+            
+                <a href="../DataStructures/dlist.html">
+            
+                    
+                    Doubly linked list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../DataStructures/radix-tree.html">
+            
+                <a href="../DataStructures/radix-tree.html">
+            
+                    
+                    Radix tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../DataStructures/bitmap.html">
+            
+                <a href="../DataStructures/bitmap.html">
+            
+                    
+                    Bit arrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../Theory/">
+            
+                <a href="../Theory/">
+            
+                    
+                    Theory
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../Theory/Paging.html">
+            
+                <a href="../Theory/Paging.html">
+            
+                    
+                    Paging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../Theory/ELF.html">
+            
+                <a href="../Theory/ELF.html">
+            
+                    
+                    Elf64
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../Theory/asm.html">
+            
+                <a href="../Theory/asm.html">
+            
+                    
+                    Inline assembly
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" >
+            
+                <span>
+            
+                    
+                    CPUID
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" >
+            
+                <span>
+            
+                    
+                    MSR
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" >
+            
+                <span>
+            
+                    
+                    Initial ram disk
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" >
+            
+                <span>
+            
+                    
+                    initrd
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Misc
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="how_kernel_compiled.html">
+            
+                <a href="how_kernel_compiled.html">
+            
+                    
+                    How the kernel is compiled
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="linkers.html">
+            
+                <a href="linkers.html">
+            
+                    
+                    Linkers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.3" data-path="contribute.html">
+            
+                <a href="contribute.html">
+            
+                    
+                    Linux kernel development
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.15.4" data-path="program_startup.html">
+            
+                <a href="program_startup.html">
+            
+                    
+                    Program startup process in userspace
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.5" >
+            
+                <span>
+            
+                    
+                    Write and Submit your first Linux kernel Patch
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.6" >
+            
+                <span>
+            
+                    
+                    Data types in the kernel
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../KernelStructures/">
+            
+                <a href="../KernelStructures/">
+            
+                    
+                    KernelStructures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../KernelStructures/idt.html">
+            
+                <a href="../KernelStructures/idt.html">
+            
+                    
+                    IDT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../LINKS.html">
+            
+                <a href="../LINKS.html">
+            
+                    
+                    Useful links
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../contributors.html">
+            
+                <a href="../contributors.html">
+            
+                    
+                    Contributors
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Program startup process in userspace</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="program-startup-process-in-userspace">Program startup process in userspace</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Despite the <a href="https://www.gitbook.com/book/0xax/linux-insides/details" target="_blank">linux-insides</a> described mostly Linux kernel related stuff, I have decided to write this one part which mostly related to userspace.</p>
+<p>There is already fourth <a href="https://0xax.gitbooks.io/linux-insides/content/SysCall/syscall-4.html" target="_blank">part</a> of <a href="https://en.wikipedia.org/wiki/System_call" target="_blank">System calls</a> chapter which describes what does the Linux kernel do when we want to start a program. In this part I want to explore what happens when we run a program on Linux machine from userspace perspective.</p>
+<p>I don&apos;t know how about you, but in my university I learn that a <code>C</code> program starts to execute from the function which is called <code>main</code>. And that&apos;s partly true. Whenever we are starting to write new program, we start our program from the following lines of code:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span> </span>{
+    <span class="hljs-comment">// Entry point is here</span>
+}
+</code></pre>
+<p>But if you are interested in low-level programming, you may already know that the <code>main</code> function isn&apos;t actual entry point of a program. You will believe it&apos;s true after you look at this simple program in debugger:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span> </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>Let&apos;s compile this and run in <a href="https://www.gnu.org/software/gdb/" target="_blank">gdb</a>:</p>
+<pre><code>$ gcc -ggdb program.c -o program
+$ gdb ./program
+The target architecture is assumed to be i386:x86-64:intel
+Reading symbols from ./program...done.
+</code></pre><p>Let&apos;s execute gdb <code>info</code> subcommand with <code>files</code> argument. The <code>info files</code> prints information about debugging targets and memory spaces occupied by different sections.</p>
+<pre><code>(gdb) info files
+Symbols from &quot;/home/alex/program&quot;.
+Local exec file:
+    `/home/alex/program&apos;, file type elf64-x86-64.
+    Entry point: 0x400430
+    0x0000000000400238 - 0x0000000000400254 is .interp
+    0x0000000000400254 - 0x0000000000400274 is .note.ABI-tag
+    0x0000000000400274 - 0x0000000000400298 is .note.gnu.build-id
+    0x0000000000400298 - 0x00000000004002b4 is .gnu.hash
+    0x00000000004002b8 - 0x0000000000400318 is .dynsym
+    0x0000000000400318 - 0x0000000000400357 is .dynstr
+    0x0000000000400358 - 0x0000000000400360 is .gnu.version
+    0x0000000000400360 - 0x0000000000400380 is .gnu.version_r
+    0x0000000000400380 - 0x0000000000400398 is .rela.dyn
+    0x0000000000400398 - 0x00000000004003c8 is .rela.plt
+    0x00000000004003c8 - 0x00000000004003e2 is .init
+    0x00000000004003f0 - 0x0000000000400420 is .plt
+    0x0000000000400420 - 0x0000000000400428 is .plt.got
+    0x0000000000400430 - 0x00000000004005e2 is .text
+    0x00000000004005e4 - 0x00000000004005ed is .fini
+    0x00000000004005f0 - 0x0000000000400610 is .rodata
+    0x0000000000400610 - 0x0000000000400644 is .eh_frame_hdr
+    0x0000000000400648 - 0x000000000040073c is .eh_frame
+    0x0000000000600e10 - 0x0000000000600e18 is .init_array
+    0x0000000000600e18 - 0x0000000000600e20 is .fini_array
+    0x0000000000600e20 - 0x0000000000600e28 is .jcr
+    0x0000000000600e28 - 0x0000000000600ff8 is .dynamic
+    0x0000000000600ff8 - 0x0000000000601000 is .got
+    0x0000000000601000 - 0x0000000000601028 is .got.plt
+    0x0000000000601028 - 0x0000000000601034 is .data
+    0x0000000000601034 - 0x0000000000601038 is .bss
+</code></pre><p>Note on <code>Entry point: 0x400430</code> line. Now we know the actual address of entry point of our program. Let&apos;s put breakpoint by this address, run our program and see what happens:</p>
+<pre><code>(gdb) break *0x400430
+Breakpoint 1 at 0x400430
+(gdb) run
+Starting program: /home/alex/program 
+
+Breakpoint 1, 0x0000000000400430 in _start ()
+</code></pre><p>Interesting. We don&apos;t see execution of <code>main</code> function here, but we have seen that another function is called. This function is <code>_start</code> and as debugger shows us, it is actual entry point of our program. Where is this function from? Who does call <code>main</code> and when is it called. I will try to answer all the questions in the following post.</p>
+<h2 id="how-kernel-does-start-new-program">How kernel does start new program</h2>
+<p>First of all, let&apos;s take a look at the following simple <code>C</code> program:</p>
+<pre><code class="lang-C"><span class="hljs-comment">// program.c</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> x = <span class="hljs-number">1</span>;
+
+<span class="hljs-keyword">int</span> y = <span class="hljs-number">2</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span> </span>{
+    <span class="hljs-keyword">int</span> z = <span class="hljs-number">3</span>;
+
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;x + y + z = %d\n&quot;</span>, x + y + z);
+
+    <span class="hljs-keyword">return</span> EXIT_SUCCESS;
+}
+</code></pre>
+<p>We can be sure that this program works as we expect. Let&apos;s compile it:</p>
+<pre><code>$ gcc -Wall program.c -o sum
+</code></pre><p>and run:</p>
+<pre><code>$ ./sum
+x + y + z = 6
+</code></pre><p>Ok, everything looks pretty good up to now. You may already know that there is special family of <a href="https://en.wikipedia.org/wiki/System_call" target="_blank">system calls</a> - <a href="http://man7.org/linux/man-pages/man3/execl.3.html" target="_blank">exec*</a> system calls. As we read in the man page:</p>
+<blockquote>
+<p>The exec() family of functions replaces the current process image with a new process image.</p>
+</blockquote>
+<p>If you have read fourth <a href="https://0xax.gitbooks.io/linux-insides/content/SysCall/syscall-4.html" target="_blank">part</a> of the chapter which describes <a href="https://en.wikipedia.org/wiki/System_call" target="_blank">system calls</a>, you may know that for example <a href="http://linux.die.net/man/2/execve" target="_blank">execve</a> system call is defined in the <a href="https://github.com/torvalds/linux/blob/08e4e0d0456d0ca8427b2d1ddffa30f1c3e774d7/fs/exec.c#L1888" target="_blank">files/exec.c</a> source code file and looks like:</p>
+<pre><code class="lang-C">SYSCALL_DEFINE3(execve,
+        <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> __user *, filename,
+        <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> __user *<span class="hljs-keyword">const</span> __user *, argv,
+        <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> __user *<span class="hljs-keyword">const</span> __user *, envp)
+{
+    <span class="hljs-keyword">return</span> do_execve(getname(filename), argv, envp);
+}
+</code></pre>
+<p>It takes executable file name, set of command line arguments and set of enviroment variables. As you may guess, everything is done by the <code>do_execve</code> function. I will not describe implementation of the <code>do_execve</code> function in details because you can read about this in <a href="https://0xax.gitbooks.io/linux-insides/content/SysCall/syscall-4.html" target="_blank">here</a>. But in short words, the <code>do_execve</code> function does many checks like <code>filename</code> is valid, limit of launched processes is not exceed in our system and etc. After all of these checks, this function parses our executable file which is represented in <a href="https://en.wikipedia.org/wiki/Executable_and_Linkable_Format" target="_blank">ELF</a> format, creates memory descriptor for newly executed executable file and fills it with the appropriate values like area for the stack, heap and etc. When the setup of new binary image is done, the <code>start_thread</code> function will set up one new process. This function is architecture-specific and for the <a href="https://en.wikipedia.org/wiki/X86-64" target="_blank">x86_64</a> architecture, its definition will be located in the <a href="https://github.com/torvalds/linux/blob/08e4e0d0456d0ca8427b2d1ddffa30f1c3e774d7/arch/x86/kernel/process_64.c#L239" target="_blank">arch/x86/kernel/process_64.c</a> source code file.</p>
+<p>The <code>start_thread</code> function sets new value to <a href="https://en.wikipedia.org/wiki/X86_memory_segmentation" target="_blank">segment registers</a> and program execution address. From this point, new process is ready to start. Once the <a href="https://en.wikipedia.org/wiki/Context_switch" target="_blank">context switch</a> will be done, control will be returned to the userspace with new values of registers and new executable will be started to execute.</p>
+<p>That&apos;s all from the kernel side. The Linux kernel prepares binary image for execution and its execution starts right after context switch and returns controll to userspace when it is finished. But it does not answer on questions like where is from <code>_start</code> come and others. Let&apos;s try to answer on these questions in the next paragraph.</p>
+<h2 id="how-does-program-start-in-userspace">How does program start in userspace</h2>
+<p>In the previous paragraph we saw how an executable file is prepared to run by the Linux kernel. Let&apos;s look at the same, but from userspace side. We already know that entry point of each program is <code>_start</code> function. But where is this function from? It may came from a library. But if you remember correctly we didn&apos;t link our program with any libraries during compilation of our program:</p>
+<pre><code>$ gcc -Wall program.c -o sum
+</code></pre><p>You may guess that <code>_start</code> comes from <a href="https://en.wikipedia.org/wiki/Standard_library" target="_blank">stanard libray</a> and that&apos;s true. If you try to compile our program again and pass <code>-v</code> option to gcc which will enable <code>verbose mode</code>, you will see following long output. Full output is not interesting for us, let&apos;s look at the following steps: </p>
+<p>First of all, our program should be compiled with <code>gcc</code>:</p>
+<pre><code>$ gcc -v -ggdb program.c -o sum
+...
+...
+...
+/usr/libexec/gcc/x86_64-redhat-linux/6.1.1/cc1 -quiet -v program.c -quiet -dumpbase program.c -mtune=generic -march=x86-64 -auxbase test -ggdb -version -o /tmp/ccvUWZkF.s
+...
+...
+...
+</code></pre><p>The <code>cc1</code> compiler will compile our <code>C</code> source code and produce assembly <code>/tmp/ccvUWZkF.s</code> file. After this we can see that our assembly file will be compiled into object file with <code>GNU as</code> assembler:</p>
+<pre><code>$ gcc -v -ggdb program.c -o sum
+...
+...
+...
+as -v --64 -o /tmp/cc79wZSU.o /tmp/ccvUWZkF.s
+...
+...
+...
+</code></pre><p>In the end our object file will be linked by <code>collect2</code>:</p>
+<pre><code>$ gcc -v -ggdb program.c -o sum
+...
+...
+...
+/usr/libexec/gcc/x86_64-redhat-linux/6.1.1/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/6.1.1/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/6.1.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccLEGYra.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o test /usr/lib/gcc/x86_64-redhat-linux/6.1.1/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/6.1.1/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/6.1.1/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/6.1.1 -L/usr/lib/gcc/x86_64-redhat-linux/6.1.1/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L. -L/usr/lib/gcc/x86_64-redhat-linux/6.1.1/../../.. /tmp/cc79wZSU.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-redhat-linux/6.1.1/crtend.o /usr/lib/gcc/x86_64-redhat-linux/6.1.1/../../../../lib64/crtn.o
+...
+...
+...
+</code></pre><p>Yes, we can see a long set of command line options which are passed to the linker. Let&apos;s go from another way. We know that our program depends on <code>stdlib</code>:</p>
+<pre><code>$ ldd program
+    linux-vdso.so.1 (0x00007ffc9afd2000)
+    libc.so.6 =&gt; /lib64/libc.so.6 (0x00007f56b389b000)
+    /lib64/ld-linux-x86-64.so.2 (0x0000556198231000)
+</code></pre><p>as we use some stuff from there like <code>printf</code> and etc. But not only. That&apos;s why we will get error when we will pass <code>-nostdlib</code> option to the compiler:</p>
+<pre><code>$ gcc -nostdlib program.c -o program
+/usr/bin/ld: warning: cannot find entry symbol _start; defaulting to 000000000040017c
+/tmp/cc02msGW.o: In function `main&apos;:
+/home/alex/program.c:11: undefined reference to `printf&apos;
+collect2: error: ld returned 1 exit status
+</code></pre><p>Besides other errors, we also see that <code>_start</code> symbol is undefined. So now we are sure that the <code>_start</code> function comes from standard library. But even if we link it with standard library, it will not be compiled successfully anyway:</p>
+<pre><code>$ gcc -nostdlib -lc -ggdb program.c -o program
+/usr/bin/ld: warning: cannot find entry symbol _start; defaulting to 0000000000400350
+</code></pre><p>Ok, compiler does not complain about undefined reference of standard library functions as we linked our program with <code>/usr/lib64/libc.so.6</code>, but the <code>_start</code> symbol isn&apos;t resolved yet. Let&apos;s return to the verbose output of <code>gcc</code> and look at the parameters of <code>collect2</code>. The most important thing that we may see is that our program is linked not only with standard library, but also with some object files. The first object file is: <code>/lib64/crt1.o</code>. And if we look inside this object file with <code>objdump</code> util, we will see the <code>_start</code> symbol: </p>
+<pre><code>$ objdump -d /lib64/crt1.o 
+
+/lib64/crt1.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 &lt;_start&gt;:
+   0:    31 ed                    xor    %ebp,%ebp
+   2:    49 89 d1                 mov    %rdx,%r9
+   5:    5e                       pop    %rsi
+   6:    48 89 e2                 mov    %rsp,%rdx
+   9:    48 83 e4 f0              and    $0xfffffffffffffff0,%rsp
+   d:    50                       push   %rax
+   e:    54                       push   %rsp
+   f:    49 c7 c0 00 00 00 00     mov    $0x0,%r8
+  16:    48 c7 c1 00 00 00 00     mov    $0x0,%rcx
+  1d:    48 c7 c7 00 00 00 00     mov    $0x0,%rdi
+  24:    e8 00 00 00 00           callq  29 &lt;_start+0x29&gt;
+  29:    f4                       hlt
+</code></pre><p>As <code>crt1.o</code> is a shared object file, we see only stubs here instead of real calls. Let&apos;s look at the source code of the <code>_start</code> function. As this function is architecture specific, implementation for <code>_start</code> will be located in the <a href="https://sourceware.org/git/?p=glibc.git;a=blob;f=sysdeps/x86_64/start.S;h=f1b961f5ba2d6a1ebffee0005f43123c4352fbf4;hb=HEAD" target="_blank">sysdeps/x86_64/start.S</a> assembly file.</p>
+<p>The <code>_start</code> starts from the clearing of <code>ebp</code> register as <a href="https://software.intel.com/sites/default/files/article/402129/mpx-linux64-abi.pdf" target="_blank">ABI</a> suggests.</p>
+<pre><code class="lang-assembly">xorl %ebp, %ebp
+</code></pre>
+<p>And after this we put the address of termination function to the <code>r9</code> register:</p>
+<pre><code class="lang-assembly">mov %RDX_LP, %R9_LP
+</code></pre>
+<p>As described in the <a href="http://flint.cs.yale.edu/cs422/doc/ELF_Format.pdf" target="_blank">ELF</a> specification:</p>
+<blockquote>
+<p>After the dynamic linker has built the process image and performed the relocations, each shared object
+gets the opportunity to execute some initialization code.
+...
+Similarly, shared objects may have termination functions, which are executed with the atexit (BA_OS)
+mechanism after the base process begins its termination sequence.</p>
+</blockquote>
+<p>So we need to put address of termination function to the <code>r9</code> register as it will be passed <code>__libc_start_main</code> in future as sixth argument. Note that the address of the termination function initially is located in the <code>rdx</code> register. Other registers besides <code>rdx</code> and <code>rsp</code> contain unspecified values. Actually main point of the <code>_start</code> function is to call <code>__libc_start_main</code>. So the next action is to prepare for this function.</p>
+<p>The signature of the <code>__libc_start_main</code> function is located in the <a href="https://sourceware.org/git/?p=glibc.git;a=blob;f=csu/libc-start.c;h=9a56dcbbaeb7ef85c495b4df9ab1d0b13454c043;hb=HEAD#l107" target="_blank">csu/libc-start.c</a> source code file. Let&apos;s look on it:</p>
+<pre><code class="lang-C">STATIC int LIBC_START_MAIN (int (*main) (int, char **, char **),
+                             int argc,
+                            char **argv,
+                             __typeof (main) init,
+                            void (*fini) (void),
+                            void (*rtld_fini) (void),
+                            void *stack_end)
+</code></pre>
+<p>It takes address of the <code>main</code> function of a program, <code>argc</code> and <code>argv</code>. <code>init</code> and <code>fini</code> functions are constructor and destructor of the program. The <code>rtld_fini</code> is termination function which will be called after the program will be exited to terminate and free dynamic section. The last parameter of the <code>__libc_start_main</code> is the pointer to the stack of the program. Before we can call the <code>__libc_start_main</code> function, all of these parameters must be prepared and passed to it. Let&apos;s return to the <a href="https://sourceware.org/git/?p=glibc.git;a=blob;f=sysdeps/x86_64/start.S;h=f1b961f5ba2d6a1ebffee0005f43123c4352fbf4;hb=HEAD" target="_blank">sysdeps/x86_64/start.S</a> assembly file and continue to see what happens before the <code>__libc_start_main</code> function will be called from there.</p>
+<p>We can get all the arguments we need for <code>__libc_start_main</code> function from the stack. As <code>_start</code> is called, our stack looks like:</p>
+<pre><code>+-----------------+
+|       NULL      |
++-----------------+ 
+|       envp      |
++-----------------+ 
+|       NULL      |
++------------------
+|       argv      | &lt;- rsp
++------------------
+|       argc      |
++-----------------+
+</code></pre><p>After we cleared <code>ebp</code> register and saved address of the termination function in the <code>r9</code> register, we pop element from the stack to the <code>rsi</code> register, so after this <code>rsp</code> will point to the <code>argv</code> array and <code>rsi</code> will contain count of command line arguemnts passed to the program:</p>
+<pre><code>+-----------------+
+|       NULL      |
++-----------------+ 
+|       envp      |
++-----------------+ 
+|       NULL      |
++------------------
+|       argv      | &lt;- rsp
++-----------------+
+</code></pre><p>After this we move address of the <code>argv</code> array to the <code>rdx</code> register</p>
+<pre><code class="lang-assembly">popq %rsi
+mov %RSP_LP, %RDX_LP
+</code></pre>
+<p>From this moment we have <code>argc</code>, <code>argv</code>. We still need to put pointers to the construtor, destructor in appropriate registers and pass pointer to the stack. At the first following three lines we align stack to <code>16</code> bytes boundary as suggested in <a href="https://software.intel.com/sites/default/files/article/402129/mpx-linux64-abi.pdf" target="_blank">ABI</a> and push <code>rax</code> which contains garbage:</p>
+<pre><code class="lang-assembly">and  $~15, %RSP_LP
+pushq %rax
+
+pushq %rsp
+mov $__libc_csu_fini, %R8_LP
+mov $__libc_csu_init, %RCX_LP
+mov $main, %RDI_LP
+</code></pre>
+<p>After stack aligning we push address of the stack, move addresses of contstructor and destructor to the <code>r8</code> and <code>rcx</code> registers and address of the <code>main</code> symbol to the <code>rdi</code>. From this moment we can call the <code>__libc_start_main</code> function from the <a href="https://sourceware.org/git/?p=glibc.git;a=blob;f=csu/libc-start.c;h=0fb98f1606bab475ab5ba2d0fe08c64f83cce9df;hb=HEAD" target="_blank">csu/libc-start.c</a>.</p>
+<p>Before we look at the <code>__libc_start_main</code> function, let&apos;s add the <code>/lib64/crt1.o</code> and try to compile our program again:</p>
+<pre><code>$ gcc -nostdlib /lib64/crt1.o -lc -ggdb program.c -o program
+/lib64/crt1.o: In function `_start&apos;:
+(.text+0x12): undefined reference to `__libc_csu_fini&apos;
+/lib64/crt1.o: In function `_start&apos;:
+(.text+0x19): undefined reference to `__libc_csu_init&apos;
+collect2: error: ld returned 1 exit status
+</code></pre><p>Now we see another error that both <code>__libc_csu_fini</code> and <code>__libc_csu_init</code> functions are not found. We know that addresses of these two functions are passed to the <code>__libc_start_main</code> as parameters and also these functions are constructor and destructor of our programs. But what do <code>constructor</code> and <code>destructor</code> in terms of <code>C</code> program means? We already saw the quote from the <a href="http://flint.cs.yale.edu/cs422/doc/ELF_Format.pdf" target="_blank">ELF</a> specification:</p>
+<blockquote>
+<p>After the dynamic linker has built the process image and performed the relocations, each shared object
+gets the opportunity to execute some initialization code.
+...
+Similarly, shared objects may have termination functions, which are executed with the atexit (BA_OS)
+mechanism after the base process begins its termination sequence.</p>
+</blockquote>
+<p>So the linker creates two special sections besides usual sections like <code>.text</code>, <code>.data</code> and others:</p>
+<ul>
+<li><code>.init</code></li>
+<li><code>.fini</code></li>
+</ul>
+<p>We can find them with <code>readelf</code> util:</p>
+<pre><code>$ readelf -e test | grep init
+  [11] .init             PROGBITS         00000000004003c8  000003c8
+
+$ readelf -e test | grep fini
+  [15] .fini             PROGBITS         0000000000400504  00000504
+</code></pre><p>Both of these sections will be placed at the start and end of binary image and contain routines which are called constructor and destructor respectively. The main point of these routines is to do some initialization/finalization like initialization of global variables, such as <a href="http://man7.org/linux/man-pages/man3/errno.3.html" target="_blank">errno</a>, allocation and deallocation of memory for system routines and etc., before actual code of a program is executed.</p>
+<p>You may infer from names of these functions, they will be called before <code>main</code> function and after the <code>main</code> function. Definitions of <code>.init</code> and <code>.fini</code> sections are located in the <code>/lib64/crti.o</code> and if we add this object file:</p>
+<pre><code>$ gcc -nostdlib /lib64/crt1.o /lib64/crti.o  -lc -ggdb program.c -o program
+</code></pre><p>we will not get any errors. But let&apos;s try to run our program and see what happens:</p>
+<pre><code>$ ./program
+Segmentation fault (core dumped)
+</code></pre><p>Yeah, we got segmentation fault. Let&apos;s look inside of the <code>lib64/crti.o</code> with <code>objdump</code> util:</p>
+<pre><code>$ objdump -D /lib64/crti.o
+
+/lib64/crti.o:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+0000000000000000 &lt;_init&gt;:
+   0:    48 83 ec 08              sub    $0x8,%rsp
+   4:    48 8b 05 00 00 00 00     mov    0x0(%rip),%rax        # b &lt;_init+0xb&gt;
+   b:    48 85 c0                 test   %rax,%rax
+   e:    74 05                    je     15 &lt;_init+0x15&gt;
+  10:    e8 00 00 00 00           callq  15 &lt;_init+0x15&gt;
+
+Disassembly of section .fini:
+
+0000000000000000 &lt;_fini&gt;:
+   0:    48 83 ec 08              sub    $0x8,%rsp
+</code></pre><p>As I wrote above, the <code>/lib64/crti.o</code> object file contains definition of the <code>.init</code> and <code>.fini</code> section, but also we can see here the stub for function. Let&apos;s look at the source code which is placed in the <a href="https://sourceware.org/git/?p=glibc.git;a=blob;f=sysdeps/x86_64/crti.S;h=e9d86ed08ab134a540e3dae5f97a9afb82cdb993;hb=HEAD" target="_blank">sysdeps/x86_64/crti.S</a> source code file:</p>
+<pre><code class="lang-assembly">    .section .init,&quot;ax&quot;,@progbits
+    .p2align 2
+    .globl _init
+    .type _init, @function
+_init:
+    subq $8, %rsp
+    movq PREINIT_FUNCTION@GOTPCREL(%rip), %rax
+    testq %rax, %rax
+    je .Lno_weak_fn
+    call *%rax
+.Lno_weak_fn:
+    call PREINIT_FUNCTION
+</code></pre>
+<p>It contains definition of the <code>.init</code> section and assembly code does 16-byte stack alignment and next we move address of the <code>PREINIT_FUNCTION</code> and if it is zero we don&apos;t call it:</p>
+<pre><code>00000000004003c8 &lt;_init&gt;:
+  4003c8:       48 83 ec 08             sub    $0x8,%rsp
+  4003cc:       48 8b 05 25 0c 20 00    mov    0x200c25(%rip),%rax        # 600ff8 &lt;_DYNAMIC+0x1d0&gt;
+  4003d3:       48 85 c0                test   %rax,%rax
+  4003d6:       74 05                   je     4003dd &lt;_init+0x15&gt;
+  4003d8:       e8 43 00 00 00          callq  400420 &lt;__libc_start_main@plt+0x10&gt;
+  4003dd:       48 83 c4 08             add    $0x8,%rsp
+  4003e1:       c3                      retq
+</code></pre><p>where the <code>PREINIT_FUNCTION</code> is the <code>__gmon_start__</code> which does setup for profiling. You may note that we have no return instruction in the <a href="https://sourceware.org/git/?p=glibc.git;a=blob;f=sysdeps/x86_64/crti.S;h=e9d86ed08ab134a540e3dae5f97a9afb82cdb993;hb=HEAD" target="_blank">sysdeps/x86_64/crti.S</a>. Actually that&apos;s why we got segmentation fault. Prolog of <code>_init</code> and <code>_fini</code> is placed in the <a href="https://sourceware.org/git/?p=glibc.git;a=blob;f=sysdeps/x86_64/crtn.S;h=e9d86ed08ab134a540e3dae5f97a9afb82cdb993;hb=HEAD" target="_blank">sysdeps/x86_64/crtn.S</a> assembly file:</p>
+<pre><code class="lang-assembly">.section .init,&quot;ax&quot;,@progbits
+addq $8, %rsp
+ret
+
+.section .fini,&quot;ax&quot;,@progbits
+addq $8, %rsp
+ret
+</code></pre>
+<p>and if we will add it to the compilation, our program will be successfully compiled and run!</p>
+<pre><code>$ gcc -nostdlib /lib64/crt1.o /lib64/crti.o /lib64/crtn.o  -lc -ggdb program.c -o program
+
+$ ./program
+x + y + z = 6
+</code></pre><h2 id="conclusion">Conclusion</h2>
+<p>Now let&apos;s return to the <code>_start</code> function and try to go through a full chain of calls before the <code>main</code> of our program will be called.</p>
+<p>The <code>_start</code> is always placed at the beginning of the <code>.text</code> section in our programs by the linked which is used default <code>ld</code> script:</p>
+<pre><code>$ ld --verbose | grep ENTRY
+ENTRY(_start)
+</code></pre><p>The <code>_start</code> function is defined in the <a href="https://sourceware.org/git/?p=glibc.git;a=blob;f=sysdeps/x86_64/start.S;h=f1b961f5ba2d6a1ebffee0005f43123c4352fbf4;hb=HEAD" target="_blank">sysdeps/x86_64/start.S</a> assembly file and does preparation like getting <code>argc/argv</code> from the stack, stack preparation and etc., before the <code>__libc_start_main</code> function will be called. The <code>__libc_start_main</code> function from the <a href="https://sourceware.org/git/?p=glibc.git;a=blob;f=csu/libc-start.c;h=0fb98f1606bab475ab5ba2d0fe08c64f83cce9df;hb=HEAD" target="_blank">csu/libc-start.c</a> source code file does a registration of the constructor and destructor of application which are will be called before <code>main</code> and after it, starts up threading, does some security related actions like setting stack canary if need, calls initialization related routines and in the end it calls <code>main</code> function of our application and exits with its result:</p>
+<pre><code class="lang-C">result = main (argc, argv, __environ MAIN_AUXVEC_PARAM);
+<span class="hljs-built_in">exit</span> (result);
+</code></pre>
+<p>That&apos;s all.</p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/System_call" target="_blank">system call</a></li>
+<li><a href="https://www.gnu.org/software/gdb/" target="_blank">gdb</a></li>
+<li><a href="http://linux.die.net/man/2/execve" target="_blank">execve</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Executable_and_Linkable_Format" target="_blank">ELF</a></li>
+<li><a href="https://en.wikipedia.org/wiki/X86-64" target="_blank">x86_64</a></li>
+<li><a href="https://en.wikipedia.org/wiki/X86_memory_segmentation" target="_blank">segment registers</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Context_switch" target="_blank">context switch</a></li>
+<li><a href="https://software.intel.com/sites/default/files/article/402129/mpx-linux64-abi.pdf" target="_blank">System V ABI</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="contribute.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Linux kernel development">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Program startup process in userspace","level":"1.15.4","depth":2,"next":{"title":"Write and Submit your first Linux kernel Patch","level":"1.15.5","depth":2,"ref":"","articles":[]},"previous":{"title":"Linux kernel development","level":"1.15.3","depth":2,"path":"Misc/contribute.md","ref":"Misc/contribute.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Misc/program_startup.md","mtime":"2019-03-28T07:54:50.399Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-28T08:02:31.511Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,1778 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Introduction to Control Groups · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Summary</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Booting/">
+            
+                <a href="../Booting/">
+            
+                    
+                    Booting
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Booting/linux-bootstrap-1.html">
+            
+                <a href="../Booting/linux-bootstrap-1.html">
+            
+                    
+                    From bootloader to kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Booting/linux-bootstrap-2.html">
+            
+                <a href="../Booting/linux-bootstrap-2.html">
+            
+                    
+                    First steps in the kernel setup code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Booting/linux-bootstrap-3.html">
+            
+                <a href="../Booting/linux-bootstrap-3.html">
+            
+                    
+                    Video mode initialization and transition to protected mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../Booting/linux-bootstrap-4.html">
+            
+                <a href="../Booting/linux-bootstrap-4.html">
+            
+                    
+                    Transition to 64-bit mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../Booting/linux-bootstrap-5.html">
+            
+                <a href="../Booting/linux-bootstrap-5.html">
+            
+                    
+                    Kernel decompression
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Initialization/">
+            
+                <a href="../Initialization/">
+            
+                    
+                    Initialization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Initialization/linux-initialization-1.html">
+            
+                <a href="../Initialization/linux-initialization-1.html">
+            
+                    
+                    First steps in the kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Initialization/linux-initialization-2.html">
+            
+                <a href="../Initialization/linux-initialization-2.html">
+            
+                    
+                    Early interrupts handler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Initialization/linux-initialization-3.html">
+            
+                <a href="../Initialization/linux-initialization-3.html">
+            
+                    
+                    Last preparations before the kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Initialization/linux-initialization-4.html">
+            
+                <a href="../Initialization/linux-initialization-4.html">
+            
+                    
+                    Kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../Initialization/linux-initialization-5.html">
+            
+                <a href="../Initialization/linux-initialization-5.html">
+            
+                    
+                    Continue architecture-specific boot-time initializations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../Initialization/linux-initialization-6.html">
+            
+                <a href="../Initialization/linux-initialization-6.html">
+            
+                    
+                    Architecture-specific initializations, again...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../Initialization/linux-initialization-7.html">
+            
+                <a href="../Initialization/linux-initialization-7.html">
+            
+                    
+                    End of the architecture-specific initializations, almost...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../Initialization/linux-initialization-8.html">
+            
+                <a href="../Initialization/linux-initialization-8.html">
+            
+                    
+                    Scheduler initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../Initialization/linux-initialization-9.html">
+            
+                <a href="../Initialization/linux-initialization-9.html">
+            
+                    
+                    RCU initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../Initialization/linux-initialization-10.html">
+            
+                <a href="../Initialization/linux-initialization-10.html">
+            
+                    
+                    End of initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../interrupts/">
+            
+                <a href="../interrupts/">
+            
+                    
+                    Interrupts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../interrupts/interrupts-1.html">
+            
+                <a href="../interrupts/interrupts-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../interrupts/interrupts-2.html">
+            
+                <a href="../interrupts/interrupts-2.html">
+            
+                    
+                    Start to dive into interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../interrupts/interrupts-3.html">
+            
+                <a href="../interrupts/interrupts-3.html">
+            
+                    
+                    Interrupt handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../interrupts/interrupts-4.html">
+            
+                <a href="../interrupts/interrupts-4.html">
+            
+                    
+                    Initialization of non-early interrupt gates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../interrupts/interrupts-5.html">
+            
+                <a href="../interrupts/interrupts-5.html">
+            
+                    
+                    Implementation of some exception handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../interrupts/interrupts-6.html">
+            
+                <a href="../interrupts/interrupts-6.html">
+            
+                    
+                    Handling Non-Maskable interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../interrupts/interrupts-7.html">
+            
+                <a href="../interrupts/interrupts-7.html">
+            
+                    
+                    Dive into external hardware interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../interrupts/interrupts-8.html">
+            
+                <a href="../interrupts/interrupts-8.html">
+            
+                    
+                    Initialization of external hardware interrupts structures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../interrupts/interrupts-9.html">
+            
+                <a href="../interrupts/interrupts-9.html">
+            
+                    
+                    Softirq, Tasklets and Workqueues
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../interrupts/interrupts-10.html">
+            
+                <a href="../interrupts/interrupts-10.html">
+            
+                    
+                    Last part
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../SysCall/">
+            
+                <a href="../SysCall/">
+            
+                    
+                    System calls
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../SysCall/syscall-1.html">
+            
+                <a href="../SysCall/syscall-1.html">
+            
+                    
+                    Introduction to system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../SysCall/syscall-2.html">
+            
+                <a href="../SysCall/syscall-2.html">
+            
+                    
+                    How the Linux kernel handles a system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../SysCall/syscall-3.html">
+            
+                <a href="../SysCall/syscall-3.html">
+            
+                    
+                    vsyscall and vDSO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../SysCall/syscall-4.html">
+            
+                <a href="../SysCall/syscall-4.html">
+            
+                    
+                    How the Linux kernel runs a program
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../SysCall/syscall-5.html">
+            
+                <a href="../SysCall/syscall-5.html">
+            
+                    
+                    Implementation of the open system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Timers/">
+            
+                <a href="../Timers/">
+            
+                    
+                    Timers and time management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../Timers/timers-1.html">
+            
+                <a href="../Timers/timers-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Timers/timers-2.html">
+            
+                <a href="../Timers/timers-2.html">
+            
+                    
+                    Clocksource framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Timers/timers-3.html">
+            
+                <a href="../Timers/timers-3.html">
+            
+                    
+                    The tick broadcast framework and dyntick
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../Timers/timers-4.html">
+            
+                <a href="../Timers/timers-4.html">
+            
+                    
+                    Introduction to timers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Timers/timers-5.html">
+            
+                <a href="../Timers/timers-5.html">
+            
+                    
+                    Clockevents framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../Timers/timers-6.html">
+            
+                <a href="../Timers/timers-6.html">
+            
+                    
+                    x86 related clock sources
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../Timers/timers-7.html">
+            
+                <a href="../Timers/timers-7.html">
+            
+                    
+                    Time related system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../SyncPrim/">
+            
+                <a href="../SyncPrim/">
+            
+                    
+                    Synchronization primitives
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../SyncPrim/sync-1.html">
+            
+                <a href="../SyncPrim/sync-1.html">
+            
+                    
+                    Introduction to spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../SyncPrim/sync-2.html">
+            
+                <a href="../SyncPrim/sync-2.html">
+            
+                    
+                    Queued spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../SyncPrim/sync-3.html">
+            
+                <a href="../SyncPrim/sync-3.html">
+            
+                    
+                    Semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../SyncPrim/sync-4.html">
+            
+                <a href="../SyncPrim/sync-4.html">
+            
+                    
+                    Mutex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../SyncPrim/sync-5.html">
+            
+                <a href="../SyncPrim/sync-5.html">
+            
+                    
+                    Reader/Writer semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../SyncPrim/sync-6.html">
+            
+                <a href="../SyncPrim/sync-6.html">
+            
+                    
+                    SeqLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" >
+            
+                <span>
+            
+                    
+                    RCU
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" >
+            
+                <span>
+            
+                    
+                    Lockdep
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../mm/">
+            
+                <a href="../mm/">
+            
+                    
+                    Memory management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../mm/linux-mm-1.html">
+            
+                <a href="../mm/linux-mm-1.html">
+            
+                    
+                    Memblock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../mm/linux-mm-2.html">
+            
+                <a href="../mm/linux-mm-2.html">
+            
+                    
+                    Fixmaps and ioremap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../mm/linux-mm-3.html">
+            
+                <a href="../mm/linux-mm-3.html">
+            
+                    
+                    kmemcheck
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Cgroups
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.9.1" data-path="cgroups1.html">
+            
+                <a href="cgroups1.html">
+            
+                    
+                    Introduction to Control Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    SMP
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../Concepts/">
+            
+                <a href="../Concepts/">
+            
+                    
+                    Concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../Concepts/per-cpu.html">
+            
+                <a href="../Concepts/per-cpu.html">
+            
+                    
+                    Per-CPU variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../Concepts/cpumask.html">
+            
+                <a href="../Concepts/cpumask.html">
+            
+                    
+                    Cpumasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../Concepts/initcall.html">
+            
+                <a href="../Concepts/initcall.html">
+            
+                    
+                    The initcall mechanism
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../DataStructures/">
+            
+                <a href="../DataStructures/">
+            
+                    
+                    Data Structures in the Linux Kernel
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../DataStructures/dlist.html">
+            
+                <a href="../DataStructures/dlist.html">
+            
+                    
+                    Doubly linked list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../DataStructures/radix-tree.html">
+            
+                <a href="../DataStructures/radix-tree.html">
+            
+                    
+                    Radix tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../DataStructures/bitmap.html">
+            
+                <a href="../DataStructures/bitmap.html">
+            
+                    
+                    Bit arrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../Theory/">
+            
+                <a href="../Theory/">
+            
+                    
+                    Theory
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../Theory/Paging.html">
+            
+                <a href="../Theory/Paging.html">
+            
+                    
+                    Paging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../Theory/ELF.html">
+            
+                <a href="../Theory/ELF.html">
+            
+                    
+                    Elf64
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../Theory/asm.html">
+            
+                <a href="../Theory/asm.html">
+            
+                    
+                    Inline assembly
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" >
+            
+                <span>
+            
+                    
+                    CPUID
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" >
+            
+                <span>
+            
+                    
+                    MSR
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" >
+            
+                <span>
+            
+                    
+                    Initial ram disk
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" >
+            
+                <span>
+            
+                    
+                    initrd
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../Misc/">
+            
+                <a href="../Misc/">
+            
+                    
+                    Misc
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../Misc/how_kernel_compiled.html">
+            
+                <a href="../Misc/how_kernel_compiled.html">
+            
+                    
+                    How the kernel is compiled
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../Misc/linkers.html">
+            
+                <a href="../Misc/linkers.html">
+            
+                    
+                    Linkers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.3" data-path="../Misc/contribute.html">
+            
+                <a href="../Misc/contribute.html">
+            
+                    
+                    Linux kernel development
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.4" data-path="../Misc/program_startup.html">
+            
+                <a href="../Misc/program_startup.html">
+            
+                    
+                    Program startup process in userspace
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.5" >
+            
+                <span>
+            
+                    
+                    Write and Submit your first Linux kernel Patch
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.6" >
+            
+                <span>
+            
+                    
+                    Data types in the kernel
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../KernelStructures/">
+            
+                <a href="../KernelStructures/">
+            
+                    
+                    KernelStructures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../KernelStructures/idt.html">
+            
+                <a href="../KernelStructures/idt.html">
+            
+                    
+                    IDT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../LINKS.html">
+            
+                <a href="../LINKS.html">
+            
+                    
+                    Useful links
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../contributors.html">
+            
+                <a href="../contributors.html">
+            
+                    
+                    Contributors
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Introduction to Control Groups</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="control-groups">Control Groups</h1>
+<h2 id="&#x306F;&#x3058;&#x3081;&#x306B;">&#x306F;&#x3058;&#x3081;&#x306B;</h2>
+<p>&#x3053;&#x308C;&#x306F;&#x3001;<a href="http://0xax.gitbooks.io/linux-insides/content/" target="_blank">linux insides</a>&#x306E;&#x65B0;&#x3057;&#x3044;&#x7AE0;&#x306E;&#x6700;&#x521D;&#x306E;&#x30D1;&#x30FC;&#x30C8;&#x3067;&#x3059;&#x3002;
+&#x30D1;&#x30FC;&#x30C8;&#x306E;&#x540D;&#x524D;&#x304B;&#x3089;&#x3042;&#x306A;&#x305F;&#x304C;&#x4E88;&#x60F3;&#x3057;&#x305F;&#x3068;&#x304A;&#x308A;&#x3001;&#x3053;&#x306E;&#x30D1;&#x30FC;&#x30C8;&#x3067;&#x306F;Linux&#x30AB;&#x30FC;&#x30CD;&#x30EB;&#x5185;&#x3067;&#x306E; <a href="https://en.wikipedia.org/wiki/Cgroups" target="_blank">control groups</a> &#x3084; <code>cgroups</code>&#x306E;&#x4ED5;&#x7D44;&#x307F;&#x3092;&#x6271;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p><code>Cgroups</code> &#x306F;Linux&#x30AB;&#x30FC;&#x30CD;&#x30EB;&#x304C;&#x63D0;&#x4F9B;&#x3059;&#x308B;&#x7279;&#x5225;&#x306A;&#x4ED5;&#x7D44;&#x307F;&#x3067;&#x3042;&#x308A;&#x3001;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x3084;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x306E;&#x96C6;&#x5408;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x3001;Processor Time&#x3001;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x3042;&#x305F;&#x308A;&#x306E;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x6570;&#x3001;&#x30B3;&#x30F3;&#x30C8;&#x30ED;&#x30FC;&#x30EB;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x3042;&#x305F;&#x308A;&#x306E;&#x30E1;&#x30E2;&#x30EA;&#x91CF;&#x3001;&#x307E;&#x305F;&#x306F;&#x305D;&#x306E;&#x3088;&#x3046;&#x306A;&#x30EA;&#x30BD;&#x30FC;&#x30B9;&#x306E;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x306A;&#x3069;&#x306B;&#x5BFE;&#x3057;&#x3066; <code>&#x30EA;&#x30BD;&#x30FC;&#x30B9;</code> &#x306E;&#x7A2E;&#x985E;&#x3092;&#x5272;&#x308A;&#x5F53;&#x3066;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002; 
+<code>Cgroups</code>&#x306F;&#x968E;&#x5C64;&#x7684;&#x306B;&#x69CB;&#x6210;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x4ED5;&#x7D44;&#x307F;&#x306F;&#x901A;&#x5E38;&#x306E;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x3068;&#x4F3C;&#x3066;&#x3044;&#x3066;&#x3001;&#x968E;&#x5C64;&#x7684;&#x3067;&#x3042;&#x308B;&#x305F;&#x3081;&#x3001;&#x5B50;&#x306E;<code>cgroups</code>&#x306F;&#x89AA;&#x304B;&#x3089;&#x7279;&#x5B9A;&#x306E;&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;&#x306E;&#x96C6;&#x5408;&#x3092;&#x7D99;&#x627F;&#x3057;&#x307E;&#x3059;&#x3002;
+&#x3057;&#x304B;&#x3057;&#x3001;&#x5B9F;&#x969B;&#x306B;&#x306F;&#x540C;&#x3058;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;<code>cgroups</code> &#x3068;&#x901A;&#x5E38;&#x306E;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x306E;&#x4E3B;&#x306A;&#x9055;&#x3044;&#x306F;&#x3001;&#x901A;&#x5E38;&#x306E;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x30C4;&#x30EA;&#x30FC;&#x306F;&#x5E38;&#x306B;&#x5358;&#x4E00;&#x3067;&#x3042;&#x308B;&#x304C;&#x30B3;&#x30F3;&#x30C8;&#x30ED;&#x30FC;&#x30EB;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x3067;&#x306F;&#x591A;&#x304F;&#x306E;&#x7570;&#x306A;&#x308B;&#x968E;&#x5C64;&#x304C;&#x540C;&#x6642;&#x306B;&#x5B58;&#x5728;&#x3059;&#x308B;&#x53EF;&#x80FD;&#x6027;&#x304C;&#x3042;&#x308B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002; 
+&#x30B3;&#x30F3;&#x30C8;&#x30ED;&#x30FC;&#x30EB;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306E;&#x968E;&#x5C64;&#x304C;&#x305D;&#x308C;&#x305E;&#x308C; <code>&#x30B5;&#x30D6;&#x30B7;&#x30B9;&#x30C6;&#x30E0;</code> &#x306E;&#x30B3;&#x30F3;&#x30C8;&#x30ED;&#x30FC;&#x30EB;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306B;&#x95A2;&#x9023;&#x4ED8;&#x3051;&#x3089;&#x308C;&#x3066;&#x3044;&#x308B;&#x305F;&#x3081;&#x3001;&#x5358;&#x7D14;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;</p>
+<p>&#x3042;&#x308B; <code>control group subsystem</code> &#x306F;Processor Time&#x3001;&#x307E;&#x305F;&#x306F; <a href="https://en.wikipedia.org/wiki/Process_identifier" target="_blank">pids</a> &#x306E;&#x6570;&#x3084;&#x3001;&#x8A00;&#x3044;&#x63DB;&#x3048;&#x308B;&#x306A;&#x3089;&#x3001;<code>control group</code> &#x306E;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x6570;&#x3092;&#x8868;&#x3057;&#x307E;&#x3059;&#x3002;
+Linux &#x30AB;&#x30FC;&#x30CD;&#x30EB;&#x306F;&#x4EE5;&#x4E0B;&#x306E;12&#x306E; <code>control group subsystems</code> &#x306E;&#x30B5;&#x30DD;&#x30FC;&#x30C8;&#x3092;&#x63D0;&#x4F9B;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;:</p>
+<ul>
+<li><code>cpuset</code> - &#x500B;&#x3005;&#x306E;&#x30D7;&#x30ED;&#x30BB;&#x30C3;&#x30B5;&#xFF08;&#x305F;&#x3061;&#xFF09;&#x3068;&#x30E1;&#x30E2;&#x30EA;&#x30CE;&#x30FC;&#x30C9;&#x3092;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x5185;&#x306E;&#x30BF;&#x30B9;&#x30AF;&#xFF08;&#x305F;&#x3061;&#xFF09;&#x306B;&#x5272;&#x308A;&#x5F53;&#x3066;&#x307E;&#x3059;&#x3002;</li>
+<li><code>cpu</code> - &#x30D7;&#x30ED;&#x30BB;&#x30C3;&#x30B5;&#x306E;&#x8CC7;&#x6E90;&#x3078;cgroup&#x30BF;&#x30B9;&#x30AF;&#x306E;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3092;&#x63D0;&#x4F9B;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x30B9;&#x30B1;&#x30B8;&#x30E5;&#x30FC;&#x30E9;&#x3092;&#x4F7F;&#x7528;&#x3057;&#x307E;&#x3059;&#x3002;</li>
+<li><code>cpuacct</code> - &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306B;&#x3088;&#x308B;&#x30D7;&#x30ED;&#x30BB;&#x30C3;&#x30B5;&#x4F7F;&#x7528;&#x72B6;&#x6CC1;&#x306B;&#x95A2;&#x3059;&#x308B;&#x30EC;&#x30DD;&#x30FC;&#x30C8;&#x3092;&#x751F;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;</li>
+<li><code>io</code> - <a href="https://en.wikipedia.org/wiki/Device_file" target="_blank">block devices</a>&#x304B;&#x3089;&#x306E;&#x8AAD;&#x307F;&#x53D6;&#x308A;/&#x3078;&#x306E;&#x66F8;&#x304D;&#x8FBC;&#x307F;&#x306E;&#x5236;&#x9650;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;</li>
+<li><code>memory</code> - &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x304B;&#x3089;&#x306E;&#x30BF;&#x30B9;&#x30AF;&#xFF08;&#x305F;&#x3061;&#xFF09;&#x306B;&#x3088;&#x308B;&#x30E1;&#x30E2;&#x30EA;&#x4F7F;&#x7528;&#x5236;&#x9650;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;</li>
+<li><code>devices</code> - &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x304B;&#x3089;&#x306E;&#x30BF;&#x30B9;&#x30AF;&#xFF08;&#x305F;&#x3061;&#xFF09;&#x306B;&#x3088;&#x3063;&#x3066;&#x30C7;&#x30D0;&#x30A4;&#x30B9;&#x3078;&#x306E;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3092;&#x8A31;&#x53EF;&#x3057;&#x307E;&#x3059;&#x3002;</li>
+<li><code>freezer</code> - &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x304B;&#x3089;&#x306E;&#x30BF;&#x30B9;&#x30AF;&#xFF08;&#x305F;&#x3061;&#xFF09;&#x306E;&#x4E2D;&#x65AD;/&#x518D;&#x958B;&#x3092;&#x8A31;&#x53EF;&#x3057;&#x307E;&#x3059;&#x3002;</li>
+<li><code>net_cls</code> - &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x304B;&#x3089;&#x306E;&#x30BF;&#x30B9;&#x30AF;&#xFF08;&#x305F;&#x3061;&#xFF09;&#x304B;&#x3089;&#x306E;&#x30CD;&#x30C3;&#x30C8;&#x30EF;&#x30FC;&#x30AF;&#x30D1;&#x30B1;&#x30C3;&#x30C8;&#x3092;&#x30DE;&#x30FC;&#x30AF;&#x3059;&#x308B;&#x3053;&#x3068;&#x3092;&#x8A31;&#x53EF;&#x3057;&#x307E;&#x3059;&#x3002;</li>
+<li><code>net_prio</code> - &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306E;&#x30CD;&#x30C3;&#x30C8;&#x30EF;&#x30FC;&#x30AF;&#x30A4;&#x30F3;&#x30BF;&#x30D5;&#x30A7;&#x30FC;&#x30B9;&#x6BCE;&#x306E;&#x30CD;&#x30C3;&#x30C8;&#x30EF;&#x30FC;&#x30AF;&#x30C8;&#x30E9;&#x30D5;&#x30A3;&#x30C3;&#x30AF;&#x306E;&#x512A;&#x5148;&#x5EA6;&#x3092;&#x52D5;&#x7684;&#x306B;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x65B9;&#x6CD5;&#x3092;&#x63D0;&#x4F9B;&#x3057;&#x307E;&#x3059;&#x3002;</li>
+<li><code>perf_event</code> - &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306B;<a href="https://en.wikipedia.org/wiki/Perf_(Linux" target="_blank">perf events</a>)&#x3078;&#x306E;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3092;&#x63D0;&#x4F9B;&#x3057;&#x307E;&#x3059;&#x3002;</li>
+<li><code>hugetlb</code> - &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306E;<a href="https://www.kernel.org/doc/Documentation/vm/hugetlbpage.txt" target="_blank">huge pages</a>&#x3092;&#x30B5;&#x30DD;&#x30FC;&#x30C8;&#x3092;&#x6709;&#x52B9;&#x306B;&#x3057;&#x307E;&#x3059;&#x3002;</li>
+<li><code>pid</code> - &#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x5185;&#x306E;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x6570;&#x306B;&#x5236;&#x9650;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;</li>
+</ul>
+<p>&#x30B3;&#x30F3;&#x30C8;&#x30ED;&#x30FC;&#x30EB;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306E;&#x30B5;&#x30D6;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306F;&#x95A2;&#x9023;&#x3059;&#x308B;&#x8A2D;&#x5B9A;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x306B;&#x4F9D;&#x5B58;&#x3057;&#x307E;&#x3059;&#x3002; 
+&#x4F8B;&#x3048;&#x3070;&#x3001; <code>cpuset</code> &#x30B5;&#x30D6;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306F;&#x30AB;&#x30FC;&#x30CD;&#x30EB;&#x8A2D;&#x5B9A;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x306E;<code>CONFIG_CPUSETS</code>&#x3001;
+<code>io</code>&#x30B5;&#x30D6;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306F;&#x30AB;&#x30FC;&#x30CD;&#x30EB;&#x8A2D;&#x5B9A;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x306E; <code>CONFIG_BLK_CGROUP</code> &#x3092;&#x4ECB;&#x3057;&#x3066;&#x6709;&#x52B9;&#x306B;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;
+&#x3059;&#x3079;&#x3066;&#x306E;&#x30AB;&#x30FC;&#x30CD;&#x30EB;&#x306E;&#x8A2D;&#x5B9A;&#x306E;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x306F;<code>General setup &#x2192; Control Group support</code>&#x3067;&#x898B;&#x3064;&#x304B;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;:</p>
+<p><img src="http://oi66.tinypic.com/2rc2a9e.jpg" alt="menuconfig"></p>
+<p>&#x3042;&#x306A;&#x305F;&#x306E;&#x30B3;&#x30F3;&#x30D4;&#x30E5;&#x30FC;&#x30BF;&#x3067;&#x6709;&#x52B9;&#x306A;&#x30B3;&#x30F3;&#x30C8;&#x30ED;&#x30FC;&#x30EB;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x3092;<a href="https://en.wikipedia.org/wiki/Procfs" target="_blank">proc</a>&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x3067;&#x898B;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;:</p>
+<pre><code>$ cat /proc/cgroups 
+#subsys_name    hierarchy    num_cgroups    enabled
+cpuset    8    1    1
+cpu    7    66    1
+cpuacct    7    66    1
+blkio    11    66    1
+memory    9    94    1
+devices    6    66    1
+freezer    2    1    1
+net_cls    4    1    1
+perf_event    3    1    1
+net_prio    4    1    1
+hugetlb    10    1    1
+pids    5    69    1
+</code></pre><p>&#x307E;&#x305F;&#x306F;&#x3001;<a href="https://en.wikipedia.org/wiki/Sysfs" target="_blank">sysfs</a>&#x3067;&#x898B;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;:</p>
+<pre><code>$ ls -l /sys/fs/cgroup/
+total 0
+dr-xr-xr-x 5 root root  0 Dec  2 22:37 blkio
+lrwxrwxrwx 1 root root 11 Dec  2 22:37 cpu -&gt; cpu,cpuacct
+lrwxrwxrwx 1 root root 11 Dec  2 22:37 cpuacct -&gt; cpu,cpuacct
+dr-xr-xr-x 5 root root  0 Dec  2 22:37 cpu,cpuacct
+dr-xr-xr-x 2 root root  0 Dec  2 22:37 cpuset
+dr-xr-xr-x 5 root root  0 Dec  2 22:37 devices
+dr-xr-xr-x 2 root root  0 Dec  2 22:37 freezer
+dr-xr-xr-x 2 root root  0 Dec  2 22:37 hugetlb
+dr-xr-xr-x 5 root root  0 Dec  2 22:37 memory
+lrwxrwxrwx 1 root root 16 Dec  2 22:37 net_cls -&gt; net_cls,net_prio
+dr-xr-xr-x 2 root root  0 Dec  2 22:37 net_cls,net_prio
+lrwxrwxrwx 1 root root 16 Dec  2 22:37 net_prio -&gt; net_cls,net_prio
+dr-xr-xr-x 2 root root  0 Dec  2 22:37 perf_event
+dr-xr-xr-x 5 root root  0 Dec  2 22:37 pids
+dr-xr-xr-x 5 root root  0 Dec  2 22:37 systemd
+</code></pre><p>&#x3042;&#x306A;&#x305F;&#x306F;&#x3059;&#x3067;&#x306B; <code>control groups</code> &#x306E;&#x30E1;&#x30AB;&#x30CB;&#x30BA;&#x30E0;&#x306F;&#x3001;Linux&#x30AB;&#x30FC;&#x30CD;&#x30EB;&#x306E;&#x30CB;&#x30FC;&#x30BA;&#x306B;&#x76F4;&#x63A5;&#x7684;&#x306B;&#x958B;&#x767A;&#x3055;&#x308C;&#x305F;&#x4ED5;&#x7D44;&#x307F;&#x3067;&#x306A;&#x304F;&#x3001;
+&#x4E3B;&#x306B;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x7A7A;&#x9593;&#x306E;&#x30CB;&#x30FC;&#x30BA;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x958B;&#x767A;&#x3055;&#x308C;&#x305F;&#x3082;&#x306E;&#x3060;&#x3068;&#x52D8;&#x3065;&#x3044;&#x3066;&#x3044;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;
+<code>control groups</code>&#x3092;&#x4F7F;&#x3046;&#x306B;&#x306F;&#x3001;&#x307E;&#x305A;&#x6700;&#x521D;&#x306B; <code>control groups</code> &#x3092;&#x4F5C;&#x6210;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x79C1;&#x305F;&#x3061;&#x306F;&#x4E8C;&#x3064;&#x306E;&#x65B9;&#x6CD5;&#x3067; <code>cgroup</code>&#x3092;&#x4F5C;&#x6210;&#x3059;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<p>1&#x3064;&#x76EE;&#x306E;&#x65B9;&#x6CD5;&#x306F;&#x3001;<code>sys/fs/cgroup</code> &#x304B;&#x3089;&#x30B5;&#x30D6;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x3001;&#x305D;&#x306E;&#x4F5C;&#x6210;&#x76F4;&#x5F8C;&#x306B;&#x81EA;&#x52D5;&#x7684;&#x306B;&#x4F5C;&#x6210;&#x3055;&#x308C;&#x308B; <code>tasks</code>&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306B;&#x30BF;&#x30B9;&#x30AF;&#x306E;pid&#x3092;&#x8FFD;&#x52A0;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;</p>
+<p>2&#x3064;&#x76EE;&#x306E;&#x65B9;&#x6CD5;&#x306F; <code>libcgroup</code>&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#xFF08;Fedora&#x306E;<code>libcgroup-tools</code>&#xFF09;&#x306E;util&#x3092;&#x4F7F;&#x3063;&#x3066; <code>cgroups</code>&#x3092;&#x4F5C;&#x6210;/&#x7834;&#x58CA;/&#x7BA1;&#x7406;&#x3059;&#x308B;&#x65B9;&#x6CD5;&#x3067;&#x3059;&#x3002;</p>
+<p>&#x30B7;&#x30F3;&#x30D7;&#x30EB;&#x306A;&#x4F8B;&#x3092;&#x8003;&#x3048;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002; &#x4EE5;&#x4E0B;&#x306E;<a href="https://www.gnu.org/software/bash/" target="_blank">bash</a>&#x30B9;&#x30AF;&#x30EA;&#x30D7;&#x30C8;&#x306F;&#x3001;&#x73FE;&#x5728;&#x306E;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x306E;&#x5236;&#x5FA1;&#x7AEF;&#x672B;&#x3092;&#x8868;&#x3059; <code>/dev/tty</code>&#x30C7;&#x30D0;&#x30A4;&#x30B9;&#x306B;&#x51FA;&#x529B;&#x3057;&#x307E;&#x3059;&#xFF1A;</p>
+<pre><code class="lang-shell">#!/bin/bash
+
+while :
+do
+    echo &quot;print line&quot; &gt; /dev/tty
+    sleep 5
+done
+</code></pre>
+<p>&#x3053;&#x306E;&#x30B9;&#x30AF;&#x30EA;&#x30D7;&#x30C8;&#x3092;&#x8D70;&#x3089;&#x305B;&#x3001;&#x7D50;&#x679C;&#x3092;&#x898B;&#x307E;&#x3057;&#x3087;&#x3046;:</p>
+<pre><code>$ sudo chmod +x cgroup_test_script.sh
+~$ ./cgroup_test_script.sh 
+print line
+print line
+print line
+...
+...
+...
+</code></pre><p><code>cgroupfs</code>&#x304C;&#x30DE;&#x30A6;&#x30F3;&#x30C8;&#x3055;&#x308C;&#x308B;&#x5834;&#x6240;&#x3092;&#x898B;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002; 
+&#x898B;&#x305F;&#x3068;&#x304A;&#x308A;&#x3001;&#x3053;&#x308C;&#x306F; <code>/sys/fs/cgroup</code> &#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x3067;&#x3059;&#x304C;&#x3001;&#x3042;&#x306A;&#x305F;&#x304C;&#x30DE;&#x30A6;&#x30F3;&#x30C8;&#x3057;&#x305F;&#x3044;&#x5834;&#x6240;&#x306B;&#x30DE;&#x30A6;&#x30F3;&#x30C8;&#x51FA;&#x6765;&#x307E;&#x3059;&#x3002;</p>
+<pre><code>$ cd /sys/fs/cgroup
+</code></pre><p><code>cgroup</code>&#x306E;&#x30BF;&#x30B9;&#x30AF;&#x306B;&#x3088;&#x3063;&#x3066;&#x30C7;&#x30D0;&#x30A4;&#x30B9;&#x3078;&#x306E;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3092;&#x8A31;&#x53EF;/&#x62D2;&#x5426;&#x3059;&#x308B;&#x30EA;&#x30BD;&#x30FC;&#x30B9;&#x306E;&#x7A2E;&#x985E;&#x3092;&#x8868;&#x3059; <code>devices</code>&#x30B5;&#x30D6;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x306B;&#x884C;&#x304D;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;:</p>
+<pre><code># cd /devices
+</code></pre><p><code>cgroup_test_group</code>&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x3092;&#x4F5C;&#x308A;&#x307E;&#x3059;:</p>
+<pre><code># mkdir cgroup_test_group
+</code></pre><p><code>cgroup_test_group</code>&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x306E;&#x4F5C;&#x6210;&#x76F4;&#x5F8C;&#x306B;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x304C;&#x751F;&#x6210;&#x3055;&#x308C;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;:</p>
+<pre><code>/sys/fs/cgroup/devices/cgroup_test_group$ ls -l
+total 0
+-rw-r--r-- 1 root root 0 Dec  3 22:55 cgroup.clone_children
+-rw-r--r-- 1 root root 0 Dec  3 22:55 cgroup.procs
+--w------- 1 root root 0 Dec  3 22:55 devices.allow
+--w------- 1 root root 0 Dec  3 22:55 devices.deny
+-r--r--r-- 1 root root 0 Dec  3 22:55 devices.list
+-rw-r--r-- 1 root root 0 Dec  3 22:55 notify_on_release
+-rw-r--r-- 1 root root 0 Dec  3 22:55 tasks
+</code></pre><p>&#x3053;&#x306E;&#x77AC;&#x9593;&#x3001;<code>tasks</code>&#x3068;<code>devices.deny</code>&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306B;&#x8208;&#x5473;&#x304C;&#x6E67;&#x304D;&#x307E;&#x3059;&#x3002;
+&#x6700;&#x521D;&#x306E; <code>tasks</code>&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306B;&#x306F;&#x3001;<code>cgroup_test_group</code>&#x306B;&#x4ED8;&#x52A0;&#x3055;&#x308C;&#x308B;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x306E;pid(s)&#x304C;&#x542B;&#x307E;&#x308C;&#x3066;&#x3044;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;
+2&#x756A;&#x76EE;&#x306E; <code>devices.deny</code>&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306B;&#x306F;&#x3001;&#x62D2;&#x5426;&#x3055;&#x308C;&#x305F;&#x30C7;&#x30D0;&#x30A4;&#x30B9;&#x306E;&#x30EA;&#x30B9;&#x30C8;&#x304C;&#x542B;&#x307E;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;
+&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x3067;&#x306F;&#x3001;&#x65B0;&#x3057;&#x304F;&#x4F5C;&#x6210;&#x3055;&#x308C;&#x305F;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306B;&#x306F;&#x30C7;&#x30D0;&#x30A4;&#x30B9;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x306E;&#x5236;&#x9650;&#x304C;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;
+&#x30C7;&#x30D0;&#x30A4;&#x30B9;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3092;&#x7981;&#x6B62;&#x3059;&#x308B;&#x306B;&#x306F;&#xFF08;&#x3053;&#x306E;&#x5834;&#x5408;&#x306F; <code>/dev/tty</code>&#xFF09;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x884C;&#x306B;<code>devices.deny</code>&#x3092;&#x66F8;&#x304D;&#x3053;&#x307F;&#x307E;&#x3059;:</p>
+<pre><code># echo &quot;c 5:0 w&quot; &gt; devices.deny
+</code></pre><p>&#x3053;&#x306E;&#x884C;&#x3092;1&#x884C;1&#x884C;&#x898B;&#x3066;&#x3044;&#x304D;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;&#x6700;&#x521D;&#x306E;<code>c</code>&#x306F;&#x30C7;&#x30D0;&#x30A4;&#x30B9;&#x306E;&#x7A2E;&#x985E;&#x3092;&#x8868;&#x3057;&#x307E;&#x3059;&#x3002;
+&#x3053;&#x306E;&#x30B1;&#x30FC;&#x30B9;&#x3067;&#x306F;&#x3001;<code>/dev/tty</code>&#x306F;<code>char device</code>&#x3067;&#x3059;&#x3002;<code>ls</code>&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306E;&#x51FA;&#x529B;&#x304B;&#x3089;&#x3053;&#x308C;&#x3092;&#x78BA;&#x8A8D;&#x3067;&#x304D;&#x307E;&#x3059;:</p>
+<pre><code>~$ ls -l /dev/tty
+crw-rw-rw- 1 root tty 5, 0 Dec  3 22:48 /dev/tty
+</code></pre><p>&#x30D1;&#x30FC;&#x30DF;&#x30C3;&#x30B7;&#x30E7;&#x30F3;&#x30EA;&#x30B9;&#x30C8;&#x306E;&#x6700;&#x521D;&#x306E;<code>c</code>&#x3092;&#x898B;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;
+2&#x756A;&#x76EE;&#x306E;&#x90E8;&#x5206;&#x306F;<code>5:0</code>&#x3067;&#x3001;&#x3053;&#x308C;&#x306F;&#x30C7;&#x30D0;&#x30A4;&#x30B9;&#x306E;&#x30DE;&#x30A4;&#x30CA;&#x30FC;&#x756A;&#x53F7;&#x3068;&#x30E1;&#x30B8;&#x30E3;&#x30FC;&#x756A;&#x53F7;&#x3067;&#x3059;&#x3002;
+&#x3053;&#x308C;&#x3089;&#x306E;&#x6570;&#x5B57;&#x306F;<code>ls</code>&#x306E;&#x51FA;&#x529B;&#x3067;&#x3082;&#x898B;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;
+&#x6700;&#x5F8C;&#x306E;<code>w</code>&#x306F;&#x6307;&#x5B9A;&#x3055;&#x308C;&#x305F;&#x30C7;&#x30D0;&#x30A4;&#x30B9;&#x306B;&#x66F8;&#x304D;&#x8FBC;&#x3080;&#x4F5C;&#x696D;&#x3092;&#x7981;&#x3058;&#x307E;&#x3059;&#x3002;
+&#x305D;&#x308C;&#x3067;&#x306F;&#x3001;cgroup_test_script.sh&#x30B9;&#x30AF;&#x30EA;&#x30D7;&#x30C8;&#x3092;&#x958B;&#x59CB;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;:</p>
+<pre><code>~$ ./cgroup_test_script.sh 
+print line
+print line
+print line
+...
+...
+</code></pre><p>&#x305D;&#x3057;&#x3066;&#x3053;&#x306E;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x306E;pid&#x3092;&#x79C1;&#x305F;&#x3061;&#x306E;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306E;<code>devices/tasks</code>&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306B;&#x4ED8;&#x3051;&#x8DB3;&#x3057;&#x307E;&#x3059;:</p>
+<pre><code># echo $(pidof -x cgroup_test_script.sh) &gt; /sys/fs/cgroup/devices/cgroup_test_group/tasks
+</code></pre><p>&#x7D50;&#x679C;&#x306F;&#x4E88;&#x60F3;&#x3069;&#x304A;&#x308A;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;:</p>
+<pre><code>~$ ./cgroup_test_script.sh 
+print line
+print line
+print line
+print line
+print line
+print line
+./cgroup_test_script.sh: line 5: /dev/tty: Operation not permitted
+</code></pre><p>&#x540C;&#x69D8;&#x306E;&#x72B6;&#x6CC1;&#x3068;&#x3057;&#x3066;<a href="https://en.wikipedia.org/wiki/Docker_(software" target="_blank">docker</a>)&#x30B3;&#x30F3;&#x30C6;&#x30CA;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3068;&#x304D;&#x3092;&#x4F8B;&#x306B;&#x6319;&#x3052;&#x3089;&#x308C;&#x307E;&#x3059;:</p>
+<pre><code>~$ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
+fa2d2085cd1c        mariadb:10          &quot;docker-entrypoint...&quot;   12 days ago         Up 4 minutes        0.0.0.0:3306-&gt;3306/tcp   mysql-work
+
+~$ cat /sys/fs/cgroup/devices/docker/fa2d2085cd1c8d797002c77387d2061f56fefb470892f140d0dc511bd4d9bb61/tasks | head -3
+5501
+5584
+5585
+...
+...
+...
+</code></pre><p><code>docker</code> &#x30B3;&#x30F3;&#x30C6;&#x30CA;&#x306E;&#x8D77;&#x52D5;&#x6642;&#x306B;&#x3001;<code>docker</code>&#x306F;&#x30B3;&#x30F3;&#x30C6;&#x30CA;&#x5185;&#x306E;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x306E;&#x305F;&#x3081;&#x306B;<code>cgroup</code>&#x3092;&#x4F5C;&#x6210;&#x3057;&#x307E;&#x3059;:</p>
+<pre><code>$ docker exec -it mysql-work /bin/bash
+$ top
+ PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND                                                                                   1 mysql     20   0  963996 101268  15744 S   0.0  0.6   0:00.46 mysqld                                                                                  71 root      20   0   20248   3028   2732 S   0.0  0.0   0:00.01 bash                                                                                    77 root      20   0   21948   2424   2056 R   0.0  0.0   0:00.00 top
+</code></pre><p>&#x30DB;&#x30B9;&#x30C8;&#x30DE;&#x30B7;&#x30F3;&#x306E;<code>cgroup</code>&#x3092;&#x898B;&#x3089;&#x308C;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;:</p>
+<pre><code class="lang-C">$ systemd-cgls
+
+Control group /:
+-.slice
+&#x251C;&#x2500;docker
+&#x2502; &#x2514;&#x2500;fa2d2085cd1c8d797002c77387d2061f56fefb470892f140d0dc511bd4d9bb61
+&#x2502;   &#x251C;&#x2500;<span class="hljs-number">5501</span> mysqld
+&#x2502;   &#x2514;&#x2500;<span class="hljs-number">6404</span> /bin/bash
+</code></pre>
+<p>&#x3053;&#x308C;&#x3067;&#x3001;&#x308F;&#x308C;&#x308F;&#x308C;&#x306F;&#x3001;<code>control group</code>&#x306E;&#x4ED5;&#x7D44;&#x307F;&#x3001;&#x624B;&#x52D5;&#x3067;&#x306E;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x3001;&#x3053;&#x306E;&#x4ED5;&#x7D44;&#x307F;&#x306E;&#x76EE;&#x7684;&#x306B;&#x3064;&#x3044;&#x3066;&#x5C11;&#x3057;&#x5206;&#x304B;&#x308A;&#x307E;&#x3057;&#x305F;&#x3002;
+Linux&#x30AB;&#x30FC;&#x30CD;&#x30EB;&#x306E;&#x30BD;&#x30FC;&#x30B9;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x898B;&#x3066;&#x3001;&#x3053;&#x306E;&#x4ED5;&#x7D44;&#x307F;&#x306E;&#x5B9F;&#x88C5;&#x3092;&#x6DF1;&#x304F;&#x898B;&#x3066;&#x3044;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="&#x30B3;&#x30F3;&#x30C8;&#x30ED;&#x30FC;&#x30EB;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306E;&#x65E9;&#x671F;&#x306E;&#x521D;&#x671F;&#x5316;">&#x30B3;&#x30F3;&#x30C8;&#x30ED;&#x30FC;&#x30EB;&#x30B0;&#x30EB;&#x30FC;&#x30D7;&#x306E;&#x65E9;&#x671F;&#x306E;&#x521D;&#x671F;&#x5316;</h2>
+<p><code>control groups</code>&#x306E;Linux&#x30AB;&#x30FC;&#x30CD;&#x30EB;&#x306E;&#x4ED5;&#x7D44;&#x307F;&#x306B;&#x95A2;&#x3059;&#x308B;&#x5C11;&#x3057;&#x306E;&#x7406;&#x8AD6;&#x3092;&#x898B;&#x305F;&#x3060;&#x3051;&#x3067;&#x3001;Linux&#x30AB;&#x30FC;&#x30CD;&#x30EB;&#x306E;&#x30BD;&#x30FC;&#x30B9;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x77E5;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;
+&#x3044;&#x3064;&#x3082;&#x306E;&#x3088;&#x3046;&#x306B;&#x3001;&#x79C1;&#x305F;&#x3061;&#x306F; <code>control groups</code>&#x306E;&#x521D;&#x671F;&#x5316;&#x304B;&#x3089;&#x59CB;&#x3081;&#x307E;&#x3059;&#x3002;
+<code>cgroups</code>&#x306E;&#x521D;&#x671F;&#x5316;&#x306F;&#x3001;Linux&#x30AB;&#x30FC;&#x30CD;&#x30EB;&#x306E;&#x300C;&#x65E9;&#x671F;&#x300D;&#x3068;&#x300C;&#x672B;&#x671F;&#x300D;&#x306E;2&#x3064;&#x306E;&#x90E8;&#x5206;&#x306B;&#x5206;&#x304B;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002; &#x3053;&#x306E;&#x90E8;&#x5206;&#x3067;&#x306F;&#x3001;&#x300C;&#x65E9;&#x671F;&#x300D;&#x3068;&#x300C;&#x672B;&#x671F;&#x300D;&#x306E;&#x90E8;&#x5206;&#x306E;&#x307F;&#x304C;&#x6B21;&#x306E;&#x7AE0;&#x3067;&#x8003;&#x616E;&#x3055;&#x308C;&#x308B;&#x3068;&#x8003;&#x3048;&#x307E;&#x3059;&#x3002;</p>
+<p><code>cgroups</code>&#x306E;&#x65E9;&#x671F;&#x306E;&#x521D;&#x671F;&#x5316;&#x306F;&#x6B21;&#x306E;&#x95A2;&#x6570;&#x3092;&#x547C;&#x3076;&#x3053;&#x3068;&#x304B;&#x3089;&#x59CB;&#x307E;&#x308A;&#x307E;&#x3059;:</p>
+<pre><code class="lang-C">cgroup_init_early();
+</code></pre>
+<p>Linux&#x30AB;&#x30FC;&#x30CD;&#x30EB;&#x306E;&#x65E9;&#x671F;&#x306E;&#x521D;&#x671F;&#x5316;&#x306E;&#x9593;&#x306B;<a href="https://github.com/torvalds/linux/blob/master/init/main.c" target="_blank">init/main.c</a>&#x306E;&#x4E2D;&#x306E;&#x95A2;&#x6570;&#x3092;&#x5B9F;&#x884C;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;
+&#x3053;&#x306E;&#x95A2;&#x6570;&#x306F;&#x3001;<a href="https://github.com/torvalds/linux/blob/master/kernel/cgroup.c" target="_blank">kernel/cgroup.c</a>&#x306E;&#x30BD;&#x30FC;&#x30B9;&#x5185;&#x3067;&#x5B9A;&#x7FA9;&#x3055;&#x308C;&#x3001;&#x6B21;&#x306E;2&#x3064;&#x306E;&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x5909;&#x6570;&#x306E;&#x5B9A;&#x7FA9;&#x304B;&#x3089;&#x59CB;&#x307E;&#x308A;&#x307E;&#x3059;:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">int</span> __<span class="hljs-function">init <span class="hljs-title">cgroup_init_early</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+</span>{
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">struct</span> cgroup_sb_opts __initdata opts;
+    <span class="hljs-keyword">struct</span> cgroup_subsys *ss;
+    ...
+    ...
+    ...
+}
+</code></pre>
+<p><code>cgroup_sb_opts</code>&#x69CB;&#x9020;&#x4F53;&#x306F;&#x540C;&#x3058;&#x30BD;&#x30FC;&#x30B9;&#x5185;&#x3067;&#x5B9A;&#x7FA9;&#x3055;&#x308C;&#x3066;&#x3044;&#x3066;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x898B;&#x3048;&#x307E;&#x3059;:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">struct</span> cgroup_sb_opts {
+    u16 subsys_mask;
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> flags;
+    <span class="hljs-keyword">char</span> *release_agent;
+    <span class="hljs-keyword">bool</span> cpuset_clone_children;
+    <span class="hljs-keyword">char</span> *name;
+    <span class="hljs-keyword">bool</span> none;
+};
+</code></pre>
+<p>&#x3053;&#x308C;&#x306F; <code>cgroupfs</code> &#x306E;&#x30DE;&#x30A6;&#x30F3;&#x30C8;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x8868;&#x3057;&#x307E;&#x3059;&#x3002;
+&#x4F8B;&#x3048;&#x3070;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306F;<code>name =</code>&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x6301;&#x3061;&#x3001;&#x30B5;&#x30D6;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x3092;&#x6301;&#x305F;&#x306A;&#x3044;&#x3001;&#x540D;&#x4ED8;&#x3051;&#x3089;&#x308C;&#x305F; cgroup&#x306E;&#x968E;&#x5C64;&#xFF08;&#x540D;&#x524D;&#x306F; <code>my_cgrp</code>&#xFF09;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x307E;&#x3059;:</p>
+<pre><code>$ mount -t cgroup -oname=my_cgrp,none /mnt/cgroups
+</code></pre><p>2&#x756A;&#x76EE;&#x306E;&#x5909;&#x6570; <code>ss</code>&#x306F;&#x3001;<a href="https://github.com/torvalds/linux/blob/master/include/linuxblob/master/include/linux/cgroup-defs.h" target="_blank">include/linux/cgroup-defs.h</a>&#x3067;&#x5B9A;&#x7FA9;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x30BF;&#x30A4;&#x30D7;&#x306E; <code>cgroup_subsys</code>&#x69CB;&#x9020;&#x4F53;&#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002; &#x30D8;&#x30C3;&#x30C0;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x53C2;&#x7167;&#x3057;&#x3001;&#x30BF;&#x30A4;&#x30D7;&#x306E;&#x540D;&#x524D;&#x304B;&#x3089;&#x63A8;&#x6E2C;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x3001; <code>cgroup</code>&#x30B5;&#x30D6;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x3092;&#x8868;&#x3057;&#x307E;&#x3059;&#x3002; &#x3053;&#x306E;&#x69CB;&#x9020;&#x4F53;&#x306B;&#x306F;&#x3001;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306A;&#x3055;&#x307E;&#x3056;&#x307E;&#x306A;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x3068;&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x95A2;&#x6570;&#x304C;&#x542B;&#x307E;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">struct</span> cgroup_subsys {
+    <span class="hljs-keyword">int</span> (*css_online)(<span class="hljs-keyword">struct</span> cgroup_subsys_state *css);
+    <span class="hljs-keyword">void</span> (*css_offline)(<span class="hljs-keyword">struct</span> cgroup_subsys_state *css);
+    ...
+    ...
+    ...
+    <span class="hljs-keyword">bool</span> early_init:<span class="hljs-number">1</span>;
+    <span class="hljs-keyword">int</span> id;
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *name;
+    <span class="hljs-keyword">struct</span> cgroup_root *root;
+    ...
+    ...
+    ...
+}
+</code></pre>
+<p><code>ccs_online</code>&#x3068;<code>ccs_offline</code>&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x304C;&#x547C;&#x3073;&#x51FA;&#x3055;&#x308C;&#x308B;&#x3068;&#x3001;cgroup&#x304C;&#x6B63;&#x5E38;&#x306B;&#x7D42;&#x4E86;&#x3057;&#x305F;&#x5F8C;&#x3001;&#x3059;&#x3079;&#x3066;&#x306E;&#x5272;&#x308A;&#x5F53;&#x3066;&#x304C;&#x5B8C;&#x4E86;&#x3057;&#x3001;cgroup&#x306F;&#x89E3;&#x653E;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;
+<code>early_init</code>&#x30D5;&#x30E9;&#x30B0;&#x306F;&#x3001;&#x65E9;&#x671F;&#x306B;&#x521D;&#x671F;&#x5316;&#x3055;&#x308C;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x306A;&#x3044;/&#x521D;&#x671F;&#x5316;&#x3055;&#x308C;&#x308B;&#x3079;&#x304D;&#x30B5;&#x30D6;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x3092;&#x793A;&#x3059;&#x3002;
+<code>id</code>&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x3068;<code>name</code>&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x306F;&#x3001;&#x305D;&#x308C;&#x305E;&#x308C;cgroup&#x306E;&#x767B;&#x9332;&#x3055;&#x308C;&#x305F;&#x30B5;&#x30D6;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306E;&#x914D;&#x5217;&#x5185;&#x306E;&#x30E6;&#x30CB;&#x30FC;&#x30AF;&#x306A;&#x8B58;&#x5225;&#x5B50;&#x3068;&#x30B5;&#x30D6;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306E;<code>name</code>&#x3092;&#x8868;&#x3057;&#x307E;&#x3059;&#x3002; &#x6700;&#x5F8C;&#x306E; - <code>root</code>&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x306F;&#x3001;cgroup&#x306E;&#x968E;&#x5C64;&#x306E;&#x30EB;&#x30FC;&#x30C8;&#x3078;&#x306E;&#x30DD;&#x30A4;&#x30F3;&#x30BF;&#x3092;&#x8868;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x3082;&#x3061;&#x308D;&#x3093; <code>cgroup_subsys</code>&#x69CB;&#x9020;&#x4F53;&#x306F;&#x5927;&#x304D;&#x304F;&#x3001;&#x4ED6;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x3082;&#x3042;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x4ECA;&#x306F;&#x5341;&#x5206;&#x3067;&#x3059;&#x3002;
+<code>cgroups</code>&#x30E1;&#x30AB;&#x30CB;&#x30BA;&#x30E0;&#x306B;&#x95A2;&#x9023;&#x3059;&#x308B;&#x91CD;&#x8981;&#x306A;&#x69CB;&#x9020;&#x3092;&#x77E5;&#x308C;&#x305F;&#x306E;&#x3067;&#x3001;<code>cgroup_init_early</code>&#x95A2;&#x6570;&#x306B;&#x623B;&#x308A;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;
+&#x3053;&#x306E;&#x95A2;&#x6570;&#x306E;&#x4E3B;&#x306A;&#x76EE;&#x7684;&#x306F;&#x3001;&#x3044;&#x304F;&#x3064;&#x304B;&#x306E;&#x65E9;&#x671F;&#x306B;&#x30B5;&#x30D6;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306E;&#x521D;&#x671F;&#x5316;&#x3092;&#x884C;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002; 
+&#x3042;&#x306A;&#x305F;&#x304C;&#x3059;&#x3067;&#x306B;&#x60F3;&#x50CF;&#x3057;&#x3066;&#x3044;&#x308B;&#x3088;&#x3046;&#x306B;&#x3001;&#x3053;&#x308C;&#x3089;&#x306E;&#x521D;&#x671F;&#x306E;&#x30B5;&#x30D6;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306F; <code>cgroup_subsys -&gt; early_init = 1</code>&#x3092;&#x6301;&#x3064;&#x3079;&#x304D;&#x3067;&#x3059;&#x3002;
+&#x65E9;&#x671F;&#x306B;&#x521D;&#x671F;&#x5316;&#x3055;&#x308C;&#x308B;&#x30B5;&#x30D6;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x3092;&#x898B;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<p>2&#x3064;&#x306E;&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x5909;&#x6570;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x305F;&#x5F8C;&#x306B;&#x3001;&#x6B21;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x884C;&#x3092;&#x898B;&#x308C;&#x307E;&#x3059;:</p>
+<pre><code class="lang-C">init_cgroup_root(&amp;cgrp_dfl_root, &amp;opts);
+cgrp_dfl_root.cgrp.self.flags |= CSS_NO_REF;
+</code></pre>
+<p>&#x3053;&#x3053;&#x3067;&#x306F;&#x3001;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x306E;&#x7D71;&#x4E00;&#x3055;&#x308C;&#x305F;&#x968E;&#x5C64;&#x306E;&#x521D;&#x671F;&#x5316;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B; <code>init_cgroup_root</code>&#x95A2;&#x6570;&#x306E;&#x547C;&#x3073;&#x51FA;&#x3057;&#x3092;&#x898B;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;
+&#x3053;&#x306E;&#x5F8C;&#x3001;&#x3053;&#x306E;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x306E;<code>cgroup</code>&#x306E;&#x72B6;&#x614B;&#x3067; <code>CSS_NO_REF</code>&#x30D5;&#x30E9;&#x30B0;&#x3092;&#x30BB;&#x30C3;&#x30C8;&#x3057;&#x3066;&#x3053;&#x306E;css&#x306E;&#x53C2;&#x7167;&#x30AB;&#x30A6;&#x30F3;&#x30C8;&#x3092;&#x7121;&#x52B9;&#x306B;&#x3057;&#x307E;&#x3059;&#x3002;
+<code>cgrp_dfl_root</code>&#x306F;&#x540C;&#x3058;&#x30BD;&#x30FC;&#x30B9;&#x30B3;&#x30FC;&#x30C9;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3067;&#x5B9A;&#x7FA9;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">struct</span> cgroup_root cgrp_dfl_root;
+</code></pre>
+<p>&#x305D;&#x306E; <code>cgrp</code>&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x306F; <code>cgroup</code>&#x69CB;&#x9020;&#x4F53;&#x306B;&#x3088;&#x3063;&#x3066;&#x3092;&#x8868;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;
+&#x3053;&#x308C;&#x306F;<a href="https://github.com/torvalds/linux/blob/master/include/linux/cgroup-defs.h" target="_blank">include/linux/cgroup-defs.h</a>&#x5185;&#x3067;&#x5B9A;&#x7FA9;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;
+&#x308F;&#x308C;&#x308F;&#x308C;&#x306F;&#x3001;Linux&#x30AB;&#x30FC;&#x30CD;&#x30EB;&#x306E; <code>task_struct</code> &#x3067;&#x8868;&#x3055;&#x308C;&#x308B;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x3092;&#x3059;&#x3067;&#x306B;&#x77E5;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;
+<code>task_struct</code> &#x306F;&#x3053;&#x306E;&#x30BF;&#x30B9;&#x30AF;&#x304C;&#x3064;&#x3044;&#x3066;&#x3044;&#x308B; <code>cgroup</code> &#x3078;&#x306E;&#x76F4;&#x63A5;&#x30EA;&#x30F3;&#x30AF;&#x3092;&#x542B;&#x3093;&#x3067;&#x3044;&#x307E;&#x305B;&#x3093;&#x3002;
+&#x3057;&#x304B;&#x3057;&#x3001;<code>task_struct</code>&#x306E; <code>ccs_set</code>&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x3092;&#x901A;&#x3057;&#x3066;&#x305D;&#x308C;&#x3092;&#x77E5;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;
+&#x3053;&#x306E; <code>ccs_set</code>&#x69CB;&#x9020;&#x4F53;&#x306F;&#x3001;&#x30B5;&#x30D6;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x72B6;&#x614B;&#x306E;&#x914D;&#x5217;&#x3078;&#x306E;&#x30DD;&#x30A4;&#x30F3;&#x30BF;&#x3092;&#x4FDD;&#x6301;&#x3057;&#x307E;&#x3059;:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">struct</span> css_set {
+    ...
+    ...
+    ....
+    <span class="hljs-keyword">struct</span> cgroup_subsys_state *subsys[CGROUP_SUBSYS_COUNT];
+    ...
+    ...
+    ...
+}
+</code></pre>
+<p>&#x305D;&#x3057;&#x3066;&#x3001;<code>cgroup_subsys_state</code> &#x3092;&#x901A;&#x3057;&#x3066;&#x3001;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x306F;&#x30A2;&#x30BF;&#x30C3;&#x30C1;&#x3059;&#x308B; <code>cgroup</code> &#x3092;&#x53D6;&#x5F97;&#x3067;&#x304D;&#x307E;&#x3059;:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">struct</span> cgroup_subsys_state {
+    ...
+    ...
+    ...
+    <span class="hljs-keyword">struct</span> cgroup *cgroup;
+    ...
+    ...
+    ...
+}
+</code></pre>
+<p>&#x4EE5;&#x4E0B;&#x306F;<code>cgroups</code>&#x306B;&#x95A2;&#x9023;&#x3059;&#x308B;&#x69CB;&#x9020;&#x4F53;&#x306E;&#x5168;&#x4F53;&#x50CF;&#x3067;&#x3059;&#x3002;:</p>
+<pre><code>+-------------+         +---------------------+    +-------------&gt;+---------------------+          +----------------+
+| task_struct |         |       css_set       |    |              | cgroup_subsys_state |          |     cgroup     |
++-------------+         |                     |    |              +---------------------+          +----------------+
+|             |         |                     |    |              |                     |          |     flags      |
+|             |         |                     |    |              +---------------------+          |  cgroup.procs  |
+|             |         |                     |    |              |        cgroup       |---------&gt;|       id       |
+|             |         |                     |    |              +---------------------+          |      ....      | 
+|-------------+         |---------------------+----+                                               +----------------+
+|   cgroups   | ------&gt; | cgroup_subsys_state | array of cgroup_subsys_state
+|-------------+         +---------------------+------------------&gt;+---------------------+          +----------------+
+|             |         |                     |                   | cgroup_subsys_state |          |      cgroup    |
++-------------+         +---------------------+                   +---------------------+          +----------------+
+                                                                  |                     |          |      flags     |
+                                                                  +---------------------+          |   cgroup.procs |
+                                                                  |        cgroup       |---------&gt;|        id      |
+                                                                  +---------------------+          |       ....     |
+                                                                  |    cgroup_subsys    |          +----------------+
+                                                                  +---------------------+
+                                                                             |
+                                                                             |
+                                                                             &#x2193;
+                                                                  +---------------------+
+                                                                  |    cgroup_subsys    |
+                                                                  +---------------------+
+                                                                  |         id          |
+                                                                  |        name         |
+                                                                  |      css_online     |
+                                                                  |      css_ofline     |
+                                                                  |        attach       |
+                                                                  |         ....        |
+                                                                  +---------------------+
+</code></pre><p><code>init_cgroup_root</code> &#x306F; <code>cgrp_dfl_root</code> &#x3092;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x5024;&#x3067;&#x57CB;&#x3081;&#x307E;&#x3059;&#x3002;
+&#x6B21;&#x306B;&#x3001;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306E;&#x6700;&#x521D;&#x306E;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x3092;&#x8868;&#x3059; <code>init_task</code> &#x306B;&#x6700;&#x521D;&#x306E; <code>ccs_set</code> &#x3092;&#x5272;&#x308A;&#x5F53;&#x3066;&#x307E;&#x3059;&#x3002;:</p>
+<pre><code class="lang-C">RCU_INIT_POINTER(init_task.cgroups, &amp;init_css_set);
+</code></pre>
+<p>&#x305D;&#x3057;&#x3066;&#x3001;<code>cgroup_init_early</code>&#x95A2;&#x6570;&#x306E;&#x6700;&#x5F8C;&#x306E;&#x5927;&#x304D;&#x306A;&#x3053;&#x3068;&#x306F; <code>early cgroups</code> &#x306E;&#x521D;&#x671F;&#x5316;&#x3067;&#x3059;&#x3002;
+&#x3053;&#x3053;&#x3067;&#x306F;&#x3001;&#x3059;&#x3079;&#x3066;&#x306E;&#x767B;&#x9332;&#x3055;&#x308C;&#x305F;&#x30B5;&#x30D6;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x3092;&#x8ABF;&#x3079;&#x3001;&#x4E00;&#x610F;&#x306E;&#x8B58;&#x5225;&#x756A;&#x53F7;&#x3001;&#x30B5;&#x30D6;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306E;&#x540D;&#x524D;&#x3092;&#x5272;&#x308A;&#x5F53;&#x3066;&#x3001;&#x65E9;&#x671F;&#x306B;&#x30DE;&#x30FC;&#x30AF;&#x3055;&#x308C;&#x305F;&#x30B5;&#x30D6;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306E;&#x305F;&#x3081;&#x306B; <code>cgroup_init_subsys</code>&#x95A2;&#x6570;&#x3092;&#x547C;&#x3073;&#x51FA;&#x3057;&#x307E;&#x3059;&#x3002;:</p>
+<pre><code class="lang-C">for_each_subsys(ss, i) {
+        ss-&gt;id = i;
+        ss-&gt;name = cgroup_subsys_name[i];
+
+        <span class="hljs-keyword">if</span> (ss-&gt;early_init)
+            cgroup_init_subsys(ss, <span class="hljs-literal">true</span>);
+}
+</code></pre>
+<p>&#x3053;&#x3053;&#x306E; <code>for_each_subsys</code>&#x30DE;&#x30AF;&#x30ED;&#x306F;&#x3001;<a href="https://github.com/torvalds/linux/blob/master/kernel/cgroup.c" target="_blank">kernel/cgroup.c</a>&#x3067;&#x5B9A;&#x7FA9;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;<code>cgroup_subsys</code>&#x914D;&#x5217;&#x306B;&#x5BFE;&#x3059;&#x308B;<code>for</code>&#x30EB;&#x30FC;&#x30D7;&#x3067;&#x3059;&#x3002;
+&#x3053;&#x306E;&#x914D;&#x5217;&#x306E;&#x5B9A;&#x7FA9;&#x306F;&#x3001;&#x540C;&#x3058;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306B;&#x3042;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x305D;&#x308C;&#x306F;&#x5C11;&#x3057;&#x5947;&#x5999;&#x3067;&#x3059;:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SUBSYS(_x) [_x ## _cgrp_id] = &amp;_x ## _cgrp_subsys,</span>
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">struct</span> cgroup_subsys *cgroup_subsys[] = {
+        <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;linux/cgroup_subsys.h&gt;</span></span>
+};
+<span class="hljs-meta">#<span class="hljs-meta-keyword">undef</span> SUBSYS</span>
+</code></pre>
+<p>1&#x3064;&#x306E;&#x5F15;&#x6570;&#xFF08;&#x30B5;&#x30D6;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306E;&#x540D;&#x524D;&#xFF09;&#x3092;&#x3068;&#x308A;&#x3001;cgroup&#x30B5;&#x30D6;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306E; <code>cgroup_subsys</code>&#x914D;&#x5217;&#x3092;&#x5B9A;&#x7FA9;&#x3059;&#x308B;<code>SUBSYS</code>&#x30DE;&#x30AF;&#x30ED;&#x3068;&#x3057;&#x3066;&#x5B9A;&#x7FA9;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;
+&#x305D;&#x308C;&#x306B;&#x52A0;&#x3048;&#x3066;&#x3001;&#x914D;&#x5217;&#x304C; <a href="https://github.com/torvalds/linux/blob/master/include/linux/cgroup_subsys.h" target="_blank">linux/cgroup_subsys.h</a>&#x30D8;&#x30C3;&#x30C0;&#x30FC;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306E;&#x5185;&#x5BB9;&#x3067;&#x521D;&#x671F;&#x5316;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x304C;&#x308F;&#x304B;&#x308A;&#x307E;&#x3059;&#x3002;
+&#x3053;&#x306E;&#x30D8;&#x30C3;&#x30C0;&#x30FC;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x898B;&#x3066;&#x307F;&#x308B;&#x3068;&#x3001;&#x6307;&#x5B9A;&#x3055;&#x308C;&#x305F;&#x30B5;&#x30D6;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306E;&#x540D;&#x524D;&#x3092;&#x6301;&#x3064;<code>SUBSYS</code>&#x30DE;&#x30AF;&#x30ED;&#x306E;&#x30BB;&#x30C3;&#x30C8;&#x304C;&#x518D;&#x3073;&#x8868;&#x793A;&#x3055;&#x308C;&#x307E;&#x3059;:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> IS_ENABLED(CONFIG_CPUSETS)</span>
+SUBSYS(cpuset)
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> IS_ENABLED(CONFIG_CGROUP_SCHED)</span>
+SUBSYS(cpu)
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+...
+...
+...
+</code></pre>
+<p>&#x3053;&#x308C;&#x306F;&#x3001;<code>SUBSYS</code>&#x30DE;&#x30AF;&#x30ED;&#x3092;&#x6700;&#x521D;&#x306B;&#x5B9A;&#x7FA9;&#x3057;&#x305F;&#x5F8C;&#x306E;<code>#undef</code>&#x6587;&#x306E;&#x305F;&#x3081;&#x306B;&#x50CD;&#x304D;&#x307E;&#x3059;&#x3002;
+<code>&amp;_x ## _cgrp_subsys</code>&#x5F0F;&#x3092;&#x898B;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002; <code>##</code>&#x6F14;&#x7B97;&#x5B50;&#x306F;&#x3001;<code>C</code>&#x30DE;&#x30AF;&#x30ED;&#x306E;&#x53F3;&#x3068;&#x5DE6;&#x306E;&#x5F0F;&#x3092;&#x9023;&#x7D50;&#x3057;&#x307E;&#x3059;&#x3002;
+<code>cpuset</code>&#x3001;<code>cpu</code>&#x306A;&#x3069;&#x3092; <code>SUBSYS</code>&#x30DE;&#x30AF;&#x30ED;&#x306B;&#x6E21;&#x3059;&#x3068;&#x3001;<code>cpuset_cgrp_subsys</code>&#x3001;<code>cp_cgrp_subsys</code>&#x306E;&#x3069;&#x3053;&#x304B;&#x3092;&#x5B9A;&#x7FA9;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;
+&#x305D;&#x308C;&#x306F;&#x672C;&#x5F53;&#x3067;&#x3059;&#x3002;<a href="https://github.com/torvalds/linux/blob/master/kernel/cpuset.c" target="_blank">kernel/cpuset.c</a>&#x306E;&#x30BD;&#x30FC;&#x30B9;&#x30B3;&#x30FC;&#x30C9;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x898B;&#x308B;&#x3068;&#x3001;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x5B9A;&#x7FA9;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">struct</span> cgroup_subsys cpuset_cgrp_subsys = {
+    ...
+    ...
+    ...
+    .early_init    = <span class="hljs-literal">true</span>,
+};
+</code></pre>
+<p>&#x3057;&#x305F;&#x304C;&#x3063;&#x3066;&#x3001;<code>cgroup_init_early</code>&#x95A2;&#x6570;&#x306E;&#x6700;&#x5F8C;&#x306E;&#x30B9;&#x30C6;&#x30C3;&#x30D7;&#x3067;&#x306F;&#x3001;<code>cgroup_init_subsys</code>&#x95A2;&#x6570;&#x3092;&#x547C;&#x3073;&#x51FA;&#x3059;&#x3053;&#x3068;&#x306B;&#x3088;&#x3063;&#x3066;&#x3001;&#x521D;&#x671F;&#x306E;&#x30B5;&#x30D6;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x3092;&#x521D;&#x671F;&#x5316;&#x3057;&#x307E;&#x3059;&#x3002;
+&#x4EE5;&#x4E0B;&#x306E;&#x521D;&#x671F;&#x306E;&#x30B5;&#x30D6;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306F;&#x521D;&#x671F;&#x5316;&#x3055;&#x308C;&#x307E;&#x3059;:</p>
+<ul>
+<li><code>cpuset</code>;</li>
+<li><code>cpu</code>;</li>
+<li><code>cpuacct</code>.</li>
+</ul>
+<p><code>cgroup_init_subsys</code>&#x95A2;&#x6570;&#x306F;&#x4E0E;&#x3048;&#x3089;&#x308C;&#x305F;&#x30B5;&#x30D6;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x3092;&#x30C7;&#x30D5;&#x30A9;&#x30EB;&#x30C8;&#x5024;&#x3067;&#x521D;&#x671F;&#x5316;&#x3057;&#x307E;&#x3059;&#x3002;
+&#x968E;&#x5C64;&#x306E;&#x30EB;&#x30FC;&#x30C8;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x3001;<code>css_alloc</code>&#x30B3;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x95A2;&#x6570;&#x306E;&#x547C;&#x3073;&#x51FA;&#x3057;&#x3067;&#x4E0E;&#x3048;&#x3089;&#x308C;&#x305F;&#x30B5;&#x30D6;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306E;&#x305F;&#x3081;&#x306E;&#x30B9;&#x30DA;&#x30FC;&#x30B9;&#x3092;&#x5272;&#x308A;&#x5F53;&#x3066;&#x3001;&#x3082;&#x3057;&#x89AA;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x304C;&#x5B58;&#x5728;&#x3059;&#x308B;&#x5834;&#x5408;&#x306F;&#x30B5;&#x30D6;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x3092;&#x89AA;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x306B;&#x30EA;&#x30F3;&#x30AF;&#x3057;&#x3001;&#x5272;&#x308A;&#x5F53;&#x3066;&#x3089;&#x308C;&#x305F;&#x30B5;&#x30D6;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306A;&#x3069;&#x3092;&#x521D;&#x671F;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x306B;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x3053;&#x308C;&#x3067;&#x5168;&#x3066;&#x3067;&#x3059;&#x3002;&#x3053;&#x306E;&#x77AC;&#x9593;&#x304B;&#x3089;&#x3001;&#x521D;&#x671F;&#x306E;&#x30B5;&#x30D6;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x304C;&#x521D;&#x671F;&#x5316;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="&#x307E;&#x3068;&#x3081;">&#x307E;&#x3068;&#x3081;</h2>
+<p>&#x3053;&#x308C;&#x3067;Linux&#x30AB;&#x30FC;&#x30CD;&#x30EB;&#x306E; <code>Control groups</code> &#x306E;&#x4ED5;&#x7D44;&#x307F;&#x306B;&#x3064;&#x3044;&#x3066;&#x306E;&#x6700;&#x521D;&#x306E;&#x30D1;&#x30FC;&#x30C8;&#x306F;&#x7D42;&#x308F;&#x308A;&#x3067;&#x3059;&#x3002;
+<code>control groups</code>&#x306E;&#x4ED5;&#x7D44;&#x307F;&#x306B;&#x95A2;&#x9023;&#x3059;&#x308B;&#x521D;&#x671F;&#x5316;&#x306E;&#x6700;&#x521D;&#x306E;&#x30B9;&#x30C6;&#x30C3;&#x30D7;&#x3068;&#x7406;&#x8AD6;&#x3092;&#x898B;&#x3066;&#x304D;&#x307E;&#x3057;&#x305F;&#x3002;
+&#x6B21;&#x306E;&#x30D1;&#x30FC;&#x30C8;&#x3067;&#x306F;&#x3001;<code>control groups</code>&#x306E;&#x5B9F;&#x8DF5;&#x7684;&#x306A;&#x5074;&#x9762;&#x3092;&#x898B;&#x3066;&#x3044;&#x3053;&#x3046;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x3082;&#x3057;&#x8CEA;&#x554F;&#x3084;&#x63D0;&#x6848;&#x304C;&#x3042;&#x308C;&#x3070; <a href="https://twitter.com/0xAX" target="_blank">twitter</a>&#x3067;&#x9023;&#x7D61;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<p><strong>&#x82F1;&#x8A9E;&#x304C;&#x79C1;&#x306E;&#x6BCD;&#x56FD;&#x8A9E;&#x3067;&#x306F;&#x306A;&#x3044;&#x3053;&#x3068;&#x306B;&#x7559;&#x610F;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3001;&#x3054;&#x8FF7;&#x60D1;&#x3092;&#x304A;&#x304B;&#x3051;&#x3057;&#x3066;&#x7533;&#x3057;&#x8A33;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002; &#x3082;&#x3057;&#x3001;&#x4F55;&#x304B;&#x9593;&#x9055;&#x3044;&#x304C;&#x898B;&#x3064;&#x304B;&#x3063;&#x305F;&#x5834;&#x5408;&#x306F;&#x3001;<a href="https://github.com/0xAX/linux-insides" target="_blank">linux-insides</a>&#x306B;PR&#x3092;&#x9001;&#x3063;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;</strong></p>
+<h2 id="&#x30EA;&#x30F3;&#x30AF;">&#x30EA;&#x30F3;&#x30AF;</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Cgroups" target="_blank">control groups</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Process_identifier" target="_blank">PID</a></li>
+<li><a href="http://man7.org/linux/man-pages/man7/cpuset.7.html" target="_blank">cpuset</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Device_file" target="_blank">block devices</a></li>
+<li><a href="https://www.kernel.org/doc/Documentation/vm/hugetlbpage.txt" target="_blank">huge pages</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sysfs" target="_blank">sysfs</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Procfs" target="_blank">proc</a></li>
+<li><a href="https://www.kernel.org/doc/Documentation/cgroup-v1/cgroups.txt" target="_blank">cgroups kernel documentation</a></li>
+<li><a href="https://www.kernel.org/doc/Documentation/cgroup-v2.txt" target="_blank">cgroups v2</a></li>
+<li><a href="https://www.gnu.org/software/bash/" target="_blank">bash</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Docker_(software" target="_blank">docker</a>)</li>
+<li><a href="https://en.wikipedia.org/wiki/Perf_(Linux" target="_blank">perf events</a>)</li>
+<li><a href="https://0xax.gitbooks.io/linux-insides/content/MM/linux-mm-1.html" target="_blank">Previous chapter</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Cgroups">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Introduction to Control Groups","level":"1.9.1","depth":2,"next":{"title":"SMP","level":"1.10","depth":1,"ref":"","articles":[]},"previous":{"title":"Cgroups","level":"1.9","depth":1,"path":"Cgroups/README.md","ref":"Cgroups/README.md","articles":[{"title":"Introduction to Control Groups","level":"1.9.1","depth":2,"path":"Cgroups/cgroups1.md","ref":"Cgroups/cgroups1.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Cgroups/cgroups1.md","mtime":"2019-03-28T07:54:50.382Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-28T08:02:31.511Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

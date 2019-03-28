@@ -1,0 +1,1762 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Last part · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../SysCall/" />
+    
+    
+    <link rel="prev" href="interrupts-9.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Summary</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Booting/">
+            
+                <a href="../Booting/">
+            
+                    
+                    Booting
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Booting/linux-bootstrap-1.html">
+            
+                <a href="../Booting/linux-bootstrap-1.html">
+            
+                    
+                    From bootloader to kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Booting/linux-bootstrap-2.html">
+            
+                <a href="../Booting/linux-bootstrap-2.html">
+            
+                    
+                    First steps in the kernel setup code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Booting/linux-bootstrap-3.html">
+            
+                <a href="../Booting/linux-bootstrap-3.html">
+            
+                    
+                    Video mode initialization and transition to protected mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../Booting/linux-bootstrap-4.html">
+            
+                <a href="../Booting/linux-bootstrap-4.html">
+            
+                    
+                    Transition to 64-bit mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../Booting/linux-bootstrap-5.html">
+            
+                <a href="../Booting/linux-bootstrap-5.html">
+            
+                    
+                    Kernel decompression
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Initialization/">
+            
+                <a href="../Initialization/">
+            
+                    
+                    Initialization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Initialization/linux-initialization-1.html">
+            
+                <a href="../Initialization/linux-initialization-1.html">
+            
+                    
+                    First steps in the kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Initialization/linux-initialization-2.html">
+            
+                <a href="../Initialization/linux-initialization-2.html">
+            
+                    
+                    Early interrupts handler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Initialization/linux-initialization-3.html">
+            
+                <a href="../Initialization/linux-initialization-3.html">
+            
+                    
+                    Last preparations before the kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Initialization/linux-initialization-4.html">
+            
+                <a href="../Initialization/linux-initialization-4.html">
+            
+                    
+                    Kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../Initialization/linux-initialization-5.html">
+            
+                <a href="../Initialization/linux-initialization-5.html">
+            
+                    
+                    Continue architecture-specific boot-time initializations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../Initialization/linux-initialization-6.html">
+            
+                <a href="../Initialization/linux-initialization-6.html">
+            
+                    
+                    Architecture-specific initializations, again...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../Initialization/linux-initialization-7.html">
+            
+                <a href="../Initialization/linux-initialization-7.html">
+            
+                    
+                    End of the architecture-specific initializations, almost...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../Initialization/linux-initialization-8.html">
+            
+                <a href="../Initialization/linux-initialization-8.html">
+            
+                    
+                    Scheduler initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../Initialization/linux-initialization-9.html">
+            
+                <a href="../Initialization/linux-initialization-9.html">
+            
+                    
+                    RCU initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../Initialization/linux-initialization-10.html">
+            
+                <a href="../Initialization/linux-initialization-10.html">
+            
+                    
+                    End of initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Interrupts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="interrupts-1.html">
+            
+                <a href="interrupts-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="interrupts-2.html">
+            
+                <a href="interrupts-2.html">
+            
+                    
+                    Start to dive into interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="interrupts-3.html">
+            
+                <a href="interrupts-3.html">
+            
+                    
+                    Interrupt handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="interrupts-4.html">
+            
+                <a href="interrupts-4.html">
+            
+                    
+                    Initialization of non-early interrupt gates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="interrupts-5.html">
+            
+                <a href="interrupts-5.html">
+            
+                    
+                    Implementation of some exception handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="interrupts-6.html">
+            
+                <a href="interrupts-6.html">
+            
+                    
+                    Handling Non-Maskable interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="interrupts-7.html">
+            
+                <a href="interrupts-7.html">
+            
+                    
+                    Dive into external hardware interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="interrupts-8.html">
+            
+                <a href="interrupts-8.html">
+            
+                    
+                    Initialization of external hardware interrupts structures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="interrupts-9.html">
+            
+                <a href="interrupts-9.html">
+            
+                    
+                    Softirq, Tasklets and Workqueues
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.10" data-path="interrupts-10.html">
+            
+                <a href="interrupts-10.html">
+            
+                    
+                    Last part
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../SysCall/">
+            
+                <a href="../SysCall/">
+            
+                    
+                    System calls
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../SysCall/syscall-1.html">
+            
+                <a href="../SysCall/syscall-1.html">
+            
+                    
+                    Introduction to system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../SysCall/syscall-2.html">
+            
+                <a href="../SysCall/syscall-2.html">
+            
+                    
+                    How the Linux kernel handles a system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../SysCall/syscall-3.html">
+            
+                <a href="../SysCall/syscall-3.html">
+            
+                    
+                    vsyscall and vDSO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../SysCall/syscall-4.html">
+            
+                <a href="../SysCall/syscall-4.html">
+            
+                    
+                    How the Linux kernel runs a program
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../SysCall/syscall-5.html">
+            
+                <a href="../SysCall/syscall-5.html">
+            
+                    
+                    Implementation of the open system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Timers/">
+            
+                <a href="../Timers/">
+            
+                    
+                    Timers and time management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../Timers/timers-1.html">
+            
+                <a href="../Timers/timers-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Timers/timers-2.html">
+            
+                <a href="../Timers/timers-2.html">
+            
+                    
+                    Clocksource framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Timers/timers-3.html">
+            
+                <a href="../Timers/timers-3.html">
+            
+                    
+                    The tick broadcast framework and dyntick
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../Timers/timers-4.html">
+            
+                <a href="../Timers/timers-4.html">
+            
+                    
+                    Introduction to timers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Timers/timers-5.html">
+            
+                <a href="../Timers/timers-5.html">
+            
+                    
+                    Clockevents framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../Timers/timers-6.html">
+            
+                <a href="../Timers/timers-6.html">
+            
+                    
+                    x86 related clock sources
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../Timers/timers-7.html">
+            
+                <a href="../Timers/timers-7.html">
+            
+                    
+                    Time related system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../SyncPrim/">
+            
+                <a href="../SyncPrim/">
+            
+                    
+                    Synchronization primitives
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../SyncPrim/sync-1.html">
+            
+                <a href="../SyncPrim/sync-1.html">
+            
+                    
+                    Introduction to spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../SyncPrim/sync-2.html">
+            
+                <a href="../SyncPrim/sync-2.html">
+            
+                    
+                    Queued spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../SyncPrim/sync-3.html">
+            
+                <a href="../SyncPrim/sync-3.html">
+            
+                    
+                    Semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../SyncPrim/sync-4.html">
+            
+                <a href="../SyncPrim/sync-4.html">
+            
+                    
+                    Mutex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../SyncPrim/sync-5.html">
+            
+                <a href="../SyncPrim/sync-5.html">
+            
+                    
+                    Reader/Writer semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../SyncPrim/sync-6.html">
+            
+                <a href="../SyncPrim/sync-6.html">
+            
+                    
+                    SeqLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" >
+            
+                <span>
+            
+                    
+                    RCU
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" >
+            
+                <span>
+            
+                    
+                    Lockdep
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../mm/">
+            
+                <a href="../mm/">
+            
+                    
+                    Memory management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../mm/linux-mm-1.html">
+            
+                <a href="../mm/linux-mm-1.html">
+            
+                    
+                    Memblock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../mm/linux-mm-2.html">
+            
+                <a href="../mm/linux-mm-2.html">
+            
+                    
+                    Fixmaps and ioremap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../mm/linux-mm-3.html">
+            
+                <a href="../mm/linux-mm-3.html">
+            
+                    
+                    kmemcheck
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../Cgroups/">
+            
+                <a href="../Cgroups/">
+            
+                    
+                    Cgroups
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../Cgroups/cgroups1.html">
+            
+                <a href="../Cgroups/cgroups1.html">
+            
+                    
+                    Introduction to Control Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    SMP
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../Concepts/">
+            
+                <a href="../Concepts/">
+            
+                    
+                    Concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../Concepts/per-cpu.html">
+            
+                <a href="../Concepts/per-cpu.html">
+            
+                    
+                    Per-CPU variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../Concepts/cpumask.html">
+            
+                <a href="../Concepts/cpumask.html">
+            
+                    
+                    Cpumasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../Concepts/initcall.html">
+            
+                <a href="../Concepts/initcall.html">
+            
+                    
+                    The initcall mechanism
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../DataStructures/">
+            
+                <a href="../DataStructures/">
+            
+                    
+                    Data Structures in the Linux Kernel
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../DataStructures/dlist.html">
+            
+                <a href="../DataStructures/dlist.html">
+            
+                    
+                    Doubly linked list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../DataStructures/radix-tree.html">
+            
+                <a href="../DataStructures/radix-tree.html">
+            
+                    
+                    Radix tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../DataStructures/bitmap.html">
+            
+                <a href="../DataStructures/bitmap.html">
+            
+                    
+                    Bit arrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../Theory/">
+            
+                <a href="../Theory/">
+            
+                    
+                    Theory
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../Theory/Paging.html">
+            
+                <a href="../Theory/Paging.html">
+            
+                    
+                    Paging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../Theory/ELF.html">
+            
+                <a href="../Theory/ELF.html">
+            
+                    
+                    Elf64
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../Theory/asm.html">
+            
+                <a href="../Theory/asm.html">
+            
+                    
+                    Inline assembly
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" >
+            
+                <span>
+            
+                    
+                    CPUID
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" >
+            
+                <span>
+            
+                    
+                    MSR
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" >
+            
+                <span>
+            
+                    
+                    Initial ram disk
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" >
+            
+                <span>
+            
+                    
+                    initrd
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../Misc/">
+            
+                <a href="../Misc/">
+            
+                    
+                    Misc
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../Misc/how_kernel_compiled.html">
+            
+                <a href="../Misc/how_kernel_compiled.html">
+            
+                    
+                    How the kernel is compiled
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../Misc/linkers.html">
+            
+                <a href="../Misc/linkers.html">
+            
+                    
+                    Linkers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.3" data-path="../Misc/contribute.html">
+            
+                <a href="../Misc/contribute.html">
+            
+                    
+                    Linux kernel development
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.4" data-path="../Misc/program_startup.html">
+            
+                <a href="../Misc/program_startup.html">
+            
+                    
+                    Program startup process in userspace
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.5" >
+            
+                <span>
+            
+                    
+                    Write and Submit your first Linux kernel Patch
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.6" >
+            
+                <span>
+            
+                    
+                    Data types in the kernel
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../KernelStructures/">
+            
+                <a href="../KernelStructures/">
+            
+                    
+                    KernelStructures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../KernelStructures/idt.html">
+            
+                <a href="../KernelStructures/idt.html">
+            
+                    
+                    IDT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../LINKS.html">
+            
+                <a href="../LINKS.html">
+            
+                    
+                    Useful links
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../contributors.html">
+            
+                <a href="../contributors.html">
+            
+                    
+                    Contributors
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Last part</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="interrupts-and-interrupt-handling-part-10">Interrupts and Interrupt Handling. Part 10.</h1>
+<h2 id="last-part">Last part</h2>
+<p>This is the tenth part of the <a href="http://0xax.gitbooks.io/linux-insides/content/interrupts/index.html" target="_blank">chapter</a> about interrupts and interrupt handling in the Linux kernel and in the previous <a href="http://0xax.gitbooks.io/linux-insides/content/interrupts/interrupts-9.html" target="_blank">part</a> we saw a little about deferred interrupts and related concepts like <code>softirq</code>, <code>tasklet</code> and <code>workqeue</code>. In this part we will continue to dive into this theme and now it&apos;s time to look at real hardware driver.</p>
+<p>Let&apos;s consider serial driver of the <a href="http://netwinder.osuosl.org/pub/netwinder/docs/intel/datashts/27813501.pdf" target="_blank">StrongARM** SA-110/21285 Evaluation Board</a> board for example and will look how this driver requests an <a href="https://en.wikipedia.org/wiki/Interrupt_request_%28PC_architecture%29" target="_blank">IRQ</a> line, 
+what happens when an interrupt is triggered and etc. The source code of this driver is placed in the <a href="https://github.com/torvalds/linux/blob/master/drivers/tty/serial/21285.c" target="_blank">drivers/tty/serial/21285.c</a> source code file. Ok, we have source code, let&apos;s start.</p>
+<h2 id="initialization-of-a-kernel-module">Initialization of a kernel module</h2>
+<p>We will start to consider this driver as we usually did it with all new concepts that we saw in this book. We will start to consider it from the intialization. As you already may know, the Linux kernel provides two macros for initialization and finalization of a driver or a kernel module:</p>
+<ul>
+<li><code>module_init</code>;</li>
+<li><code>module_exit</code>.</li>
+</ul>
+<p>And we can find usage of these macros in our driver source code:</p>
+<pre><code class="lang-C">module_init(serial21285_init);
+module_exit(serial21285_exit);
+</code></pre>
+<p>The most part of device drivers can be compiled as a loadable kernel <a href="https://en.wikipedia.org/wiki/Loadable_kernel_module" target="_blank">module</a> or in another way they can be statically linked into the Linux kernel. In the first case initialization of a device driver will be produced via the <code>module_init</code> and <code>module_exit</code> macros that are defined in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/init.h" target="_blank">include/linux/init.h</a>:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> module_init(initfn)                                     \
+        static inline initcall_t __inittest(void)               \
+        { return initfn; }                                      \
+        int init_module(void) __attribute__((alias(#initfn)));</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> module_exit(exitfn)                                     \
+        static inline exitcall_t __exittest(void)               \
+        { return exitfn; }                                      \
+        void cleanup_module(void) __attribute__((alias(#exitfn)));</span>
+</code></pre>
+<p>and will be called by the <a href="http://kernelnewbies.org/Documents/InitcallMechanism" target="_blank">initcall</a> functions:</p>
+<ul>
+<li><code>early_initcall</code></li>
+<li><code>pure_initcall</code></li>
+<li><code>core_initcall</code></li>
+<li><code>postcore_initcall</code></li>
+<li><code>arch_initcall</code></li>
+<li><code>subsys_initcall</code></li>
+<li><code>fs_initcall</code></li>
+<li><code>rootfs_initcall</code></li>
+<li><code>device_initcall</code></li>
+<li><code>late_initcall</code></li>
+</ul>
+<p>that are called in the <code>do_initcalls</code> from the <a href="https://github.com/torvalds/linux/blob/master/init/main.c" target="_blank">init/main.c</a>. Otherwise, if a device driver is statically linked into the Linux kernel, implementation of these macros will be following:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> module_init(x)  __initcall(x);</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> module_exit(x)  __exitcall(x);</span>
+</code></pre>
+<p>In this way implementation of module loading placed in the <a href="https://github.com/torvalds/linux/blob/master/kernel/module.c" target="_blank">kernel/module.c</a> source code file and initialization occurs in the <code>do_init_module</code> function. We will not dive into details about loadable modules in this chapter, but will see it in the special chapter that will describe Linux kernel modules. Ok, the <code>module_init</code> macro takes one parameter - the <code>serial21285_init</code> in our case. As we can understand from function&apos;s name, this function does stuff related to the driver initialization. Let&apos;s look at it:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> __<span class="hljs-function">init <span class="hljs-title">serial21285_init</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+</span>{
+    <span class="hljs-keyword">int</span> ret;
+
+    printk(KERN_INFO <span class="hljs-string">&quot;Serial: 21285 driver\n&quot;</span>);
+
+    serial21285_setup_ports();
+
+    ret = uart_register_driver(&amp;serial21285_reg);
+    <span class="hljs-keyword">if</span> (ret == <span class="hljs-number">0</span>)
+        uart_add_one_port(&amp;serial21285_reg, &amp;serial21285_port);
+
+    <span class="hljs-keyword">return</span> ret;
+}
+</code></pre>
+<p>As we can see, first of all it prints information about the driver to the kernel buffer and the call of the <code>serial21285_setup_ports</code> function. This function setups the base <a href="https://en.wikipedia.org/wiki/Universal_asynchronous_receiver/transmitter" target="_blank">uart</a> clock of the <code>serial21285_port</code> device:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> mem_fclk_21285 = <span class="hljs-number">50000000</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">serial21285_setup_ports</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+</span>{
+    serial21285_port.uartclk = mem_fclk_21285 / <span class="hljs-number">4</span>;
+}
+</code></pre>
+<p>Here the <code>serial21285</code> is the structure that describes <code>uart</code> driver:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> <span class="hljs-keyword">struct</span> uart_driver serial21285_reg = {
+    .owner            = THIS_MODULE,
+    .driver_name    = <span class="hljs-string">&quot;ttyFB&quot;</span>,
+    .dev_name        = <span class="hljs-string">&quot;ttyFB&quot;</span>,
+    .major            = SERIAL_21285_MAJOR,
+    .minor            = SERIAL_21285_MINOR,
+    .nr                = <span class="hljs-number">1</span>,
+    .cons            = SERIAL_21285_CONSOLE,
+};
+</code></pre>
+<p>If the driver registered successfully we attach the driver-defined port <code>serial21285_port</code> structure with the <code>uart_add_one_port</code> function from the <a href="https://github.com/torvalds/linux/blob/master/drivers/tty/serial/serial_core.c" target="_blank">drivers/tty/serial/serial_core.c</a> source code file and return from the <code>serial21285_init</code> function:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (ret == <span class="hljs-number">0</span>)
+    uart_add_one_port(&amp;serial21285_reg, &amp;serial21285_port);
+
+<span class="hljs-keyword">return</span> ret;
+</code></pre>
+<p>That&apos;s all. Our driver is initialized. When an <code>uart</code> port will be opened with the call of the <code>uart_open</code> function from the <a href="https://github.com/torvalds/linux/blob/master/drivers/tty/serial/serial_core.c" target="_blank">drivers/tty/serial/serial_core.c</a>, it will call the <code>uart_startup</code> function to start up the serial port. This function will call the <code>startup</code> function that is part of the <code>uart_ops</code> structure. Each <code>uart</code> driver has the definition of this structure, in our case it is:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> <span class="hljs-keyword">struct</span> uart_ops serial21285_ops = {
+    ...
+    .startup    = serial21285_startup,
+    ...
+}
+</code></pre>
+<p><code>serial21285</code> structure. As we can see the <code>.strartup</code> field references on the <code>serial21285_startup</code> function. Implementation of this function is very interesting for us, because it is related to the interrupts and interrupt handling.</p>
+<h2 id="requesting-irq-line">Requesting irq line</h2>
+<p>Let&apos;s look at the implementation of the <code>serial21285</code> function:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">serial21285_startup</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> uart_port *port)</span>
+</span>{
+    <span class="hljs-keyword">int</span> ret;
+
+    tx_enabled(port) = <span class="hljs-number">1</span>;
+    rx_enabled(port) = <span class="hljs-number">1</span>;
+
+    ret = request_irq(IRQ_CONRX, serial21285_rx_chars, <span class="hljs-number">0</span>,
+              serial21285_name, port);
+    <span class="hljs-keyword">if</span> (ret == <span class="hljs-number">0</span>) {
+        ret = request_irq(IRQ_CONTX, serial21285_tx_chars, <span class="hljs-number">0</span>,
+                  serial21285_name, port);
+        <span class="hljs-keyword">if</span> (ret)
+            free_irq(IRQ_CONRX, port);
+    }
+
+    <span class="hljs-keyword">return</span> ret;
+}
+</code></pre>
+<p>First of all about <code>TX</code> and <code>RX</code>. A serial bus of a device consists of just two wires: one for sending data and another for receiving. As such, serial devices should have two serial pins: the receiver - <code>RX</code>, and the transmitter - <code>TX</code>. With the call of first two macros: <code>tx_enabled</code> and <code>rx_enabled</code>, we enable these wires. The following part of these function is the greatest interest for us. Note on <code>request_irq</code> functions. This function registers an interrupt handler and enables a given interrupt line. Let&apos;s look at the implementation of this function and get into the details. This function defined in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/interrupt.h" target="_blank">include/linux/interrupt.h</a> header file and looks as:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-keyword">int</span> __<span class="hljs-function">must_check
+<span class="hljs-title">request_irq</span><span class="hljs-params">(<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> irq, irq_handler_t handler, <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> flags,
+            <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *name, <span class="hljs-keyword">void</span> *dev)</span>
+</span>{
+        <span class="hljs-keyword">return</span> request_threaded_irq(irq, handler, <span class="hljs-literal">NULL</span>, flags, name, dev);
+}
+</code></pre>
+<p>As we can see, the <code>request_irq</code> function takes five parameters:</p>
+<ul>
+<li><code>irq</code> - the interrupt number that being requested;</li>
+<li><code>handler</code> - the pointer to the interrupt handler;</li>
+<li><code>flags</code> - the bitmask options;</li>
+<li><code>name</code> - the name of the owner of an interrupt;</li>
+<li><code>dev</code> - the pointer used for shared interrupt lines;</li>
+</ul>
+<p>Now let&apos;s look at the calls of the <code>request_irq</code> functions in our example. As we can see the first parameter is <code>IRQ_CONRX</code>. We know that it is number of the interrupt, but what is it <code>CONRX</code>? This macro defined in the <a href="https://github.com/torvalds/linux/blob/master/arch/arm/mach-footbridge/include/mach/irqs.h" target="_blank">arch/arm/mach-footbridge/include/mach/irqs.h</a> header file. We can find the full list of interrupts that the <code>21285</code> board can generate. Note that in the second call of the <code>request_irq</code> function we pass the <code>IRQ_CONTX</code> interrupt number. Both these interrupts will handle <code>RX</code> and <code>TX</code> event in our driver. Implementation of these macros is easy:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> IRQ_CONRX               _DC21285_IRQ(0)</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> IRQ_CONTX               _DC21285_IRQ(1)</span>
+...
+...
+...
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> _DC21285_IRQ(x)         (16 + (x))</span>
+</code></pre>
+<p>The <a href="https://en.wikipedia.org/wiki/Industry_Standard_Architecture" target="_blank">ISA</a> IRQs on this board are from <code>0</code> to <code>15</code>, so, our interrupts will have first two numbers: <code>16</code> and <code>17</code>. Second parameters for two calls of the <code>request_irq</code> functions are <code>serial21285_rx_chars</code> and <code>serial21285_tx_chars</code>. These functions will be called when an <code>RX</code> or <code>TX</code> interrupt occurred. We will not dive in this part into details of these functions, because this chapter covers the interrupts and interrupts handling but not device and drivers. The next parameter - <code>flags</code> and as we can see, it is zero in both calls of the <code>request_irq</code> function. All acceptable flags are defined as <code>IRQF_*</code> macros in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/interrupt.h" target="_blank">include/linux/interrupt.h</a>. Some of it:</p>
+<ul>
+<li><code>IRQF_SHARED</code> - allows sharing the irq among several devices;</li>
+<li><code>IRQF_PERCPU</code> - an interrupt is per cpu;</li>
+<li><code>IRQF_NO_THREAD</code> - an interrupt cannot be threaded;</li>
+<li><code>IRQF_NOBALANCING</code> - excludes this interrupt from irq balancing;</li>
+<li><code>IRQF_IRQPOLL</code> - an interrupt is used for polling;</li>
+<li>and etc.</li>
+</ul>
+<p>In our case we pass <code>0</code>, so it will be <code>IRQF_TRIGGER_NONE</code>. This flag means that it does not imply any kind of edge or level triggered interrupt behaviour. To the fourth parameter (<code>name</code>), we pass the <code>serial21285_name</code> that defined as:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> serial21285_name[] = <span class="hljs-string">&quot;Footbridge UART&quot;</span>;
+</code></pre>
+<p>and will be displayed in the output of the <code>/proc/interrupts</code>. And in the last parameter we pass the pointer to the our main <code>uart_port</code> structure. Now we know a little about <code>request_irq</code> function and its parameters, let&apos;s look at its implemenetation. As we can see above, the <code>request_irq</code> function just makes a call of the <code>request_threaded_irq</code> function inside. The <code>request_threaded_irq</code> function defined in the <a href="https://github.com/torvalds/linux/blob/master/kernel/irq/manage.c" target="_blank">kernel/irq/manage.c</a> source code file and allocates a given interrupt line. If we will look at this function, it starts from the definition of the <code>irqaction</code> and the <code>irq_desc</code>:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">request_threaded_irq</span><span class="hljs-params">(<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> irq, irq_handler_t handler,
+                         irq_handler_t thread_fn, <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> irqflags,
+                         <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *devname, <span class="hljs-keyword">void</span> *dev_id)</span>
+</span>{
+        <span class="hljs-keyword">struct</span> irqaction *action;
+        <span class="hljs-keyword">struct</span> irq_desc *desc;
+        <span class="hljs-keyword">int</span> retval;
+        ...
+        ...
+        ...
+}
+</code></pre>
+<p>We arelady saw the <code>irqaction</code> and the <code>irq_desc</code> structures in this chapter. The first structure represents per interrupt action descriptor and contains pointers to the interrupt handler, name of the device, interrupt number, etc. The second structure represents a descriptor of an interrupt and contains pointer to the <code>irqaction</code>, interrupt flags, etc. Note that the <code>request_threaded_irq</code> function called by the <code>request_irq</code> with the additioanal parameter: <code>irq_handler_t thread_fn</code>. If this parameter is not <code>NULL</code>, the <code>irq</code> thread will be created and the given <code>irq</code> handler will be executed in this thread. In the next step we need to make following checks:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (((irqflags &amp; IRQF_SHARED) &amp;&amp; !dev_id) ||
+            (!(irqflags &amp; IRQF_SHARED) &amp;&amp; (irqflags &amp; IRQF_COND_SUSPEND)) ||
+            ((irqflags &amp; IRQF_NO_SUSPEND) &amp;&amp; (irqflags &amp; IRQF_COND_SUSPEND)))
+               <span class="hljs-keyword">return</span> -EINVAL;
+</code></pre>
+<p>First of all we check that real <code>dev_id</code> is passed for the shared interrupt and the <code>IRQF_COND_SUSPEND</code> only makes sense for shared interrupts. Otherwise we exit from this function with the <code>-EINVAL</code> error. After this we convert the given <code>irq</code> number to the <code>irq</code> descriptor wit the help of the <code>irq_to_desc</code> function that defined in the <a href="https://github.com/torvalds/linux/blob/master/kernel/irq/irqdesc.c" target="_blank">kernel/irq/irqdesc.c</a> source code file and exit from this function with the <code>-EINVAL</code> error if it was not successful:</p>
+<pre><code class="lang-C">desc = irq_to_desc(irq);
+<span class="hljs-keyword">if</span> (!desc)
+    <span class="hljs-keyword">return</span> -EINVAL;
+</code></pre>
+<p>The <code>irq_to_desc</code> function checks that given <code>irq</code> number is less than maximum number of IRQs and returns the irq descriptor where the <code>irq</code> number is offset from the <code>irq_desc</code> array:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">struct</span> irq_desc *<span class="hljs-title">irq_to_desc</span><span class="hljs-params">(<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> irq)</span>
+</span>{
+        <span class="hljs-keyword">return</span> (irq &lt; NR_IRQS) ? irq_desc + irq : <span class="hljs-literal">NULL</span>;
+}
+</code></pre>
+<p>As we have converted <code>irq</code> number to the <code>irq</code> descriptor we make the check the status of the descriptor that an interrupt can be requested:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (!irq_settings_can_request(desc) || WARN_ON(irq_settings_is_per_cpu_devid(desc)))
+    <span class="hljs-keyword">return</span> -EINVAL;
+</code></pre>
+<p>and exit with the <code>-EINVAL</code> in othre way. After this we check the given interrupt handler. If it was not passed to the <code>request_irq</code> function, we check the <code>thread_fn</code>. If both handlers are <code>NULL</code>, we return with the <code>-EINVAL</code>. If an interrupt handler was not passed to the <code>request_irq</code> function, but the <code>thread_fn</code> is not null, we set handler to the <code>irq_default_primary_handler</code>:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (!handler) {
+    <span class="hljs-keyword">if</span> (!thread_fn)
+        <span class="hljs-keyword">return</span> -EINVAL;
+    handler = irq_default_primary_handler;
+}
+</code></pre>
+<p>In the next step we allocate memory for our <code>irqaction</code> with the <code>kzalloc</code> function and return from the function if this operation was not successful:</p>
+<pre><code class="lang-C">action = kzalloc(<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">struct</span> irqaction), GFP_KERNEL);
+<span class="hljs-keyword">if</span> (!action)
+    <span class="hljs-keyword">return</span> -ENOMEM;
+</code></pre>
+<p>More about <code>kzalloc</code> will be in the separate chapter about <a href="http://0xax.gitbooks.io/linux-insides/content/mm/index.html" target="_blank">memory management</a> in the Linux kernel. As we allocated space for the <code>irqaction</code>, we start to initialize this structure with the values of interrupt handler, interrupt flags, device name, etc:</p>
+<pre><code class="lang-C">action-&gt;handler = handler;
+action-&gt;thread_fn = thread_fn;
+action-&gt;flags = irqflags;
+action-&gt;name = devname;
+action-&gt;dev_id = dev_id;
+</code></pre>
+<p>In the end of the <code>request_threaded_irq</code> function we call the <code>__setup_irq</code> function from the <a href="https://github.com/torvalds/linux/blob/master/kernel/irq/manage.c" target="_blank">kernel/irq/manage.c</a> and registers a given <code>irqaction</code>. Release memory for the <code>irqaction</code> and return:</p>
+<pre><code class="lang-C">chip_bus_lock(desc);
+retval = __setup_irq(irq, desc, action);
+chip_bus_sync_unlock(desc);
+
+<span class="hljs-keyword">if</span> (retval)
+    kfree(action);
+
+<span class="hljs-keyword">return</span> retval;
+</code></pre>
+<p>Note that the call of the <code>__setup_irq</code> function is placed between the <code>chip_bus_lock</code> and the <code>chip_bus_sync_unlock</code> functions. These functions locl/unlock access to slow bus (like <a href="https://en.wikipedia.org/wiki/I%C2%B2C" target="_blank">i2c</a>) chips. Now let&apos;s look at the implementation of the <code>__setup_irq</code> function. In the beginning of the <code>__setup_irq</code> function we can see a couple of different checks. First of all we check that the given interrupt descriptor is not <code>NULL</code>, <code>irqchip</code> is not <code>NULL</code> and that given interrupt descriptor module owner is not <code>NULL</code>. After this we check is interrupt nest into another interrupt thread or not, and if it is nested we replace the <code>irq_default_primary_handler</code> with the <code>irq_nested_primary_handler</code>.</p>
+<p>In the next step we create an irq handler thread with the <code>kthread_create</code> function, if the given interrupt is not nested and the <code>thread_fn</code> is not <code>NULL</code>:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (<span class="hljs-keyword">new</span>-&gt;thread_fn &amp;&amp; !nested) {
+    <span class="hljs-keyword">struct</span> task_struct *t;
+    t = kthread_create(irq_thread, <span class="hljs-keyword">new</span>, <span class="hljs-string">&quot;irq/%d-%s&quot;</span>, irq, <span class="hljs-keyword">new</span>-&gt;name);
+    ...
+}
+</code></pre>
+<p>And fill the rest of the given interrupt descriptor fields in the end. So, our <code>16</code> and <code>17</code> interrupt request lines are registered and the <code>serial21285_rx_chars</code> and <code>serial21285_tx_chars</code> functions will be invoked when an interrupt controller will get event releated to these interrupts. Now let&apos;s look at what happens when an interrupt occurs. </p>
+<h2 id="prepare-to-handle-an-interrupt">Prepare to handle an interrupt</h2>
+<p>In the previous paragraph we saw the requesting of the irq line for the given interrupt descriptor and registration of the <code>irqaction</code> structure for the given interrupt. We already know that when an interrupt event occurs, an interrupt controller notifies the processor about this event and processor tries to find appropriate interrupt gate for this interrupt. If you have read the eighth <a href="http://0xax.gitbooks.io/linux-insides/content/interrupts/interrupts-8.html" target="_blank">part</a> of this chapter, you may remember the <code>native_init_IRQ</code> function. This function makes initialization of the local <a href="https://en.wikipedia.org/wiki/Advanced_Programmable_Interrupt_Controller" target="_blank">APIC</a>. The following part of this function is the most interesting part for us right now: </p>
+<pre><code class="lang-C">for_each_clear_bit_from(i, used_vectors, first_system_vector) {
+    set_intr_gate(i, irq_entries_start +
+        <span class="hljs-number">8</span> * (i - FIRST_EXTERNAL_VECTOR));
+}
+</code></pre>
+<p>Here we iterate over all the cleared bit of the <code>used_vectors</code> bitmap starting at <code>first_system_vector</code> that is:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">int</span> first_system_vector = FIRST_SYSTEM_VECTOR; <span class="hljs-comment">// 0xef</span>
+</code></pre>
+<p>and set interrupt gates with the <code>i</code> vector number and the <code>irq_entries_start + 8 * (i - FIRST_EXTERNAL_VECTOR)</code> start address. Only one things is unclear here - the <code>irq_entries_start</code>. This symbol defined in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/entry_entry_64.S" target="_blank">arch/x86/entry/entry_64.S</a> assembly file and provides <code>irq</code> entries. Let&apos;s look at it:</p>
+<pre><code class="lang-assembly">    .align 8
+ENTRY(irq_entries_start)
+    vector=FIRST_EXTERNAL_VECTOR
+    .rept (FIRST_SYSTEM_VECTOR - FIRST_EXTERNAL_VECTOR)
+    pushq    $(~vector+0x80)
+    vector=vector+1
+    jmp    common_interrupt
+    .align    8
+    .endr
+END(irq_entries_start)
+</code></pre>
+<p>Here we can see the <a href="https://en.wikipedia.org/wiki/GNU_Assembler" target="_blank">GNU assembler</a> <code>.rept</code> instruction which repeats the sequence of lines that are before <code>.endr</code> - <code>FIRST_SYSTEM_VECTOR - FIRST_EXTERNAL_VECTOR</code> times. As we already know, the <code>FIRST_SYSTEM_VECTOR</code> is <code>0xef</code>, and the <code>FIRST_EXTERNAL_VECTOR</code> is equal to <code>0x20</code>. So, it will work:</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-number">0xef</span> - <span class="hljs-number">0x20</span>
+<span class="hljs-number">207</span>
+</code></pre>
+<p>times. In the body of the <code>.rept</code> instruction we push entry stubs on the stack (note that we use negative numbers for the interrupt vector numbers, because positive numbers already reserved to identify <a href="https://en.wikipedia.org/wiki/System_call" target="_blank">system calls</a>), increase the <code>vector</code> variable and jump on the <code>common_interrupt</code> label. In the <code>common_interrupt</code> we adjust vector number on the stack and execute <code>interrupt</code> number with the <code>do_IRQ</code> parameter:</p>
+<pre><code class="lang-assembly">common_interrupt:
+    addq    $-0x80, (%rsp)
+    interrupt do_IRQ
+</code></pre>
+<p>The macro <code>interrupt</code> defined in the same source code file and saves <a href="https://en.wikipedia.org/wiki/Processor_register" target="_blank">general purpose</a> registers on the stack, change the userspace <code>gs</code> on the kernel with the <code>SWAPGS</code> assembler instruction if need, increase <a href="http://0xax.gitbooks.io/linux-insides/content/Concepts/per-cpu.html" target="_blank">per-cpu</a> - <code>irq_count</code> variable that shows that we are in interrupt and call the <code>do_IRQ</code> function. This function defined in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/kernel/irq.c" target="_blank">arch/x86/kernel/irq.c</a> source code file and handles our device interrupt. Let&apos;s look at this function. The <code>do_IRQ</code> function takes one parameter - <code>pt_regs</code> structure that stores values of the userspace registers:</p>
+<pre><code class="lang-C">__visible <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> __<span class="hljs-function">irq_entry <span class="hljs-title">do_IRQ</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> pt_regs *regs)</span>
+</span>{
+    <span class="hljs-keyword">struct</span> pt_regs *old_regs = set_irq_regs(regs);
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-built_in">vector</span> = ~regs-&gt;orig_ax;
+    <span class="hljs-keyword">unsigned</span> irq;
+
+    irq_enter();
+    exit_idle();
+    ...
+    ...
+    ...
+}
+</code></pre>
+<p>At the beginning of this function we can see call of the <code>set_irq_regs</code> function that returns saved <code>per-cpu</code> irq register pointer and the calls of the <code>irq_enter</code> and <code>exit_idle</code> functions. The first function <code>irq_enter</code> enters to an interrupt context with the updating <code>__preempt_count</code> variable and the second function - <code>exit_idle</code> checks that current process is <code>idle</code> with <a href="https://en.wikipedia.org/wiki/Process_identifier" target="_blank">pid</a> - <code>0</code> and notify the <code>idle_notifier</code> with the <code>IDLE_END</code>.</p>
+<p>In the next step we read the <code>irq</code> for the current cpu and call the <code>handle_irq</code> function:</p>
+<pre><code class="lang-C">irq = __this_cpu_read(vector_irq[<span class="hljs-built_in">vector</span>]);
+
+<span class="hljs-keyword">if</span> (!handle_irq(irq, regs)) {
+    ...
+    ...
+    ...
+}
+...
+...
+...
+</code></pre>
+<p>The <code>handle_irq</code> function defined in the <a href="https://github.com/torvalds/linux/blob/arch/x86/kernel/irq_64.c" target="_blank">arch/x86/kernel/irq_64.c</a> source code file, checks the given interrupt descriptor and call the <code>generic_handle_irq_desc</code>:</p>
+<pre><code class="lang-C">desc = irq_to_desc(irq);
+    <span class="hljs-keyword">if</span> (unlikely(!desc))
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+generic_handle_irq_desc(irq, desc);
+</code></pre>
+<p>Where the <code>generic_handle_irq_desc</code> calls the interrupt handler:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">generic_handle_irq_desc</span><span class="hljs-params">(<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> irq, <span class="hljs-keyword">struct</span> irq_desc *desc)</span>
+</span>{
+       desc-&gt;handle_irq(irq, desc);
+}
+</code></pre>
+<p>But stop... What is it <code>handle_irq</code> and why do we call our interrupt handler from the interrupt descriptor when we know that <code>irqaction</code> points to the actual interrupt handler? Actually the <code>irq_desc-&gt;handle_irq</code> is a high-level API for the calling interrupt handler routine. It setups during initialization of the <a href="https://en.wikipedia.org/wiki/Device_tree" target="_blank">device tree</a> and <a href="https://en.wikipedia.org/wiki/Advanced_Programmable_Interrupt_Controller" target="_blank">APIC</a> initialization. The kernel selects correct function and call chain of the <code>irq-&gt;action(s)</code> there. In this way, the <code>serial21285_tx_chars</code> or the <code>serial21285_rx_chars</code> function will be executed after an interrupt will occur.</p>
+<p>In the end of the <code>do_IRQ</code> function we call the <code>irq_exit</code> function that will exit from the interrupt context, the <code>set_irq_regs</code> with the old userspace registers and return:</p>
+<pre><code class="lang-C">irq_exit();
+set_irq_regs(old_regs);
+<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+</code></pre>
+<p>We already know that when an <code>IRQ</code> finishes its work, deferred interrupts will be executed if they exist.</p>
+<h2 id="exit-from-interrupt">Exit from interrupt</h2>
+<p>Ok, the interrupt handler finished its execution and now we must return from the interrupt. When the work of the <code>do_IRQ</code> function will be finsihed, we will return back to the assembler code in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/entry_entry_64.S" target="_blank">arch/x86/entry/entry_64.S</a> to the <code>ret_from_intr</code> label. First of all we disable interrupts with the <code>DISABLE_INTERRUPTS</code> macro that expands to the <code>cli</code> instruction and decreases value of the <code>irq_count</code> <a href="http://0xax.gitbooks.io/linux-insides/content/Concepts/per-cpu.html" target="_blank">per-cpu</a> variable. Remember, this variable had value - <code>1</code>, when we were in interrupt context:</p>
+<pre><code class="lang-assembly">DISABLE_INTERRUPTS(CLBR_NONE)
+TRACE_IRQS_OFF
+decl    PER_CPU_VAR(irq_count)
+</code></pre>
+<p>In the last step we check the previous context (user or kernel), restore it in a correct way and exit from an interrupt with the:</p>
+<pre><code class="lang-assembly">INTERRUPT_RETURN
+</code></pre>
+<p>where the <code>INTERRUPT_RETURN</code> macro is:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> INTERRUPT_RETURN    jmp native_iret</span>
+</code></pre>
+<p>and</p>
+<pre><code class="lang-assembly">ENTRY(native_iret)
+
+.global native_irq_return_iret
+native_irq_return_iret:
+    iretq
+</code></pre>
+<p>That&apos;s all.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>It is the end of the tenth part of the <a href="http://0xax.gitbooks.io/linux-insides/content/interrupts/index.html" target="_blank">Interrupts and Interrupt Handling</a> chapter and as you have read in the beginning of this part - it is the last part of this chapter. This chapter started from the explanation of the theory of interrupts and we have learned what is it interrupt and kinds of interrupts, then we saw exceptions and handling of this kind of interrupts, deferred interrupts and finally we looked on the hardware interrupts and the handling of theirs in this part. Of course, this part and even this chapter does not cover full aspects of interrupts and interrupt handling in the Linux kernel. It is not realistic to do this. At least for me. It was the big part, I don&apos;t know how about you, but it was really big for me. This theme is much bigger than this chapter and I am not sure that somewhere there is a book that covers it. We have missed many part and aspects of interrupts and interrupt handling, but I think it will be good point to dive in the kernel code related to the interrupts and interrupts handling.</p>
+<p>If you have any questions or suggestions write me a comment or ping me at <a href="https://twitter.com/0xAX" target="_blank">twitter</a>.</p>
+<p><strong>Please note that English is not my first language, And I am really sorry for any inconvenience. If you find any mistakes please send me PR to <a href="https://github.com/0xAX/linux-insides" target="_blank">linux-insides</a>.</strong></p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://www.kernel.org/doc/Documentation/serial/driver" target="_blank">Serial driver documentation</a></li>
+<li><a href="http://netwinder.osuosl.org/pub/netwinder/docs/intel/datashts/27813501.pdf" target="_blank">StrongARM** SA-110/21285 Evaluation Board</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Interrupt_request_%28PC_architecture%29" target="_blank">IRQ</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Loadable_kernel_module" target="_blank">module</a></li>
+<li><a href="http://kernelnewbies.org/Documents/InitcallMechanism" target="_blank">initcall</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Universal_asynchronous_receiver/transmitter" target="_blank">uart</a> </li>
+<li><a href="https://en.wikipedia.org/wiki/Industry_Standard_Architecture" target="_blank">ISA</a> </li>
+<li><a href="http://0xax.gitbooks.io/linux-insides/content/mm/index.html" target="_blank">memory management</a></li>
+<li><a href="https://en.wikipedia.org/wiki/I%C2%B2C" target="_blank">i2c</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Advanced_Programmable_Interrupt_Controller" target="_blank">APIC</a></li>
+<li><a href="https://en.wikipedia.org/wiki/GNU_Assembler" target="_blank">GNU assembler</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Processor_register" target="_blank">Processor register</a></li>
+<li><a href="http://0xax.gitbooks.io/linux-insides/content/Concepts/per-cpu.html" target="_blank">per-cpu</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Process_identifier" target="_blank">pid</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Device_tree" target="_blank">device tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/System_call" target="_blank">system calls</a></li>
+<li><a href="http://0xax.gitbooks.io/linux-insides/content/interrupts/interrupts-9.html" target="_blank">Previous part</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="interrupts-9.html" class="navigation navigation-prev " aria-label="Previous page: Softirq, Tasklets and Workqueues">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../SysCall/" class="navigation navigation-next " aria-label="Next page: System calls">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Last part","level":"1.4.10","depth":2,"next":{"title":"System calls","level":"1.5","depth":1,"path":"SysCall/README.md","ref":"SysCall/README.md","articles":[{"title":"Introduction to system calls","level":"1.5.1","depth":2,"path":"SysCall/syscall-1.md","ref":"SysCall/syscall-1.md","articles":[]},{"title":"How the Linux kernel handles a system call","level":"1.5.2","depth":2,"path":"SysCall/syscall-2.md","ref":"SysCall/syscall-2.md","articles":[]},{"title":"vsyscall and vDSO","level":"1.5.3","depth":2,"path":"SysCall/syscall-3.md","ref":"SysCall/syscall-3.md","articles":[]},{"title":"How the Linux kernel runs a program","level":"1.5.4","depth":2,"path":"SysCall/syscall-4.md","ref":"SysCall/syscall-4.md","articles":[]},{"title":"Implementation of the open system call","level":"1.5.5","depth":2,"path":"SysCall/syscall-5.md","ref":"SysCall/syscall-5.md","articles":[]}]},"previous":{"title":"Softirq, Tasklets and Workqueues","level":"1.4.9","depth":2,"path":"interrupts/interrupts-9.md","ref":"interrupts/interrupts-9.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"interrupts/interrupts-10.md","mtime":"2019-03-28T07:54:50.426Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-28T08:02:31.511Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

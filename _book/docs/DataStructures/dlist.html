@@ -1,0 +1,1592 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Doubly linked list · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="radix-tree.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Summary</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Booting/">
+            
+                <a href="../Booting/">
+            
+                    
+                    Booting
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Booting/linux-bootstrap-1.html">
+            
+                <a href="../Booting/linux-bootstrap-1.html">
+            
+                    
+                    From bootloader to kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Booting/linux-bootstrap-2.html">
+            
+                <a href="../Booting/linux-bootstrap-2.html">
+            
+                    
+                    First steps in the kernel setup code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Booting/linux-bootstrap-3.html">
+            
+                <a href="../Booting/linux-bootstrap-3.html">
+            
+                    
+                    Video mode initialization and transition to protected mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../Booting/linux-bootstrap-4.html">
+            
+                <a href="../Booting/linux-bootstrap-4.html">
+            
+                    
+                    Transition to 64-bit mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../Booting/linux-bootstrap-5.html">
+            
+                <a href="../Booting/linux-bootstrap-5.html">
+            
+                    
+                    Kernel decompression
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Initialization/">
+            
+                <a href="../Initialization/">
+            
+                    
+                    Initialization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Initialization/linux-initialization-1.html">
+            
+                <a href="../Initialization/linux-initialization-1.html">
+            
+                    
+                    First steps in the kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Initialization/linux-initialization-2.html">
+            
+                <a href="../Initialization/linux-initialization-2.html">
+            
+                    
+                    Early interrupts handler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Initialization/linux-initialization-3.html">
+            
+                <a href="../Initialization/linux-initialization-3.html">
+            
+                    
+                    Last preparations before the kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Initialization/linux-initialization-4.html">
+            
+                <a href="../Initialization/linux-initialization-4.html">
+            
+                    
+                    Kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../Initialization/linux-initialization-5.html">
+            
+                <a href="../Initialization/linux-initialization-5.html">
+            
+                    
+                    Continue architecture-specific boot-time initializations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../Initialization/linux-initialization-6.html">
+            
+                <a href="../Initialization/linux-initialization-6.html">
+            
+                    
+                    Architecture-specific initializations, again...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../Initialization/linux-initialization-7.html">
+            
+                <a href="../Initialization/linux-initialization-7.html">
+            
+                    
+                    End of the architecture-specific initializations, almost...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../Initialization/linux-initialization-8.html">
+            
+                <a href="../Initialization/linux-initialization-8.html">
+            
+                    
+                    Scheduler initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../Initialization/linux-initialization-9.html">
+            
+                <a href="../Initialization/linux-initialization-9.html">
+            
+                    
+                    RCU initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../Initialization/linux-initialization-10.html">
+            
+                <a href="../Initialization/linux-initialization-10.html">
+            
+                    
+                    End of initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../interrupts/">
+            
+                <a href="../interrupts/">
+            
+                    
+                    Interrupts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../interrupts/interrupts-1.html">
+            
+                <a href="../interrupts/interrupts-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../interrupts/interrupts-2.html">
+            
+                <a href="../interrupts/interrupts-2.html">
+            
+                    
+                    Start to dive into interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../interrupts/interrupts-3.html">
+            
+                <a href="../interrupts/interrupts-3.html">
+            
+                    
+                    Interrupt handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../interrupts/interrupts-4.html">
+            
+                <a href="../interrupts/interrupts-4.html">
+            
+                    
+                    Initialization of non-early interrupt gates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../interrupts/interrupts-5.html">
+            
+                <a href="../interrupts/interrupts-5.html">
+            
+                    
+                    Implementation of some exception handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../interrupts/interrupts-6.html">
+            
+                <a href="../interrupts/interrupts-6.html">
+            
+                    
+                    Handling Non-Maskable interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../interrupts/interrupts-7.html">
+            
+                <a href="../interrupts/interrupts-7.html">
+            
+                    
+                    Dive into external hardware interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../interrupts/interrupts-8.html">
+            
+                <a href="../interrupts/interrupts-8.html">
+            
+                    
+                    Initialization of external hardware interrupts structures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../interrupts/interrupts-9.html">
+            
+                <a href="../interrupts/interrupts-9.html">
+            
+                    
+                    Softirq, Tasklets and Workqueues
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../interrupts/interrupts-10.html">
+            
+                <a href="../interrupts/interrupts-10.html">
+            
+                    
+                    Last part
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../SysCall/">
+            
+                <a href="../SysCall/">
+            
+                    
+                    System calls
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../SysCall/syscall-1.html">
+            
+                <a href="../SysCall/syscall-1.html">
+            
+                    
+                    Introduction to system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../SysCall/syscall-2.html">
+            
+                <a href="../SysCall/syscall-2.html">
+            
+                    
+                    How the Linux kernel handles a system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../SysCall/syscall-3.html">
+            
+                <a href="../SysCall/syscall-3.html">
+            
+                    
+                    vsyscall and vDSO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../SysCall/syscall-4.html">
+            
+                <a href="../SysCall/syscall-4.html">
+            
+                    
+                    How the Linux kernel runs a program
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../SysCall/syscall-5.html">
+            
+                <a href="../SysCall/syscall-5.html">
+            
+                    
+                    Implementation of the open system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Timers/">
+            
+                <a href="../Timers/">
+            
+                    
+                    Timers and time management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../Timers/timers-1.html">
+            
+                <a href="../Timers/timers-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Timers/timers-2.html">
+            
+                <a href="../Timers/timers-2.html">
+            
+                    
+                    Clocksource framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Timers/timers-3.html">
+            
+                <a href="../Timers/timers-3.html">
+            
+                    
+                    The tick broadcast framework and dyntick
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../Timers/timers-4.html">
+            
+                <a href="../Timers/timers-4.html">
+            
+                    
+                    Introduction to timers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Timers/timers-5.html">
+            
+                <a href="../Timers/timers-5.html">
+            
+                    
+                    Clockevents framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../Timers/timers-6.html">
+            
+                <a href="../Timers/timers-6.html">
+            
+                    
+                    x86 related clock sources
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../Timers/timers-7.html">
+            
+                <a href="../Timers/timers-7.html">
+            
+                    
+                    Time related system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../SyncPrim/">
+            
+                <a href="../SyncPrim/">
+            
+                    
+                    Synchronization primitives
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../SyncPrim/sync-1.html">
+            
+                <a href="../SyncPrim/sync-1.html">
+            
+                    
+                    Introduction to spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../SyncPrim/sync-2.html">
+            
+                <a href="../SyncPrim/sync-2.html">
+            
+                    
+                    Queued spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../SyncPrim/sync-3.html">
+            
+                <a href="../SyncPrim/sync-3.html">
+            
+                    
+                    Semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../SyncPrim/sync-4.html">
+            
+                <a href="../SyncPrim/sync-4.html">
+            
+                    
+                    Mutex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../SyncPrim/sync-5.html">
+            
+                <a href="../SyncPrim/sync-5.html">
+            
+                    
+                    Reader/Writer semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../SyncPrim/sync-6.html">
+            
+                <a href="../SyncPrim/sync-6.html">
+            
+                    
+                    SeqLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" >
+            
+                <span>
+            
+                    
+                    RCU
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" >
+            
+                <span>
+            
+                    
+                    Lockdep
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../mm/">
+            
+                <a href="../mm/">
+            
+                    
+                    Memory management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../mm/linux-mm-1.html">
+            
+                <a href="../mm/linux-mm-1.html">
+            
+                    
+                    Memblock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../mm/linux-mm-2.html">
+            
+                <a href="../mm/linux-mm-2.html">
+            
+                    
+                    Fixmaps and ioremap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../mm/linux-mm-3.html">
+            
+                <a href="../mm/linux-mm-3.html">
+            
+                    
+                    kmemcheck
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../Cgroups/">
+            
+                <a href="../Cgroups/">
+            
+                    
+                    Cgroups
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../Cgroups/cgroups1.html">
+            
+                <a href="../Cgroups/cgroups1.html">
+            
+                    
+                    Introduction to Control Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    SMP
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../Concepts/">
+            
+                <a href="../Concepts/">
+            
+                    
+                    Concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../Concepts/per-cpu.html">
+            
+                <a href="../Concepts/per-cpu.html">
+            
+                    
+                    Per-CPU variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../Concepts/cpumask.html">
+            
+                <a href="../Concepts/cpumask.html">
+            
+                    
+                    Cpumasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../Concepts/initcall.html">
+            
+                <a href="../Concepts/initcall.html">
+            
+                    
+                    The initcall mechanism
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Data Structures in the Linux Kernel
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.12.1" data-path="dlist.html">
+            
+                <a href="dlist.html">
+            
+                    
+                    Doubly linked list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="radix-tree.html">
+            
+                <a href="radix-tree.html">
+            
+                    
+                    Radix tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="bitmap.html">
+            
+                <a href="bitmap.html">
+            
+                    
+                    Bit arrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../Theory/">
+            
+                <a href="../Theory/">
+            
+                    
+                    Theory
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../Theory/Paging.html">
+            
+                <a href="../Theory/Paging.html">
+            
+                    
+                    Paging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../Theory/ELF.html">
+            
+                <a href="../Theory/ELF.html">
+            
+                    
+                    Elf64
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../Theory/asm.html">
+            
+                <a href="../Theory/asm.html">
+            
+                    
+                    Inline assembly
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" >
+            
+                <span>
+            
+                    
+                    CPUID
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" >
+            
+                <span>
+            
+                    
+                    MSR
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" >
+            
+                <span>
+            
+                    
+                    Initial ram disk
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" >
+            
+                <span>
+            
+                    
+                    initrd
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../Misc/">
+            
+                <a href="../Misc/">
+            
+                    
+                    Misc
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../Misc/how_kernel_compiled.html">
+            
+                <a href="../Misc/how_kernel_compiled.html">
+            
+                    
+                    How the kernel is compiled
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../Misc/linkers.html">
+            
+                <a href="../Misc/linkers.html">
+            
+                    
+                    Linkers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.3" data-path="../Misc/contribute.html">
+            
+                <a href="../Misc/contribute.html">
+            
+                    
+                    Linux kernel development
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.4" data-path="../Misc/program_startup.html">
+            
+                <a href="../Misc/program_startup.html">
+            
+                    
+                    Program startup process in userspace
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.5" >
+            
+                <span>
+            
+                    
+                    Write and Submit your first Linux kernel Patch
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.6" >
+            
+                <span>
+            
+                    
+                    Data types in the kernel
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../KernelStructures/">
+            
+                <a href="../KernelStructures/">
+            
+                    
+                    KernelStructures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../KernelStructures/idt.html">
+            
+                <a href="../KernelStructures/idt.html">
+            
+                    
+                    IDT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../LINKS.html">
+            
+                <a href="../LINKS.html">
+            
+                    
+                    Useful links
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../contributors.html">
+            
+                <a href="../contributors.html">
+            
+                    
+                    Contributors
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Doubly linked list</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="data-structures-in-the-linux-kernel">Data Structures in the Linux Kernel</h1>
+<h2 id="doubly-linked-list">Doubly linked list</h2>
+<p>Linux kernel provides its own implementation of doubly linked list, which you can find in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/list.h" target="_blank">include/linux/list.h</a>. We will start <code>Data Structures in the Linux kernel</code> from the doubly linked list data structure. Why? Because it is very popular in the kernel, just try to <a href="http://lxr.free-electrons.com/ident?i=list_head" target="_blank">search</a></p>
+<p>First of all, let&apos;s look on the main structure in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/types.h" target="_blank">include/linux/types.h</a>:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">struct</span> list_head {
+    <span class="hljs-keyword">struct</span> list_head *next, *prev;
+};
+</code></pre>
+<p>You can note that it is different from many implementations of doubly linked list which you have seen. For example, this doubly linked list structure from the <a href="http://www.gnu.org/software/libc/" target="_blank">glib</a> library looks like :</p>
+<pre><code class="lang-C"><span class="hljs-keyword">struct</span> GList {
+  gpointer data;
+  GList *next;
+  GList *prev;
+};
+</code></pre>
+<p>Usually a linked list structure contains a pointer to the item. The implementation of linked list in Linux kernel does not. So the main question is - <code>where does the list store the data?</code>. The actual implementation of linked list in the kernel is - <code>Intrusive list</code>. An intrusive linked list does not contain data in its nodes - A node just contains pointers to the next and previous node and list nodes part of the data that are added to the list. This makes the data structure generic, so it does not care about entry data type anymore.</p>
+<p>For example:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">struct</span> nmi_desc {
+    <span class="hljs-keyword">spinlock_t</span> lock;
+    <span class="hljs-keyword">struct</span> list_head head;
+};
+</code></pre>
+<p>Let&apos;s look at some examples to understand how <code>list_head</code> is used in the kernel. As I already wrote about, there are many, really many different places where lists are used in the kernel. Let&apos;s look for an example in miscellaneous character drivers. Misc character drivers API from the <a href="https://github.com/torvalds/linux/blob/master/drivers/char/misc.c" target="_blank">drivers/char/misc.c</a> is used for writing small drivers for handling simple hardware or virtual devices. Those drivers share same major number:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MISC_MAJOR              10</span>
+</code></pre>
+<p>but have their own minor number. For example you can see it with:</p>
+<pre><code>ls -l /dev |  grep 10
+crw-------   1 root root     10, 235 Mar 21 12:01 autofs
+drwxr-xr-x  10 root root         200 Mar 21 12:01 cpu
+crw-------   1 root root     10,  62 Mar 21 12:01 cpu_dma_latency
+crw-------   1 root root     10, 203 Mar 21 12:01 cuse
+drwxr-xr-x   2 root root         100 Mar 21 12:01 dri
+crw-rw-rw-   1 root root     10, 229 Mar 21 12:01 fuse
+crw-------   1 root root     10, 228 Mar 21 12:01 hpet
+crw-------   1 root root     10, 183 Mar 21 12:01 hwrng
+crw-rw----+  1 root kvm      10, 232 Mar 21 12:01 kvm
+crw-rw----   1 root disk     10, 237 Mar 21 12:01 loop-control
+crw-------   1 root root     10, 227 Mar 21 12:01 mcelog
+crw-------   1 root root     10,  59 Mar 21 12:01 memory_bandwidth
+crw-------   1 root root     10,  61 Mar 21 12:01 network_latency
+crw-------   1 root root     10,  60 Mar 21 12:01 network_throughput
+crw-r-----   1 root kmem     10, 144 Mar 21 12:01 nvram
+brw-rw----   1 root disk      1,  10 Mar 21 12:01 ram10
+crw--w----   1 root tty       4,  10 Mar 21 12:01 tty10
+crw-rw----   1 root dialout   4,  74 Mar 21 12:01 ttyS10
+crw-------   1 root root     10,  63 Mar 21 12:01 vga_arbiter
+crw-------   1 root root     10, 137 Mar 21 12:01 vhci
+</code></pre><p>Now let&apos;s have a close look at how lists are used in the misc device drivers. First of all, let&apos;s look on <code>miscdevice</code> structure:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">struct</span> miscdevice
+{
+      <span class="hljs-keyword">int</span> minor;
+      <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *name;
+      <span class="hljs-keyword">const</span> <span class="hljs-keyword">struct</span> file_operations *fops;
+      <span class="hljs-keyword">struct</span> list_head <span class="hljs-built_in">list</span>;
+      <span class="hljs-keyword">struct</span> device *parent;
+      <span class="hljs-keyword">struct</span> device *this_device;
+      <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *nodename;
+      <span class="hljs-keyword">mode_t</span> mode;
+};
+</code></pre>
+<p>We can see the fourth field in the <code>miscdevice</code> structure - <code>list</code> which is a list of registered devices. In the beginning of the source code file we can see the definition of misc_list:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-title">LIST_HEAD</span><span class="hljs-params">(misc_list)</span></span>;
+</code></pre>
+<p>which expands to the definition of variables with <code>list_head</code> type:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> LIST_HEAD(name) \
+    struct list_head name = LIST_HEAD_INIT(name)</span>
+</code></pre>
+<p>and initializes it with the <code>LIST_HEAD_INIT</code> macro, which sets previous and next entries with the address of variable - name:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> LIST_HEAD_INIT(name) { &amp;(name), &amp;(name) }</span>
+</code></pre>
+<p>Now let&apos;s look on the <code>misc_register</code> function which registers a miscellaneous device. At the start it initializes <code>miscdevice-&gt;list</code> with the <code>INIT_LIST_HEAD</code> function:</p>
+<pre><code class="lang-C">INIT_LIST_HEAD(&amp;misc-&gt;<span class="hljs-built_in">list</span>);
+</code></pre>
+<p>which does the same as the <code>LIST_HEAD_INIT</code> macro:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">INIT_LIST_HEAD</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> list_head *<span class="hljs-built_in">list</span>)</span>
+</span>{
+    <span class="hljs-built_in">list</span>-&gt;next = <span class="hljs-built_in">list</span>;
+    <span class="hljs-built_in">list</span>-&gt;prev = <span class="hljs-built_in">list</span>;
+}
+</code></pre>
+<p>In the next step after a device is created by the <code>device_create</code> function, we add it to the miscellaneous devices list with:</p>
+<pre><code>list_add(&amp;misc-&gt;list, &amp;misc_list);
+</code></pre><p>Kernel <code>list.h</code> provides this API for the addition of a new entry to the list. Let&apos;s look at its implementation:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">list_add</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> list_head *new, <span class="hljs-keyword">struct</span> list_head *head)</span>
+</span>{
+    __list_add(<span class="hljs-keyword">new</span>, head, head-&gt;next);
+}
+</code></pre>
+<p>It just calls internal function <code>__list_add</code> with the 3 given parameters:</p>
+<ul>
+<li>new  - new entry.</li>
+<li>head - list head after which the new item will be inserted.</li>
+<li>head-&gt;next - next item after list head.</li>
+</ul>
+<p>Implementation of the <code>__list_add</code> is pretty simple:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> __list_add(<span class="hljs-keyword">struct</span> list_head *<span class="hljs-keyword">new</span>,
+                  <span class="hljs-keyword">struct</span> list_head *prev,
+                  <span class="hljs-keyword">struct</span> list_head *next)
+{
+    next-&gt;prev = <span class="hljs-keyword">new</span>;
+    <span class="hljs-keyword">new</span>-&gt;next = next;
+    <span class="hljs-keyword">new</span>-&gt;prev = prev;
+    prev-&gt;next = <span class="hljs-keyword">new</span>;
+}
+</code></pre>
+<p>Here we add a new item between <code>prev</code> and <code>next</code>. So <code>misc</code> list which we defined at the start with the <code>LIST_HEAD_INIT</code> macro will contain previous and next pointers to the <code>miscdevice-&gt;list</code>.</p>
+<p>There is still one question: how to get list&apos;s entry. There is a special macro:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> list_entry(ptr, type, member) \
+    container_of(ptr, type, member)</span>
+</code></pre>
+<p>which gets three parameters:</p>
+<ul>
+<li>ptr - the structure list_head pointer;</li>
+<li>type - structure type;</li>
+<li>member - the name of the list_head within the structure;</li>
+</ul>
+<p>For example:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">const</span> <span class="hljs-keyword">struct</span> miscdevice *p = list_entry(v, <span class="hljs-keyword">struct</span> miscdevice, <span class="hljs-built_in">list</span>)
+</code></pre>
+<p>After this we can access to any <code>miscdevice</code> field with <code>p-&gt;minor</code> or <code>p-&gt;name</code> and etc... Let&apos;s look on the <code>list_entry</code> implementation:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> list_entry(ptr, type, member) \
+    container_of(ptr, type, member)</span>
+</code></pre>
+<p>As we can see it just calls <code>container_of</code> macro with the same arguments. At first sight, the <code>container_of</code> looks strange:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> container_of(ptr, type, member) ({                      \
+    const typeof( ((type *)0)-&gt;member ) *__mptr = (ptr);    \
+    (type *)( (char *)__mptr - offsetof(type,member) );})</span>
+</code></pre>
+<p>First of all you can note that it consists of two expressions in curly brackets. The compiler will evaluate the whole block in the curly braces and use the value of the last expression.</p>
+<p>For example:</p>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int i = 0;
+    printf(&quot;i = %d\n&quot;, ({++i; ++i;}));
+    return 0;
+}
+</code></pre><p>will print <code>2</code>.</p>
+<p>The next point is <code>typeof</code>, it&apos;s simple. As you can understand from its name, it just returns the type of the given variable. When I first saw the implementation of the <code>container_of</code> macro, the strangest thing I found was the zero in the <code>((type *)0)</code> expression. Actually this pointer magic calculates the offset of the given field from the address of the structure, but as we have <code>0</code> here, it will be just a zero offset along with the field width. Let&apos;s look at a simple example:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-keyword">struct</span> s {
+        <span class="hljs-keyword">int</span> field1;
+        <span class="hljs-keyword">char</span> field2;
+        <span class="hljs-keyword">char</span> field3;
+};
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%p\n&quot;</span>, &amp;((<span class="hljs-keyword">struct</span> s*)<span class="hljs-number">0</span>)-&gt;field3);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>will print <code>0x5</code>.</p>
+<p>The next <code>offsetof</code> macro calculates offset from the beginning of the structure to the given structure&apos;s field. Its implementation is very similar to the previous code:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> offsetof(TYPE, MEMBER) ((size_t) &amp;((TYPE *)0)-&gt;MEMBER)</span>
+</code></pre>
+<p>Let&apos;s summarize all about <code>container_of</code> macro. The <code>container_of</code> macro returns the address of the structure by the given address of the structure&apos;s field with <code>list_head</code> type, the name of the structure field with <code>list_head</code> type and type of the container structure. At the first line this macro declares the <code>__mptr</code> pointer which points to the field of the structure that <code>ptr</code> points to and assigns <code>ptr</code> to it. Now <code>ptr</code> and <code>__mptr</code> point to the same address. Technically we don&apos;t need this line but it&apos;s useful for type checking. The first line ensures that the given structure (<code>type</code> parameter) has a member called <code>member</code>. In the second line it calculates offset of the field from the structure with the <code>offsetof</code> macro and subtracts it from the structure address. That&apos;s all.</p>
+<p>Of course <code>list_add</code> and <code>list_entry</code> is not the only functions which <code>&lt;linux/list.h&gt;</code> provides. Implementation of the doubly linked list provides the following API:</p>
+<ul>
+<li>list_add</li>
+<li>list_add_tail</li>
+<li>list_del</li>
+<li>list_replace</li>
+<li>list_move</li>
+<li>list_is_last</li>
+<li>list_empty</li>
+<li>list_cut_position</li>
+<li>list_splice</li>
+<li>list_for_each</li>
+<li>list_for_each_entry</li>
+</ul>
+<p>and many more.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Data Structures in the Linux Kernel">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="radix-tree.html" class="navigation navigation-next " aria-label="Next page: Radix tree">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Doubly linked list","level":"1.12.1","depth":2,"next":{"title":"Radix tree","level":"1.12.2","depth":2,"path":"DataStructures/radix-tree.md","ref":"DataStructures/radix-tree.md","articles":[]},"previous":{"title":"Data Structures in the Linux Kernel","level":"1.12","depth":1,"path":"DataStructures/README.md","ref":"DataStructures/README.md","articles":[{"title":"Doubly linked list","level":"1.12.1","depth":2,"path":"DataStructures/dlist.md","ref":"DataStructures/dlist.md","articles":[]},{"title":"Radix tree","level":"1.12.2","depth":2,"path":"DataStructures/radix-tree.md","ref":"DataStructures/radix-tree.md","articles":[]},{"title":"Bit arrays","level":"1.12.3","depth":2,"path":"DataStructures/bitmap.md","ref":"DataStructures/bitmap.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"DataStructures/dlist.md","mtime":"2019-03-28T07:54:50.386Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-28T08:02:31.511Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,1762 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Handling Non-Maskable interrupts · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="interrupts-7.html" />
+    
+    
+    <link rel="prev" href="interrupts-5.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Summary</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Booting/">
+            
+                <a href="../Booting/">
+            
+                    
+                    Booting
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Booting/linux-bootstrap-1.html">
+            
+                <a href="../Booting/linux-bootstrap-1.html">
+            
+                    
+                    From bootloader to kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Booting/linux-bootstrap-2.html">
+            
+                <a href="../Booting/linux-bootstrap-2.html">
+            
+                    
+                    First steps in the kernel setup code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Booting/linux-bootstrap-3.html">
+            
+                <a href="../Booting/linux-bootstrap-3.html">
+            
+                    
+                    Video mode initialization and transition to protected mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../Booting/linux-bootstrap-4.html">
+            
+                <a href="../Booting/linux-bootstrap-4.html">
+            
+                    
+                    Transition to 64-bit mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../Booting/linux-bootstrap-5.html">
+            
+                <a href="../Booting/linux-bootstrap-5.html">
+            
+                    
+                    Kernel decompression
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Initialization/">
+            
+                <a href="../Initialization/">
+            
+                    
+                    Initialization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Initialization/linux-initialization-1.html">
+            
+                <a href="../Initialization/linux-initialization-1.html">
+            
+                    
+                    First steps in the kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Initialization/linux-initialization-2.html">
+            
+                <a href="../Initialization/linux-initialization-2.html">
+            
+                    
+                    Early interrupts handler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Initialization/linux-initialization-3.html">
+            
+                <a href="../Initialization/linux-initialization-3.html">
+            
+                    
+                    Last preparations before the kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Initialization/linux-initialization-4.html">
+            
+                <a href="../Initialization/linux-initialization-4.html">
+            
+                    
+                    Kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../Initialization/linux-initialization-5.html">
+            
+                <a href="../Initialization/linux-initialization-5.html">
+            
+                    
+                    Continue architecture-specific boot-time initializations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../Initialization/linux-initialization-6.html">
+            
+                <a href="../Initialization/linux-initialization-6.html">
+            
+                    
+                    Architecture-specific initializations, again...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../Initialization/linux-initialization-7.html">
+            
+                <a href="../Initialization/linux-initialization-7.html">
+            
+                    
+                    End of the architecture-specific initializations, almost...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../Initialization/linux-initialization-8.html">
+            
+                <a href="../Initialization/linux-initialization-8.html">
+            
+                    
+                    Scheduler initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../Initialization/linux-initialization-9.html">
+            
+                <a href="../Initialization/linux-initialization-9.html">
+            
+                    
+                    RCU initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../Initialization/linux-initialization-10.html">
+            
+                <a href="../Initialization/linux-initialization-10.html">
+            
+                    
+                    End of initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Interrupts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="interrupts-1.html">
+            
+                <a href="interrupts-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="interrupts-2.html">
+            
+                <a href="interrupts-2.html">
+            
+                    
+                    Start to dive into interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="interrupts-3.html">
+            
+                <a href="interrupts-3.html">
+            
+                    
+                    Interrupt handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="interrupts-4.html">
+            
+                <a href="interrupts-4.html">
+            
+                    
+                    Initialization of non-early interrupt gates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="interrupts-5.html">
+            
+                <a href="interrupts-5.html">
+            
+                    
+                    Implementation of some exception handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.6" data-path="interrupts-6.html">
+            
+                <a href="interrupts-6.html">
+            
+                    
+                    Handling Non-Maskable interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="interrupts-7.html">
+            
+                <a href="interrupts-7.html">
+            
+                    
+                    Dive into external hardware interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="interrupts-8.html">
+            
+                <a href="interrupts-8.html">
+            
+                    
+                    Initialization of external hardware interrupts structures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="interrupts-9.html">
+            
+                <a href="interrupts-9.html">
+            
+                    
+                    Softirq, Tasklets and Workqueues
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="interrupts-10.html">
+            
+                <a href="interrupts-10.html">
+            
+                    
+                    Last part
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../SysCall/">
+            
+                <a href="../SysCall/">
+            
+                    
+                    System calls
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../SysCall/syscall-1.html">
+            
+                <a href="../SysCall/syscall-1.html">
+            
+                    
+                    Introduction to system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../SysCall/syscall-2.html">
+            
+                <a href="../SysCall/syscall-2.html">
+            
+                    
+                    How the Linux kernel handles a system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../SysCall/syscall-3.html">
+            
+                <a href="../SysCall/syscall-3.html">
+            
+                    
+                    vsyscall and vDSO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../SysCall/syscall-4.html">
+            
+                <a href="../SysCall/syscall-4.html">
+            
+                    
+                    How the Linux kernel runs a program
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../SysCall/syscall-5.html">
+            
+                <a href="../SysCall/syscall-5.html">
+            
+                    
+                    Implementation of the open system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Timers/">
+            
+                <a href="../Timers/">
+            
+                    
+                    Timers and time management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../Timers/timers-1.html">
+            
+                <a href="../Timers/timers-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Timers/timers-2.html">
+            
+                <a href="../Timers/timers-2.html">
+            
+                    
+                    Clocksource framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Timers/timers-3.html">
+            
+                <a href="../Timers/timers-3.html">
+            
+                    
+                    The tick broadcast framework and dyntick
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../Timers/timers-4.html">
+            
+                <a href="../Timers/timers-4.html">
+            
+                    
+                    Introduction to timers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Timers/timers-5.html">
+            
+                <a href="../Timers/timers-5.html">
+            
+                    
+                    Clockevents framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../Timers/timers-6.html">
+            
+                <a href="../Timers/timers-6.html">
+            
+                    
+                    x86 related clock sources
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../Timers/timers-7.html">
+            
+                <a href="../Timers/timers-7.html">
+            
+                    
+                    Time related system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../SyncPrim/">
+            
+                <a href="../SyncPrim/">
+            
+                    
+                    Synchronization primitives
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../SyncPrim/sync-1.html">
+            
+                <a href="../SyncPrim/sync-1.html">
+            
+                    
+                    Introduction to spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../SyncPrim/sync-2.html">
+            
+                <a href="../SyncPrim/sync-2.html">
+            
+                    
+                    Queued spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../SyncPrim/sync-3.html">
+            
+                <a href="../SyncPrim/sync-3.html">
+            
+                    
+                    Semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../SyncPrim/sync-4.html">
+            
+                <a href="../SyncPrim/sync-4.html">
+            
+                    
+                    Mutex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../SyncPrim/sync-5.html">
+            
+                <a href="../SyncPrim/sync-5.html">
+            
+                    
+                    Reader/Writer semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../SyncPrim/sync-6.html">
+            
+                <a href="../SyncPrim/sync-6.html">
+            
+                    
+                    SeqLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" >
+            
+                <span>
+            
+                    
+                    RCU
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" >
+            
+                <span>
+            
+                    
+                    Lockdep
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../mm/">
+            
+                <a href="../mm/">
+            
+                    
+                    Memory management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../mm/linux-mm-1.html">
+            
+                <a href="../mm/linux-mm-1.html">
+            
+                    
+                    Memblock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../mm/linux-mm-2.html">
+            
+                <a href="../mm/linux-mm-2.html">
+            
+                    
+                    Fixmaps and ioremap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../mm/linux-mm-3.html">
+            
+                <a href="../mm/linux-mm-3.html">
+            
+                    
+                    kmemcheck
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../Cgroups/">
+            
+                <a href="../Cgroups/">
+            
+                    
+                    Cgroups
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../Cgroups/cgroups1.html">
+            
+                <a href="../Cgroups/cgroups1.html">
+            
+                    
+                    Introduction to Control Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    SMP
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../Concepts/">
+            
+                <a href="../Concepts/">
+            
+                    
+                    Concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../Concepts/per-cpu.html">
+            
+                <a href="../Concepts/per-cpu.html">
+            
+                    
+                    Per-CPU variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../Concepts/cpumask.html">
+            
+                <a href="../Concepts/cpumask.html">
+            
+                    
+                    Cpumasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../Concepts/initcall.html">
+            
+                <a href="../Concepts/initcall.html">
+            
+                    
+                    The initcall mechanism
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../DataStructures/">
+            
+                <a href="../DataStructures/">
+            
+                    
+                    Data Structures in the Linux Kernel
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../DataStructures/dlist.html">
+            
+                <a href="../DataStructures/dlist.html">
+            
+                    
+                    Doubly linked list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../DataStructures/radix-tree.html">
+            
+                <a href="../DataStructures/radix-tree.html">
+            
+                    
+                    Radix tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../DataStructures/bitmap.html">
+            
+                <a href="../DataStructures/bitmap.html">
+            
+                    
+                    Bit arrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../Theory/">
+            
+                <a href="../Theory/">
+            
+                    
+                    Theory
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../Theory/Paging.html">
+            
+                <a href="../Theory/Paging.html">
+            
+                    
+                    Paging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../Theory/ELF.html">
+            
+                <a href="../Theory/ELF.html">
+            
+                    
+                    Elf64
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../Theory/asm.html">
+            
+                <a href="../Theory/asm.html">
+            
+                    
+                    Inline assembly
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" >
+            
+                <span>
+            
+                    
+                    CPUID
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" >
+            
+                <span>
+            
+                    
+                    MSR
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" >
+            
+                <span>
+            
+                    
+                    Initial ram disk
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" >
+            
+                <span>
+            
+                    
+                    initrd
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../Misc/">
+            
+                <a href="../Misc/">
+            
+                    
+                    Misc
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../Misc/how_kernel_compiled.html">
+            
+                <a href="../Misc/how_kernel_compiled.html">
+            
+                    
+                    How the kernel is compiled
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../Misc/linkers.html">
+            
+                <a href="../Misc/linkers.html">
+            
+                    
+                    Linkers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.3" data-path="../Misc/contribute.html">
+            
+                <a href="../Misc/contribute.html">
+            
+                    
+                    Linux kernel development
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.4" data-path="../Misc/program_startup.html">
+            
+                <a href="../Misc/program_startup.html">
+            
+                    
+                    Program startup process in userspace
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.5" >
+            
+                <span>
+            
+                    
+                    Write and Submit your first Linux kernel Patch
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.6" >
+            
+                <span>
+            
+                    
+                    Data types in the kernel
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../KernelStructures/">
+            
+                <a href="../KernelStructures/">
+            
+                    
+                    KernelStructures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../KernelStructures/idt.html">
+            
+                <a href="../KernelStructures/idt.html">
+            
+                    
+                    IDT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../LINKS.html">
+            
+                <a href="../LINKS.html">
+            
+                    
+                    Useful links
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../contributors.html">
+            
+                <a href="../contributors.html">
+            
+                    
+                    Contributors
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Handling Non-Maskable interrupts</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="interrupts-and-interrupt-handling-part-6">Interrupts and Interrupt Handling. Part 6.</h1>
+<h2 id="non-maskable-interrupt-handler">Non-maskable interrupt handler</h2>
+<p>It is sixth part of the <a href="http://0xax.gitbooks.io/linux-insides/content/interrupts/index.html" target="_blank">Interrupts and Interrupt Handling in the Linux kernel</a> chapter and in the previous <a href="http://0xax.gitbooks.io/linux-insides/content/interrupts/interrupts-5.html" target="_blank">part</a> we saw implementation of some exception handlers for the <a href="https://en.wikipedia.org/wiki/General_protection_fault" target="_blank">General Protection Fault</a> exception, divide exception, invalid <a href="https://en.wikipedia.org/wiki/Opcode" target="_blank">opcode</a> exceptions and etc. As I wrote in the previous part we will see implementations of the rest exceptions in this part. We will see implementation of the following handlers:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Non-maskable_interrupt" target="_blank">Non-Maskable</a> interrupt;</li>
+<li><a href="http://pdos.csail.mit.edu/6.828/2005/readings/i386/BOUND.htm" target="_blank">BOUND</a> Range Exceeded Exception;</li>
+<li><a href="https://en.wikipedia.org/wiki/Coprocessor" target="_blank">Coprocessor</a> exception;</li>
+<li><a href="https://en.wikipedia.org/wiki/SIMD" target="_blank">SIMD</a> coprocessor exception.</li>
+</ul>
+<p>in this part. So, let&apos;s start.</p>
+<h2 id="non-maskable-interrupt-handling">Non-Maskable interrupt handling</h2>
+<p>A <a href="https://en.wikipedia.org/wiki/Non-maskable_interrupt" target="_blank">Non-Maskable</a> interrupt is a hardware interrupt that cannot be ignored by standard masking techniques. In a general way, a non-maskable interrupt can be generated in either of two ways:</p>
+<ul>
+<li>External hardware asserts the non-maskable interrupt <a href="https://en.wikipedia.org/wiki/CPU_socket" target="_blank">pin</a> on the CPU.</li>
+<li>The processor receives a message on the system bus or the APIC serial bus with a delivery mode <code>NMI</code>.</li>
+</ul>
+<p>When the processor receives a <code>NMI</code> from one of these sources, the processor handles it immediately by calling the <code>NMI</code> handler pointed to by interrupt vector which has number <code>2</code> (see table in the first <a href="http://0xax.gitbooks.io/linux-insides/content/interrupts/interrupts-1.html" target="_blank">part</a>). We already filled the <a href="https://en.wikipedia.org/wiki/Interrupt_descriptor_table" target="_blank">Interrupt Descriptor Table</a> with the <a href="https://en.wikipedia.org/wiki/Interrupt_vector_table" target="_blank">vector number</a>, address of the <code>nmi</code> interrupt handler and <code>NMI_STACK</code> <a href="https://github.com/torvalds/linux/blob/master/Documentation/x86/kernel-stacks" target="_blank">Interrupt Stack Table entry</a>:</p>
+<pre><code class="lang-C">set_intr_gate_ist(X86_TRAP_NMI, &amp;nmi, NMI_STACK);
+</code></pre>
+<p>in the <code>trap_init</code> function which defined in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/kernel/traps.c" target="_blank">arch/x86/kernel/traps.c</a> source code file. In the previous <a href="http://0xax.gitbooks.io/linux-insides/content/interrupts/index.html" target="_blank">parts</a> we saw that entry points of the all interrupt handlers are defined with the:</p>
+<pre><code class="lang-assembly">.macro idtentry sym do_sym has_error_code:req paranoid=0 shift_ist=-1
+ENTRY(\sym)
+...
+...
+...
+END(\sym)
+.endm
+</code></pre>
+<p>macro from the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/entry/entry_64.S" target="_blank">arch/x86/entry/entry_64.S</a> assembly source code file. But the handler of the <code>Non-Maskable</code> interrupts is not defined with this macro. It has own entry point:</p>
+<pre><code class="lang-assembly">ENTRY(nmi)
+...
+...
+...
+END(nmi)
+</code></pre>
+<p>in the same <a href="https://github.com/torvalds/linux/blob/master/arch/x86/entry/entry_64.S" target="_blank">arch/x86/entry/entry_64.S</a> assembly file. Lets dive into it and will try to understand how <code>Non-Maskable</code> interrupt handler works. The <code>nmi</code> handlers starts from the call of the:</p>
+<pre><code class="lang-assembly">PARAVIRT_ADJUST_EXCEPTION_FRAME
+</code></pre>
+<p>macro but we will not dive into details about it in this part, because this macro related to the <a href="https://en.wikipedia.org/wiki/Paravirtualization" target="_blank">Paravirtualization</a> stuff which we will see in another chapter. After this save the content of the <code>rdx</code> register on the stack:</p>
+<pre><code class="lang-assembly">pushq    %rdx
+</code></pre>
+<p>And allocated check that <code>cs</code> was not the kernel segment when an non-maskable interrupt occurs:</p>
+<pre><code class="lang-assembly">cmpl    $__KERNEL_CS, 16(%rsp)
+jne    first_nmi
+</code></pre>
+<p>The <code>__KERNEL_CS</code> macro defined in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/segment.h" target="_blank">arch/x86/include/asm/segment.h</a> and represented second descriptor in the <a href="https://en.wikipedia.org/wiki/Global_Descriptor_Table" target="_blank">Global Descriptor Table</a>:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> GDT_ENTRY_KERNEL_CS    2</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> __KERNEL_CS    (GDT_ENTRY_KERNEL_CS*8)</span>
+</code></pre>
+<p>more about <code>GDT</code> you can read in the second <a href="http://0xax.gitbooks.io/linux-insides/content/Booting/linux-bootstrap-2.html" target="_blank">part</a> of the Linux kernel booting process chapter. If <code>cs</code> is not kernel segment, it means that it is not nested <code>NMI</code> and we jump on the <code>first_nmi</code> label. Let&apos;s consider this case. First of all we put address of the current stack pointer to the <code>rdx</code> and pushes <code>1</code> to the stack in the <code>first_nmi</code> label:</p>
+<pre><code class="lang-assembly">first_nmi:
+    movq    (%rsp), %rdx
+    pushq    $1
+</code></pre>
+<p>Why do we push <code>1</code> on the stack? As the comment says: <code>We allow breakpoints in NMIs</code>. On the <a href="https://en.wikipedia.org/wiki/X86-64" target="_blank">x86_64</a>, like other architectures, the CPU will not execute another <code>NMI</code> until the first <code>NMI</code> is completed. A <code>NMI</code> interrupt finished with the <a href="http://faydoc.tripod.com/cpu/iret.htm" target="_blank">iret</a> instruction like other interrupts and exceptions do it. If the <code>NMI</code> handler triggers either a <a href="https://en.wikipedia.org/wiki/Page_fault" target="_blank">page fault</a> or <a href="https://en.wikipedia.org/wiki/Breakpoint" target="_blank">breakpoint</a> or another exception which are use <code>iret</code> instruction too. If this happens while in <code>NMI</code> context, the CPU will leave <code>NMI</code> context and a new <code>NMI</code> may come in. The <code>iret</code> used to return from those exceptions will re-enable <code>NMIs</code> and we will get nested non-maskable interrupts. The problem the <code>NMI</code> handler will not return to the state that it was, when the exception triggered, but instead it will return to a state that will allow new <code>NMIs</code> to preempt the running <code>NMI</code> handler. If another <code>NMI</code> comes in before the first NMI handler is complete, the new NMI will write all over the preempted <code>NMIs</code> stack. We can have nested <code>NMIs</code> where the next <code>NMI</code> is using the top of the stack of the previous <code>NMI</code>. It means that we cannot execute it because a nested non-maskable interrupt will corrupt stack of a previous non-maskable interrupt. That&apos;s why we have allocated space on the stack for temporary variable. We will check this variable that it was set when a previous <code>NMI</code> is executing and clear if it is not nested <code>NMI</code>. We push <code>1</code> here to the previously allocated space on the stack to denote that a <code>non-maskable</code> interrupt executed currently. Remember that when and <code>NMI</code> or another exception occurs we have the following <a href="https://en.wikipedia.org/wiki/Call_stack" target="_blank">stack frame</a>:</p>
+<pre><code>+------------------------+
+|         SS             |
+|         RSP            |
+|        RFLAGS          |
+|         CS             |
+|         RIP            |
++------------------------+
+</code></pre><p>and also an error code if an exception has it. So, after all of these manipulations our stack frame will look like this:</p>
+<pre><code>+------------------------+
+|         SS             |
+|         RSP            |
+|        RFLAGS          |
+|         CS             |
+|         RIP            |
+|         RDX            |
+|          1             |
++------------------------+
+</code></pre><p>In the next step we allocate yet another <code>40</code> bytes on the stack:</p>
+<pre><code class="lang-assembly">subq    $(5*8), %rsp
+</code></pre>
+<p>and pushes the copy of the original stack frame after the allocated space:</p>
+<pre><code class="lang-C">.rept <span class="hljs-number">5</span>
+pushq    <span class="hljs-number">11</span>*<span class="hljs-number">8</span>(%rsp)
+.endr
+</code></pre>
+<p>with the <a href="http://tigcc.ticalc.org/doc/gnuasm.html#SEC116" target="_blank">.rept</a> assembly directive. We need in the copy of the original stack frame. Generally we need in two copies of the interrupt stack. First is <code>copied</code> interrupts stack: <code>saved</code> stack frame and <code>copied</code> stack frame. Now we pushes original stack frame to the <code>saved</code> stack frame which locates after the just allocated <code>40</code> bytes (<code>copied</code> stack frame). This stack frame is used to fixup the <code>copied</code> stack frame that a nested NMI may change. The second - <code>copied</code> stack frame modified by any nested <code>NMIs</code> to let the first <code>NMI</code> know that we triggered a second <code>NMI</code> and we should repeat the first <code>NMI</code> handler. Ok, we have made first copy of the original stack frame, now time to make second copy:</p>
+<pre><code class="lang-assembly">addq    $(10*8), %rsp
+
+.rept 5
+pushq    -6*8(%rsp)
+.endr
+subq    $(5*8), %rsp
+</code></pre>
+<p>After all of these manipulations our stack frame will be like this:</p>
+<pre><code>+-------------------------+
+| original SS             |
+| original Return RSP     |
+| original RFLAGS         |
+| original CS             |
+| original RIP            |
++-------------------------+
+| temp storage for rdx    |
++-------------------------+
+| NMI executing variable  |
++-------------------------+
+| copied SS               |
+| copied Return RSP       |
+| copied RFLAGS           |
+| copied CS               |
+| copied RIP              |
++-------------------------+
+| Saved SS                |
+| Saved Return RSP        |
+| Saved RFLAGS            |
+| Saved CS                |
+| Saved RIP               |
++-------------------------+
+</code></pre><p>After this we push dummy error code on the stack as we did it already in the previous exception handlers and allocate space for the general purpose registers on the stack:</p>
+<pre><code class="lang-assembly">pushq    $-1
+ALLOC_PT_GPREGS_ON_STACK
+</code></pre>
+<p>We already saw implementation of the <code>ALLOC_PT_GREGS_ON_STACK</code> macro in the third part of the interrupts <a href="http://0xax.gitbooks.io/linux-insides/content/interrupts/interrupts-3.html" target="_blank">chapter</a>. This macro defined in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/entry/calling.h" target="_blank">arch/x86/entry/calling.h</a> and yet another allocates <code>120</code> bytes on stack for the general purpose registers, from the <code>rdi</code> to the <code>r15</code>:</p>
+<pre><code class="lang-assembly">.macro ALLOC_PT_GPREGS_ON_STACK addskip=0
+addq    $-(15*8+\addskip), %rsp
+.endm
+</code></pre>
+<p>After space allocation for the general registers we can see call of the <code>paranoid_entry</code>:</p>
+<pre><code class="lang-assembly">call    paranoid_entry
+</code></pre>
+<p>We can remember from the previous parts this label. It pushes general purpose registers on the stack, reads <code>MSR_GS_BASE</code> <a href="https://en.wikipedia.org/wiki/Model-specific_register" target="_blank">Model Specific register</a> and checks its value. If the value of the <code>MSR_GS_BASE</code> is negative, we came from the kernel mode and just return from the <code>paranoid_entry</code>, in other way it means that we came from the usermode and need to execute <code>swapgs</code> instruction which will change user <code>gs</code> with the kernel <code>gs</code>:</p>
+<pre><code class="lang-assembly">ENTRY(paranoid_entry)
+    cld
+    SAVE_C_REGS 8
+    SAVE_EXTRA_REGS 8
+    movl    $1, %ebx
+    movl    $MSR_GS_BASE, %ecx
+    rdmsr
+    testl    %edx, %edx
+    js    1f
+    SWAPGS
+    xorl    %ebx, %ebx
+1:    ret
+END(paranoid_entry)
+</code></pre>
+<p>Note that after the <code>swapgs</code> instruction we zeroed the <code>ebx</code> register. Next time we will check content of this register and if we executed <code>swapgs</code> than <code>ebx</code> must contain <code>0</code> and <code>1</code> in other way. In the next step we store value of the <code>cr2</code> <a href="https://en.wikipedia.org/wiki/Control_register" target="_blank">control register</a> to the <code>r12</code> register, because the <code>NMI</code> handler can cause <code>page fault</code> and corrupt the value of this control register:</p>
+<pre><code class="lang-C">movq    %cr2, %r12
+</code></pre>
+<p>Now time to call actual <code>NMI</code> handler. We push the address of the <code>pt_regs</code> to the <code>rdi</code>, error code to the <code>rsi</code> and call the <code>do_nmi</code> handler:</p>
+<pre><code class="lang-assembly">movq    %rsp, %rdi
+movq    $-1, %rsi
+call    do_nmi
+</code></pre>
+<p>We will back to the <code>do_nmi</code> little later in this part, but now let&apos;s look what occurs after the <code>do_nmi</code> will finish its execution. After the <code>do_nmi</code> handler will be finished we check the <code>cr2</code> register, because we can got page fault during <code>do_nmi</code> performed and if we got it we restore original <code>cr2</code>, in other way we jump on the label <code>1</code>. After this we test content of the <code>ebx</code> register (remember it must contain <code>0</code> if we have used <code>swapgs</code> instruction and <code>1</code> if we didn&apos;t use it) and execute <code>SWAPGS_UNSAFE_STACK</code> if it contains <code>1</code> or jump to the <code>nmi_restore</code> label. The <code>SWAPGS_UNSAFE_STACK</code> macro just expands to the <code>swapgs</code> instruction. In the <code>nmi_restore</code> label we restore general purpose registers, clear allocated space on the stack for this registers, clear our temporary variable and exit from the interrupt handler with the <code>INTERRUPT_RETURN</code> macro:</p>
+<pre><code class="lang-assembly">    movq    %cr2, %rcx
+    cmpq    %rcx, %r12
+    je    1f
+    movq    %r12, %cr2
+1:
+    testl    %ebx, %ebx
+    jnz    nmi_restore
+nmi_swapgs:
+    SWAPGS_UNSAFE_STACK
+nmi_restore:
+    RESTORE_EXTRA_REGS
+    RESTORE_C_REGS
+    /* Pop the extra iret frame at once */
+    REMOVE_PT_GPREGS_FROM_STACK 6*8
+    /* Clear the NMI executing stack variable */
+    movq    $0, 5*8(%rsp)
+    INTERRUPT_RETURN
+</code></pre>
+<p>where <code>INTERRUPT_RETURN</code> is defined in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/include/irqflags.h" target="_blank">arch/x86/include/irqflags.h</a> and just expands to the <code>iret</code> instruction. That&apos;s all.</p>
+<p>Now let&apos;s consider case when another <code>NMI</code> interrupt occurred when previous <code>NMI</code> interrupt didn&apos;t finish its execution. You can remember from the beginning of this part that we&apos;ve made a check that we came from userspace and jump on the <code>first_nmi</code> in this case:</p>
+<pre><code class="lang-assembly">cmpl    $__KERNEL_CS, 16(%rsp)
+jne    first_nmi
+</code></pre>
+<p>Note that in this case it is first <code>NMI</code> every time, because if the first <code>NMI</code> catched page fault, breakpoint or another exception it will be executed in the kernel mode. If we didn&apos;t come from userspace, first of all we test our temporary variable:</p>
+<pre><code class="lang-assembly">cmpl    $1, -8(%rsp)
+je    nested_nmi
+</code></pre>
+<p>and if it is set to <code>1</code> we jump to the <code>nested_nmi</code> label. If it is not <code>1</code>, we test the <code>IST</code> stack. In the case of nested <code>NMIs</code> we check that we are above the <code>repeat_nmi</code>. In this case we ignore it, in other way we check that we above than <code>end_repeat_nmi</code> and jump on the <code>nested_nmi_out</code> label.</p>
+<p>Now let&apos;s look on the <code>do_nmi</code> exception handler. This function defined in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/kernel/nmi.c" target="_blank">arch/x86/kernel/nmi.c</a> source code file and takes two parameters:</p>
+<ul>
+<li>address of the <code>pt_regs</code>;</li>
+<li>error code.</li>
+</ul>
+<p>as all exception handlers. The <code>do_nmi</code> starts from the call of the <code>nmi_nesting_preprocess</code> function and ends with the call of the <code>nmi_nesting_postprocess</code>. The <code>nmi_nesting_preprocess</code> function checks that we likely do not work with the debug stack and if we on the debug stack set the <code>update_debug_stack</code> <a href="http://0xax.gitbooks.io/linux-insides/content/Concepts/per-cpu.html" target="_blank">per-cpu</a> variable to <code>1</code> and call the <code>debug_stack_set_zero</code> function from the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/kernel/cpu/common.c" target="_blank">arch/x86/kernel/cpu/common.c</a>. This function increases the <code>debug_stack_use_ctr</code> per-cpu variable and loads new <code>Interrupt Descriptor Table</code>:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">nmi_nesting_preprocess</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> pt_regs *regs)</span>
+</span>{
+        <span class="hljs-keyword">if</span> (unlikely(is_debug_stack(regs-&gt;sp))) {
+                debug_stack_set_zero();
+                this_cpu_write(update_debug_stack, <span class="hljs-number">1</span>);
+        }
+}
+</code></pre>
+<p>The <code>nmi_nesting_postprocess</code> function checks the <code>update_debug_stack</code> per-cpu variable which we set in the <code>nmi_nesting_preprocess</code> and resets debug stack or in another words it loads origin <code>Interrupt Descriptor Table</code>. After the call of the <code>nmi_nesting_preprocess</code> function, we can see the call of the <code>nmi_enter</code> in the <code>do_nmi</code>. The <code>nmi_enter</code> increases <code>lockdep_recursion</code> field of the interrupted process, update preempt counter and informs the <a href="https://en.wikipedia.org/wiki/Read-copy-update" target="_blank">RCU</a> subsystem about <code>NMI</code>. There is also <code>nmi_exit</code> function that does the same stuff as <code>nmi_enter</code>, but vice-versa. After the <code>nmi_enter</code> we increase <code>__nmi_count</code> in the <code>irq_stat</code> structure and call the <code>default_do_nmi</code> function. First of all in the <code>default_do_nmi</code> we check the address of the previous nmi and update address of the last nmi to the actual:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (regs-&gt;ip == __this_cpu_read(last_nmi_rip))
+    b2b = <span class="hljs-literal">true</span>;
+<span class="hljs-keyword">else</span>
+    __this_cpu_write(swallow_nmi, <span class="hljs-literal">false</span>);
+
+__this_cpu_write(last_nmi_rip, regs-&gt;ip);
+</code></pre>
+<p>After this first of all we need to handle CPU-specific <code>NMIs</code>:</p>
+<pre><code class="lang-C">handled = nmi_handle(NMI_LOCAL, regs, b2b);
+__this_cpu_add(nmi_stats.normal, handled);
+</code></pre>
+<p>And then non-specific <code>NMIs</code> depends on its reason:</p>
+<pre><code class="lang-C">reason = x86_platform.get_nmi_reason();
+<span class="hljs-keyword">if</span> (reason &amp; NMI_REASON_MASK) {
+    <span class="hljs-keyword">if</span> (reason &amp; NMI_REASON_SERR)
+        pci_serr_error(reason, regs);
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (reason &amp; NMI_REASON_IOCHK)
+        io_check_error(reason, regs);
+
+    __this_cpu_add(nmi_stats.external, <span class="hljs-number">1</span>);
+    <span class="hljs-keyword">return</span>;
+}
+</code></pre>
+<p>That&apos;s all.</p>
+<h2 id="range-exceeded-exception">Range Exceeded Exception</h2>
+<p>The next exception is the <code>BOUND</code> range exceeded exception. The <code>BOUND</code> instruction determines if the first operand (array index) is within the bounds of an array specified the second operand (bounds operand). If the index is not within bounds, a <code>BOUND</code> range exceeded exception or <code>#BR</code> is occurred. The handler of the <code>#BR</code> exception is the <code>do_bounds</code> function that defined in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/kernel/traps.c" target="_blank">arch/x86/kernel/traps.c</a>. The <code>do_bounds</code> handler starts with the call of the <code>exception_enter</code> function and ends with the call of the <code>exception_exit</code>:</p>
+<pre><code class="lang-C">prev_state = exception_enter();
+
+<span class="hljs-keyword">if</span> (notify_die(DIE_TRAP, <span class="hljs-string">&quot;bounds&quot;</span>, regs, error_code,
+               X86_TRAP_BR, SIGSEGV) == NOTIFY_STOP)
+    <span class="hljs-keyword">goto</span> <span class="hljs-built_in">exit</span>;
+...
+...
+...
+exception_exit(prev_state);
+<span class="hljs-keyword">return</span>;
+</code></pre>
+<p>After we have got the state of the previous context, we add the exception to the <code>notify_die</code> chain and if it will return <code>NOTIFY_STOP</code> we return from the exception. More about notify chains and the <code>context tracking</code> functions you can read in the <a href="http://0xax.gitbooks.io/linux-insides/content/interrupts/interrupts-5.html" target="_blank">previous part</a>. In the next step we enable interrupts if they were disabled with the <code>contidional_sti</code> function that checks <code>IF</code> flag and call the <code>local_irq_enable</code> depends on its value:</p>
+<pre><code class="lang-C">conditional_sti(regs);
+
+<span class="hljs-keyword">if</span> (!user_mode(regs))
+    die(<span class="hljs-string">&quot;bounds&quot;</span>, regs, error_code);
+</code></pre>
+<p>and check that if we didn&apos;t came from user mode we send <code>SIGSEGV</code> signal with the <code>die</code> function. After this we check is <a href="https://en.wikipedia.org/wiki/Intel_MPX" target="_blank">MPX</a> enabled or not, and if this feature is disabled we jump on the <code>exit_trap</code> label:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (!cpu_feature_enabled(X86_FEATURE_MPX)) {
+    <span class="hljs-keyword">goto</span> exit_trap;
+}
+
+where we execute `do_trap` function (more about it you can find in the previous part):
+
+```C
+exit_trap:
+    do_trap(X86_TRAP_BR, SIGSEGV, <span class="hljs-string">&quot;bounds&quot;</span>, regs, error_code, <span class="hljs-literal">NULL</span>);
+    exception_exit(prev_state);
+</code></pre>
+<p>If <code>MPX</code> feature is enabled we check the <code>BNDSTATUS</code> with the <code>get_xsave_field_ptr</code> function and if it is zero, it means that the <code>MPX</code> was not responsible for this exception:</p>
+<pre><code class="lang-C">bndcsr = get_xsave_field_ptr(XSTATE_BNDCSR);
+<span class="hljs-keyword">if</span> (!bndcsr)
+        <span class="hljs-keyword">goto</span> exit_trap;
+</code></pre>
+<p>After all of this, there is still only one way when <code>MPX</code> is responsible for this exception. We will not dive into the details about Intel Memory Protection Extensions in this part, but will see it in another chapter.</p>
+<h2 id="coprocessor-exception-and-simd-exception">Coprocessor exception and SIMD exception</h2>
+<p>The next two exceptions are <a href="https://en.wikipedia.org/wiki/X87" target="_blank">x87 FPU</a> Floating-Point Error exception or <code>#MF</code> and <a href="https://en.wikipedia.org/wiki/SIMD" target="_blank">SIMD</a> Floating-Point Exception or <code>#XF</code>. The first exception occurs when the <code>x87 FPU</code> has detected floating point error. For example divide by zero, numeric overflow and etc. The second exception occurs when the processor has detected <a href="https://en.wikipedia.org/wiki/SSE3" target="_blank">SSE/SSE2/SSE3</a> <code>SIMD</code> floating-point exception. It can be the same as for the <code>x87 FPU</code>. The handlers for these exceptions are <code>do_coprocessor_error</code> and <code>do_simd_coprocessor_error</code> are defined in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/kernel/traps.c" target="_blank">arch/x86/kernel/traps.c</a> and very similar on each other. They both make a call of the <code>math_error</code> function from the same source code file but pass different vector number. The <code>do_coprocessor_error</code> passes <code>X86_TRAP_MF</code> vector number to the <code>math_error</code>:</p>
+<pre><code class="lang-C"><span class="hljs-function">dotraplinkage <span class="hljs-keyword">void</span> <span class="hljs-title">do_coprocessor_error</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> pt_regs *regs, <span class="hljs-keyword">long</span> error_code)</span>
+</span>{
+    <span class="hljs-keyword">enum</span> ctx_state prev_state;
+
+    prev_state = exception_enter();
+    math_error(regs, error_code, X86_TRAP_MF);
+    exception_exit(prev_state);
+}
+</code></pre>
+<p>and <code>do_simd_coprocessor_error</code> passes <code>X86_TRAP_XF</code> to the <code>math_error</code> function:</p>
+<pre><code class="lang-C"><span class="hljs-function">dotraplinkage <span class="hljs-keyword">void</span>
+<span class="hljs-title">do_simd_coprocessor_error</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> pt_regs *regs, <span class="hljs-keyword">long</span> error_code)</span>
+</span>{
+    <span class="hljs-keyword">enum</span> ctx_state prev_state;
+
+    prev_state = exception_enter();
+    math_error(regs, error_code, X86_TRAP_XF);
+    exception_exit(prev_state);
+}
+</code></pre>
+<p>First of all the <code>math_error</code> function defines current interrupted task, address of its fpu, string which describes an exception, add it to the <code>notify_die</code> chain and return from the exception handler if it will return <code>NOTIFY_STOP</code>:</p>
+<pre><code class="lang-C">    <span class="hljs-keyword">struct</span> task_struct *task = current;
+    <span class="hljs-keyword">struct</span> fpu *fpu = &amp;task-&gt;thread.fpu;
+    <span class="hljs-keyword">siginfo_t</span> info;
+    <span class="hljs-keyword">char</span> *str = (trapnr == X86_TRAP_MF) ? <span class="hljs-string">&quot;fpu exception&quot;</span> :
+                        <span class="hljs-string">&quot;simd exception&quot;</span>;
+
+    <span class="hljs-keyword">if</span> (notify_die(DIE_TRAP, str, regs, error_code, trapnr, SIGFPE) == NOTIFY_STOP)
+        <span class="hljs-keyword">return</span>;
+</code></pre>
+<p>After this we check that we are from the kernel mode and if yes we will try to fix an excetpion with the <code>fixup_exception</code> function. If we cannot we fill the task with the exception&apos;s error code and vector number and die:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (!user_mode(regs)) {
+    <span class="hljs-keyword">if</span> (!fixup_exception(regs)) {
+        task-&gt;thread.error_code = error_code;
+        task-&gt;thread.trap_nr = trapnr;
+        die(str, regs, error_code);
+    }
+    <span class="hljs-keyword">return</span>;
+}
+</code></pre>
+<p>If we came from the user mode, we save the <code>fpu</code> state, fill the task structure with the vector number of an exception and <code>siginfo_t</code> with the number of signal, <code>errno</code>, the address where exception occurred and signal code:</p>
+<pre><code class="lang-C">fpu__save(fpu);
+
+task-&gt;thread.trap_nr    = trapnr;
+task-&gt;thread.error_code = error_code;
+info.si_signo        = SIGFPE;
+info.si_errno        = <span class="hljs-number">0</span>;
+info.si_addr        = (<span class="hljs-keyword">void</span> __user *)uprobe_get_trap_addr(regs);
+info.si_code = fpu__exception_code(fpu, trapnr);
+</code></pre>
+<p>After this we check the signal code and if it is non-zero we return:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (!info.si_code)
+    <span class="hljs-keyword">return</span>;
+</code></pre>
+<p>Or send the <code>SIGFPE</code> signal in the end:</p>
+<pre><code class="lang-C">force_sig_info(SIGFPE, &amp;info, task);
+</code></pre>
+<p>That&apos;s all.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>It is the end of the sixth part of the <a href="http://0xax.gitbooks.io/linux-insides/content/interrupts/index.html" target="_blank">Interrupts and Interrupt Handling</a> chapter and we saw implementation of some exception handlers in this part, like <code>non-maskable</code> interrupt, <a href="https://en.wikipedia.org/wiki/SIMD" target="_blank">SIMD</a> and <a href="https://en.wikipedia.org/wiki/X87" target="_blank">x87 FPU</a> floating point exception. Finally we have finsihed with the <code>trap_init</code> function in this part and will go ahead in the next part. The next our point is the external interrupts and the <code>early_irq_init</code> function from the <a href="https://github.com/torvalds/linux/blob/master/init/main.c" target="_blank">init/main.c</a>.</p>
+<p>If you have any questions or suggestions write me a comment or ping me at <a href="https://twitter.com/0xAX" target="_blank">twitter</a>.</p>
+<p><strong>Please note that English is not my first language, And I am really sorry for any inconvenience. If you find any mistakes please send me PR to <a href="https://github.com/0xAX/linux-insides" target="_blank">linux-insides</a>.</strong></p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/General_protection_fault" target="_blank">General Protection Fault</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Opcode" target="_blank">opcode</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Non-maskable_interrupt" target="_blank">Non-Maskable</a> </li>
+<li><a href="http://pdos.csail.mit.edu/6.828/2005/readings/i386/BOUND.htm" target="_blank">BOUND instruction</a></li>
+<li><a href="https://en.wikipedia.org/wiki/CPU_socket" target="_blank">CPU socket</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Interrupt_descriptor_table" target="_blank">Interrupt Descriptor Table</a></li>
+<li><a href="https://github.com/torvalds/linux/blob/master/Documentation/x86/kernel-stacks" target="_blank">Interrupt Stack Table</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Paravirtualization" target="_blank">Paravirtualization</a></li>
+<li><a href="http://tigcc.ticalc.org/doc/gnuasm.html#SEC116" target="_blank">.rept</a></li>
+<li><a href="https://en.wikipedia.org/wiki/SIMD" target="_blank">SIMD</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Coprocessor" target="_blank">Coprocessor</a></li>
+<li><a href="https://en.wikipedia.org/wiki/X86-64" target="_blank">x86_64</a></li>
+<li><a href="http://faydoc.tripod.com/cpu/iret.htm" target="_blank">iret</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Page_fault" target="_blank">page fault</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Breakpoint" target="_blank">breakpoint</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Global_Descriptor_Table" target="_blank">Global Descriptor Table</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Call_stack" target="_blank">stack frame</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Model-specific_register" target="_blank">Model Specific regiser</a></li>
+<li><a href="http://0xax.gitbooks.io/linux-insides/content/Concepts/per-cpu.html" target="_blank">percpu</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Read-copy-update" target="_blank">RCU</a> </li>
+<li><a href="https://en.wikipedia.org/wiki/Intel_MPX" target="_blank">MPX</a></li>
+<li><a href="https://en.wikipedia.org/wiki/X87" target="_blank">x87 FPU</a></li>
+<li><a href="http://0xax.gitbooks.io/linux-insides/content/interrupts/interrupts-5.html" target="_blank">Previous part</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="interrupts-5.html" class="navigation navigation-prev " aria-label="Previous page: Implementation of some exception handlers">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="interrupts-7.html" class="navigation navigation-next " aria-label="Next page: Dive into external hardware interrupts">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Handling Non-Maskable interrupts","level":"1.4.6","depth":2,"next":{"title":"Dive into external hardware interrupts","level":"1.4.7","depth":2,"path":"interrupts/interrupts-7.md","ref":"interrupts/interrupts-7.md","articles":[]},"previous":{"title":"Implementation of some exception handlers","level":"1.4.5","depth":2,"path":"interrupts/interrupts-5.md","ref":"interrupts/interrupts-5.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"interrupts/interrupts-6.md","mtime":"2019-03-28T07:54:50.429Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-28T08:02:31.511Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

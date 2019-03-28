@@ -1,0 +1,1569 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Radix tree · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="bitmap.html" />
+    
+    
+    <link rel="prev" href="dlist.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Summary</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Booting/">
+            
+                <a href="../Booting/">
+            
+                    
+                    Booting
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Booting/linux-bootstrap-1.html">
+            
+                <a href="../Booting/linux-bootstrap-1.html">
+            
+                    
+                    From bootloader to kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Booting/linux-bootstrap-2.html">
+            
+                <a href="../Booting/linux-bootstrap-2.html">
+            
+                    
+                    First steps in the kernel setup code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Booting/linux-bootstrap-3.html">
+            
+                <a href="../Booting/linux-bootstrap-3.html">
+            
+                    
+                    Video mode initialization and transition to protected mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../Booting/linux-bootstrap-4.html">
+            
+                <a href="../Booting/linux-bootstrap-4.html">
+            
+                    
+                    Transition to 64-bit mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../Booting/linux-bootstrap-5.html">
+            
+                <a href="../Booting/linux-bootstrap-5.html">
+            
+                    
+                    Kernel decompression
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Initialization/">
+            
+                <a href="../Initialization/">
+            
+                    
+                    Initialization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Initialization/linux-initialization-1.html">
+            
+                <a href="../Initialization/linux-initialization-1.html">
+            
+                    
+                    First steps in the kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Initialization/linux-initialization-2.html">
+            
+                <a href="../Initialization/linux-initialization-2.html">
+            
+                    
+                    Early interrupts handler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Initialization/linux-initialization-3.html">
+            
+                <a href="../Initialization/linux-initialization-3.html">
+            
+                    
+                    Last preparations before the kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Initialization/linux-initialization-4.html">
+            
+                <a href="../Initialization/linux-initialization-4.html">
+            
+                    
+                    Kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../Initialization/linux-initialization-5.html">
+            
+                <a href="../Initialization/linux-initialization-5.html">
+            
+                    
+                    Continue architecture-specific boot-time initializations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../Initialization/linux-initialization-6.html">
+            
+                <a href="../Initialization/linux-initialization-6.html">
+            
+                    
+                    Architecture-specific initializations, again...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../Initialization/linux-initialization-7.html">
+            
+                <a href="../Initialization/linux-initialization-7.html">
+            
+                    
+                    End of the architecture-specific initializations, almost...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../Initialization/linux-initialization-8.html">
+            
+                <a href="../Initialization/linux-initialization-8.html">
+            
+                    
+                    Scheduler initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../Initialization/linux-initialization-9.html">
+            
+                <a href="../Initialization/linux-initialization-9.html">
+            
+                    
+                    RCU initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../Initialization/linux-initialization-10.html">
+            
+                <a href="../Initialization/linux-initialization-10.html">
+            
+                    
+                    End of initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../interrupts/">
+            
+                <a href="../interrupts/">
+            
+                    
+                    Interrupts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../interrupts/interrupts-1.html">
+            
+                <a href="../interrupts/interrupts-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../interrupts/interrupts-2.html">
+            
+                <a href="../interrupts/interrupts-2.html">
+            
+                    
+                    Start to dive into interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../interrupts/interrupts-3.html">
+            
+                <a href="../interrupts/interrupts-3.html">
+            
+                    
+                    Interrupt handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../interrupts/interrupts-4.html">
+            
+                <a href="../interrupts/interrupts-4.html">
+            
+                    
+                    Initialization of non-early interrupt gates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../interrupts/interrupts-5.html">
+            
+                <a href="../interrupts/interrupts-5.html">
+            
+                    
+                    Implementation of some exception handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../interrupts/interrupts-6.html">
+            
+                <a href="../interrupts/interrupts-6.html">
+            
+                    
+                    Handling Non-Maskable interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../interrupts/interrupts-7.html">
+            
+                <a href="../interrupts/interrupts-7.html">
+            
+                    
+                    Dive into external hardware interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../interrupts/interrupts-8.html">
+            
+                <a href="../interrupts/interrupts-8.html">
+            
+                    
+                    Initialization of external hardware interrupts structures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../interrupts/interrupts-9.html">
+            
+                <a href="../interrupts/interrupts-9.html">
+            
+                    
+                    Softirq, Tasklets and Workqueues
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../interrupts/interrupts-10.html">
+            
+                <a href="../interrupts/interrupts-10.html">
+            
+                    
+                    Last part
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../SysCall/">
+            
+                <a href="../SysCall/">
+            
+                    
+                    System calls
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../SysCall/syscall-1.html">
+            
+                <a href="../SysCall/syscall-1.html">
+            
+                    
+                    Introduction to system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../SysCall/syscall-2.html">
+            
+                <a href="../SysCall/syscall-2.html">
+            
+                    
+                    How the Linux kernel handles a system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../SysCall/syscall-3.html">
+            
+                <a href="../SysCall/syscall-3.html">
+            
+                    
+                    vsyscall and vDSO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../SysCall/syscall-4.html">
+            
+                <a href="../SysCall/syscall-4.html">
+            
+                    
+                    How the Linux kernel runs a program
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../SysCall/syscall-5.html">
+            
+                <a href="../SysCall/syscall-5.html">
+            
+                    
+                    Implementation of the open system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Timers/">
+            
+                <a href="../Timers/">
+            
+                    
+                    Timers and time management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../Timers/timers-1.html">
+            
+                <a href="../Timers/timers-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Timers/timers-2.html">
+            
+                <a href="../Timers/timers-2.html">
+            
+                    
+                    Clocksource framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Timers/timers-3.html">
+            
+                <a href="../Timers/timers-3.html">
+            
+                    
+                    The tick broadcast framework and dyntick
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../Timers/timers-4.html">
+            
+                <a href="../Timers/timers-4.html">
+            
+                    
+                    Introduction to timers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Timers/timers-5.html">
+            
+                <a href="../Timers/timers-5.html">
+            
+                    
+                    Clockevents framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../Timers/timers-6.html">
+            
+                <a href="../Timers/timers-6.html">
+            
+                    
+                    x86 related clock sources
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../Timers/timers-7.html">
+            
+                <a href="../Timers/timers-7.html">
+            
+                    
+                    Time related system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../SyncPrim/">
+            
+                <a href="../SyncPrim/">
+            
+                    
+                    Synchronization primitives
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../SyncPrim/sync-1.html">
+            
+                <a href="../SyncPrim/sync-1.html">
+            
+                    
+                    Introduction to spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../SyncPrim/sync-2.html">
+            
+                <a href="../SyncPrim/sync-2.html">
+            
+                    
+                    Queued spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../SyncPrim/sync-3.html">
+            
+                <a href="../SyncPrim/sync-3.html">
+            
+                    
+                    Semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../SyncPrim/sync-4.html">
+            
+                <a href="../SyncPrim/sync-4.html">
+            
+                    
+                    Mutex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../SyncPrim/sync-5.html">
+            
+                <a href="../SyncPrim/sync-5.html">
+            
+                    
+                    Reader/Writer semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../SyncPrim/sync-6.html">
+            
+                <a href="../SyncPrim/sync-6.html">
+            
+                    
+                    SeqLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" >
+            
+                <span>
+            
+                    
+                    RCU
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" >
+            
+                <span>
+            
+                    
+                    Lockdep
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../mm/">
+            
+                <a href="../mm/">
+            
+                    
+                    Memory management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../mm/linux-mm-1.html">
+            
+                <a href="../mm/linux-mm-1.html">
+            
+                    
+                    Memblock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../mm/linux-mm-2.html">
+            
+                <a href="../mm/linux-mm-2.html">
+            
+                    
+                    Fixmaps and ioremap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../mm/linux-mm-3.html">
+            
+                <a href="../mm/linux-mm-3.html">
+            
+                    
+                    kmemcheck
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../Cgroups/">
+            
+                <a href="../Cgroups/">
+            
+                    
+                    Cgroups
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../Cgroups/cgroups1.html">
+            
+                <a href="../Cgroups/cgroups1.html">
+            
+                    
+                    Introduction to Control Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    SMP
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../Concepts/">
+            
+                <a href="../Concepts/">
+            
+                    
+                    Concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../Concepts/per-cpu.html">
+            
+                <a href="../Concepts/per-cpu.html">
+            
+                    
+                    Per-CPU variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../Concepts/cpumask.html">
+            
+                <a href="../Concepts/cpumask.html">
+            
+                    
+                    Cpumasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../Concepts/initcall.html">
+            
+                <a href="../Concepts/initcall.html">
+            
+                    
+                    The initcall mechanism
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Data Structures in the Linux Kernel
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="dlist.html">
+            
+                <a href="dlist.html">
+            
+                    
+                    Doubly linked list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.12.2" data-path="radix-tree.html">
+            
+                <a href="radix-tree.html">
+            
+                    
+                    Radix tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="bitmap.html">
+            
+                <a href="bitmap.html">
+            
+                    
+                    Bit arrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../Theory/">
+            
+                <a href="../Theory/">
+            
+                    
+                    Theory
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../Theory/Paging.html">
+            
+                <a href="../Theory/Paging.html">
+            
+                    
+                    Paging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../Theory/ELF.html">
+            
+                <a href="../Theory/ELF.html">
+            
+                    
+                    Elf64
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../Theory/asm.html">
+            
+                <a href="../Theory/asm.html">
+            
+                    
+                    Inline assembly
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" >
+            
+                <span>
+            
+                    
+                    CPUID
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" >
+            
+                <span>
+            
+                    
+                    MSR
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" >
+            
+                <span>
+            
+                    
+                    Initial ram disk
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" >
+            
+                <span>
+            
+                    
+                    initrd
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../Misc/">
+            
+                <a href="../Misc/">
+            
+                    
+                    Misc
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../Misc/how_kernel_compiled.html">
+            
+                <a href="../Misc/how_kernel_compiled.html">
+            
+                    
+                    How the kernel is compiled
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../Misc/linkers.html">
+            
+                <a href="../Misc/linkers.html">
+            
+                    
+                    Linkers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.3" data-path="../Misc/contribute.html">
+            
+                <a href="../Misc/contribute.html">
+            
+                    
+                    Linux kernel development
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.4" data-path="../Misc/program_startup.html">
+            
+                <a href="../Misc/program_startup.html">
+            
+                    
+                    Program startup process in userspace
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.5" >
+            
+                <span>
+            
+                    
+                    Write and Submit your first Linux kernel Patch
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.6" >
+            
+                <span>
+            
+                    
+                    Data types in the kernel
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../KernelStructures/">
+            
+                <a href="../KernelStructures/">
+            
+                    
+                    KernelStructures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../KernelStructures/idt.html">
+            
+                <a href="../KernelStructures/idt.html">
+            
+                    
+                    IDT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../LINKS.html">
+            
+                <a href="../LINKS.html">
+            
+                    
+                    Useful links
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../contributors.html">
+            
+                <a href="../contributors.html">
+            
+                    
+                    Contributors
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Radix tree</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="data-structures-in-the-linux-kernel">Data Structures in the Linux Kernel</h1>
+<h2 id="radix-tree">Radix tree</h2>
+<p>As you already know linux kernel provides many different libraries and functions which implement different data structures and algorithms. In this part we will consider one of these data structures - <a href="http://en.wikipedia.org/wiki/Radix_tree" target="_blank">Radix tree</a>. There are two files which are related to <code>radix tree</code> implementation and API in the linux kernel:</p>
+<ul>
+<li><a href="https://github.com/torvalds/linux/blob/master/include/linux/radix-tree.h" target="_blank">include/linux/radix-tree.h</a></li>
+<li><a href="https://github.com/torvalds/linux/blob/master/lib/radix-tree.c" target="_blank">lib/radix-tree.c</a></li>
+</ul>
+<p>Lets talk about what a <code>radix tree</code> is. Radix tree is a <code>compressed trie</code> where a <a href="http://en.wikipedia.org/wiki/Trie" target="_blank">trie</a> is a data structure which implements an interface of an associative array and allows to store values as <code>key-value</code>. The keys are usually strings, but any data type can be used. A trie is different from an <code>n-tree</code> because of its nodes. Nodes of a trie do not store keys; instead, a node of a trie stores single character labels. The key which is related to a given node is derived by traversing from the root of the tree to this node. For example:</p>
+<pre><code>&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;+-----------+
+&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;|&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;|
+&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;|&#x2009;&#x2009;&#x2009;&#x2009;&quot; &quot;&#x2009;&#x2009;&#x2009;&#x2009;|
+               |           |
+&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;+------+-----------+------+
+&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;|&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;|
+&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;|&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;|
+&#x2009;&#x2009;&#x2009;+----v------+&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;+-----v-----+
+&#x2009;&#x2009;&#x2009;|&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;|&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;|&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;|
+&#x2009;&#x2009;&#x2009;|&#x2009;&#x2009;&#x2009;&#x2009;g&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;|&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;|&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;c&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;|
+   |           |            |           |
+&#x2009;&#x2009;&#x2009;+-----------+&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;+-----------+
+&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;|&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;|
+&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;|&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;|
+&#x2009;&#x2009;&#x2009;+----v------+&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;+-----v-----+
+&#x2009;&#x2009;&#x2009;|&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;|&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;|&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;|
+&#x2009;&#x2009;&#x2009;|&#x2009;&#x2009;&#x2009;&#x2009;o&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;|&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;|&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;a&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;|
+   |           |            |           |
+&#x2009;&#x2009;&#x2009;+-----------+&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;+-----------+
+&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;|
+&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;|
+&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;+-----v-----+
+&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;|&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;|
+&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;|&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;t&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;|
+                            |           |
+&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;&#x2009;+-----------+
+</code></pre><p>So in this example, we can see the <code>trie</code> with keys, <code>go</code> and <code>cat</code>. The compressed trie or <code>radix tree</code> differs from <code>trie</code> in that all intermediates nodes which have only one child are removed.</p>
+<p>Radix tree in linux kernel is the data structure which maps values to integer keys. It is represented by the following structures from the file <a href="https://github.com/torvalds/linux/blob/master/include/linux/radix-tree.h" target="_blank">include/linux/radix-tree.h</a>:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">struct</span> radix_tree_root {
+         <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span>            height;
+         <span class="hljs-keyword">gfp_t</span>                   gfp_mask;
+         <span class="hljs-keyword">struct</span> radix_tree_node  __rcu *rnode;
+};
+</code></pre>
+<p>This structure presents the root of a radix tree and contains three fields:</p>
+<ul>
+<li><code>height</code>   - height of the tree;</li>
+<li><code>gfp_mask</code> - tells how memory allocations will be performed;</li>
+<li><code>rnode</code>    - pointer to the child node.</li>
+</ul>
+<p>The first field we will discuss is <code>gfp_mask</code>:</p>
+<p>Low-level kernel memory allocation functions take a set of flags as - <code>gfp_mask</code>, which describes how that allocation is to be performed. These <code>GFP_</code> flags which control the allocation process can have following values: (<code>GF_NOIO</code> flag) means sleep and wait for memory, (<code>__GFP_HIGHMEM</code> flag) means high memory can be used, (<code>GFP_ATOMIC</code> flag) means the allocation process has high-priority and can&apos;t sleep etc.</p>
+<ul>
+<li><code>GFP_NOIO</code> - can sleep and wait for memory;</li>
+<li><code>__GFP_HIGHMEM</code> - high memory can be used;</li>
+<li><code>GFP_ATOMIC</code> - allocation process is high-priority and can&apos;t sleep;</li>
+</ul>
+<p>etc.</p>
+<p>The next field is <code>rnode</code>:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">struct</span> radix_tree_node {
+        <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span>    path;
+        <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span>    count;
+        <span class="hljs-keyword">union</span> {
+                <span class="hljs-keyword">struct</span> {
+                        <span class="hljs-keyword">struct</span> radix_tree_node *parent;
+                        <span class="hljs-keyword">void</span> *private_data;
+                };
+                <span class="hljs-keyword">struct</span> rcu_head rcu_head;
+        };
+        <span class="hljs-comment">/* For tree user */</span>
+        <span class="hljs-keyword">struct</span> list_head private_list;
+        <span class="hljs-keyword">void</span> __rcu      *slots[RADIX_TREE_MAP_SIZE];
+        <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span>   tags[RADIX_TREE_MAX_TAGS][RADIX_TREE_TAG_LONGS];
+};
+</code></pre>
+<p>This structure contains information about the offset in a parent and height from the bottom, count of the child nodes and fields for accessing and freeing a node. This fields are described below:</p>
+<ul>
+<li><code>path</code> - offset in parent &amp; height from the bottom;</li>
+<li><code>count</code> - count of the child nodes;</li>
+<li><code>parent</code> - pointer to the parent node;</li>
+<li><code>private_data</code> - used by the user of a tree;</li>
+<li><code>rcu_head</code> - used for freeing a node;</li>
+<li><code>private_list</code> - used by the user of a tree;</li>
+</ul>
+<p>The two last fields of the <code>radix_tree_node</code> - <code>tags</code> and <code>slots</code> are important and interesting. Every node can contains a set of slots which are store pointers to the data. Empty slots in the linux kernel radix tree implementation store <code>NULL</code>. Radix trees in the linux kernel also supports tags which are associated with the <code>tags</code> fields in the <code>radix_tree_node</code> structure. Tags allow individual bits to be set on records which are stored in the radix tree.</p>
+<p>Now that we know about radix tree structure, it is time to look on its API.</p>
+<h2 id="linux-kernel-radix-tree-api">Linux kernel radix tree API</h2>
+<p>We start from the data structure initialization. There are two ways to initialize a new radix tree. The first is to use <code>RADIX_TREE</code> macro:</p>
+<pre><code class="lang-C">RADIX_TREE(name, gfp_mask);
+`
+</code></pre>
+<p>As you can see we pass the <code>name</code> parameter, so with the <code>RADIX_TREE</code> macro we can define and initialize radix tree with the given name. Implementation of the <code>RADIX_TREE</code> is easy:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> RADIX_TREE(name, mask) \
+         struct radix_tree_root name = RADIX_TREE_INIT(mask)</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> RADIX_TREE_INIT(mask)   { \
+        .height = 0,              \
+        .gfp_mask = (mask),       \
+        .rnode = NULL,            \
+}</span>
+</code></pre>
+<p>At the beginning of the <code>RADIX_TREE</code> macro we define instance of the <code>radix_tree_root</code> structure with the given name and call <code>RADIX_TREE_INIT</code> macro with the given mask. The <code>RADIX_TREE_INIT</code> macro just initializes <code>radix_tree_root</code> structure with the default values and the given mask.</p>
+<p>The second way is to define <code>radix_tree_root</code> structure by hand and pass it with mask to the <code>INIT_RADIX_TREE</code> macro:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">struct</span> radix_tree_root my_radix_tree;
+INIT_RADIX_TREE(my_tree, gfp_mask_for_my_radix_tree);
+</code></pre>
+<p>where:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> INIT_RADIX_TREE(root, mask)  \
+do {                                 \
+        (root)-&gt;height = 0;          \
+        (root)-&gt;gfp_mask = (mask);   \
+        (root)-&gt;rnode = NULL;        \
+} while (0)</span>
+</code></pre>
+<p>makes the same initialization with default values as it does <code>RADIX_TREE_INIT</code> macro.</p>
+<p>The next are two functions for inserting and deleting records to/from a radix tree:</p>
+<ul>
+<li><code>radix_tree_insert</code>;</li>
+<li><code>radix_tree_delete</code>;</li>
+</ul>
+<p>The first <code>radix_tree_insert</code> function takes three parameters:</p>
+<ul>
+<li>root of a radix tree;</li>
+<li>index key;</li>
+<li>data to insert;</li>
+</ul>
+<p>The <code>radix_tree_delete</code> function takes the same set of parameters as the <code>radix_tree_insert</code>, but without data.</p>
+<p>The search in a radix tree implemented in two ways:</p>
+<ul>
+<li><code>radix_tree_lookup</code>;</li>
+<li><code>radix_tree_gang_lookup</code>;</li>
+<li><code>radix_tree_lookup_slot</code>.</li>
+</ul>
+<p>The first <code>radix_tree_lookup</code> function takes two parameters:</p>
+<ul>
+<li>root of a radix tree;</li>
+<li>index key;</li>
+</ul>
+<p>This function tries to find the given key in the tree and return the record associated with this key. The second <code>radix_tree_gang_lookup</code> function have the following signature</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> <span class="hljs-title">radix_tree_gang_lookup</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> radix_tree_root *root,
+                                    <span class="hljs-keyword">void</span> **results,
+                                    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> first_index,
+                                    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> max_items)</span></span>;
+</code></pre>
+<p>and returns number of records, sorted by the keys, starting from the first index. Number of the returned records will not be greater than <code>max_items</code> value.</p>
+<p>And the last <code>radix_tree_lookup_slot</code> function will return the slot which will contain the data.</p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Radix_tree" target="_blank">Radix tree</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Trie" target="_blank">Trie</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="dlist.html" class="navigation navigation-prev " aria-label="Previous page: Doubly linked list">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="bitmap.html" class="navigation navigation-next " aria-label="Next page: Bit arrays">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Radix tree","level":"1.12.2","depth":2,"next":{"title":"Bit arrays","level":"1.12.3","depth":2,"path":"DataStructures/bitmap.md","ref":"DataStructures/bitmap.md","articles":[]},"previous":{"title":"Doubly linked list","level":"1.12.1","depth":2,"path":"DataStructures/dlist.md","ref":"DataStructures/dlist.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"DataStructures/radix-tree.md","mtime":"2019-03-28T07:54:50.386Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-28T08:02:31.511Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
