@@ -1,0 +1,1670 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Semaphores · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="sync-4.html" />
+    
+    
+    <link rel="prev" href="sync-2.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Summary</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Booting/">
+            
+                <a href="../Booting/">
+            
+                    
+                    Booting
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Booting/linux-bootstrap-1.html">
+            
+                <a href="../Booting/linux-bootstrap-1.html">
+            
+                    
+                    From bootloader to kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Booting/linux-bootstrap-2.html">
+            
+                <a href="../Booting/linux-bootstrap-2.html">
+            
+                    
+                    First steps in the kernel setup code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Booting/linux-bootstrap-3.html">
+            
+                <a href="../Booting/linux-bootstrap-3.html">
+            
+                    
+                    Video mode initialization and transition to protected mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../Booting/linux-bootstrap-4.html">
+            
+                <a href="../Booting/linux-bootstrap-4.html">
+            
+                    
+                    Transition to 64-bit mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../Booting/linux-bootstrap-5.html">
+            
+                <a href="../Booting/linux-bootstrap-5.html">
+            
+                    
+                    Kernel decompression
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Initialization/">
+            
+                <a href="../Initialization/">
+            
+                    
+                    Initialization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Initialization/linux-initialization-1.html">
+            
+                <a href="../Initialization/linux-initialization-1.html">
+            
+                    
+                    First steps in the kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Initialization/linux-initialization-2.html">
+            
+                <a href="../Initialization/linux-initialization-2.html">
+            
+                    
+                    Early interrupts handler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Initialization/linux-initialization-3.html">
+            
+                <a href="../Initialization/linux-initialization-3.html">
+            
+                    
+                    Last preparations before the kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Initialization/linux-initialization-4.html">
+            
+                <a href="../Initialization/linux-initialization-4.html">
+            
+                    
+                    Kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../Initialization/linux-initialization-5.html">
+            
+                <a href="../Initialization/linux-initialization-5.html">
+            
+                    
+                    Continue architecture-specific boot-time initializations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../Initialization/linux-initialization-6.html">
+            
+                <a href="../Initialization/linux-initialization-6.html">
+            
+                    
+                    Architecture-specific initializations, again...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../Initialization/linux-initialization-7.html">
+            
+                <a href="../Initialization/linux-initialization-7.html">
+            
+                    
+                    End of the architecture-specific initializations, almost...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../Initialization/linux-initialization-8.html">
+            
+                <a href="../Initialization/linux-initialization-8.html">
+            
+                    
+                    Scheduler initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../Initialization/linux-initialization-9.html">
+            
+                <a href="../Initialization/linux-initialization-9.html">
+            
+                    
+                    RCU initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../Initialization/linux-initialization-10.html">
+            
+                <a href="../Initialization/linux-initialization-10.html">
+            
+                    
+                    End of initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../interrupts/">
+            
+                <a href="../interrupts/">
+            
+                    
+                    Interrupts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../interrupts/interrupts-1.html">
+            
+                <a href="../interrupts/interrupts-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../interrupts/interrupts-2.html">
+            
+                <a href="../interrupts/interrupts-2.html">
+            
+                    
+                    Start to dive into interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../interrupts/interrupts-3.html">
+            
+                <a href="../interrupts/interrupts-3.html">
+            
+                    
+                    Interrupt handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../interrupts/interrupts-4.html">
+            
+                <a href="../interrupts/interrupts-4.html">
+            
+                    
+                    Initialization of non-early interrupt gates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../interrupts/interrupts-5.html">
+            
+                <a href="../interrupts/interrupts-5.html">
+            
+                    
+                    Implementation of some exception handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../interrupts/interrupts-6.html">
+            
+                <a href="../interrupts/interrupts-6.html">
+            
+                    
+                    Handling Non-Maskable interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../interrupts/interrupts-7.html">
+            
+                <a href="../interrupts/interrupts-7.html">
+            
+                    
+                    Dive into external hardware interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../interrupts/interrupts-8.html">
+            
+                <a href="../interrupts/interrupts-8.html">
+            
+                    
+                    Initialization of external hardware interrupts structures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../interrupts/interrupts-9.html">
+            
+                <a href="../interrupts/interrupts-9.html">
+            
+                    
+                    Softirq, Tasklets and Workqueues
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../interrupts/interrupts-10.html">
+            
+                <a href="../interrupts/interrupts-10.html">
+            
+                    
+                    Last part
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../SysCall/">
+            
+                <a href="../SysCall/">
+            
+                    
+                    System calls
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../SysCall/syscall-1.html">
+            
+                <a href="../SysCall/syscall-1.html">
+            
+                    
+                    Introduction to system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../SysCall/syscall-2.html">
+            
+                <a href="../SysCall/syscall-2.html">
+            
+                    
+                    How the Linux kernel handles a system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../SysCall/syscall-3.html">
+            
+                <a href="../SysCall/syscall-3.html">
+            
+                    
+                    vsyscall and vDSO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../SysCall/syscall-4.html">
+            
+                <a href="../SysCall/syscall-4.html">
+            
+                    
+                    How the Linux kernel runs a program
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../SysCall/syscall-5.html">
+            
+                <a href="../SysCall/syscall-5.html">
+            
+                    
+                    Implementation of the open system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Timers/">
+            
+                <a href="../Timers/">
+            
+                    
+                    Timers and time management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../Timers/timers-1.html">
+            
+                <a href="../Timers/timers-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Timers/timers-2.html">
+            
+                <a href="../Timers/timers-2.html">
+            
+                    
+                    Clocksource framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Timers/timers-3.html">
+            
+                <a href="../Timers/timers-3.html">
+            
+                    
+                    The tick broadcast framework and dyntick
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../Timers/timers-4.html">
+            
+                <a href="../Timers/timers-4.html">
+            
+                    
+                    Introduction to timers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Timers/timers-5.html">
+            
+                <a href="../Timers/timers-5.html">
+            
+                    
+                    Clockevents framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../Timers/timers-6.html">
+            
+                <a href="../Timers/timers-6.html">
+            
+                    
+                    x86 related clock sources
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../Timers/timers-7.html">
+            
+                <a href="../Timers/timers-7.html">
+            
+                    
+                    Time related system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Synchronization primitives
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="sync-1.html">
+            
+                <a href="sync-1.html">
+            
+                    
+                    Introduction to spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="sync-2.html">
+            
+                <a href="sync-2.html">
+            
+                    
+                    Queued spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7.3" data-path="sync-3.html">
+            
+                <a href="sync-3.html">
+            
+                    
+                    Semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="sync-4.html">
+            
+                <a href="sync-4.html">
+            
+                    
+                    Mutex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="sync-5.html">
+            
+                <a href="sync-5.html">
+            
+                    
+                    Reader/Writer semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="sync-6.html">
+            
+                <a href="sync-6.html">
+            
+                    
+                    SeqLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" >
+            
+                <span>
+            
+                    
+                    RCU
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" >
+            
+                <span>
+            
+                    
+                    Lockdep
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../mm/">
+            
+                <a href="../mm/">
+            
+                    
+                    Memory management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../mm/linux-mm-1.html">
+            
+                <a href="../mm/linux-mm-1.html">
+            
+                    
+                    Memblock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../mm/linux-mm-2.html">
+            
+                <a href="../mm/linux-mm-2.html">
+            
+                    
+                    Fixmaps and ioremap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../mm/linux-mm-3.html">
+            
+                <a href="../mm/linux-mm-3.html">
+            
+                    
+                    kmemcheck
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../Cgroups/">
+            
+                <a href="../Cgroups/">
+            
+                    
+                    Cgroups
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../Cgroups/cgroups1.html">
+            
+                <a href="../Cgroups/cgroups1.html">
+            
+                    
+                    Introduction to Control Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    SMP
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../Concepts/">
+            
+                <a href="../Concepts/">
+            
+                    
+                    Concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../Concepts/per-cpu.html">
+            
+                <a href="../Concepts/per-cpu.html">
+            
+                    
+                    Per-CPU variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../Concepts/cpumask.html">
+            
+                <a href="../Concepts/cpumask.html">
+            
+                    
+                    Cpumasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../Concepts/initcall.html">
+            
+                <a href="../Concepts/initcall.html">
+            
+                    
+                    The initcall mechanism
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../DataStructures/">
+            
+                <a href="../DataStructures/">
+            
+                    
+                    Data Structures in the Linux Kernel
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../DataStructures/dlist.html">
+            
+                <a href="../DataStructures/dlist.html">
+            
+                    
+                    Doubly linked list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../DataStructures/radix-tree.html">
+            
+                <a href="../DataStructures/radix-tree.html">
+            
+                    
+                    Radix tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../DataStructures/bitmap.html">
+            
+                <a href="../DataStructures/bitmap.html">
+            
+                    
+                    Bit arrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../Theory/">
+            
+                <a href="../Theory/">
+            
+                    
+                    Theory
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../Theory/Paging.html">
+            
+                <a href="../Theory/Paging.html">
+            
+                    
+                    Paging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../Theory/ELF.html">
+            
+                <a href="../Theory/ELF.html">
+            
+                    
+                    Elf64
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../Theory/asm.html">
+            
+                <a href="../Theory/asm.html">
+            
+                    
+                    Inline assembly
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" >
+            
+                <span>
+            
+                    
+                    CPUID
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" >
+            
+                <span>
+            
+                    
+                    MSR
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" >
+            
+                <span>
+            
+                    
+                    Initial ram disk
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" >
+            
+                <span>
+            
+                    
+                    initrd
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../Misc/">
+            
+                <a href="../Misc/">
+            
+                    
+                    Misc
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../Misc/how_kernel_compiled.html">
+            
+                <a href="../Misc/how_kernel_compiled.html">
+            
+                    
+                    How the kernel is compiled
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../Misc/linkers.html">
+            
+                <a href="../Misc/linkers.html">
+            
+                    
+                    Linkers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.3" data-path="../Misc/contribute.html">
+            
+                <a href="../Misc/contribute.html">
+            
+                    
+                    Linux kernel development
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.4" data-path="../Misc/program_startup.html">
+            
+                <a href="../Misc/program_startup.html">
+            
+                    
+                    Program startup process in userspace
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.5" >
+            
+                <span>
+            
+                    
+                    Write and Submit your first Linux kernel Patch
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.6" >
+            
+                <span>
+            
+                    
+                    Data types in the kernel
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../KernelStructures/">
+            
+                <a href="../KernelStructures/">
+            
+                    
+                    KernelStructures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../KernelStructures/idt.html">
+            
+                <a href="../KernelStructures/idt.html">
+            
+                    
+                    IDT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../LINKS.html">
+            
+                <a href="../LINKS.html">
+            
+                    
+                    Useful links
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../contributors.html">
+            
+                <a href="../contributors.html">
+            
+                    
+                    Contributors
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Semaphores</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="synchronization-primitives-in-the-linux-kernel-part-3">Synchronization primitives in the Linux kernel. Part 3.</h1>
+<h2 id="semaphores">Semaphores</h2>
+<p>This is the third part of the <a href="https://0xax.gitbooks.io/linux-insides/content/SyncPrim/index.html" target="_blank">chapter</a> which describes synchronization primitives in the Linux kernel and in the previous part we saw special type of <a href="https://en.wikipedia.org/wiki/Spinlock" target="_blank">spinlocks</a> - <code>queued spinlocks</code>. The previous <a href="https://0xax.gitbooks.io/linux-insides/content/SyncPrim/sync-2.html" target="_blank">part</a> was the last part which describes <code>spinlocks</code> related stuff. So we need to go ahead.</p>
+<p>The next <a href="https://en.wikipedia.org/wiki/Synchronization_%28computer_science%29" target="_blank">synchronization primitive</a> after <code>spinlock</code> which we will see in this part is <a href="https://en.wikipedia.org/wiki/Semaphore_%28programming%29" target="_blank">semaphore</a>. We will start from theoretical side and will learn what is it <code>semaphore</code> and only after this, we will see how it is implemented in the Linux kernel as we did in the previous part.</p>
+<p>So, let&apos;s start.</p>
+<h2 id="introduction-to-the-semaphores-in-the-linux-kernel">Introduction to the semaphores in the Linux kernel</h2>
+<p>So, what is it <code>semaphore</code>? As you may guess - <code>semaphore</code> is yet another mechanism for support of thread or process synchronization. The Linux kernel already provides implementation of one synchronization mechanism - <code>spinlocks</code>, why do we need in yet another one? To answer on this question we need to know details of both of these mechanisms. We already familiar with the <code>spinlocks</code>, so let&apos;s start from this mechanism.</p>
+<p>The main idea behind <code>spinlock</code> concept is a lock which will be acquired for a very short time. We can&apos;t sleep when a lock acquired by a process or thread, because other processes wait us. <a href="https://en.wikipedia.org/wiki/Context_switch" target="_blank">Context switch</a> is not not allowed because <a href="https://en.wikipedia.org/wiki/Preemption_%28computing%29" target="_blank">preemption</a> is disabled to avoid <a href="https://en.wikipedia.org/wiki/Deadlock" target="_blank">deadlocks</a>.</p>
+<p>In this way, <a href="https://en.wikipedia.org/wiki/Semaphore_%28programming%29" target="_blank">semaphores</a> is a good solution for locks which may be acquired for a long time. In other way this mechanism is not optimal for locks that acquired for a short time. To understand this, we need to know what is <code>semaphore</code>.</p>
+<p>As usual synchronization primitive, a <code>semaphore</code> is based on a variable. This variable may be incremented or decremented and it&apos;s state will represent ability to acquire lock. Notice that value of the variable is not limited to <code>0</code> and <code>1</code>. There are two types of <code>semaphores</code>:</p>
+<ul>
+<li><code>binary semaphore</code>;</li>
+<li><code>normal semaphore</code>.</li>
+</ul>
+<p>In the first case, value of <code>semaphore</code> may be only <code>1</code> or <code>0</code>. In the second case value of <code>semaphore</code> any non-negative number. If the value of <code>semaphore</code> is greater than <code>1</code> it is called as <code>counting semaphore</code> and it allows to acquire a lock to more than <code>1</code> process. This allows us to keep records of available resources, when <code>spinlock</code> allows to hold a lock only on one task. Besides all of this, one more important thing that <code>semaphore</code> allows to sleep. Moreover when processes waits for a lock which is acquired by other process, the <a href="https://en.wikipedia.org/wiki/Scheduling_%28computing%29" target="_blank">scheduler</a> may switch on another process.</p>
+<h2 id="semaphore-api">Semaphore API</h2>
+<p>So, we know a little about <code>semaphores</code> from theoretical side, let&apos;s look on its implementation in the Linux kernel. All <code>semaphore</code> <a href="https://en.wikipedia.org/wiki/Application_programming_interface" target="_blank">API</a> is located in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/semaphore.h" target="_blank">include/linux/semaphore.h</a> header file.</p>
+<p>We may see that the <code>semaphore</code> mechanism is represented by the following structure:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">struct</span> semaphore {
+    <span class="hljs-keyword">raw_spinlock_t</span>        lock;
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span>        count;
+    <span class="hljs-keyword">struct</span> list_head    wait_list;
+};
+</code></pre>
+<p>in the Linux kernel. The <code>semaphore</code> structure consists of three fields:</p>
+<ul>
+<li><code>lock</code> - <code>spinlock</code> for a <code>semaphore</code> data protection;</li>
+<li><code>count</code> - amount available resources;</li>
+<li><code>wait_list</code> - list of processes which are waiting to acquire a lock.</li>
+</ul>
+<p>Before we will consider an <a href="https://en.wikipedia.org/wiki/Application_programming_interface" target="_blank">API</a> of the <code>semaphore</code> mechanism in the Linux kernel, we need to know how to initialize a <code>semaphore</code>. Actually the Linux kernel provides two approaches to execute initialization of the given <code>semaphore</code> structure. These methods allows to initialize a <code>semaphore</code> in a:</p>
+<ul>
+<li><code>statically</code>;</li>
+<li><code>dynamically</code>.</li>
+</ul>
+<p>ways. Let&apos;s look at the first approach. We are able to initialize a <code>semaphore</code> statically with the <code>DEFINE_SEMAPHORE</code> macro:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> DEFINE_SEMAPHORE(name)  \
+         struct semaphore name = __SEMAPHORE_INITIALIZER(name, 1)</span>
+</code></pre>
+<p>as we may see, the <code>DEFINE_SEMAPHORE</code> macro provides ability to initialize only <code>binary</code> semaphore. The <code>DEFINE_SEMAPHORE</code> macro expands to the definition of the <code>semaphore</code> structure which is initialized with the <code>__SEMAPHORE_INITIALIZER</code> macro. Let&apos;s look at the implementation of this macro:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> __SEMAPHORE_INITIALIZER(name, n)              \
+{                                                                       \
+        .lock           = __RAW_SPIN_LOCK_UNLOCKED((name).lock),        \
+        .count          = n,                                            \
+        .wait_list      = LIST_HEAD_INIT((name).wait_list),             \
+}</span>
+</code></pre>
+<p>The <code>__SEMAPHORE_INITIALIZER</code> macro takes the name of the future <code>semaphore</code> structure and does initialization of the fields of this structure. First of all we initialize a <code>spinlock</code> of the given <code>semaphore</code> with the <code>__RAW_SPIN_LOCK_UNLOCKED</code> macro. As you may remember from the <a href="https://0xax.gitbooks.io/linux-insides/content/SyncPrim/sync-1.html" target="_blank">previous</a> parts, the <code>__RAW_SPIN_LOCK_UNLOCKED</code> is defined in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/spinlock_types.h" target="_blank">include/linux/spinlock_types.h</a> header file and expands to the <code>__ARCH_SPIN_LOCK_UNLOCKED</code> macro which just expands to zero or unlocked state:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> __ARCH_SPIN_LOCK_UNLOCKED       { { 0 } }</span>
+</code></pre>
+<p>The last two fields of the <code>semaphore</code> structure <code>count</code> and <code>wait_list</code> are initialized with the given value which represents count of available resources and empty <a href="https://0xax.gitbooks.io/linux-insides/content/DataStructures/dlist.html" target="_blank">list</a>.</p>
+<p>The second way to initialize a <code>semaphore</code> structure is to pass the <code>semaphore</code> and number of available resources to the <code>sema_init</code> function which is defined in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/semaphore.h" target="_blank">include/linux/semaphore.h</a> header file:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sema_init</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> semaphore *sem, <span class="hljs-keyword">int</span> val)</span>
+</span>{
+       <span class="hljs-keyword">static</span> <span class="hljs-keyword">struct</span> lock_class_key __key;
+       *sem = (<span class="hljs-keyword">struct</span> semaphore) __SEMAPHORE_INITIALIZER(*sem, val);
+       lockdep_init_map(&amp;sem-&gt;lock.dep_map, <span class="hljs-string">&quot;semaphore-&gt;lock&quot;</span>, &amp;__key, <span class="hljs-number">0</span>);
+}
+</code></pre>
+<p>Let&apos;s consider implementation of this function. It looks pretty easy and actually it does almost the same. Thus function executes initialization of the given <code>semaphore</code> with the <code>__SEMAPHORE_INITIALIZER</code> macro which we just saw. As I already wrote in the previous parts of this <a href="https://0xax.gitbooks.io/linux-insides/content/SyncPrim/index.html" target="_blank">chapter</a>, we will skip the stuff which is related to the <a href="https://www.kernel.org/doc/Documentation/locking/lockdep-design.txt" target="_blank">lock validator</a> of the Linux kernel.</p>
+<p>So, from now we are able to initialize a <code>semaphore</code> let&apos;s look at how to lock and unlock. The Linux kernel provides following <a href="https://en.wikipedia.org/wiki/Application_programming_interface" target="_blank">API</a> to manipulate <code>semaphores</code>:</p>
+<pre><code>void down(struct semaphore *sem);
+void up(struct semaphore *sem);
+int  down_interruptible(struct semaphore *sem);
+int  down_killable(struct semaphore *sem);
+int  down_trylock(struct semaphore *sem);
+int  down_timeout(struct semaphore *sem, long jiffies);
+</code></pre><p>The first two functions: <code>down</code> and <code>up</code> are for acquiring and releasing of the given <code>semaphore</code>. The <code>down_interruptible</code> function tries to acquire a <code>semaphore</code>. If this try was successful, the <code>count</code> field of the given <code>semaphore</code> will be decremented and lock will be acquired, in other way the task will be switched to the blocked state or in other words the <code>TASK_INTERRUPTIBLE</code> flag will be set. This <code>TASK_INTERRUPTIBLE</code> flag means that the process may returned to ruined state by <a href="https://en.wikipedia.org/wiki/Unix_signal" target="_blank">signal</a>.</p>
+<p>The <code>down_killable</code> function does the same as the <code>down_interruptible</code> function, but set the <code>TASK_KILLABLE</code> flag for the current process. This means that the waiting process may be interrupted by the kill signal.</p>
+<p>The <code>down_trylock</code> function is similar on the <code>spin_trylock</code> function. This function tries to acquire a lock and exit if this operation was unsuccessful. In this case the process which wants to acquire a lock, will not wait. The last <code>down_timeout</code> function tries to acquire a lock. It will be interrupted in a waiting state when the given timeout will be expired. Additionally, you may notice that the timeout is in <a href="https://0xax.gitbooks.io/linux-insides/content/Timers/timers-1.html" target="_blank">jiffies</a></p>
+<p>We just saw definitions of the <code>semaphore</code> <a href="https://en.wikipedia.org/wiki/Application_programming_interface" target="_blank">API</a>. We will start from the <code>down</code> function. This function is defined in the <a href="https://github.com/torvalds/linux/blob/master/kernel/locking/semaphore.c" target="_blank">kernel/locking/semaphore.c</a> source code file. Let&apos;s look on the implementation function:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">down</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> semaphore *sem)</span>
+</span>{
+        <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> flags;
+
+        raw_spin_lock_irqsave(&amp;sem-&gt;lock, flags);
+        <span class="hljs-keyword">if</span> (likely(sem-&gt;count &gt; <span class="hljs-number">0</span>))
+                sem-&gt;count--;
+        <span class="hljs-keyword">else</span>
+                __down(sem);
+        raw_spin_unlock_irqrestore(&amp;sem-&gt;lock, flags);
+}
+EXPORT_SYMBOL(down);
+</code></pre>
+<p>We may see the definition of the <code>flags</code> variable at the beginning of the <code>down</code> function. This variable will be passed to the <code>raw_spin_lock_irqsave</code> and <code>raw_spin_lock_irqrestore</code> macros which are defined in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/spinlock.h" target="_blank">include/linux/spinlock.h</a> header file and protect a counter of the given <code>semaphore</code> here. Actually both of these macro do the same that <code>spin_lock</code> and <code>spin_unlock</code> macros, but additionally they save/restore current value of interrupt flags and disables <a href="https://en.wikipedia.org/wiki/Interrupt" target="_blank">interrupts</a>.</p>
+<p>As you already may guess, the main work is done between the <code>raw_spin_lock_irqsave</code> and <code>raw_spin_unlock_irqrestore</code> macros in the <code>down</code> function. We compare the value of the <code>semaphore</code> counter with zero and if it is bigger than zero, we may decrement this counter. This means that we already acquired the lock. In other way counter is zero. This means that all available resources already finished and we need to wait to acquire this lock. As we may see, the <code>__down</code> function will be called in this case.</p>
+<p>The <code>__down</code> function is defined in the <a href="https://github.com/torvalds/linux/blob/master/kernel/locking/semaphore.c" target="_blank">same</a> source code file and its implementation looks:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> noinline <span class="hljs-keyword">void</span> __sched __down(<span class="hljs-keyword">struct</span> semaphore *sem)
+{
+        __down_common(sem, TASK_UNINTERRUPTIBLE, MAX_SCHEDULE_TIMEOUT);
+}
+</code></pre>
+<p>The <code>__down</code> function just calls the <code>__down_common</code> function with three parameters:</p>
+<ul>
+<li><code>semaphore</code>;</li>
+<li><code>flag</code> - for the task;</li>
+<li><code>timeout</code> - maximum timeout to wait <code>semaphore</code>.</li>
+</ul>
+<p>Before we will consider implementation of the <code>__down_common</code> function, notice that implementation of the <code>down_trylock</code>, <code>down_timeout</code> and <code>down_killable</code> functions based on the <code>__down_common</code> too:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> noinline <span class="hljs-keyword">int</span> __sched __down_interruptible(<span class="hljs-keyword">struct</span> semaphore *sem)
+{
+        <span class="hljs-keyword">return</span> __down_common(sem, TASK_INTERRUPTIBLE, MAX_SCHEDULE_TIMEOUT);
+}
+</code></pre>
+<p>The <code>__down_killable</code>:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> noinline <span class="hljs-keyword">int</span> __sched __down_killable(<span class="hljs-keyword">struct</span> semaphore *sem)
+{
+        <span class="hljs-keyword">return</span> __down_common(sem, TASK_KILLABLE, MAX_SCHEDULE_TIMEOUT);
+}
+</code></pre>
+<p>And the <code>__down_timeout</code>:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> noinline <span class="hljs-keyword">int</span> __sched __down_timeout(<span class="hljs-keyword">struct</span> semaphore *sem, <span class="hljs-keyword">long</span> timeout)
+{
+        <span class="hljs-keyword">return</span> __down_common(sem, TASK_UNINTERRUPTIBLE, timeout);
+}
+</code></pre>
+<p>Now let&apos;s look at the implementation of the <code>__down_common</code> function. This function is defined in the <a href="https://github.com/torvalds/linux/blob/master/kernel/locking/semaphore.c" target="_blank">kernel/locking/semaphore.c</a> source code file too and starts from the definition of the two following local variables:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">struct</span> task_struct *task = current;
+<span class="hljs-keyword">struct</span> semaphore_waiter waiter;
+</code></pre>
+<p>The first represents current task for the local processor which wants to acquire a lock. The <code>current</code> is a macro which is defined in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/current.h" target="_blank">arch/x86/include/asm/current.h</a> header file:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> current get_current()</span>
+</code></pre>
+<p>Where the <code>get_current</code> function returns value of the <code>current_task</code> <a href="https://0xax.gitbooks.io/linux-insides/content/Concepts/per-cpu.html" target="_blank">per-cpu</a> variable:</p>
+<pre><code class="lang-C">DECLARE_PER_CPU(<span class="hljs-keyword">struct</span> task_struct *, current_task);
+
+<span class="hljs-keyword">static</span> __<span class="hljs-function">always_inline <span class="hljs-keyword">struct</span> task_struct *<span class="hljs-title">get_current</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+</span>{
+        <span class="hljs-keyword">return</span> this_cpu_read_stable(current_task);
+}
+</code></pre>
+<p>The second variable is <code>waiter</code> represents an entry of a <code>semaphore.wait_list</code> list:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">struct</span> semaphore_waiter {
+        <span class="hljs-keyword">struct</span> list_head <span class="hljs-built_in">list</span>;
+        <span class="hljs-keyword">struct</span> task_struct *task;
+        <span class="hljs-keyword">bool</span> up;
+};
+</code></pre>
+<p>Next we add current task to the <code>wait_list</code> and fill <code>waiter</code> fields after definition of these variables:</p>
+<pre><code class="lang-C">list_add_tail(&amp;waiter.<span class="hljs-built_in">list</span>, &amp;sem-&gt;wait_list);
+waiter.task = task;
+waiter.up = <span class="hljs-literal">false</span>;
+</code></pre>
+<p>In the next step we join into the following infinite loop:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">for</span> (;;) {
+        <span class="hljs-keyword">if</span> (signal_pending_state(state, task))
+            <span class="hljs-keyword">goto</span> interrupted;
+
+        <span class="hljs-keyword">if</span> (unlikely(timeout &lt;= <span class="hljs-number">0</span>))
+            <span class="hljs-keyword">goto</span> timed_out;
+
+        __set_task_state(task, state);
+
+        raw_spin_unlock_irq(&amp;sem-&gt;lock);
+        timeout = schedule_timeout(timeout);
+        raw_spin_lock_irq(&amp;sem-&gt;lock);
+
+        <span class="hljs-keyword">if</span> (waiter.up)
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>In the previous piece of code we set <code>waiter.up</code> to <code>false</code>. So, a task will spin in this loop while <code>up</code> will not be set to <code>true</code>. This loop starts from the check that the current task is in the <code>pending</code> state or in other words flags of this task contains <code>TASK_INTERRUPTIBLE</code> or <code>TASK_WAKEKILL</code> flag. As I already wrote above a task may be interrupted by <a href="https://en.wikipedia.org/wiki/Unix_signal" target="_blank">signal</a> during wait of ability to acquire a lock. The <code>signal_pending_state</code> function is defined in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/sched.h" target="_blank">include/linux/sched.h</a> source code file and looks:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-keyword">int</span> <span class="hljs-title">signal_pending_state</span><span class="hljs-params">(<span class="hljs-keyword">long</span> state, <span class="hljs-keyword">struct</span> task_struct *p)</span>
+</span>{
+         <span class="hljs-keyword">if</span> (!(state &amp; (TASK_INTERRUPTIBLE | TASK_WAKEKILL)))
+                 <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+         <span class="hljs-keyword">if</span> (!signal_pending(p))
+                 <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+
+         <span class="hljs-keyword">return</span> (state &amp; TASK_INTERRUPTIBLE) || __fatal_signal_pending(p);
+}
+</code></pre>
+<p>We check that the <code>state</code> <a href="https://en.wikipedia.org/wiki/Mask_%28computing%29" target="_blank">bitmask</a> contains <code>TASK_INTERRUPTIBLE</code> or <code>TASK_WAKEKILL</code> bits and if the bitmask does not contain this bit we exit. At the next step we check that the given task has a pending signal and exit if there is no. In the end we just check <code>TASK_INTERRUPTIBLE</code> bit in the <code>state</code> bitmask again or the <a href="https://en.wikipedia.org/wiki/Unix_signal#SIGKILL" target="_blank">SIGKILL</a> signal. So, if our task has a pending signal, we will jump at the <code>interrupted</code> label:</p>
+<pre><code class="lang-C">interrupted:
+    list_del(&amp;waiter.<span class="hljs-built_in">list</span>);
+    <span class="hljs-keyword">return</span> -EINTR;
+</code></pre>
+<p>where we delete task from the list of lock waiters and return the <code>-EINTR</code> <a href="https://en.wikipedia.org/wiki/Errno.h" target="_blank">error code</a>. If a task has no pending signal, we check the given timeout and if it is less or equal zero:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (unlikely(timeout &lt;= <span class="hljs-number">0</span>))
+    <span class="hljs-keyword">goto</span> timed_out;
+</code></pre>
+<p>we jump at the <code>timed_out</code> label:</p>
+<pre><code class="lang-C">timed_out:
+    list_del(&amp;waiter.<span class="hljs-built_in">list</span>);
+    <span class="hljs-keyword">return</span> -ETIME;
+</code></pre>
+<p>Where we do almost the same that we did in the <code>interrupted</code> label. We delete task from the list of lock waiters, but return the <code>-ETIME</code> error code. If a task has no pending signal and the given timeout is not expired yet, the given <code>state</code> will be set in the given task:</p>
+<pre><code class="lang-C">__set_task_state(task, state);
+</code></pre>
+<p>and call the <code>schedule_timeout</code> function:</p>
+<pre><code class="lang-C">raw_spin_unlock_irq(&amp;sem-&gt;lock);
+timeout = schedule_timeout(timeout);
+raw_spin_lock_irq(&amp;sem-&gt;lock);
+</code></pre>
+<p>which is defined in the <a href="https://github.com/torvalds/linux/blob/master/kernel/time/timer.c" target="_blank">kernel/time/timer.c</a> source code file. The <code>schedule_timeout</code> function makes the current task sleep until the given timeout.</p>
+<p>That is all about the <code>__down_common</code> function. A task which wants to acquire a lock which is already acquired by another task will be spun in the infinite loop while it will not be interrupted by a signal, the given timeout will not be expired or the task which holds a lock will not release it. Now let&apos;s look at the implementation of the <code>up</code> function.</p>
+<p>The <code>up</code> function is defined in the <a href="https://github.com/torvalds/linux/blob/master/kernel/locking/semaphore.c" target="_blank">same</a> source code file as <code>down</code> function. As we already know, the main purpose of this function is to release a lock. This function looks:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">up</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> semaphore *sem)</span>
+</span>{
+        <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> flags;
+
+        raw_spin_lock_irqsave(&amp;sem-&gt;lock, flags);
+        <span class="hljs-keyword">if</span> (likely(list_empty(&amp;sem-&gt;wait_list)))
+                sem-&gt;count++;
+        <span class="hljs-keyword">else</span>
+                __up(sem);
+        raw_spin_unlock_irqrestore(&amp;sem-&gt;lock, flags);
+}
+EXPORT_SYMBOL(up);
+</code></pre>
+<p>It looks almost the same as the <code>down</code> function. There are only two differences here. First of all we increment a counter of a <code>semaphore</code> if the list of waiters is empty. In other way we call the <code>__up</code> function from the same source code file. If the list of waiters is not empty we need to allow the first task from the list to acquire a lock: </p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> noinline <span class="hljs-keyword">void</span> __sched __up(<span class="hljs-keyword">struct</span> semaphore *sem)
+{
+        <span class="hljs-keyword">struct</span> semaphore_waiter *waiter = list_first_entry(&amp;sem-&gt;wait_list,
+                                                <span class="hljs-keyword">struct</span> semaphore_waiter, <span class="hljs-built_in">list</span>);
+        list_del(&amp;waiter-&gt;<span class="hljs-built_in">list</span>);
+        waiter-&gt;up = <span class="hljs-literal">true</span>;
+        wake_up_process(waiter-&gt;task);
+}
+</code></pre>
+<p>Here we takes the first task from the list of waiters, delete it from the list, set its <code>waiter-up</code> to true. From this point the infinite loop from the <code>__down_common</code> function will be stopped. The <code>wake_up_process</code> function will be called in the end of the <code>__up</code> function. As you remember we called the <code>schedule_timeout</code> function in the infinite loop from the <code>__down_common</code> this function. The <code>schedule_timeout</code> function makes the current task sleep until the given timeout will not be expired. So, as our process may sleep right now, we need to wake it up. That&apos;s why we call the <code>wake_up_process</code> function from the <a href="https://github.com/torvalds/linux/blob/master/kernel/sched/core.c" target="_blank">kernel/sched/core.c</a> source code file.</p>
+<p>That&apos;s all.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This is the end of the third part of the <a href="https://en.wikipedia.org/wiki/Synchronization_%28computer_science%29" target="_blank">synchronization primitives</a> chapter in the Linux kernel. In the two previous parts we already met the first synchronization primitive <code>spinlock</code> provided by the Linux kernel which is implemented as <code>ticket spinlock</code> and used for a very short time locks. In this part we saw yet another synchronization primitive - <a href="https://en.wikipedia.org/wiki/Semaphore_%28programming%29" target="_blank">semaphore</a> which is used for long time locks as it leads to <a href="https://en.wikipedia.org/wiki/Context_switch" target="_blank">context switch</a>. In the next part we will continue to dive into synchronization primitives in the Linux kernel and will see next synchronization primitive - <a href="https://en.wikipedia.org/wiki/Mutual_exclusion" target="_blank">mutex</a>. </p>
+<p>If you have questions or suggestions, feel free to ping me in twitter <a href="https://twitter.com/0xAX" target="_blank">0xAX</a>, drop me <a href="anotherworldofworld@gmail.com">email</a> or just create <a href="https://github.com/0xAX/linux-insides/issues/new" target="_blank">issue</a>.</p>
+<p><strong>Please note that English is not my first language and I am really sorry for any inconvenience. If you found any mistakes please send me PR to <a href="https://github.com/0xAX/linux-insides" target="_blank">linux-insides</a>.</strong></p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Spinlock" target="_blank">spinlocks</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Synchronization_%28computer_science%29" target="_blank">synchronization primitive</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Semaphore_%28programming%29" target="_blank">semaphore</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Context_switch" target="_blank">context switch</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Preemption_%28computing%29" target="_blank">preemption</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Deadlock" target="_blank">deadlocks</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Scheduling_%28computing%29" target="_blank">scheduler</a></li>
+<li><a href="https://0xax.gitbooks.io/linux-insides/content/DataStructures/dlist.html" target="_blank">Doubly linked list in the Linux kernel</a></li>
+<li><a href="https://0xax.gitbooks.io/linux-insides/content/Timers/timers-1.html" target="_blank">jiffies</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Interrupt" target="_blank">interrupts</a></li>
+<li><a href="https://0xax.gitbooks.io/linux-insides/content/Concepts/per-cpu.html" target="_blank">per-cpu</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Mask_%28computing%29" target="_blank">bitmask</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Unix_signal#SIGKILL" target="_blank">SIGKILL</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Errno.h" target="_blank">errno</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Application_programming_interface" target="_blank">API</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Mutual_exclusion" target="_blank">mutex</a></li>
+<li><a href="https://0xax.gitbooks.io/linux-insides/content/SyncPrim/sync-2.html" target="_blank">Previous part</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="sync-2.html" class="navigation navigation-prev " aria-label="Previous page: Queued spinlocks">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="sync-4.html" class="navigation navigation-next " aria-label="Next page: Mutex">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Semaphores","level":"1.7.3","depth":2,"next":{"title":"Mutex","level":"1.7.4","depth":2,"path":"SyncPrim/sync-4.md","ref":"SyncPrim/sync-4.md","articles":[]},"previous":{"title":"Queued spinlocks","level":"1.7.2","depth":2,"path":"SyncPrim/sync-2.md","ref":"SyncPrim/sync-2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"SyncPrim/sync-3.md","mtime":"2019-03-28T07:54:50.402Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-28T07:57:01.662Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

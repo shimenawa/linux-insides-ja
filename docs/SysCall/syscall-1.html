@@ -1,0 +1,1723 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Introduction to system calls · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="syscall-2.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Summary</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Booting/">
+            
+                <a href="../Booting/">
+            
+                    
+                    Booting
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Booting/linux-bootstrap-1.html">
+            
+                <a href="../Booting/linux-bootstrap-1.html">
+            
+                    
+                    From bootloader to kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Booting/linux-bootstrap-2.html">
+            
+                <a href="../Booting/linux-bootstrap-2.html">
+            
+                    
+                    First steps in the kernel setup code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Booting/linux-bootstrap-3.html">
+            
+                <a href="../Booting/linux-bootstrap-3.html">
+            
+                    
+                    Video mode initialization and transition to protected mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../Booting/linux-bootstrap-4.html">
+            
+                <a href="../Booting/linux-bootstrap-4.html">
+            
+                    
+                    Transition to 64-bit mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../Booting/linux-bootstrap-5.html">
+            
+                <a href="../Booting/linux-bootstrap-5.html">
+            
+                    
+                    Kernel decompression
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Initialization/">
+            
+                <a href="../Initialization/">
+            
+                    
+                    Initialization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Initialization/linux-initialization-1.html">
+            
+                <a href="../Initialization/linux-initialization-1.html">
+            
+                    
+                    First steps in the kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Initialization/linux-initialization-2.html">
+            
+                <a href="../Initialization/linux-initialization-2.html">
+            
+                    
+                    Early interrupts handler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Initialization/linux-initialization-3.html">
+            
+                <a href="../Initialization/linux-initialization-3.html">
+            
+                    
+                    Last preparations before the kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Initialization/linux-initialization-4.html">
+            
+                <a href="../Initialization/linux-initialization-4.html">
+            
+                    
+                    Kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../Initialization/linux-initialization-5.html">
+            
+                <a href="../Initialization/linux-initialization-5.html">
+            
+                    
+                    Continue architecture-specific boot-time initializations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../Initialization/linux-initialization-6.html">
+            
+                <a href="../Initialization/linux-initialization-6.html">
+            
+                    
+                    Architecture-specific initializations, again...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../Initialization/linux-initialization-7.html">
+            
+                <a href="../Initialization/linux-initialization-7.html">
+            
+                    
+                    End of the architecture-specific initializations, almost...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../Initialization/linux-initialization-8.html">
+            
+                <a href="../Initialization/linux-initialization-8.html">
+            
+                    
+                    Scheduler initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../Initialization/linux-initialization-9.html">
+            
+                <a href="../Initialization/linux-initialization-9.html">
+            
+                    
+                    RCU initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../Initialization/linux-initialization-10.html">
+            
+                <a href="../Initialization/linux-initialization-10.html">
+            
+                    
+                    End of initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../interrupts/">
+            
+                <a href="../interrupts/">
+            
+                    
+                    Interrupts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../interrupts/interrupts-1.html">
+            
+                <a href="../interrupts/interrupts-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../interrupts/interrupts-2.html">
+            
+                <a href="../interrupts/interrupts-2.html">
+            
+                    
+                    Start to dive into interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../interrupts/interrupts-3.html">
+            
+                <a href="../interrupts/interrupts-3.html">
+            
+                    
+                    Interrupt handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../interrupts/interrupts-4.html">
+            
+                <a href="../interrupts/interrupts-4.html">
+            
+                    
+                    Initialization of non-early interrupt gates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../interrupts/interrupts-5.html">
+            
+                <a href="../interrupts/interrupts-5.html">
+            
+                    
+                    Implementation of some exception handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../interrupts/interrupts-6.html">
+            
+                <a href="../interrupts/interrupts-6.html">
+            
+                    
+                    Handling Non-Maskable interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../interrupts/interrupts-7.html">
+            
+                <a href="../interrupts/interrupts-7.html">
+            
+                    
+                    Dive into external hardware interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../interrupts/interrupts-8.html">
+            
+                <a href="../interrupts/interrupts-8.html">
+            
+                    
+                    Initialization of external hardware interrupts structures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../interrupts/interrupts-9.html">
+            
+                <a href="../interrupts/interrupts-9.html">
+            
+                    
+                    Softirq, Tasklets and Workqueues
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../interrupts/interrupts-10.html">
+            
+                <a href="../interrupts/interrupts-10.html">
+            
+                    
+                    Last part
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    System calls
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.5.1" data-path="syscall-1.html">
+            
+                <a href="syscall-1.html">
+            
+                    
+                    Introduction to system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="syscall-2.html">
+            
+                <a href="syscall-2.html">
+            
+                    
+                    How the Linux kernel handles a system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="syscall-3.html">
+            
+                <a href="syscall-3.html">
+            
+                    
+                    vsyscall and vDSO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="syscall-4.html">
+            
+                <a href="syscall-4.html">
+            
+                    
+                    How the Linux kernel runs a program
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="syscall-5.html">
+            
+                <a href="syscall-5.html">
+            
+                    
+                    Implementation of the open system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Timers/">
+            
+                <a href="../Timers/">
+            
+                    
+                    Timers and time management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../Timers/timers-1.html">
+            
+                <a href="../Timers/timers-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Timers/timers-2.html">
+            
+                <a href="../Timers/timers-2.html">
+            
+                    
+                    Clocksource framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Timers/timers-3.html">
+            
+                <a href="../Timers/timers-3.html">
+            
+                    
+                    The tick broadcast framework and dyntick
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../Timers/timers-4.html">
+            
+                <a href="../Timers/timers-4.html">
+            
+                    
+                    Introduction to timers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Timers/timers-5.html">
+            
+                <a href="../Timers/timers-5.html">
+            
+                    
+                    Clockevents framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../Timers/timers-6.html">
+            
+                <a href="../Timers/timers-6.html">
+            
+                    
+                    x86 related clock sources
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../Timers/timers-7.html">
+            
+                <a href="../Timers/timers-7.html">
+            
+                    
+                    Time related system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../SyncPrim/">
+            
+                <a href="../SyncPrim/">
+            
+                    
+                    Synchronization primitives
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../SyncPrim/sync-1.html">
+            
+                <a href="../SyncPrim/sync-1.html">
+            
+                    
+                    Introduction to spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../SyncPrim/sync-2.html">
+            
+                <a href="../SyncPrim/sync-2.html">
+            
+                    
+                    Queued spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../SyncPrim/sync-3.html">
+            
+                <a href="../SyncPrim/sync-3.html">
+            
+                    
+                    Semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../SyncPrim/sync-4.html">
+            
+                <a href="../SyncPrim/sync-4.html">
+            
+                    
+                    Mutex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../SyncPrim/sync-5.html">
+            
+                <a href="../SyncPrim/sync-5.html">
+            
+                    
+                    Reader/Writer semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../SyncPrim/sync-6.html">
+            
+                <a href="../SyncPrim/sync-6.html">
+            
+                    
+                    SeqLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" >
+            
+                <span>
+            
+                    
+                    RCU
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" >
+            
+                <span>
+            
+                    
+                    Lockdep
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../mm/">
+            
+                <a href="../mm/">
+            
+                    
+                    Memory management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../mm/linux-mm-1.html">
+            
+                <a href="../mm/linux-mm-1.html">
+            
+                    
+                    Memblock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../mm/linux-mm-2.html">
+            
+                <a href="../mm/linux-mm-2.html">
+            
+                    
+                    Fixmaps and ioremap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../mm/linux-mm-3.html">
+            
+                <a href="../mm/linux-mm-3.html">
+            
+                    
+                    kmemcheck
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../Cgroups/">
+            
+                <a href="../Cgroups/">
+            
+                    
+                    Cgroups
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../Cgroups/cgroups1.html">
+            
+                <a href="../Cgroups/cgroups1.html">
+            
+                    
+                    Introduction to Control Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    SMP
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../Concepts/">
+            
+                <a href="../Concepts/">
+            
+                    
+                    Concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../Concepts/per-cpu.html">
+            
+                <a href="../Concepts/per-cpu.html">
+            
+                    
+                    Per-CPU variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../Concepts/cpumask.html">
+            
+                <a href="../Concepts/cpumask.html">
+            
+                    
+                    Cpumasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../Concepts/initcall.html">
+            
+                <a href="../Concepts/initcall.html">
+            
+                    
+                    The initcall mechanism
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../DataStructures/">
+            
+                <a href="../DataStructures/">
+            
+                    
+                    Data Structures in the Linux Kernel
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../DataStructures/dlist.html">
+            
+                <a href="../DataStructures/dlist.html">
+            
+                    
+                    Doubly linked list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../DataStructures/radix-tree.html">
+            
+                <a href="../DataStructures/radix-tree.html">
+            
+                    
+                    Radix tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../DataStructures/bitmap.html">
+            
+                <a href="../DataStructures/bitmap.html">
+            
+                    
+                    Bit arrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../Theory/">
+            
+                <a href="../Theory/">
+            
+                    
+                    Theory
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../Theory/Paging.html">
+            
+                <a href="../Theory/Paging.html">
+            
+                    
+                    Paging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../Theory/ELF.html">
+            
+                <a href="../Theory/ELF.html">
+            
+                    
+                    Elf64
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../Theory/asm.html">
+            
+                <a href="../Theory/asm.html">
+            
+                    
+                    Inline assembly
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" >
+            
+                <span>
+            
+                    
+                    CPUID
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" >
+            
+                <span>
+            
+                    
+                    MSR
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" >
+            
+                <span>
+            
+                    
+                    Initial ram disk
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" >
+            
+                <span>
+            
+                    
+                    initrd
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../Misc/">
+            
+                <a href="../Misc/">
+            
+                    
+                    Misc
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../Misc/how_kernel_compiled.html">
+            
+                <a href="../Misc/how_kernel_compiled.html">
+            
+                    
+                    How the kernel is compiled
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../Misc/linkers.html">
+            
+                <a href="../Misc/linkers.html">
+            
+                    
+                    Linkers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.3" data-path="../Misc/contribute.html">
+            
+                <a href="../Misc/contribute.html">
+            
+                    
+                    Linux kernel development
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.4" data-path="../Misc/program_startup.html">
+            
+                <a href="../Misc/program_startup.html">
+            
+                    
+                    Program startup process in userspace
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.5" >
+            
+                <span>
+            
+                    
+                    Write and Submit your first Linux kernel Patch
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.6" >
+            
+                <span>
+            
+                    
+                    Data types in the kernel
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../KernelStructures/">
+            
+                <a href="../KernelStructures/">
+            
+                    
+                    KernelStructures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../KernelStructures/idt.html">
+            
+                <a href="../KernelStructures/idt.html">
+            
+                    
+                    IDT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../LINKS.html">
+            
+                <a href="../LINKS.html">
+            
+                    
+                    Useful links
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../contributors.html">
+            
+                <a href="../contributors.html">
+            
+                    
+                    Contributors
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Introduction to system calls</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="system-calls-in-the-linux-kernel-part-1">System calls in the Linux kernel. Part 1.</h1>
+<h2 id="introduction">Introduction</h2>
+<p>This post opens up a new chapter in <a href="http://0xax.gitbooks.io/linux-insides/content/" target="_blank">linux-insides</a> book, and as you may understand from the title, this chapter will be devoted to the <a href="https://en.wikipedia.org/wiki/System_call" target="_blank">System call</a> concept in the Linux kernel. The choice of topic for this chapter is not accidental. In the previous <a href="http://0xax.gitbooks.io/linux-insides/content/interrupts/index.html" target="_blank">chapter</a> we saw interrupts and interrupt handling. The concept of system calls is very similar to that of interrupts. This is because the most common way to implement system calls is as software interrupts. We will see many different aspects that are related to the system call concept. For example, we will learn what&apos;s happening when a system call occurs from userspace. We will see an implementation of a couple system call handlers in the Linux kernel, <a href="https://en.wikipedia.org/wiki/VDSO" target="_blank">VDSO</a> and <a href="https://lwn.net/Articles/446528/" target="_blank">vsyscall</a> concepts and many many more.</p>
+<p>Before we dive into Linux system call implementation, it is good to know some theory about system calls. Let&apos;s do it in the following paragraph.</p>
+<h2 id="system-call-what-is-it">System call. What is it?</h2>
+<p>A system call is just a userspace request of a kernel service. Yes, the operating system kernel provides many services. When your program wants to write to or read from a file, start to listen for connections on a <a href="https://en.wikipedia.org/wiki/Network_socket" target="_blank">socket</a>, delete or create directory, or even to finish its work, a program uses a system call. In other words, a system call is just a <a href="https://en.wikipedia.org/wiki/C_%28programming_language%29" target="_blank">C</a> kernel space function that user space programs call to handle some request.</p>
+<p>The Linux kernel provides a set of these functions and each architecture provides its own set. For example: the <a href="https://en.wikipedia.org/wiki/X86-64" target="_blank">x86_64</a> provides <a href="https://github.com/torvalds/linux/blob/master/arch/x86/entry/syscalls/syscall_64.tbl" target="_blank">322</a> system calls and the <a href="https://en.wikipedia.org/wiki/X86" target="_blank">x86</a> provides <a href="https://github.com/torvalds/linux/blob/master/arch/x86/entry/syscalls/syscall_32.tbl" target="_blank">358</a> different system calls. Ok, a system call is just a function. Let&apos;s look on a simple <code>Hello world</code> example that&apos;s written in the assembly programming language:</p>
+<pre><code class="lang-assembly">.data
+
+msg:
+    .ascii &quot;Hello, world!\n&quot;
+    len = . - msg
+
+.text
+    .global _start
+
+_start:
+    movq  $1, %rax
+    movq  $1, %rdi
+    movq  $msg, %rsi
+    movq  $len, %rdx
+    syscall
+
+    movq  $60, %rax
+    xorq  %rdi, %rdi
+    syscall
+</code></pre>
+<p>We can compile the above with the following commands:</p>
+<pre><code>$ gcc -c test.S
+$ ld -o test test.o
+</code></pre><p>and run it as follows:</p>
+<pre><code>./test
+Hello, world!
+</code></pre><p>Ok, what do we see here? This simple code represents <code>Hello world</code> assembly program for the Linux <code>x86_64</code> architecture. We can see two sections here:</p>
+<ul>
+<li><code>.data</code></li>
+<li><code>.text</code></li>
+</ul>
+<p>The first section - <code>.data</code> stores initialized data of our program (<code>Hello world</code> string and its length in our case). The second section - <code>.text</code> contains the code of our program. We can split the code of our program into two parts: first part will be before the first <code>syscall</code> instruction and the second part will be between first and second <code>syscall</code> instructions. First of all what does the <code>syscall</code> instruction do in our code and generally? As we can read in the <a href="http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html" target="_blank">64-ia-32-architectures-software-developer-vol-2b-manual</a>:</p>
+<pre><code>SYSCALL invokes an OS system-call handler at privilege level 0. It does so by
+loading RIP from the IA32_LSTAR MSR (after saving the address of the instruction
+following SYSCALL into RCX). (The WRMSR instruction ensures that the
+IA32_LSTAR MSR always contain a canonical address.)
+...
+...
+...
+SYSCALL loads the CS and SS selectors with values derived from bits 47:32 of the
+IA32_STAR MSR. However, the CS and SS descriptor caches are not loaded from the
+descriptors (in GDT or LDT) referenced by those selectors.
+
+Instead, the descriptor caches are loaded with fixed values. It is the respon-
+sibility of OS software to ensure that the descriptors (in GDT or LDT) referenced
+by those selector values correspond to the fixed values loaded into the descriptor
+caches; the SYSCALL instruction does not ensure this correspondence.
+</code></pre><p>and we are initializing <code>syscalls</code> by the writing of the <code>entry_SYSCALL_64</code> that defined in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/entry/entry_64.S" target="_blank">arch/x86/entry/entry_64.S</a> assembler file and represents <code>SYSCALL</code> instruction entry to the <code>IA32_STAR</code> <a href="https://en.wikipedia.org/wiki/Model-specific_register" target="_blank">Model specific register</a>:</p>
+<pre><code class="lang-C">wrmsrl(MSR_LSTAR, entry_SYSCALL_64);
+</code></pre>
+<p>in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/kernel/cpu/common.c" target="_blank">arch/x86/kernel/cpu/common.c</a> source code file.</p>
+<p>So, the <code>syscall</code> instruction invokes a handler of a given system call. But how does it know which handler to call? Actually it gets this information from the general purpose <a href="https://en.wikipedia.org/wiki/Processor_register" target="_blank">registers</a>. As you can see in the system call <a href="https://github.com/torvalds/linux/blob/master/arch/x86/entry/syscalls/syscall_64.tbl" target="_blank">table</a>, each system call has an unique number. In our example, first system call is - <code>write</code> that writes data to the given file. Let&apos;s look in the system call table and try to find <code>write</code> system call. As we can see, the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/entry/syscalls/syscall_64.tbl#L10" target="_blank">write</a> system call has number - <code>1</code>. We pass the number of this system call through the <code>rax</code> register in our example. The next general purpose registers: <code>%rdi</code>, <code>%rsi</code> and <code>%rdx</code> take parameters of the <code>write</code> syscall. In our case, they are <a href="https://en.wikipedia.org/wiki/File_descriptor" target="_blank">file descriptor</a> (<code>1</code> is <a href="https://en.wikipedia.org/wiki/Standard_streams#Standard_output_.28stdout.29" target="_blank">stdout</a> in our case), second parameter is the pointer to our string, and the third is size of data. Yes, you heard right. Parameters for a system call. As I already wrote above, a system call is a just <code>C</code> function in the kernel space. In our case first system call is write. This system call defined in the <a href="https://github.com/torvalds/linux/blob/master/fs/read_write.c" target="_blank">fs/read_write.c</a> source code file and looks like:</p>
+<pre><code class="lang-C">SYSCALL_DEFINE3(write, <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span>, fd, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> __user *, buf,
+        <span class="hljs-keyword">size_t</span>, count)
+{
+    ...
+    ...
+    ...
+}
+</code></pre>
+<p>Or in other words:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">ssize_t</span> write(<span class="hljs-keyword">int</span> fd, <span class="hljs-keyword">const</span> <span class="hljs-keyword">void</span> *buf, <span class="hljs-keyword">size_t</span> nbytes);
+</code></pre>
+<p>Don&apos;t worry about the <code>SYSCALL_DEFINE3</code> macro for now, we&apos;ll come back to it.</p>
+<p>The second part of our example is the same, but we call other system call. In this case we call <a href="https://github.com/torvalds/linux/blob/master/arch/x86/entry/syscalls/syscall_64.tbl#L69" target="_blank">exit</a> system call. This system call gets only one parameter:</p>
+<ul>
+<li>Return value</li>
+</ul>
+<p>and handles the way our program exits. We can pass the program name of our program to the <a href="https://en.wikipedia.org/wiki/Strace" target="_blank">strace</a> util and we will see our system calls:</p>
+<pre><code>$ strace test
+execve(&quot;./test&quot;, [&quot;./test&quot;], [/* 62 vars */]) = 0
+write(1, &quot;Hello, world!\n&quot;, 14Hello, world!
+)         = 14
+_exit(0)                                = ?
+
++++ exited with 0 +++
+</code></pre><p>In the first line of the <code>strace</code> output, we can see <a href="https://github.com/torvalds/linux/blob/master/arch/x86/entry/syscalls/syscall_64.tbl#L68" target="_blank">execve</a> system call that executes our program, and the second and third are system calls that we have used in our program: <code>write</code> and <code>exit</code>. Note that we pass the parameter through the general purpose registers in our example. The order of the registers is not accidental. The order of the registers is defined by the following agreement - <a href="https://en.wikipedia.org/wiki/X86_calling_conventions#x86-64_calling_conventions" target="_blank">x86-64 calling conventions</a>. This and other agreement for the <code>x86_64</code> architecture explained in the special document - <a href="http://www.x86-64.org/documentation/abi.pdf" target="_blank">System V Application Binary Interface. PDF</a>. In a general way, argument(s) of a function are placed either in registers or pushed on the stack. The right order is:</p>
+<ul>
+<li><code>rdi</code>;</li>
+<li><code>rsi</code>;</li>
+<li><code>rdx</code>;</li>
+<li><code>rcx</code>;</li>
+<li><code>r8</code>;</li>
+<li><code>r9</code>.</li>
+</ul>
+<p>for the first six parameters of a function. If a function has more than six arguments, other parameters will be placed on the stack.</p>
+<p>We do not use system calls in our code directly, but our program uses it when we want to print something, check access to a file or just write or read something to it.</p>
+<p>For example:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> **argv)</span>
+</span>{
+   FILE *fp;
+   <span class="hljs-keyword">char</span> buff[<span class="hljs-number">255</span>];
+
+   fp = fopen(<span class="hljs-string">&quot;test.txt&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>);
+   fgets(buff, <span class="hljs-number">255</span>, fp);
+   <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%s\n&quot;</span>, buff);
+   fclose(fp);
+
+   <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>There are no <code>fopen</code>, <code>fgets</code>, <code>printf</code> and <code>fclose</code> system calls in the Linux kernel, but <code>open</code>, <code>read</code> <code>write</code> and <code>close</code> instead. I think you know that these four functions <code>fopen</code>, <code>fgets</code>, <code>printf</code> and <code>fclose</code> are just functions that defined in the <code>C</code> <a href="https://en.wikipedia.org/wiki/GNU_C_Library" target="_blank">standard library</a>. Actually these functions are wrappers for the system calls. We do not call system calls directly in our code, but using <a href="https://en.wikipedia.org/wiki/Wrapper_function" target="_blank">wrapper</a> functions from the standard library. The main reason of this is simple: a system call must be performed quickly, very quickly. As a system call must be quick, it must be small. The standard library takes responsibility to perform system calls with the correct set parameters and makes different checks before it will call the given system call. Let&apos;s compile our program with the following command:</p>
+<pre><code>$ gcc test.c -o test
+</code></pre><p>and look on it with the <a href="https://en.wikipedia.org/wiki/Ltrace" target="_blank">ltrace</a> util:</p>
+<pre><code>$ ltrace ./test
+__libc_start_main([ &quot;./test&quot; ] &lt;unfinished ...&gt;
+fopen(&quot;test.txt&quot;, &quot;r&quot;)                                             = 0x602010
+fgets(&quot;Hello World!\n&quot;, 255, 0x602010)                             = 0x7ffd2745e700
+puts(&quot;Hello World!\n&quot;Hello World!
+
+)                                                                  = 14
+fclose(0x602010)                                                   = 0
++++ exited (status 0) +++
+</code></pre><p>The <code>ltrace</code> util displays a set of userspace calls of a program. The <code>fopen</code> function opens the given text file, the <code>fgets</code> reads file content to the <code>buf</code> buffer, the <code>puts</code> function prints it to the <code>stdout</code> and the <code>fclose</code> function closes file by the given file descriptor. And as I already wrote, all of these functions call an appropriate system call. For example <code>puts</code> calls the <code>write</code> system call inside, we can see it if we will add <code>-S</code> option to the <code>ltrace</code> program:</p>
+<pre><code>write@SYS(1, &quot;Hello World!\n\n&quot;, 14) = 14
+</code></pre><p>Yes, system calls are ubiquitous. Each program needs to open/write/read file, network connection, allocate memory and many other things that can be provided only by the kernel. The <a href="https://en.wikipedia.org/wiki/Procfs" target="_blank">proc</a> file system contains special files in a format: <code>/proc/pid/systemcall</code> that exposes the system call number and argument registers for the system call currently being executed by the process. For example, pid 1, that is <a href="https://en.wikipedia.org/wiki/Systemd" target="_blank">systemd</a> for me:</p>
+<pre><code>$ sudo cat /proc/1/comm
+systemd
+
+$ sudo cat /proc/1/syscall
+232 0x4 0x7ffdf82e11b0 0x1f 0xffffffff 0x100 0x7ffdf82e11bf 0x7ffdf82e11a0 0x7f9114681193
+</code></pre><p>the system call with number - <code>232</code> which is <a href="https://github.com/torvalds/linux/blob/master/arch/x86/entry/syscalls/syscall_64.tbl#L241" target="_blank">epoll_wait</a> system call that waits for an I/O event on an <a href="https://en.wikipedia.org/wiki/Epoll" target="_blank">epoll</a> file descriptor. Or for example <code>emacs</code> editor where I&apos;m writing this part:</p>
+<pre><code>$ ps ax | grep emacs
+2093 ?        Sl     2:40 emacs
+
+$ sudo cat /proc/2093/comm
+emacs
+
+$ sudo cat /proc/2093/syscall
+270 0xf 0x7fff068a5a90 0x7fff068a5b10 0x0 0x7fff068a59c0 0x7fff068a59d0 0x7fff068a59b0 0x7f777dd8813c
+</code></pre><p>the system call with the number <code>270</code> which is <a href="https://github.com/torvalds/linux/blob/master/arch/x86/entry/syscalls/syscall_64.tbl#L279" target="_blank">sys_pselect6</a> system call that allows <code>emacs</code> to monitor multiple file descriptors.</p>
+<p>Now we know a little about system call, what is it and why we need in it. So let&apos;s look at the <code>write</code> system call that our program used.</p>
+<h2 id="implementation-of-write-system-call">Implementation of write system call</h2>
+<p>Let&apos;s look at the implementation of this system call directly in the source code of the Linux kernel. As we already know, the <code>write</code> system call is defined in the <a href="https://github.com/torvalds/linux/blob/master/fs/read_write.c" target="_blank">fs/read_write.c</a> source code file and looks like this:</p>
+<pre><code class="lang-C">SYSCALL_DEFINE3(write, <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span>, fd, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> __user *, buf,
+        <span class="hljs-keyword">size_t</span>, count)
+{
+    <span class="hljs-keyword">struct</span> fd f = fdget_pos(fd);
+    <span class="hljs-keyword">ssize_t</span> ret = -EBADF;
+
+    <span class="hljs-keyword">if</span> (f.file) {
+        <span class="hljs-keyword">loff_t</span> pos = file_pos_read(f.file);
+        ret = vfs_write(f.file, buf, count, &amp;pos);
+        <span class="hljs-keyword">if</span> (ret &gt;= <span class="hljs-number">0</span>)
+            file_pos_write(f.file, pos);
+        fdput_pos(f);
+    }
+
+    <span class="hljs-keyword">return</span> ret;
+}
+</code></pre>
+<p>First of all, the <code>SYSCALL_DEFINE3</code> macro is defined in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/syscalls.h" target="_blank">include/linux/syscalls.h</a> header file and expands to the definition of the <code>sys_name(...)</code> function. Let&apos;s look at this macro:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SYSCALL_DEFINE3(name, ...) SYSCALL_DEFINEx(3, _##name, __VA_ARGS__)</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SYSCALL_DEFINEx(x, sname, ...)                \
+        SYSCALL_METADATA(sname, x, __VA_ARGS__)       \
+        __SYSCALL_DEFINEx(x, sname, __VA_ARGS__)</span>
+</code></pre>
+<p>As we can see the <code>SYSCALL_DEFINE3</code> macro takes <code>name</code> parameter which will represent name of a system call and variadic number of parameters. This macro just expands to the <code>SYSCALL_DEFINEx</code> macro that takes the number of the parameters the given system call, the <code>_##name</code> stub for the future name of the system call (more about tokens concatenation with the <code>##</code> you can read in the <a href="https://gcc.gnu.org/onlinedocs/cpp/Concatenation.html" target="_blank">documentation</a> of <a href="https://en.wikipedia.org/wiki/GNU_Compiler_Collection" target="_blank">gcc</a>). Next we can see the <code>SYSCALL_DEFINEx</code> macro. This macro expands to the two following macros:</p>
+<ul>
+<li><code>SYSCALL_METADATA</code>;</li>
+<li><code>__SYSCALL_DEFINEx</code>.</li>
+</ul>
+<p>Implementation of the first macro <code>SYSCALL_METADATA</code> depends on the <code>CONFIG_FTRACE_SYSCALLS</code> kernel configuration option. As we can understand from the name of this option, it allows to enable tracer to catch the syscall entry and exit events. If this kernel configuration option is enabled, the <code>SYSCALL_METADATA</code> macro executes initialization of the <code>syscall_metadata</code> structure that defined in the <a href="https://github.com/torvalds/linux/blob/master/include/trace/syscall.h" target="_blank">include/trace/syscall.h</a> header file and contains different useful fields as name of a system call, number of a system call in the system call <a href="https://github.com/torvalds/linux/blob/master/arch/x86/entry/syscalls/syscall_64.tbl" target="_blank">table</a>, number of parameters of a system call, list of parameter types and etc:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SYSCALL_METADATA(sname, nb, ...)                             \
+    ...                                                              \
+    ...                                                              \
+    ...                                                              \
+    struct syscall_metadata __used                                   \
+              __syscall_meta_##sname = {                             \
+                    .name           = <span class="hljs-string">&quot;sys&quot;</span>#sname,                   \
+                    .syscall_nr     = -1,                            \
+                    .nb_args        = nb,                            \
+                    .types          = nb ? types_##sname : NULL,     \
+                    .args           = nb ? args_##sname : NULL,      \
+                    .enter_event    = &amp;event_enter_##sname,          \
+                    .exit_event     = &amp;event_exit_##sname,           \
+                    .enter_fields   = LIST_HEAD_INIT(__syscall_meta_##sname.enter_fields), \
+             };                                                                            \
+</span>
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">struct</span> syscall_metadata __used                           \
+              __attribute__((section(<span class="hljs-string">&quot;__syscalls_metadata&quot;</span>)))       \
+             *__p_syscall_meta_<span class="hljs-meta">##sname = &amp;__syscall_meta_##sname;</span>
+</code></pre>
+<p>If the <code>CONFIG_FTRACE_SYSCALLS</code> kernel option does not enabled during kernel configuration, in this way the <code>SYSCALL_METADATA</code> macro expands to empty string:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SYSCALL_METADATA(sname, nb, ...)</span>
+</code></pre>
+<p>The second macro <code>__SYSCALL_DEFINEx</code> expands to the definition of the five following functions:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> __SYSCALL_DEFINEx(x, name, ...)                                 \
+        asmlinkage long sys##name(__MAP(x,__SC_DECL,__VA_ARGS__))       \
+                __attribute__((alias(__stringify(SyS##name))));         \
+                                                                        \
+        static inline long SYSC##name(__MAP(x,__SC_DECL,__VA_ARGS__));  \
+                                                                        \
+        asmlinkage long SyS##name(__MAP(x,__SC_LONG,__VA_ARGS__));      \
+                                                                        \
+        asmlinkage long SyS##name(__MAP(x,__SC_LONG,__VA_ARGS__))       \
+        {                                                               \
+                long ret = SYSC##name(__MAP(x,__SC_CAST,__VA_ARGS__));  \
+                __MAP(x,__SC_TEST,__VA_ARGS__);                         \
+                __PROTECT(x, ret,__MAP(x,__SC_ARGS,__VA_ARGS__));       \
+                return ret;                                             \
+        }                                                               \
+                                                                        \
+        static inline long SYSC##name(__MAP(x,__SC_DECL,__VA_ARGS__))</span>
+</code></pre>
+<p>The first <code>sys##name</code> is definition of the syscall handler function with the given name - <code>sys_system_call_name</code>. The <code>__SC_DECL</code> macro takes the <code>__VA_ARGS__</code> and combines call input parameter system type and the parameter name, because the macro definition is unable to determine the parameter types. And the <code>__MAP</code> macro applies <code>__SC_DECL</code> macro to the <code>__VA_ARGS__</code> arguments. The other functions that are generated by the <code>__SYSCALL_DEFINEx</code> macro are need to protect from the <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0029" target="_blank">CVE-2009-0029</a> and we will not dive into details about this here. Ok, as result of the <code>SYSCALL_DEFINE3</code> macro, we will have:</p>
+<pre><code class="lang-C"><span class="hljs-function">asmlinkage <span class="hljs-keyword">long</span> <span class="hljs-title">sys_write</span><span class="hljs-params">(<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> fd, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> __user * buf, size_t count)</span></span>;
+</code></pre>
+<p>Now we know a little about the system call&apos;s definition and we can go back to the implementation of the <code>write</code> system call. Let&apos;s look on the implementation of this system call again:</p>
+<pre><code class="lang-C">SYSCALL_DEFINE3(write, <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span>, fd, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> __user *, buf,
+        <span class="hljs-keyword">size_t</span>, count)
+{
+    <span class="hljs-keyword">struct</span> fd f = fdget_pos(fd);
+    <span class="hljs-keyword">ssize_t</span> ret = -EBADF;
+
+    <span class="hljs-keyword">if</span> (f.file) {
+        <span class="hljs-keyword">loff_t</span> pos = file_pos_read(f.file);
+        ret = vfs_write(f.file, buf, count, &amp;pos);
+        <span class="hljs-keyword">if</span> (ret &gt;= <span class="hljs-number">0</span>)
+            file_pos_write(f.file, pos);
+        fdput_pos(f);
+    }
+
+    <span class="hljs-keyword">return</span> ret;
+}
+</code></pre>
+<p>As we already know and can see from the code, it takes three arguments:</p>
+<ul>
+<li><code>fd</code>    - file descriptor;</li>
+<li><code>buf</code>   - buffer to write;</li>
+<li><code>count</code> - length of buffer to write.</li>
+</ul>
+<p>and writes data from a buffer declared by the user to a given device or a file. Note that the second parameter <code>buf</code>, defined with the <code>__user</code> attribute. The main purpose of this attribute is for checking the Linux kernel code with the <a href="https://en.wikipedia.org/wiki/Sparse" target="_blank">sparse</a> util. It is defined in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/compiler.h" target="_blank">include/linux/compiler.h</a> header file and depends on the <code>__CHECKER__</code> definition in the Linux kernel. That&apos;s all about useful meta-information related to our <code>sys_write</code> system call, let&apos;s try to understand how this system call is implemented. As we can see it starts from the definition of the <code>f</code> structure that has <code>fd</code> structure type that represent file descriptor in the Linux kernel and we put the result of the call of the <code>fdget_pos</code> function. The <code>fdget_pos</code> function defined in the same <a href="https://github.com/torvalds/linux/blob/master/fs/read_write.c" target="_blank">source</a> code file and just expands the call of the <code>__to_fd</code> function:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-keyword">struct</span> fd <span class="hljs-title">fdget_pos</span><span class="hljs-params">(<span class="hljs-keyword">int</span> fd)</span>
+</span>{
+        <span class="hljs-keyword">return</span> __to_fd(__fdget_pos(fd));
+}
+</code></pre>
+<p>The main purpose of the <code>fdget_pos</code> is to convert the given file descriptor which is just a number to the <code>fd</code> structure. Through the long chain of function calls, the <code>fdget_pos</code> function gets the file descriptor table of the current process, <code>current-&gt;files</code>, and tries to find a corresponding file descriptor number there. As we got the <code>fd</code> structure for the given file descriptor number, we check it and return if it does not exist. We get the current position in the file with the call of the <code>file_pos_read</code> function that just returns <code>f_pos</code> field of the our file:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> loff_t <span class="hljs-title">file_pos_read</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> file *file)</span>
+</span>{
+        <span class="hljs-keyword">return</span> file-&gt;f_pos;
+}
+</code></pre>
+<p>and call the <code>vfs_write</code> function. The <code>vfs_write</code> function defined in the <a href="https://github.com/torvalds/linux/blob/master/fs/read_write.c" target="_blank">fs/read_write.c</a> source code file and does the work for us - writes given buffer to the given file starting from the given position. We will not dive into details about the <code>vfs_write</code> function, because this function is weakly related to the <code>system call</code> concept but mostly about <a href="https://en.wikipedia.org/wiki/Virtual_file_system" target="_blank">Virtual file system</a> concept which we will see in another chapter. After the <code>vfs_write</code> has finished its work, we check the result and if it was finished successfully we change the position in the file with the <code>file_pos_write</code> function:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (ret &gt;= <span class="hljs-number">0</span>)
+    file_pos_write(f.file, pos);
+</code></pre>
+<p>that just updates <code>f_pos</code> with the given position in the given file:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">file_pos_write</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> file *file, loff_t pos)</span>
+</span>{
+        file-&gt;f_pos = pos;
+}
+</code></pre>
+<p>At the end of the our <code>write</code> system call handler, we can see the call of the following function:</p>
+<pre><code class="lang-C">fdput_pos(f);
+</code></pre>
+<p>unlocks the <code>f_pos_lock</code> mutex that protects file position during concurrent writes from threads that share file descriptor.</p>
+<p>That&apos;s all.</p>
+<p>We have seen the partial implementation of one system call provided by the Linux kernel. Of course we have missed some parts in the implementation of the <code>write</code> system call, because as I mentioned above, we will see only system calls related stuff in this chapter and will not see other stuff related to other subsystems, such as <a href="https://en.wikipedia.org/wiki/Virtual_file_system" target="_blank">Virtual file system</a>.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This concludes the first part covering system call concepts in the Linux kernel. We have covered the theory of system calls so far and in the next part we will continue to dive into this topic, touching Linux kernel code related to system calls.</p>
+<p>If you have questions or suggestions, feel free to ping me in twitter <a href="https://twitter.com/0xAX" target="_blank">0xAX</a>, drop me <a href="anotherworldofworld@gmail.com">email</a> or just create <a href="https://github.com/0xAX/linux-insides/issues/new" target="_blank">issue</a>.</p>
+<p><strong>Please note that English is not my first language and I am really sorry for any inconvenience. If you found any mistakes please send me PR to <a href="https://github.com/0xAX/linux-insides" target="_blank">linux-insides</a>.</strong></p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/System_call" target="_blank">system call</a></li>
+<li><a href="https://en.wikipedia.org/wiki/VDSO" target="_blank">vdso</a></li>
+<li><a href="https://lwn.net/Articles/446528/" target="_blank">vsyscall</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Processor_register" target="_blank">general purpose registers</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Network_socket" target="_blank">socket</a></li>
+<li><a href="https://en.wikipedia.org/wiki/C_%28programming_language%29" target="_blank">C programming language</a></li>
+<li><a href="https://en.wikipedia.org/wiki/X86" target="_blank">x86</a></li>
+<li><a href="https://en.wikipedia.org/wiki/X86-64" target="_blank">x86_64</a></li>
+<li><a href="https://en.wikipedia.org/wiki/X86_calling_conventions#x86-64_calling_conventions" target="_blank">x86-64 calling conventions</a></li>
+<li><a href="http://www.x86-64.org/documentation/abi.pdf" target="_blank">System V Application Binary Interface. PDF</a></li>
+<li><a href="https://en.wikipedia.org/wiki/GNU_Compiler_Collection" target="_blank">GCC</a></li>
+<li><a href="http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html" target="_blank">Intel manual. PDF</a></li>
+<li><a href="https://github.com/torvalds/linux/blob/master/arch/x86/entry/syscalls/syscall_64.tbl" target="_blank">system call table</a></li>
+<li><a href="https://gcc.gnu.org/onlinedocs/cpp/Concatenation.html" target="_blank">GCC macro documentation</a></li>
+<li><a href="https://en.wikipedia.org/wiki/File_descriptor" target="_blank">file descriptor</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Standard_streams#Standard_output_.28stdout.29" target="_blank">stdout</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Strace" target="_blank">strace</a></li>
+<li><a href="https://en.wikipedia.org/wiki/GNU_C_Library" target="_blank">standard library</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Wrapper_function" target="_blank">wrapper functions</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Ltrace" target="_blank">ltrace</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sparse" target="_blank">sparse</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Procfs" target="_blank">proc file system</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Virtual_file_system" target="_blank">Virtual file system</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Systemd" target="_blank">systemd</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Epoll" target="_blank">epoll</a></li>
+<li><a href="http://0xax.gitbooks.io/linux-insides/content/interrupts/index.html" target="_blank">Previous chapter</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: System calls">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="syscall-2.html" class="navigation navigation-next " aria-label="Next page: How the Linux kernel handles a system call">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Introduction to system calls","level":"1.5.1","depth":2,"next":{"title":"How the Linux kernel handles a system call","level":"1.5.2","depth":2,"path":"SysCall/syscall-2.md","ref":"SysCall/syscall-2.md","articles":[]},"previous":{"title":"System calls","level":"1.5","depth":1,"path":"SysCall/README.md","ref":"SysCall/README.md","articles":[{"title":"Introduction to system calls","level":"1.5.1","depth":2,"path":"SysCall/syscall-1.md","ref":"SysCall/syscall-1.md","articles":[]},{"title":"How the Linux kernel handles a system call","level":"1.5.2","depth":2,"path":"SysCall/syscall-2.md","ref":"SysCall/syscall-2.md","articles":[]},{"title":"vsyscall and vDSO","level":"1.5.3","depth":2,"path":"SysCall/syscall-3.md","ref":"SysCall/syscall-3.md","articles":[]},{"title":"How the Linux kernel runs a program","level":"1.5.4","depth":2,"path":"SysCall/syscall-4.md","ref":"SysCall/syscall-4.md","articles":[]},{"title":"Implementation of the open system call","level":"1.5.5","depth":2,"path":"SysCall/syscall-5.md","ref":"SysCall/syscall-5.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"SysCall/syscall-1.md","mtime":"2019-03-28T07:54:50.406Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-28T08:02:31.511Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

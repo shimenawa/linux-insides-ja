@@ -1,0 +1,1738 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Introduction to spinlocks · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="sync-2.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Summary</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Booting/">
+            
+                <a href="../Booting/">
+            
+                    
+                    Booting
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Booting/linux-bootstrap-1.html">
+            
+                <a href="../Booting/linux-bootstrap-1.html">
+            
+                    
+                    From bootloader to kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Booting/linux-bootstrap-2.html">
+            
+                <a href="../Booting/linux-bootstrap-2.html">
+            
+                    
+                    First steps in the kernel setup code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Booting/linux-bootstrap-3.html">
+            
+                <a href="../Booting/linux-bootstrap-3.html">
+            
+                    
+                    Video mode initialization and transition to protected mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../Booting/linux-bootstrap-4.html">
+            
+                <a href="../Booting/linux-bootstrap-4.html">
+            
+                    
+                    Transition to 64-bit mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../Booting/linux-bootstrap-5.html">
+            
+                <a href="../Booting/linux-bootstrap-5.html">
+            
+                    
+                    Kernel decompression
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Initialization/">
+            
+                <a href="../Initialization/">
+            
+                    
+                    Initialization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Initialization/linux-initialization-1.html">
+            
+                <a href="../Initialization/linux-initialization-1.html">
+            
+                    
+                    First steps in the kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Initialization/linux-initialization-2.html">
+            
+                <a href="../Initialization/linux-initialization-2.html">
+            
+                    
+                    Early interrupts handler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Initialization/linux-initialization-3.html">
+            
+                <a href="../Initialization/linux-initialization-3.html">
+            
+                    
+                    Last preparations before the kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Initialization/linux-initialization-4.html">
+            
+                <a href="../Initialization/linux-initialization-4.html">
+            
+                    
+                    Kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../Initialization/linux-initialization-5.html">
+            
+                <a href="../Initialization/linux-initialization-5.html">
+            
+                    
+                    Continue architecture-specific boot-time initializations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../Initialization/linux-initialization-6.html">
+            
+                <a href="../Initialization/linux-initialization-6.html">
+            
+                    
+                    Architecture-specific initializations, again...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../Initialization/linux-initialization-7.html">
+            
+                <a href="../Initialization/linux-initialization-7.html">
+            
+                    
+                    End of the architecture-specific initializations, almost...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../Initialization/linux-initialization-8.html">
+            
+                <a href="../Initialization/linux-initialization-8.html">
+            
+                    
+                    Scheduler initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../Initialization/linux-initialization-9.html">
+            
+                <a href="../Initialization/linux-initialization-9.html">
+            
+                    
+                    RCU initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../Initialization/linux-initialization-10.html">
+            
+                <a href="../Initialization/linux-initialization-10.html">
+            
+                    
+                    End of initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../interrupts/">
+            
+                <a href="../interrupts/">
+            
+                    
+                    Interrupts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../interrupts/interrupts-1.html">
+            
+                <a href="../interrupts/interrupts-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../interrupts/interrupts-2.html">
+            
+                <a href="../interrupts/interrupts-2.html">
+            
+                    
+                    Start to dive into interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../interrupts/interrupts-3.html">
+            
+                <a href="../interrupts/interrupts-3.html">
+            
+                    
+                    Interrupt handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../interrupts/interrupts-4.html">
+            
+                <a href="../interrupts/interrupts-4.html">
+            
+                    
+                    Initialization of non-early interrupt gates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../interrupts/interrupts-5.html">
+            
+                <a href="../interrupts/interrupts-5.html">
+            
+                    
+                    Implementation of some exception handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../interrupts/interrupts-6.html">
+            
+                <a href="../interrupts/interrupts-6.html">
+            
+                    
+                    Handling Non-Maskable interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../interrupts/interrupts-7.html">
+            
+                <a href="../interrupts/interrupts-7.html">
+            
+                    
+                    Dive into external hardware interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../interrupts/interrupts-8.html">
+            
+                <a href="../interrupts/interrupts-8.html">
+            
+                    
+                    Initialization of external hardware interrupts structures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../interrupts/interrupts-9.html">
+            
+                <a href="../interrupts/interrupts-9.html">
+            
+                    
+                    Softirq, Tasklets and Workqueues
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../interrupts/interrupts-10.html">
+            
+                <a href="../interrupts/interrupts-10.html">
+            
+                    
+                    Last part
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../SysCall/">
+            
+                <a href="../SysCall/">
+            
+                    
+                    System calls
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../SysCall/syscall-1.html">
+            
+                <a href="../SysCall/syscall-1.html">
+            
+                    
+                    Introduction to system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../SysCall/syscall-2.html">
+            
+                <a href="../SysCall/syscall-2.html">
+            
+                    
+                    How the Linux kernel handles a system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../SysCall/syscall-3.html">
+            
+                <a href="../SysCall/syscall-3.html">
+            
+                    
+                    vsyscall and vDSO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../SysCall/syscall-4.html">
+            
+                <a href="../SysCall/syscall-4.html">
+            
+                    
+                    How the Linux kernel runs a program
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../SysCall/syscall-5.html">
+            
+                <a href="../SysCall/syscall-5.html">
+            
+                    
+                    Implementation of the open system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Timers/">
+            
+                <a href="../Timers/">
+            
+                    
+                    Timers and time management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../Timers/timers-1.html">
+            
+                <a href="../Timers/timers-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Timers/timers-2.html">
+            
+                <a href="../Timers/timers-2.html">
+            
+                    
+                    Clocksource framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Timers/timers-3.html">
+            
+                <a href="../Timers/timers-3.html">
+            
+                    
+                    The tick broadcast framework and dyntick
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../Timers/timers-4.html">
+            
+                <a href="../Timers/timers-4.html">
+            
+                    
+                    Introduction to timers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Timers/timers-5.html">
+            
+                <a href="../Timers/timers-5.html">
+            
+                    
+                    Clockevents framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../Timers/timers-6.html">
+            
+                <a href="../Timers/timers-6.html">
+            
+                    
+                    x86 related clock sources
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../Timers/timers-7.html">
+            
+                <a href="../Timers/timers-7.html">
+            
+                    
+                    Time related system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Synchronization primitives
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.7.1" data-path="sync-1.html">
+            
+                <a href="sync-1.html">
+            
+                    
+                    Introduction to spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="sync-2.html">
+            
+                <a href="sync-2.html">
+            
+                    
+                    Queued spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="sync-3.html">
+            
+                <a href="sync-3.html">
+            
+                    
+                    Semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="sync-4.html">
+            
+                <a href="sync-4.html">
+            
+                    
+                    Mutex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="sync-5.html">
+            
+                <a href="sync-5.html">
+            
+                    
+                    Reader/Writer semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="sync-6.html">
+            
+                <a href="sync-6.html">
+            
+                    
+                    SeqLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" >
+            
+                <span>
+            
+                    
+                    RCU
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" >
+            
+                <span>
+            
+                    
+                    Lockdep
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../mm/">
+            
+                <a href="../mm/">
+            
+                    
+                    Memory management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../mm/linux-mm-1.html">
+            
+                <a href="../mm/linux-mm-1.html">
+            
+                    
+                    Memblock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../mm/linux-mm-2.html">
+            
+                <a href="../mm/linux-mm-2.html">
+            
+                    
+                    Fixmaps and ioremap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../mm/linux-mm-3.html">
+            
+                <a href="../mm/linux-mm-3.html">
+            
+                    
+                    kmemcheck
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../Cgroups/">
+            
+                <a href="../Cgroups/">
+            
+                    
+                    Cgroups
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../Cgroups/cgroups1.html">
+            
+                <a href="../Cgroups/cgroups1.html">
+            
+                    
+                    Introduction to Control Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    SMP
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../Concepts/">
+            
+                <a href="../Concepts/">
+            
+                    
+                    Concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../Concepts/per-cpu.html">
+            
+                <a href="../Concepts/per-cpu.html">
+            
+                    
+                    Per-CPU variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../Concepts/cpumask.html">
+            
+                <a href="../Concepts/cpumask.html">
+            
+                    
+                    Cpumasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../Concepts/initcall.html">
+            
+                <a href="../Concepts/initcall.html">
+            
+                    
+                    The initcall mechanism
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../DataStructures/">
+            
+                <a href="../DataStructures/">
+            
+                    
+                    Data Structures in the Linux Kernel
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../DataStructures/dlist.html">
+            
+                <a href="../DataStructures/dlist.html">
+            
+                    
+                    Doubly linked list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../DataStructures/radix-tree.html">
+            
+                <a href="../DataStructures/radix-tree.html">
+            
+                    
+                    Radix tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../DataStructures/bitmap.html">
+            
+                <a href="../DataStructures/bitmap.html">
+            
+                    
+                    Bit arrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../Theory/">
+            
+                <a href="../Theory/">
+            
+                    
+                    Theory
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../Theory/Paging.html">
+            
+                <a href="../Theory/Paging.html">
+            
+                    
+                    Paging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../Theory/ELF.html">
+            
+                <a href="../Theory/ELF.html">
+            
+                    
+                    Elf64
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../Theory/asm.html">
+            
+                <a href="../Theory/asm.html">
+            
+                    
+                    Inline assembly
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" >
+            
+                <span>
+            
+                    
+                    CPUID
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" >
+            
+                <span>
+            
+                    
+                    MSR
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" >
+            
+                <span>
+            
+                    
+                    Initial ram disk
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" >
+            
+                <span>
+            
+                    
+                    initrd
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../Misc/">
+            
+                <a href="../Misc/">
+            
+                    
+                    Misc
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../Misc/how_kernel_compiled.html">
+            
+                <a href="../Misc/how_kernel_compiled.html">
+            
+                    
+                    How the kernel is compiled
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../Misc/linkers.html">
+            
+                <a href="../Misc/linkers.html">
+            
+                    
+                    Linkers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.3" data-path="../Misc/contribute.html">
+            
+                <a href="../Misc/contribute.html">
+            
+                    
+                    Linux kernel development
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.4" data-path="../Misc/program_startup.html">
+            
+                <a href="../Misc/program_startup.html">
+            
+                    
+                    Program startup process in userspace
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.5" >
+            
+                <span>
+            
+                    
+                    Write and Submit your first Linux kernel Patch
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.6" >
+            
+                <span>
+            
+                    
+                    Data types in the kernel
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../KernelStructures/">
+            
+                <a href="../KernelStructures/">
+            
+                    
+                    KernelStructures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../KernelStructures/idt.html">
+            
+                <a href="../KernelStructures/idt.html">
+            
+                    
+                    IDT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../LINKS.html">
+            
+                <a href="../LINKS.html">
+            
+                    
+                    Useful links
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../contributors.html">
+            
+                <a href="../contributors.html">
+            
+                    
+                    Contributors
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Introduction to spinlocks</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="synchronization-primitives-in-the-linux-kernel-part-1">Synchronization primitives in the Linux kernel. Part 1.</h1>
+<h2 id="introduction">Introduction</h2>
+<p>This part opens new chapter in the <a href="http://0xax.gitbooks.io/linux-insides/content/" target="_blank">linux-insides</a> book. Timers and time management related stuff was described in the previous <a href="https://0xax.gitbooks.io/linux-insides/content/Timers/index.html" target="_blank">chapter</a>. Now time to go next. As you may understand from the part&apos;s title, this chapter will describe <a href="https://en.wikipedia.org/wiki/Synchronization_%28computer_science%29" target="_blank">synchronization</a> primitives in the Linux kernel.</p>
+<p>As always, before we will consider something synchronization related, we will try to know what is <code>synchronization primitive</code> in general. Actually, synchronization primitive is a software mechanism which provides ability to two or more <a href="https://en.wikipedia.org/wiki/Parallel_computing" target="_blank">parallel</a> processes or threads to not execute simultaneously one the same segment of a code. For example let&apos;s look on the following piece of code:</p>
+<pre><code class="lang-C">mutex_lock(&amp;clocksource_mutex);
+...
+...
+...
+clocksource_enqueue(cs);
+clocksource_enqueue_watchdog(cs);
+clocksource_select();
+...
+...
+...
+mutex_unlock(&amp;clocksource_mutex);
+</code></pre>
+<p>from the <a href="https://github.com/torvalds/linux/master/kernel/time/clocksource.c" target="_blank">kernel/time/clocksource.c</a> source code file. This code is from the <code>__clocksource_register_scale</code> function which adds the given <a href="https://0xax.gitbooks.io/linux-insides/content/Timers/timers-2.html" target="_blank">clocksource</a> to the clock sources list. This function produces different operations on a list with registered clock sources. For example the <code>clocksource_enqueue</code> function adds the given clock source to the list with registered clocksources - <code>clocksource_list</code>. Note that these lines of code wrapped to two functions: <code>mutex_lock</code> and <code>mutex_unlock</code> which are takes one parameter - the <code>clocksource_mutex</code> in our case.</p>
+<p>These functions represents locking and unlocking based on <a href="https://en.wikipedia.org/wiki/Mutual_exclusion" target="_blank">mutex</a> synchronization primitive. As <code>mutex_lock</code> will be executed, it allows us to prevent situation when two or more threads will execute this code while the <code>mute_unlock</code> will not be executed by process-owner of the mutex. In other words, we prevent parallel operations on a <code>clocksource_list</code>. Why do we need <code>mutex</code> here? What if two parallel processes will try to register a clock source. As we already know, the <code>clocksource_enqueue</code> function adds the given clock source to the <code>clocksource_list</code> list right after a clock source in the list which has the biggest rating (a registered clock source which has the highest frequency in the system):</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">clocksource_enqueue</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> clocksource *cs)</span>
+</span>{
+    <span class="hljs-keyword">struct</span> list_head *entry = &amp;clocksource_list;
+    <span class="hljs-keyword">struct</span> clocksource *tmp;
+
+    list_for_each_entry(tmp, &amp;clocksource_list, <span class="hljs-built_in">list</span>)
+        <span class="hljs-keyword">if</span> (tmp-&gt;rating &gt;= cs-&gt;rating)
+            entry = &amp;tmp-&gt;<span class="hljs-built_in">list</span>;
+    list_add(&amp;cs-&gt;<span class="hljs-built_in">list</span>, entry);
+}
+</code></pre>
+<p>If two parallel processes will try to do it simultaneously, both process may found the same <code>entry</code> may occur <a href="https://en.wikipedia.org/wiki/Race_condition" target="_blank">race condition</a> or in other words, the second process which will execute <code>list_add</code>, will overwrite a clock source from first thread.</p>
+<p>Besides this simple example, synchronization primitives are ubiquitous in the Linux kernel. If we will go through the previous <a href="https://0xax.gitbooks.io/linux-insides/content/Timers/index.html" target="_blank">chapter</a> or other chapters again or if we will look at the Linux kernel source code in general, we will meet many places like this. We will not consider how <code>mutex</code> is implemented in the Linux kernel. Actually, the Linux kernel provides a set of different synchronization primitives like:</p>
+<ul>
+<li><code>mutex</code>;</li>
+<li><code>semaphores</code>; </li>
+<li><code>seqlocks</code>;</li>
+<li><code>atomic operations</code>;</li>
+<li>etc.</li>
+</ul>
+<p>We will start this chapter from the <code>spinlock</code>.</p>
+<h2 id="spinlocks-in-the-linux-kernel">Spinlocks in the Linux kernel.</h2>
+<p>The <code>spinlock</code> is a low-level synchronization mechanism which in simple words, represents a variable which can be in two states:</p>
+<ul>
+<li><code>acquired</code>;</li>
+<li><code>released</code>.</li>
+</ul>
+<p>Each process which wants to acquire a <code>spinlock</code>, must write a value which represents <code>spinlock acquired</code> state to this variable and write <code>spinlock released</code> state to the variable. If a process tries to execute code which is protected by a <code>spinlock</code>, it will be locked while a process which holds this lock will release it. In this case all related operations must be <a href="https://en.wikipedia.org/wiki/Linearizability" target="_blank">atomic</a> to prevent <a href="https://en.wikipedia.org/wiki/Race_condition" target="_blank">race conditions</a> state. The <code>spinlock</code> is represented by the <code>spinlock_t</code> type in the Linux kernel. If we will look at the Linux kernel code, we will see that this type is <a href="http://lxr.free-electrons.com/ident?i=spinlock_t" target="_blank">widely</a> used. The <code>spinlock_t</code> is defined as:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> spinlock {
+        <span class="hljs-keyword">union</span> {
+              <span class="hljs-keyword">struct</span> raw_spinlock rlock;
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> CONFIG_DEBUG_LOCK_ALLOC</span>
+<span class="hljs-meta"># <span class="hljs-meta-keyword">define</span> LOCK_PADSIZE (offsetof(struct raw_spinlock, dep_map))</span>
+                <span class="hljs-keyword">struct</span> {
+                        u8 __padding[LOCK_PADSIZE];
+                        <span class="hljs-keyword">struct</span> lockdep_map dep_map;
+                };
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+        };
+} <span class="hljs-keyword">spinlock_t</span>;
+</code></pre>
+<p>and located in the <a href="https://github.com/torvalds/linux/master/include/linux/spinlock_types.h" target="_blank">include/linux/spinlock_types.h</a> header file. We may see that its implementation depends on the state of the <code>CONFIG_DEBUG_LOCK_ALLOC</code> kernel configuration option. We will skip this now, because all debugging related stuff will be in the end of this part. So, if the <code>CONFIG_DEBUG_LOCK_ALLOC</code> kernel configuration option is disabled, the <code>spinlock_t</code> contains <a href="https://en.wikipedia.org/wiki/Union_type#C.2FC.2B.2B" target="_blank">union</a> with one field which is - <code>raw_spinlock</code>:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> spinlock {
+        <span class="hljs-keyword">union</span> {
+              <span class="hljs-keyword">struct</span> raw_spinlock rlock;
+        };
+} <span class="hljs-keyword">spinlock_t</span>;
+</code></pre>
+<p>The <code>raw_spinlock</code> structure defined in the <a href="https://github.com/torvalds/linux/master/include/linux/spinlock_types.h" target="_blank">same</a> header file and represents implementation of <code>normal</code> spinlock. Let&apos;s look how the <code>raw_spinlock</code> structure is defined:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> raw_spinlock {
+        <span class="hljs-keyword">arch_spinlock_t</span> raw_lock;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> CONFIG_GENERIC_LOCKBREAK</span>
+        <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> break_lock;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+} <span class="hljs-keyword">raw_spinlock_t</span>;
+</code></pre>
+<p>where the <code>arch_spinlock_t</code> represents architecture-specific <code>spinlock</code> implementation and the <code>break_lock</code> field which holds value - <code>1</code> in a case when  one processor starts to wait while the lock is held on another processor on <a href="https://en.wikipedia.org/wiki/Symmetric_multiprocessing" target="_blank">SMP</a> systems. This allows prevent long time locking. As consider the <a href="https://en.wikipedia.org/wiki/X86-64" target="_blank">x86_64</a> architecture in this books, so the <code>arch_spinlock_t</code> is defined in the <a href="https://github.com/torvalds/linux/master/arch/x86/include/asm/spinlock_types.h" target="_blank">arch/x86/include/asm/spinlock_types.h</a> header file and looks:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> CONFIG_QUEUED_SPINLOCKS</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;asm-generic/qspinlock_types.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
+<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> arch_spinlock {
+        <span class="hljs-keyword">union</span> {
+                <span class="hljs-keyword">__ticketpair_t</span> head_tail;
+                <span class="hljs-keyword">struct</span> __raw_tickets {
+                        <span class="hljs-keyword">__ticket_t</span> head, tail;
+                } tickets;
+        };
+} <span class="hljs-keyword">arch_spinlock_t</span>;
+</code></pre>
+<p>As we may see, the definition of the <code>arch_spinlock</code> structure depends on the value of the <code>CONFIG_QUEUED_SPINLOCKS</code> kernel configuration option. This configuration option the Linux kernel supports <code>spinlocks</code> with queue. This special type of <code>spinlocks</code> which instead of <code>acquired</code> and <code>released</code> <a href="https://en.wikipedia.org/wiki/Linearizability" target="_blank">atomic</a> values used <code>atomic</code> operation on a <code>queue</code>. If the <code>CONFIG_QUEUED_SPINLOCKS</code> kernel configuration option is enabled, the <code>arch_spinlock_t</code> will be represented by the following structure:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> qspinlock {
+    <span class="hljs-keyword">atomic_t</span>    val;
+} <span class="hljs-keyword">arch_spinlock_t</span>;
+</code></pre>
+<p>from the <a href="https://github.com/torvalds/linux/master/include/asm-generic/qspinlock_types.h" target="_blank">include/asm-generic/qspinlock_types.h</a> header file.</p>
+<p>We will not stop on this structures for now and before we will consider both <code>arch_spinlock</code> and the <code>qspinlock</code>, let&apos;s look at the operations on a spinlock. The Linux kernel provides following main operations on a <code>spinlock</code>:</p>
+<ul>
+<li><code>spin_lock_init</code> - produces initialization of the given <code>spinlock</code>;</li>
+<li><code>spin_lock</code> - acquires given <code>spinlock</code>;</li>
+<li><code>spin_lock_bh</code> - disables software <a href="https://en.wikipedia.org/wiki/Interrupt" target="_blank">interrupts</a> and acquire given <code>spinlock</code>.</li>
+<li><code>spin_lock_irqsave</code> and <code>spin_lock_irq</code> - disable interrupts on local processor and preserve/not preserve previous interrupt state in the <code>flags</code>;</li>
+<li><code>spin_unlock</code> - releases given <code>spinlock</code>;</li>
+<li><code>spin_unlock_bh</code> - releases given <code>spinlock</code> and enables software interrupts;</li>
+<li><code>spin_is_locked</code> - returns the state of the given <code>spinlock</code>;</li>
+<li>and etc.</li>
+</ul>
+<p>Let&apos;s look on the implementation of the <code>spin_lock_init</code> macro. As I already wrote, this and other macro are defined in the <a href="https://github.com/torvalds/linux/master/include/linux/spinlock.h" target="_blank">include/linux/spinlock.h</a> header file and the <code>spin_lock_init</code> macro looks:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> spin_lock_init(_lock)        \
+do {                                            \
+    spinlock_check(_lock);                        \
+    raw_spin_lock_init(&amp;(_lock)-&gt;rlock);        \
+} while (0)</span>
+</code></pre>
+<p>As we may see, the <code>spin_lock_init</code> macro takes a <code>spinlock</code> and executes two operations: check the given <code>spinlock</code> and execute the <code>raw_spin_lock_init</code>. The implementation of the <code>spinlock_check</code> is pretty easy, this function just returns the <code>raw_spinlock_t</code> of the given <code>spinlock</code> to be sure that we got exactly <code>normal</code> raw spinlock:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> __<span class="hljs-function">always_inline raw_spinlock_t *<span class="hljs-title">spinlock_check</span><span class="hljs-params">(spinlock_t *lock)</span>
+</span>{
+    <span class="hljs-keyword">return</span> &amp;lock-&gt;rlock;
+}
+</code></pre>
+<p>The <code>raw_spin_lock_init</code> macro:</p>
+<pre><code class="lang-C"><span class="hljs-meta"># <span class="hljs-meta-keyword">define</span> raw_spin_lock_init(lock)        \
+do {                                                  \
+    *(lock) = __RAW_SPIN_LOCK_UNLOCKED(lock);         \
+} while (0)                                           \
+</span></code></pre>
+<p>assigns the value of the <code>__RAW_SPIN_LOCK_UNLOCKED</code> with the given <code>spinlock</code> to the given <code>raw_spinlock_t</code>. As we may understand from the name of the <code>__RAW_SPIN_LOCK_UNLOCKED</code> macro, this macro does initialization of the given <code>spinlock</code> and set it to <code>released</code> state. This macro defined in the <a href="https://github.com/torvalds/linux/master/include/linux/spinlock_types.h" target="_blank">include/linux/spinlock_types.h</a> header file and expands to the following macros:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> __RAW_SPIN_LOCK_UNLOCKED(lockname)      \
+         (raw_spinlock_t) __RAW_SPIN_LOCK_INITIALIZER(lockname)</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> __RAW_SPIN_LOCK_INITIALIZER(lockname)   \
+         {                                                      \
+             .raw_lock = __ARCH_SPIN_LOCK_UNLOCKED,             \
+             SPIN_DEBUG_INIT(lockname)                          \
+             SPIN_DEP_MAP_INIT(lockname)                        \
+         }</span>
+</code></pre>
+<p>As I already wrote above, we will not consider stuff which is related to debugging of synchronization primitives. In this case we will not consider the <code>SPIN_DEBUG_INIT</code> and the <code>SPIN_DEP_MAP_INIT</code> macros. So the <code>__RAW_SPINLOCK_UNLOCKED</code> macro will be expanded to the:</p>
+<pre><code class="lang-C">*(&amp;(_lock)-&gt;rlock) = __ARCH_SPIN_LOCK_UNLOCKED;
+</code></pre>
+<p>where the <code>__ARCH_SPIN_LOCK_UNLOCKED</code> is:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> __ARCH_SPIN_LOCK_UNLOCKED       { { 0 } }</span>
+</code></pre>
+<p>and:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> __ARCH_SPIN_LOCK_UNLOCKED       { ATOMIC_INIT(0) }</span>
+</code></pre>
+<p>for the <a href="https://en.wikipedia.org/wiki/X86-64" target="_blank">x86_64</a> architecture. if the <code>CONFIG_QUEUED_SPINLOCKS</code> kernel configuration option is enabled. So, after the expansion of the <code>spin_lock_init</code> macro, a given <code>spinlock</code> will be initialized and its state will be - <code>unlocked</code>.</p>
+<p>From this moment we know how to initialize a <code>spinlock</code>, now let&apos;s consider <a href="https://en.wikipedia.org/wiki/Application_programming_interface" target="_blank">API</a> which Linux kernel provides for manipulations of <code>spinlocks</code>. The first is:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> __<span class="hljs-function">always_inline <span class="hljs-keyword">void</span> <span class="hljs-title">spin_lock</span><span class="hljs-params">(spinlock_t *lock)</span>
+</span>{
+    raw_spin_lock(&amp;lock-&gt;rlock);
+}
+</code></pre>
+<p>function which allows us to <code>acquire</code> a spinlock. The <code>raw_spin_lock</code> macro is defined in the same header file and expands to the call of the <code>_raw_spin_lock</code> function:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> raw_spin_lock(lock)    _raw_spin_lock(lock)</span>
+</code></pre>
+<p>As we may see in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/spinlock.h" target="_blank">include/linux/spinlock.h</a> header file, definition of the <code>_raw_spin_lock</code> macro depends on the <code>CONFIG_SMP</code> kernel configuration parameter:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> defined(CONFIG_SMP) || defined(CONFIG_DEBUG_SPINLOCK)</span>
+<span class="hljs-meta"># <span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;linux/spinlock_api_smp.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
+<span class="hljs-meta"># <span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;linux/spinlock_api_up.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+</code></pre>
+<p>So, if the <a href="https://en.wikipedia.org/wiki/Symmetric_multiprocessing" target="_blank">SMP</a> is enabled in the Linux kernel, the <code>_raw_spin_lock</code> macro is defined in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/spinlock.h" target="_blank">arch/x86/include/asm/spinlock.h</a> header file and looks like:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> _raw_spin_lock(lock) __raw_spin_lock(lock)</span>
+</code></pre>
+<p>The <code>__raw_spin_lock</code> function looks:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> __raw_spin_lock(<span class="hljs-keyword">raw_spinlock_t</span> *lock)
+{
+        preempt_disable();
+        spin_acquire(&amp;lock-&gt;dep_map, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, _RET_IP_);
+        LOCK_CONTENDED(lock, do_raw_spin_trylock, do_raw_spin_lock);
+}
+</code></pre>
+<p>As you may see, first of all we disable <a href="https://en.wikipedia.org/wiki/Preemption_%28computing%29" target="_blank">preemption</a> by the call of the <code>preempt_disable</code> macro from the <a href="https://github.com/torvalds/linux/blob/master/include/linux/preempt.h" target="_blank">include/linux/preempt.h</a> (more about this you may read in the ninth <a href="https://0xax.gitbooks.io/linux-insides/content/Initialization/linux-initialization-9.html" target="_blank">part</a> of the Linux kernel initialization process chapter). When we will unlock the given <code>spinlock</code>, preemption will be enabled again:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> __raw_spin_unlock(<span class="hljs-keyword">raw_spinlock_t</span> *lock)
+{
+        ...
+        ...
+        ...
+        preempt_enable();
+}
+</code></pre>
+<p>We need to do this while a process is spinning on a lock, other processes must be prevented to preempt the process which acquired a lock. The <code>spin_acquire</code> macro which through a chain of other macros expands to the call of the:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> spin_acquire(l, s, t, i)                lock_acquire_exclusive(l, s, t, NULL, i)</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> lock_acquire_exclusive(l, s, t, n, i)           lock_acquire(l, s, t, 0, 1, n, i)</span>
+</code></pre>
+<p><code>lock_acquire</code> function:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">lock_acquire</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> lockdep_map *lock, <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> subclass,
+                  <span class="hljs-keyword">int</span> trylock, <span class="hljs-keyword">int</span> read, <span class="hljs-keyword">int</span> check,
+                  <span class="hljs-keyword">struct</span> lockdep_map *nest_lock, <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> ip)</span>
+</span>{
+         <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> flags;
+
+         <span class="hljs-keyword">if</span> (unlikely(current-&gt;lockdep_recursion))
+                <span class="hljs-keyword">return</span>;
+
+         raw_local_irq_save(flags);
+         check_flags(flags);
+
+         current-&gt;lockdep_recursion = <span class="hljs-number">1</span>;
+         trace_lock_acquire(lock, subclass, trylock, read, check, nest_lock, ip);
+         __lock_acquire(lock, subclass, trylock, read, check,
+                        irqs_disabled_flags(flags), nest_lock, ip, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+         current-&gt;lockdep_recursion = <span class="hljs-number">0</span>;
+         raw_local_irq_restore(flags);
+}
+</code></pre>
+<p>As I wrote above, we will not consider stuff here which is related to debugging or tracing. The main point of the <code>lock_acquire</code> function is to disable hardware interrupts by the call of the <code>raw_local_irq_save</code> macro, because the given spinlock might be acquired with enabled hardware interrupts. In this way the process will not be preempted. Note that in the end of the <code>lock_acquire</code> function we will enable hardware interrupts again with the help of the <code>raw_local_irq_restore</code> macro. As you already may guess, the main work will be in the <code>__lock_acquire</code> function which is defined in the <a href="https://github.com/torvalds/linux/blob/master/kernel/locking/lockdep.c" target="_blank">kernel/locking/lockdep.c</a> source code file.</p>
+<p>The <code>__lock_acquire</code> function looks big. We will try to understand what does this function do, but not in this part. Actually this function mostly related to the Linux kernel <a href="https://www.kernel.org/doc/Documentation/locking/lockdep-design.txt" target="_blank">lock validator</a> and it is not topic of this part. If we will return to the definition of the <code>__raw_spin_lock</code> function, we will see that it contains the following definition in the end:</p>
+<pre><code class="lang-C">LOCK_CONTENDED(lock, do_raw_spin_trylock, do_raw_spin_lock);
+</code></pre>
+<p>The <code>LOCK_CONTENDED</code> macro is defined in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/lockdep.h" target="_blank">include/linux/lockdep.h</a> header file and just calls the given function with the given <code>spinlock</code>:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> LOCK_CONTENDED(_lock, try, lock) \
+         lock(_lock)</span>
+</code></pre>
+<p>In our case, the <code>lock</code> is <code>do_raw_spin_lock</code> function from the <a href="https://github.com/torvalds/linux/blob/master/include/linux/spnlock.h" target="_blank">include/linux/spinlock.h</a> header file and the <code>_lock</code> is the given <code>raw_spinlock_t</code>:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">do_raw_spin_lock</span><span class="hljs-params">(raw_spinlock_t *lock)</span> __<span class="hljs-title">acquires</span><span class="hljs-params">(lock)</span>
+</span>{
+        __acquire(lock);
+         arch_spin_lock(&amp;lock-&gt;raw_lock);
+}
+</code></pre>
+<p>The <code>__acquire</code> here is just <a href="https://en.wikipedia.org/wiki/Sparse" target="_blank">sparse</a> related macro and we are not interesting in it in this moment. Location of the definition of the <code>arch_spin_lock</code> function depends on two things: the first is architecture of system and the second do we use <code>queued spinlocks</code> or not. In our case we consider only <code>x86_64</code> architecture, so the definition of the <code>arch_spin_lock</code> is represented as the macro from the <a href="https://github.com/torvalds/linux/blob/master/include/asm-generic/qspinlocks.h" target="_blank">include/asm-generic/qspinlock.h</a> header file:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> arch_spin_lock(l)               queued_spin_lock(l)</span>
+</code></pre>
+<p>if we are using <code>queued spinlocks</code>. Or in other case, the <code>arch_spin_lock</code> function is defined in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/spinlock.h" target="_blank">arch/x86/include/asm/spinlock.h</a> header file. Now we will consider only <code>normal spinlock</code> and information related to <code>queued spinlocks</code> we will see later. Let&apos;s look again on the definition of the <code>arch_spinlock</code> structure, to understand implementation of the <code>arch_spin_lock</code> function:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> arch_spinlock {
+         <span class="hljs-keyword">union</span> {
+                <span class="hljs-keyword">__ticketpair_t</span> head_tail;
+                <span class="hljs-keyword">struct</span> __raw_tickets {
+                        <span class="hljs-keyword">__ticket_t</span> head, tail;
+                } tickets;
+        };
+} <span class="hljs-keyword">arch_spinlock_t</span>;
+</code></pre>
+<p>This variant of <code>spinlock</code> is called - <code>ticket spinlock</code>. As we may see, it consists from two parts. When lock is acquired, it increments a <code>tail</code> by one every time when a process wants to hold a <code>spinlock</code>. If the <code>tail</code> is not equal to <code>head</code>, the process will be locked, until values of these variables will not be equal. Let&apos;s look on the implementation of the <code>arch_spin_lock</code> function: </p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> __<span class="hljs-function">always_inline <span class="hljs-keyword">void</span> <span class="hljs-title">arch_spin_lock</span><span class="hljs-params">(arch_spinlock_t *lock)</span>
+</span>{
+        <span class="hljs-keyword">register</span> <span class="hljs-keyword">struct</span> __raw_tickets inc = { .tail = TICKET_LOCK_INC };
+
+        inc = xadd(&amp;lock-&gt;tickets, inc);
+
+        <span class="hljs-keyword">if</span> (likely(inc.head == inc.tail))
+                <span class="hljs-keyword">goto</span> out;
+
+        <span class="hljs-keyword">for</span> (;;) {
+                 <span class="hljs-keyword">unsigned</span> count = SPIN_THRESHOLD;
+
+                 <span class="hljs-keyword">do</span> {
+                       inc.head = READ_ONCE(lock-&gt;tickets.head);
+                       <span class="hljs-keyword">if</span> (__tickets_equal(inc.head, inc.tail))
+                                <span class="hljs-keyword">goto</span> clear_slowpath;
+                        cpu_relax();
+                 } <span class="hljs-keyword">while</span> (--count);
+                 __ticket_lock_spinning(lock, inc.tail);
+         }
+clear_slowpath:
+        __ticket_check_and_clear_slowpath(lock, inc.head);
+out:
+        barrier();
+}
+</code></pre>
+<p>At the beginning of the <code>arch_spin_lock</code> function we can initialization of the <code>__raw_tickets</code> structure with <code>tail</code> - <code>1</code>:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> __TICKET_LOCK_INC       1</span>
+</code></pre>
+<p>In the next line we execute <a href="http://x86.renejeschke.de/html/file_module_x86_id_327.html" target="_blank">xadd</a> operation on the <code>inc</code> and <code>lock-&gt;tickets</code>. After this operation the <code>inc</code> will store value of the <code>tickets</code> of the given <code>lock</code> and the <code>tickets.tail</code> will be increased on <code>inc</code> or <code>1</code>. The <code>tail</code> value was increased on <code>1</code> which means that one process started to try to hold a lock. In the next step we do the check that checks that <code>head</code> and <code>tail</code> have the same value. If these values are equal, this means that nobody holds lock and we go to the <code>out</code> label. In the end of the <code>arch_spin_lock</code> function we may see the <code>barrier</code> macro which represents <code>barrier instruction</code> which guarantees that compiler will not change order of operations that access memory (more about memory barriers you can read in the kernel <a href="https://www.kernel.org/doc/Documentation/memory-barriers.txt" target="_blank">documentation</a>).</p>
+<p>If one process held a lock and a second process started to execute the <code>arch_spin_lock</code> function, the <code>head</code> will not be <code>equal</code> to <code>tail</code>, because the <code>tail</code> will be greater than <code>head</code> on <code>1</code>. In this way, process will occur in the loop. There will be comparison between <code>head</code> and the <code>tail</code> values at each loop iteration. If these values are not equal, the <code>cpu_relax</code> will be called which is just <a href="https://en.wikipedia.org/wiki/NOP" target="_blank">NOP</a> instruction:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> cpu_relax()     asm volatile(<span class="hljs-string">&quot;rep; nop&quot;</span>)</span>
+</code></pre>
+<p>and the next iteration of the loop will be started. If these values will be equal, this means that the process which held this lock, released this lock and the next process may acquire the lock.</p>
+<p>The <code>spin_unlock</code> operation goes through the all macros/function as <code>spin_lock</code>, of course with <code>unlock</code> prefix. In the end the <code>arch_spin_unlock</code> function will be called. If we will look at the implementation of the <code>arch_spin_lock</code> function, we will see that it increases <code>head</code> of the <code>lock tickets</code> list:</p>
+<pre><code class="lang-C">__add(&amp;lock-&gt;tickets.head, TICKET_LOCK_INC, UNLOCK_LOCK_PREFIX);
+</code></pre>
+<p>In a combination of the <code>spin_lock</code> and <code>spin_unlock</code>, we get kind of queue where <code>head</code> contains an index number which maps currently executed process which holds a lock and the <code>tail</code> which contains an index number which maps last process which tried to hold the lock:</p>
+<pre><code>     +-------+       +-------+
+     |       |       |       |
+head |   7   | - - - |   7   | tail
+     |       |       |       |
+     +-------+       +-------+
+                         |
+                     +-------+
+                     |       |
+                     |   8   |
+                     |       |
+                     +-------+
+                         |
+                     +-------+
+                     |       |
+                     |   9   |
+                     |       |
+                     +-------+
+</code></pre><p>That&apos;s all for now. We didn&apos;t cover <code>spinlock</code> API in full in this part, but I think that the main idea behind this concept must be clear now.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This concludes the first part covering synchronization primitives in the Linux kernel. In this part, we met first synchronization primitive <code>spinlock</code> provided by the Linux kernel. In the next part we will continue to dive into this interesting theme and will see other <code>synchronization</code> related stuff.</p>
+<p>If you have questions or suggestions, feel free to ping me in twitter <a href="https://twitter.com/0xAX" target="_blank">0xAX</a>, drop me <a href="anotherworldofworld@gmail.com">email</a> or just create <a href="https://github.com/0xAX/linux-insides/issues/new" target="_blank">issue</a>.</p>
+<p><strong>Please note that English is not my first language and I am really sorry for any inconvenience. If you found any mistakes please send me PR to <a href="https://github.com/0xAX/linux-insides" target="_blank">linux-insides</a>.</strong></p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Concurrent_computing" target="_blank">Concurrent computing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Synchronization_%28computer_science%29" target="_blank">Synchronization</a></li>
+<li><a href="https://0xax.gitbooks.io/linux-insides/content/Timers/timers-2.html" target="_blank">Clocksource framework</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Mutual_exclusion" target="_blank">Mutex</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Race_condition" target="_blank">Race condition</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Linearizability" target="_blank">Atomic operations</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Symmetric_multiprocessing" target="_blank">SMP</a></li>
+<li><a href="https://en.wikipedia.org/wiki/X86-64" target="_blank">x86_64</a> </li>
+<li><a href="https://en.wikipedia.org/wiki/Interrupt" target="_blank">Interrupts</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Preemption_%28computing%29" target="_blank">Preemption</a> </li>
+<li><a href="https://www.kernel.org/doc/Documentation/locking/lockdep-design.txt" target="_blank">Linux kernel lock validator</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sparse" target="_blank">Sparse</a></li>
+<li><a href="http://x86.renejeschke.de/html/file_module_x86_id_327.html" target="_blank">xadd instruction</a></li>
+<li><a href="https://en.wikipedia.org/wiki/NOP" target="_blank">NOP</a></li>
+<li><a href="https://www.kernel.org/doc/Documentation/memory-barriers.txt" target="_blank">Memory barriers</a></li>
+<li><a href="https://0xax.gitbooks.io/linux-insides/content/Timers/index.html" target="_blank">Previous chapter</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Synchronization primitives">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="sync-2.html" class="navigation navigation-next " aria-label="Next page: Queued spinlocks">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Introduction to spinlocks","level":"1.7.1","depth":2,"next":{"title":"Queued spinlocks","level":"1.7.2","depth":2,"path":"SyncPrim/sync-2.md","ref":"SyncPrim/sync-2.md","articles":[]},"previous":{"title":"Synchronization primitives","level":"1.7","depth":1,"path":"SyncPrim/README.md","ref":"SyncPrim/README.md","articles":[{"title":"Introduction to spinlocks","level":"1.7.1","depth":2,"path":"SyncPrim/sync-1.md","ref":"SyncPrim/sync-1.md","articles":[]},{"title":"Queued spinlocks","level":"1.7.2","depth":2,"path":"SyncPrim/sync-2.md","ref":"SyncPrim/sync-2.md","articles":[]},{"title":"Semaphores","level":"1.7.3","depth":2,"path":"SyncPrim/sync-3.md","ref":"SyncPrim/sync-3.md","articles":[]},{"title":"Mutex","level":"1.7.4","depth":2,"path":"SyncPrim/sync-4.md","ref":"SyncPrim/sync-4.md","articles":[]},{"title":"Reader/Writer semaphores","level":"1.7.5","depth":2,"path":"SyncPrim/sync-5.md","ref":"SyncPrim/sync-5.md","articles":[]},{"title":"SeqLock","level":"1.7.6","depth":2,"path":"SyncPrim/sync-6.md","ref":"SyncPrim/sync-6.md","articles":[]},{"title":"RCU","level":"1.7.7","depth":2,"ref":"","articles":[]},{"title":"Lockdep","level":"1.7.8","depth":2,"ref":"","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"SyncPrim/sync-1.md","mtime":"2019-03-28T07:54:50.399Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-28T07:57:01.662Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

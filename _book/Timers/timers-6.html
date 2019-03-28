@@ -1,0 +1,1711 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>x86 related clock sources · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="timers-7.html" />
+    
+    
+    <link rel="prev" href="timers-5.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Summary</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Booting/">
+            
+                <a href="../Booting/">
+            
+                    
+                    Booting
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Booting/linux-bootstrap-1.html">
+            
+                <a href="../Booting/linux-bootstrap-1.html">
+            
+                    
+                    From bootloader to kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Booting/linux-bootstrap-2.html">
+            
+                <a href="../Booting/linux-bootstrap-2.html">
+            
+                    
+                    First steps in the kernel setup code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Booting/linux-bootstrap-3.html">
+            
+                <a href="../Booting/linux-bootstrap-3.html">
+            
+                    
+                    Video mode initialization and transition to protected mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../Booting/linux-bootstrap-4.html">
+            
+                <a href="../Booting/linux-bootstrap-4.html">
+            
+                    
+                    Transition to 64-bit mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../Booting/linux-bootstrap-5.html">
+            
+                <a href="../Booting/linux-bootstrap-5.html">
+            
+                    
+                    Kernel decompression
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Initialization/">
+            
+                <a href="../Initialization/">
+            
+                    
+                    Initialization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Initialization/linux-initialization-1.html">
+            
+                <a href="../Initialization/linux-initialization-1.html">
+            
+                    
+                    First steps in the kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Initialization/linux-initialization-2.html">
+            
+                <a href="../Initialization/linux-initialization-2.html">
+            
+                    
+                    Early interrupts handler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Initialization/linux-initialization-3.html">
+            
+                <a href="../Initialization/linux-initialization-3.html">
+            
+                    
+                    Last preparations before the kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Initialization/linux-initialization-4.html">
+            
+                <a href="../Initialization/linux-initialization-4.html">
+            
+                    
+                    Kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../Initialization/linux-initialization-5.html">
+            
+                <a href="../Initialization/linux-initialization-5.html">
+            
+                    
+                    Continue architecture-specific boot-time initializations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../Initialization/linux-initialization-6.html">
+            
+                <a href="../Initialization/linux-initialization-6.html">
+            
+                    
+                    Architecture-specific initializations, again...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../Initialization/linux-initialization-7.html">
+            
+                <a href="../Initialization/linux-initialization-7.html">
+            
+                    
+                    End of the architecture-specific initializations, almost...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../Initialization/linux-initialization-8.html">
+            
+                <a href="../Initialization/linux-initialization-8.html">
+            
+                    
+                    Scheduler initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../Initialization/linux-initialization-9.html">
+            
+                <a href="../Initialization/linux-initialization-9.html">
+            
+                    
+                    RCU initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../Initialization/linux-initialization-10.html">
+            
+                <a href="../Initialization/linux-initialization-10.html">
+            
+                    
+                    End of initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../interrupts/">
+            
+                <a href="../interrupts/">
+            
+                    
+                    Interrupts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../interrupts/interrupts-1.html">
+            
+                <a href="../interrupts/interrupts-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../interrupts/interrupts-2.html">
+            
+                <a href="../interrupts/interrupts-2.html">
+            
+                    
+                    Start to dive into interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../interrupts/interrupts-3.html">
+            
+                <a href="../interrupts/interrupts-3.html">
+            
+                    
+                    Interrupt handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../interrupts/interrupts-4.html">
+            
+                <a href="../interrupts/interrupts-4.html">
+            
+                    
+                    Initialization of non-early interrupt gates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../interrupts/interrupts-5.html">
+            
+                <a href="../interrupts/interrupts-5.html">
+            
+                    
+                    Implementation of some exception handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../interrupts/interrupts-6.html">
+            
+                <a href="../interrupts/interrupts-6.html">
+            
+                    
+                    Handling Non-Maskable interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../interrupts/interrupts-7.html">
+            
+                <a href="../interrupts/interrupts-7.html">
+            
+                    
+                    Dive into external hardware interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../interrupts/interrupts-8.html">
+            
+                <a href="../interrupts/interrupts-8.html">
+            
+                    
+                    Initialization of external hardware interrupts structures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../interrupts/interrupts-9.html">
+            
+                <a href="../interrupts/interrupts-9.html">
+            
+                    
+                    Softirq, Tasklets and Workqueues
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../interrupts/interrupts-10.html">
+            
+                <a href="../interrupts/interrupts-10.html">
+            
+                    
+                    Last part
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../SysCall/">
+            
+                <a href="../SysCall/">
+            
+                    
+                    System calls
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../SysCall/syscall-1.html">
+            
+                <a href="../SysCall/syscall-1.html">
+            
+                    
+                    Introduction to system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../SysCall/syscall-2.html">
+            
+                <a href="../SysCall/syscall-2.html">
+            
+                    
+                    How the Linux kernel handles a system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../SysCall/syscall-3.html">
+            
+                <a href="../SysCall/syscall-3.html">
+            
+                    
+                    vsyscall and vDSO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../SysCall/syscall-4.html">
+            
+                <a href="../SysCall/syscall-4.html">
+            
+                    
+                    How the Linux kernel runs a program
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../SysCall/syscall-5.html">
+            
+                <a href="../SysCall/syscall-5.html">
+            
+                    
+                    Implementation of the open system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Timers and time management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="timers-1.html">
+            
+                <a href="timers-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="timers-2.html">
+            
+                <a href="timers-2.html">
+            
+                    
+                    Clocksource framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="timers-3.html">
+            
+                <a href="timers-3.html">
+            
+                    
+                    The tick broadcast framework and dyntick
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="timers-4.html">
+            
+                <a href="timers-4.html">
+            
+                    
+                    Introduction to timers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="timers-5.html">
+            
+                <a href="timers-5.html">
+            
+                    
+                    Clockevents framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.6" data-path="timers-6.html">
+            
+                <a href="timers-6.html">
+            
+                    
+                    x86 related clock sources
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="timers-7.html">
+            
+                <a href="timers-7.html">
+            
+                    
+                    Time related system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../SyncPrim/">
+            
+                <a href="../SyncPrim/">
+            
+                    
+                    Synchronization primitives
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../SyncPrim/sync-1.html">
+            
+                <a href="../SyncPrim/sync-1.html">
+            
+                    
+                    Introduction to spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../SyncPrim/sync-2.html">
+            
+                <a href="../SyncPrim/sync-2.html">
+            
+                    
+                    Queued spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../SyncPrim/sync-3.html">
+            
+                <a href="../SyncPrim/sync-3.html">
+            
+                    
+                    Semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../SyncPrim/sync-4.html">
+            
+                <a href="../SyncPrim/sync-4.html">
+            
+                    
+                    Mutex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../SyncPrim/sync-5.html">
+            
+                <a href="../SyncPrim/sync-5.html">
+            
+                    
+                    Reader/Writer semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../SyncPrim/sync-6.html">
+            
+                <a href="../SyncPrim/sync-6.html">
+            
+                    
+                    SeqLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" >
+            
+                <span>
+            
+                    
+                    RCU
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" >
+            
+                <span>
+            
+                    
+                    Lockdep
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../mm/">
+            
+                <a href="../mm/">
+            
+                    
+                    Memory management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../mm/linux-mm-1.html">
+            
+                <a href="../mm/linux-mm-1.html">
+            
+                    
+                    Memblock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../mm/linux-mm-2.html">
+            
+                <a href="../mm/linux-mm-2.html">
+            
+                    
+                    Fixmaps and ioremap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../mm/linux-mm-3.html">
+            
+                <a href="../mm/linux-mm-3.html">
+            
+                    
+                    kmemcheck
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../Cgroups/">
+            
+                <a href="../Cgroups/">
+            
+                    
+                    Cgroups
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../Cgroups/cgroups1.html">
+            
+                <a href="../Cgroups/cgroups1.html">
+            
+                    
+                    Introduction to Control Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    SMP
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../Concepts/">
+            
+                <a href="../Concepts/">
+            
+                    
+                    Concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../Concepts/per-cpu.html">
+            
+                <a href="../Concepts/per-cpu.html">
+            
+                    
+                    Per-CPU variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../Concepts/cpumask.html">
+            
+                <a href="../Concepts/cpumask.html">
+            
+                    
+                    Cpumasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../Concepts/initcall.html">
+            
+                <a href="../Concepts/initcall.html">
+            
+                    
+                    The initcall mechanism
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../DataStructures/">
+            
+                <a href="../DataStructures/">
+            
+                    
+                    Data Structures in the Linux Kernel
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../DataStructures/dlist.html">
+            
+                <a href="../DataStructures/dlist.html">
+            
+                    
+                    Doubly linked list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../DataStructures/radix-tree.html">
+            
+                <a href="../DataStructures/radix-tree.html">
+            
+                    
+                    Radix tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../DataStructures/bitmap.html">
+            
+                <a href="../DataStructures/bitmap.html">
+            
+                    
+                    Bit arrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../Theory/">
+            
+                <a href="../Theory/">
+            
+                    
+                    Theory
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../Theory/Paging.html">
+            
+                <a href="../Theory/Paging.html">
+            
+                    
+                    Paging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../Theory/ELF.html">
+            
+                <a href="../Theory/ELF.html">
+            
+                    
+                    Elf64
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../Theory/asm.html">
+            
+                <a href="../Theory/asm.html">
+            
+                    
+                    Inline assembly
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" >
+            
+                <span>
+            
+                    
+                    CPUID
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" >
+            
+                <span>
+            
+                    
+                    MSR
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" >
+            
+                <span>
+            
+                    
+                    Initial ram disk
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" >
+            
+                <span>
+            
+                    
+                    initrd
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../Misc/">
+            
+                <a href="../Misc/">
+            
+                    
+                    Misc
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../Misc/how_kernel_compiled.html">
+            
+                <a href="../Misc/how_kernel_compiled.html">
+            
+                    
+                    How the kernel is compiled
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../Misc/linkers.html">
+            
+                <a href="../Misc/linkers.html">
+            
+                    
+                    Linkers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.3" data-path="../Misc/contribute.html">
+            
+                <a href="../Misc/contribute.html">
+            
+                    
+                    Linux kernel development
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.4" data-path="../Misc/program_startup.html">
+            
+                <a href="../Misc/program_startup.html">
+            
+                    
+                    Program startup process in userspace
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.5" >
+            
+                <span>
+            
+                    
+                    Write and Submit your first Linux kernel Patch
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.6" >
+            
+                <span>
+            
+                    
+                    Data types in the kernel
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../KernelStructures/">
+            
+                <a href="../KernelStructures/">
+            
+                    
+                    KernelStructures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../KernelStructures/idt.html">
+            
+                <a href="../KernelStructures/idt.html">
+            
+                    
+                    IDT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../LINKS.html">
+            
+                <a href="../LINKS.html">
+            
+                    
+                    Useful links
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../contributors.html">
+            
+                <a href="../contributors.html">
+            
+                    
+                    Contributors
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >x86 related clock sources</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="timers-and-time-management-in-the-linux-kernel-part-6">Timers and time management in the Linux kernel. Part 6.</h1>
+<h2 id="x8664-related-clock-sources">x86_64 related clock sources</h2>
+<p>This is sixth part of the <a href="https://0xax.gitbooks.io/linux-insides/content/Timers/index.html" target="_blank">chapter</a> which describes timers and time management related stuff in the Linux kernel. In the previous <a href="https://0xax.gitbooks.io/linux-insides/content/Timers/timers-5.html" target="_blank">part</a> we saw <code>clockevents</code> framework and now we will continue to dive into time management related stuff in the Linux kernel. This part will describe implementation of <a href="https://en.wikipedia.org/wiki/X86" target="_blank">x86</a> architecture related clock sources (more about <code>clocksource</code> concept you can read in the <a href="https://0xax.gitbooks.io/linux-insides/content/Timers/timers-2.html" target="_blank">second part</a> of this chapter).</p>
+<p>First of all we must know what clock sources may be used at <code>x86</code> architecture. It is easy to know from the <a href="https://en.wikipedia.org/wiki/Sysfs" target="_blank">sysfs</a> or from content of the <code>/sys/devices/system/clocksource/clocksource0/available_clocksource</code>. The <code>/sys/devices/system/clocksource/clocksourceN</code> provides two special files to achieve this:</p>
+<ul>
+<li><code>available_clocksource</code> - provides information about available clock sources in the system;</li>
+<li><code>current_clocksource</code>   - provides information about currently used clock source in the system.</li>
+</ul>
+<p>So, let&apos;s look:</p>
+<pre><code>$ cat /sys/devices/system/clocksource/clocksource0/available_clocksource 
+tsc hpet acpi_pm
+</code></pre><p>We can see that there are three registered clock sources in my system:</p>
+<ul>
+<li><code>tsc</code> - <a href="https://en.wikipedia.org/wiki/Time_Stamp_Counter" target="_blank">Time Stamp Counter</a>;</li>
+<li><code>hpet</code> - <a href="https://en.wikipedia.org/wiki/High_Precision_Event_Timer" target="_blank">High Precision Event Timer</a>;</li>
+<li><code>acpi_pm</code> - <a href="http://uefi.org/sites/default/files/resources/ACPI_5.pdf" target="_blank">ACPI Power Management Timer</a>.</li>
+</ul>
+<p>Now let&apos;s look at the second file which provides best clock source (a clock source which has the best rating in the system):</p>
+<pre><code>$ cat /sys/devices/system/clocksource/clocksource0/current_clocksource 
+tsc
+</code></pre><p>For me it is <a href="https://en.wikipedia.org/wiki/Time_Stamp_Counter" target="_blank">Time Stamp Counter</a>. As we may know from the <a href="https://0xax.gitbooks.io/linux-insides/content/Timers/timers-2.html" target="_blank">second part</a> of this chapter, which describes internals of the <code>clocksource</code> framework in the Linux kernel, the best clock source in a system is a clock source with the best (highest) rating or in other words with the highest <a href="https://en.wikipedia.org/wiki/Frequency" target="_blank">frequency</a>.</p>
+<p>Frequency of the <a href="https://en.wikipedia.org/wiki/Advanced_Configuration_and_Power_Interface" target="_blank">ACPI</a> power management timer is <code>3.579545 MHz</code>. Frequency of the <a href="https://en.wikipedia.org/wiki/High_Precision_Event_Timer" target="_blank">High Precision Event Timer</a> is at least <code>10 MHz</code>. And the frequency of the <a href="https://en.wikipedia.org/wiki/Time_Stamp_Counter" target="_blank">Time Stamp Counter</a> depends on processor. For example On older processors, the <code>Time Stamp Counter</code> was counting internal processor clock cycles. This means its frequency changed when the processor&apos;s frequency scaling changed. The situation has changed for newer processors. Newer processors have an <code>invariant Time Stamp counter</code> that increments at a constant rate in all operational states of processor. Actually we can get its frequency in the output of the <code>/proc/cpuinfo</code>. For example for the first processor in the system:</p>
+<pre><code>$ cat /proc/cpuinfo
+...
+model name    : Intel(R) Core(TM) i7-4790K CPU @ 4.00GHz
+...
+</code></pre><p>And although Intel manual says that the frequency of the <code>Time Stamp Counter</code>, while constant, is not necessarily the maximum qualified frequency of the processor, or the frequency given in the brand string, anyway we may see that it will be much more than frequency of the <code>ACPI PM</code> timer or <code>High Precision Event Timer</code>. And we can see that the clock source with the best rating or highest frequency is current in the system.</p>
+<p>You can note that besides these three clock source, we don&apos;t see yet another two familiar us clock sources in the output of the <code>/sys/devices/system/clocksource/clocksource0/available_clocksource</code>. These clock sources are <code>jiffy</code> and <code>refined_jiffies</code>. We don&apos;t see them because this filed maps only high resolution clock sources or in other words clock sources with the <a href="https://github.com/torvalds/linux/blob/master/include/linux/clocksource.h#L113" target="_blank">CLOCK_SOURCE_VALID_FOR_HRES</a> flag.</p>
+<p>As I already wrote above, we will consider all of these three clock sources in this part. We will consider it in order of their initialization or:</p>
+<ul>
+<li><code>hpet</code>;</li>
+<li><code>acpi_pm</code>;</li>
+<li><code>tsc</code>.</li>
+</ul>
+<p>We can make sure that the order is exactly like this in the output of the <a href="https://en.wikipedia.org/wiki/Dmesg" target="_blank">dmesg</a> util:</p>
+<pre><code>$ dmesg | grep clocksource
+[    0.000000] clocksource: refined-jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1910969940391419 ns
+[    0.000000] clocksource: hpet: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 133484882848 ns
+[    0.094369] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 1911260446275000 ns
+[    0.186498] clocksource: Switched to clocksource hpet
+[    0.196827] clocksource: acpi_pm: mask: 0xffffff max_cycles: 0xffffff, max_idle_ns: 2085701024 ns
+[    1.413685] tsc: Refined TSC clocksource calibration: 3999.981 MHz
+[    1.413688] clocksource: tsc: mask: 0xffffffffffffffff max_cycles: 0x73509721780, max_idle_ns: 881591102108 ns
+[    2.413748] clocksource: Switched to clocksource tsc
+</code></pre><p>The first clock source is the <a href="https://en.wikipedia.org/wiki/High_Precision_Event_Timer" target="_blank">High Precision Event Timer</a>, so let&apos;s start from it.</p>
+<h2 id="high-precision-event-timer">High Precision Event Timer</h2>
+<p>The implementation of the <code>High Precision Event Timer</code> for the <a href="https://en.wikipedia.org/wiki/X86" target="_blank">x86</a> architecture is located in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/kernel/hpet.c" target="_blank">arch/x86/kernel/hpet.c</a> source code file. Its initialization starts from the call of the <code>hpet_enable</code> function. This function is called during Linux kernel initialization. If we will look into <code>start_kernel</code> function from the <a href="https://github.com/torvalds/linux/blob/master/init/main.c" target="_blank">init/main.c</a> source code file, we will see that after the all architecture-specific stuff initialized, early console is disabled and time management subsystem already ready, call of the following function:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (late_time_init)
+    late_time_init();
+</code></pre>
+<p>which does initialization of the late architecture specific timers after early jiffy counter already initialized. The definition of the <code>late_time_init</code> function for the <code>x86</code> architecture is located in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/kernel/time.c" target="_blank">arch/x86/kernel/time.c</a> source code file. It looks pretty easy:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> __<span class="hljs-function">init <span class="hljs-keyword">void</span> <span class="hljs-title">x86_late_time_init</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+</span>{
+    x86_init.timers.timer_init();
+    tsc_init();
+}
+</code></pre>
+<p>As we may see, it does initialization of the <code>x86</code> related timer and initialization of the <code>Time Stamp Counter</code>. The seconds we will see in the next paragraph, but now let&apos;s consider the call of the <code>x86_init.timers.timer_init</code> function. The <code>timer_init</code> points to the <code>hpet_time_init</code> function from the same source code file. We can verify this by looking on the definition of the <code>x86_init</code> structure from the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/kernel/x86_init.c" target="_blank">arch/x86/kernel/x86_init.c</a>:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">struct</span> x86_init_ops x86_init __initdata = {
+   ...
+   ...
+   ...
+   .timers = {
+        .setup_percpu_clockev    = setup_boot_APIC_clock,
+        .timer_init        = hpet_time_init,
+        .wallclock_init        = x86_init_noop,
+   },
+   ...
+   ...
+   ...
+</code></pre>
+<p>The <code>hpet_time_init</code> function does setup of the <a href="https://en.wikipedia.org/wiki/Programmable_interval_timer" target="_blank">programmable interval timer</a> if we can not enable <code>High Precision Event Timer</code> and setups default timer <a href="https://en.wikipedia.org/wiki/Interrupt_request_%28PC_architecture%29" target="_blank">IRQ</a> for the enabled timer:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">void</span> __<span class="hljs-function">init <span class="hljs-title">hpet_time_init</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+</span>{
+    <span class="hljs-keyword">if</span> (!hpet_enable())
+        setup_pit_timer();
+    setup_default_timer_irq();
+}
+</code></pre>
+<p>First of all the <code>hpet_enable</code> function check we can enable <code>High Precision Event Timer</code> in the system by the call of the <code>is_hpet_capable</code> function and if we can, we map a virtual address space for it:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">int</span> __<span class="hljs-function">init <span class="hljs-title">hpet_enable</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+</span>{
+    <span class="hljs-keyword">if</span> (!is_hpet_capable())
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+
+    hpet_set_mapping();
+}
+</code></pre>
+<p>The <code>is_hpet_capable</code> function checks that we didn&apos;t pass <code>hpet=disable</code> to the kernel command line and the <code>hpet_address</code> is received from the <a href="https://en.wikipedia.org/wiki/Advanced_Configuration_and_Power_Interface" target="_blank">ACPI HPET</a> table. The <code>hpet_set_mapping</code> function just maps the virtual address spaces for the timer registers:</p>
+<pre><code class="lang-C">hpet_virt_address = ioremap_nocache(hpet_address, HPET_MMAP_SIZE);
+</code></pre>
+<p>As we can read in the  <a href="http://www.intel.com/content/dam/www/public/us/en/documents/technical-specifications/software-developers-hpet-spec-1-0a.pdf" target="_blank">IA-PC HPET (High Precision Event Timers) Specification</a>:</p>
+<blockquote>
+<p>The timer register space is 1024 bytes</p>
+</blockquote>
+<p>So, the <code>HPET_MMAP_SIZE</code> is <code>1024</code> bytes too:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> HPET_MMAP_SIZE        1024</span>
+</code></pre>
+<p>After we mapped virtual space for the <code>High Precision Event Timer</code>, we read <code>HPET_ID</code> register to get number of the timers:</p>
+<pre><code class="lang-C">id = hpet_readl(HPET_ID);
+
+last = (id &amp; HPET_ID_NUMBER) &gt;&gt; HPET_ID_NUMBER_SHIFT;
+</code></pre>
+<p>We need to get this number to allocate correct amount of space for the <code>General Configuration Register</code> of the <code>High Precision Event Timer</code>:</p>
+<pre><code class="lang-C">cfg = hpet_readl(HPET_CFG);
+
+hpet_boot_cfg = kmalloc((last + <span class="hljs-number">2</span>) * <span class="hljs-keyword">sizeof</span>(*hpet_boot_cfg), GFP_KERNEL);
+</code></pre>
+<p>After the space is allocated for the configuration register of the <code>High Precision Event Timer</code>, we allow to main counter to run, and allow timer interrupts if they are enabled by the setting of <code>HPET_CFG_ENABLE</code> bit in the configuration register for all timers. In the end we just register new clock source by the call of the <code>hpet_clocksource_register</code> function:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (hpet_clocksource_register())
+    <span class="hljs-keyword">goto</span> out_nohpet;
+</code></pre>
+<p>which just calls already familiar</p>
+<pre><code class="lang-C">clocksource_register_hz(&amp;clocksource_hpet, (u32)hpet_freq);
+</code></pre>
+<p>function. Where the <code>clocksource_hpet</code> is the <code>clocksource</code> structure with the rating <code>250</code> (remember rating of the previous <code>refined_jiffies</code> clock source was <code>2</code>), name - <code>hpet</code> and <code>read_hpet</code> callback for the reading of atomic counter provided by the <code>High Precision Event Timer</code>:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> <span class="hljs-keyword">struct</span> clocksource clocksource_hpet = {
+    .name        = <span class="hljs-string">&quot;hpet&quot;</span>,
+    .rating        = <span class="hljs-number">250</span>,
+    .read        = read_hpet,
+    .mask        = HPET_MASK,
+    .flags        = CLOCK_SOURCE_IS_CONTINUOUS,
+    .resume        = hpet_resume_counter,
+    .archdata    = { .vclock_mode = VCLOCK_HPET },
+};
+</code></pre>
+<p>After the <code>clocksource_hpet</code> is registered, we can return to the <code>hpet_time_init()</code> function from the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/kernel/time.c" target="_blank">arch/x86/kernel/time.c</a> source code file. We can remember that the last step is the call of the:</p>
+<pre><code class="lang-C">setup_default_timer_irq();
+</code></pre>
+<p>function in the <code>hpet_time_init()</code>. The <code>setup_default_timer_irq</code> function checks existence of <code>legacy</code> IRQs or in other words support for the <a href="https://en.wikipedia.org/wiki/Intel_8259" target="_blank">i8259</a> and setups <a href="https://en.wikipedia.org/wiki/Interrupt_request_%28PC_architecture%29#Master_PIC" target="_blank">IRQ0</a> depends on this.</p>
+<p>That&apos;s all. From this moment the <a href="https://en.wikipedia.org/wiki/High_Precision_Event_Timer" target="_blank">High Precision Event Timer</a> clock source registered in the Linux kernel <code>clock source</code> framework and may be used from generic kernel code via the <code>read_hpet</code>:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> cycle_t <span class="hljs-title">read_hpet</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> clocksource *cs)</span>
+</span>{
+    <span class="hljs-keyword">return</span> (<span class="hljs-keyword">cycle_t</span>)hpet_readl(HPET_COUNTER);
+}
+</code></pre>
+<p>function which just reads and returns atomic counter from the <code>Main Counter Register</code>.</p>
+<h2 id="acpi-pm-timer">ACPI PM timer</h2>
+<p>The seconds clock source is <a href="http://uefi.org/sites/default/files/resources/ACPI_5.pdf" target="_blank">ACPI Power Management Timer</a>. Implementation of this clock source is located in the <a href="https://github.com/torvalds/linux/blob/master/drivers/clocksource_acpi_pm.c" target="_blank">drivers/clocksource/acpi_pm.c</a> source code file and starts from the call of the <code>init_acpi_pm_clocksource</code> function during <code>fs</code> <a href="http://www.compsoc.man.ac.uk/~moz/kernelnewbies/documents/initcall/kernel.html" target="_blank">initcall</a>.</p>
+<p>If we will look at implementation of the <code>init_acpi_pm_clocksource</code> function, we will see that it starts from the check of the value of <code>pmtmr_ioport</code> variable:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> __<span class="hljs-function">init <span class="hljs-title">init_acpi_pm_clocksource</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+</span>{
+    ...
+    ...
+    ...
+    <span class="hljs-keyword">if</span> (!pmtmr_ioport)
+        <span class="hljs-keyword">return</span> -ENODEV;
+    ...
+    ...
+    ...
+</code></pre>
+<p>This <code>pmtmr_ioport</code> variable contains extended address of the <code>Power Management Timer Control Register Block</code>. It gets its value in the <code>acpi_parse_fadt</code> function which is defined in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/kernel/acpi/boot.c" target="_blank">arch/x86/kernel/acpi/boot.c</a> source code file. This function parses <code>FADT</code> or <code>Fixed ACPI Description Table</code> <a href="https://en.wikipedia.org/wiki/Advanced_Configuration_and_Power_Interface" target="_blank">ACPI</a> table and tries to get the values of the <code>X_PM_TMR_BLK</code> field which contains extended address of the <code>Power Management Timer Control Register Block</code>, represented in <code>Generic Address Structure</code> format:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> __<span class="hljs-function">init <span class="hljs-title">acpi_parse_fadt</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> acpi_table_header *table)</span>
+</span>{
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> CONFIG_X86_PM_TIMER</span>
+        ...
+        ...
+        ...
+        pmtmr_ioport = acpi_gbl_FADT.xpm_timer_block.address;
+        ...
+        ...
+        ...
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>So, if the <code>CONFIG_X86_PM_TIMER</code> Linux kernel configuration option is disabled or something going wrong in the <code>acpi_parse_fadt</code> function, we can&apos;t access the <code>Power Management Timer</code> register and return from the <code>init_acpi_pm_clocksource</code>. In other way, if the value of the <code>pmtmr_ioport</code> variable is not zero, we check rate of this timer and register this clock source by the call of the:</p>
+<pre><code class="lang-C">clocksource_register_hz(&amp;clocksource_acpi_pm, PMTMR_TICKS_PER_SEC);
+</code></pre>
+<p>function. After the call of the <code>clocksource_register_hs</code>, the <code>acpi_pm</code> clock source will be registered in the <code>clocksource</code> framework of the Linux kernel:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> <span class="hljs-keyword">struct</span> clocksource clocksource_acpi_pm = {
+    .name        = <span class="hljs-string">&quot;acpi_pm&quot;</span>,
+    .rating        = <span class="hljs-number">200</span>,
+    .read        = acpi_pm_read,
+    .mask        = (<span class="hljs-keyword">cycle_t</span>)ACPI_PM_MASK,
+    .flags        = CLOCK_SOURCE_IS_CONTINUOUS,
+};
+</code></pre>
+<p>with the rating - <code>200</code> and the <code>acpi_pm_read</code> callback to read atomic counter provided by the <code>acpi_pm</code> clock source. The <code>acpi_pm_read</code> function just executes <code>read_pmtmr</code> function:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> cycle_t <span class="hljs-title">acpi_pm_read</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> clocksource *cs)</span>
+</span>{
+    <span class="hljs-keyword">return</span> (<span class="hljs-keyword">cycle_t</span>)read_pmtmr();
+}
+</code></pre>
+<p>which reads value of the <code>Power Management Timer</code> register. This register has following structure:</p>
+<pre><code>+-------------------------------+----------------------------------+
+|                               |                                  |
+|  upper eight bits of a        |      running count of the        |
+| 32-bit power management timer |     power management timer       |
+|                               |                                  |
++-------------------------------+----------------------------------+
+31          E_TMR_VAL           24               TMR_VAL           0
+</code></pre><p>Address of this register is stored in the <code>Fixed ACPI Description Table</code> <a href="https://en.wikipedia.org/wiki/Advanced_Configuration_and_Power_Interface" target="_blank">ACPI</a> table and we already have it in the <code>pmtmr_ioport</code>. So, the implementation of the <code>read_pmtmr</code> function is pretty easy:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> u32 <span class="hljs-title">read_pmtmr</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+</span>{
+    <span class="hljs-keyword">return</span> inl(pmtmr_ioport) &amp; ACPI_PM_MASK;
+}
+</code></pre>
+<p>We just read the value of the <code>Power Management Timer</code> register and mask its <code>24</code> bits.</p>
+<p>That&apos;s all. Now we move to the last clock source in this part - <code>Time Stamp Counter</code>.</p>
+<h2 id="time-stamp-counter">Time Stamp Counter</h2>
+<p>The third and last clock source in this part is - <a href="https://en.wikipedia.org/wiki/Time_Stamp_Counter" target="_blank">Time Stamp Counter</a> clock source and its implementation is located in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/kernel/tsc.c" target="_blank">arch/x86/kernel/tsc.c</a> source code file. We already saw the <code>x86_late_time_init</code> function in this part and initialization of the <a href="https://en.wikipedia.org/wiki/Time_Stamp_Counter" target="_blank">Time Stamp Counter</a> starts from this place. This function calls the <code>tsc_init()</code> function from the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/kernel/tsc.c" target="_blank">arch/x86/kernel/tsc.c</a> source code file.</p>
+<p>At the beginning of the <code>tsc_init</code> function we can see check, which checks that a processor has support of the <code>Time Stamp Counter</code>:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">void</span> __<span class="hljs-function">init <span class="hljs-title">tsc_init</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+</span>{
+    u64 lpj;
+    <span class="hljs-keyword">int</span> cpu;
+
+    <span class="hljs-keyword">if</span> (!cpu_has_tsc) {
+        setup_clear_cpu_cap(X86_FEATURE_TSC_DEADLINE_TIMER);
+        <span class="hljs-keyword">return</span>;
+    }
+    ...
+    ...
+    ...
+</code></pre>
+<p>The <code>cpu_has_tsc</code> macro expands to the call of the <code>cpu_has</code> macro:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> cpu_has_tsc        boot_cpu_has(X86_FEATURE_TSC)</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> boot_cpu_has(bit)    cpu_has(&amp;boot_cpu_data, bit)</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> cpu_has(c, bit)                            \
+    (__builtin_constant_p(bit) &amp;&amp; REQUIRED_MASK_BIT_SET(bit) ? 1 :    \
+     test_cpu_cap(c, bit))</span>
+</code></pre>
+<p>which check the given bit (the <code>X86_FEATURE_TSC_DEADLINE_TIMER</code> in our case) in the <code>boot_cpu_data</code> array which is filled during early Linux kernel initialization. If the processor has support of the <code>Time Stamp Counter</code>, we get the frequency of the <code>Time Stamp Counter</code> by the call of the <code>calibrate_tsc</code> function from the same source code file which tries to get frequency from the different source like <a href="https://en.wikipedia.org/wiki/Model-specific_register" target="_blank">Model Specific Register</a>, calibrate over <a href="https://en.wikipedia.org/wiki/Programmable_interval_timer" target="_blank">programmable interval timer</a> and etc, after this we initialize frequency and scale factor for the all processors in the system:</p>
+<pre><code class="lang-C">tsc_khz = x86_platform.calibrate_tsc();
+cpu_khz = tsc_khz;
+
+for_each_possible_cpu(cpu) {
+    cyc2ns_init(cpu);
+    set_cyc2ns_scale(cpu_khz, cpu);
+}
+</code></pre>
+<p>because only first bootstrap processor will call the <code>tsc_init</code>. After this we check hat <code>Time Stamp Counter</code> is not disabled:</p>
+<pre><code>if (tsc_disabled &gt; 0)
+    return;
+...
+...
+...
+check_system_tsc_reliable();
+</code></pre><p>and call the <code>check_system_tsc_reliable</code> function which sets the <code>tsc_clocksource_reliable</code> if bootstrap processor has the <code>X86_FEATURE_TSC_RELIABLE</code> feature. Note that we went through the <code>tsc_init</code> function, but did not register our clock source. Actual registration of the <code>Time Stamp Counter</code> clock source occurs in the:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> __<span class="hljs-function">init <span class="hljs-title">init_tsc_clocksource</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+</span>{
+    <span class="hljs-keyword">if</span> (!cpu_has_tsc || tsc_disabled &gt; <span class="hljs-number">0</span> || !tsc_khz)
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    ...
+    ...
+    ...
+    <span class="hljs-keyword">if</span> (boot_cpu_has(X86_FEATURE_TSC_RELIABLE)) {
+        clocksource_register_khz(&amp;clocksource_tsc, tsc_khz);
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    }
+</code></pre>
+<p>function. This function called during the <code>device</code> <a href="http://www.compsoc.man.ac.uk/~moz/kernelnewbies/documents/initcall/kernel.html" target="_blank">initcall</a>. We do it to be sure that the <code>Time Stamp Counter</code> clock source will be registered after the  <a href="https://en.wikipedia.org/wiki/High_Precision_Event_Timer" target="_blank">High Precision Event Timer</a> clock source.</p>
+<p>After these all three clock sources will be registered in the <code>clocksource</code> framework and the <code>Time Stamp Counter</code> clock source will be selected as active, because it has the highest rating among other clock sources:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> <span class="hljs-keyword">struct</span> clocksource clocksource_tsc = {
+    .name                   = <span class="hljs-string">&quot;tsc&quot;</span>,
+    .rating                 = <span class="hljs-number">300</span>,
+    .read                   = read_tsc,
+    .mask                   = CLOCKSOURCE_MASK(<span class="hljs-number">64</span>),
+    .flags                  = CLOCK_SOURCE_IS_CONTINUOUS | CLOCK_SOURCE_MUST_VERIFY,
+    .archdata               = { .vclock_mode = VCLOCK_TSC },
+};
+</code></pre>
+<p>That&apos;s all.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This is the end of the sixth part of the <a href="https://0xax.gitbooks.io/linux-insides/content/Timers/index.html" target="_blank">chapter</a> that describes timers and timer management related stuff in the Linux kernel. In the previous part got acquainted with the <code>clockevents</code> framework. In this part we continued to learn time management related stuff in the Linux kernel and saw a little about three different clock sources which are used in the <a href="https://en.wikipedia.org/wiki/X86" target="_blank">x86</a> architecture. The next part will be last part of this <a href="https://0xax.gitbooks.io/linux-insides/content/Timers/index.html" target="_blank">chapter</a> and we will see some user space related stuff, i.e. how some time related <a href="https://en.wikipedia.org/wiki/System_call" target="_blank">system calls</a> implemented in the Linux kernel.</p>
+<p>If you have questions or suggestions, feel free to ping me in twitter <a href="https://twitter.com/0xAX" target="_blank">0xAX</a>, drop me <a href="anotherworldofworld@gmail.com">email</a> or just create <a href="https://github.com/0xAX/linux-insides/issues/new" target="_blank">issue</a>.</p>
+<p><strong>Please note that English is not my first language and I am really sorry for any inconvenience. If you found any mistakes please send me PR to <a href="https://github.com/0xAX/linux-insides" target="_blank">linux-insides</a>.</strong></p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/X86" target="_blank">x86</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sysfs" target="_blank">sysfs</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Time_Stamp_Counter" target="_blank">Time Stamp Counter</a></li>
+<li><a href="https://en.wikipedia.org/wiki/High_Precision_Event_Timer" target="_blank">High Precision Event Timer</a></li>
+<li><a href="http://uefi.org/sites/default/files/resources/ACPI_5.pdf" target="_blank">ACPI Power Management Timer (PDF)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Frequency" target="_blank">frequency</a>.</li>
+<li><a href="https://en.wikipedia.org/wiki/Dmesg" target="_blank">dmesg</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Programmable_interval_timer" target="_blank">programmable interval timer</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Interrupt_request_%28PC_architecture%29" target="_blank">IRQ</a> </li>
+<li><a href="http://www.intel.com/content/dam/www/public/us/en/documents/technical-specifications/software-developers-hpet-spec-1-0a.pdf" target="_blank">IA-PC HPET (High Precision Event Timers) Specification</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Interrupt_request_%28PC_architecture%29#Master_PIC" target="_blank">IRQ0</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Intel_8259" target="_blank">i8259</a></li>
+<li><a href="http://www.compsoc.man.ac.uk/~moz/kernelnewbies/documents/initcall/kernel.html" target="_blank">initcall</a></li>
+<li><a href="https://0xax.gitbooks.io/linux-insides/content/Timers/timers-5.html" target="_blank">previous part</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="timers-5.html" class="navigation navigation-prev " aria-label="Previous page: Clockevents framework">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="timers-7.html" class="navigation navigation-next " aria-label="Next page: Time related system calls">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"x86 related clock sources","level":"1.6.6","depth":2,"next":{"title":"Time related system calls","level":"1.6.7","depth":2,"path":"Timers/timers-7.md","ref":"Timers/timers-7.md","articles":[]},"previous":{"title":"Clockevents framework","level":"1.6.5","depth":2,"path":"Timers/timers-5.md","ref":"Timers/timers-5.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Timers/timers-6.md","mtime":"2019-03-28T07:54:50.412Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-28T07:57:01.662Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,1816 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>First steps in the kernel · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="linux-initialization-2.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Summary</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Booting/">
+            
+                <a href="../Booting/">
+            
+                    
+                    Booting
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Booting/linux-bootstrap-1.html">
+            
+                <a href="../Booting/linux-bootstrap-1.html">
+            
+                    
+                    From bootloader to kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Booting/linux-bootstrap-2.html">
+            
+                <a href="../Booting/linux-bootstrap-2.html">
+            
+                    
+                    First steps in the kernel setup code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Booting/linux-bootstrap-3.html">
+            
+                <a href="../Booting/linux-bootstrap-3.html">
+            
+                    
+                    Video mode initialization and transition to protected mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../Booting/linux-bootstrap-4.html">
+            
+                <a href="../Booting/linux-bootstrap-4.html">
+            
+                    
+                    Transition to 64-bit mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../Booting/linux-bootstrap-5.html">
+            
+                <a href="../Booting/linux-bootstrap-5.html">
+            
+                    
+                    Kernel decompression
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Initialization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.3.1" data-path="linux-initialization-1.html">
+            
+                <a href="linux-initialization-1.html">
+            
+                    
+                    First steps in the kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="linux-initialization-2.html">
+            
+                <a href="linux-initialization-2.html">
+            
+                    
+                    Early interrupts handler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="linux-initialization-3.html">
+            
+                <a href="linux-initialization-3.html">
+            
+                    
+                    Last preparations before the kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="linux-initialization-4.html">
+            
+                <a href="linux-initialization-4.html">
+            
+                    
+                    Kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="linux-initialization-5.html">
+            
+                <a href="linux-initialization-5.html">
+            
+                    
+                    Continue architecture-specific boot-time initializations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="linux-initialization-6.html">
+            
+                <a href="linux-initialization-6.html">
+            
+                    
+                    Architecture-specific initializations, again...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="linux-initialization-7.html">
+            
+                <a href="linux-initialization-7.html">
+            
+                    
+                    End of the architecture-specific initializations, almost...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="linux-initialization-8.html">
+            
+                <a href="linux-initialization-8.html">
+            
+                    
+                    Scheduler initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="linux-initialization-9.html">
+            
+                <a href="linux-initialization-9.html">
+            
+                    
+                    RCU initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="linux-initialization-10.html">
+            
+                <a href="linux-initialization-10.html">
+            
+                    
+                    End of initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../interrupts/">
+            
+                <a href="../interrupts/">
+            
+                    
+                    Interrupts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../interrupts/interrupts-1.html">
+            
+                <a href="../interrupts/interrupts-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../interrupts/interrupts-2.html">
+            
+                <a href="../interrupts/interrupts-2.html">
+            
+                    
+                    Start to dive into interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../interrupts/interrupts-3.html">
+            
+                <a href="../interrupts/interrupts-3.html">
+            
+                    
+                    Interrupt handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../interrupts/interrupts-4.html">
+            
+                <a href="../interrupts/interrupts-4.html">
+            
+                    
+                    Initialization of non-early interrupt gates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../interrupts/interrupts-5.html">
+            
+                <a href="../interrupts/interrupts-5.html">
+            
+                    
+                    Implementation of some exception handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../interrupts/interrupts-6.html">
+            
+                <a href="../interrupts/interrupts-6.html">
+            
+                    
+                    Handling Non-Maskable interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../interrupts/interrupts-7.html">
+            
+                <a href="../interrupts/interrupts-7.html">
+            
+                    
+                    Dive into external hardware interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../interrupts/interrupts-8.html">
+            
+                <a href="../interrupts/interrupts-8.html">
+            
+                    
+                    Initialization of external hardware interrupts structures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../interrupts/interrupts-9.html">
+            
+                <a href="../interrupts/interrupts-9.html">
+            
+                    
+                    Softirq, Tasklets and Workqueues
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../interrupts/interrupts-10.html">
+            
+                <a href="../interrupts/interrupts-10.html">
+            
+                    
+                    Last part
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../SysCall/">
+            
+                <a href="../SysCall/">
+            
+                    
+                    System calls
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../SysCall/syscall-1.html">
+            
+                <a href="../SysCall/syscall-1.html">
+            
+                    
+                    Introduction to system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../SysCall/syscall-2.html">
+            
+                <a href="../SysCall/syscall-2.html">
+            
+                    
+                    How the Linux kernel handles a system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../SysCall/syscall-3.html">
+            
+                <a href="../SysCall/syscall-3.html">
+            
+                    
+                    vsyscall and vDSO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../SysCall/syscall-4.html">
+            
+                <a href="../SysCall/syscall-4.html">
+            
+                    
+                    How the Linux kernel runs a program
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../SysCall/syscall-5.html">
+            
+                <a href="../SysCall/syscall-5.html">
+            
+                    
+                    Implementation of the open system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Timers/">
+            
+                <a href="../Timers/">
+            
+                    
+                    Timers and time management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../Timers/timers-1.html">
+            
+                <a href="../Timers/timers-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Timers/timers-2.html">
+            
+                <a href="../Timers/timers-2.html">
+            
+                    
+                    Clocksource framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Timers/timers-3.html">
+            
+                <a href="../Timers/timers-3.html">
+            
+                    
+                    The tick broadcast framework and dyntick
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../Timers/timers-4.html">
+            
+                <a href="../Timers/timers-4.html">
+            
+                    
+                    Introduction to timers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Timers/timers-5.html">
+            
+                <a href="../Timers/timers-5.html">
+            
+                    
+                    Clockevents framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../Timers/timers-6.html">
+            
+                <a href="../Timers/timers-6.html">
+            
+                    
+                    x86 related clock sources
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../Timers/timers-7.html">
+            
+                <a href="../Timers/timers-7.html">
+            
+                    
+                    Time related system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../SyncPrim/">
+            
+                <a href="../SyncPrim/">
+            
+                    
+                    Synchronization primitives
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../SyncPrim/sync-1.html">
+            
+                <a href="../SyncPrim/sync-1.html">
+            
+                    
+                    Introduction to spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../SyncPrim/sync-2.html">
+            
+                <a href="../SyncPrim/sync-2.html">
+            
+                    
+                    Queued spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../SyncPrim/sync-3.html">
+            
+                <a href="../SyncPrim/sync-3.html">
+            
+                    
+                    Semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../SyncPrim/sync-4.html">
+            
+                <a href="../SyncPrim/sync-4.html">
+            
+                    
+                    Mutex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../SyncPrim/sync-5.html">
+            
+                <a href="../SyncPrim/sync-5.html">
+            
+                    
+                    Reader/Writer semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../SyncPrim/sync-6.html">
+            
+                <a href="../SyncPrim/sync-6.html">
+            
+                    
+                    SeqLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" >
+            
+                <span>
+            
+                    
+                    RCU
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" >
+            
+                <span>
+            
+                    
+                    Lockdep
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../mm/">
+            
+                <a href="../mm/">
+            
+                    
+                    Memory management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../mm/linux-mm-1.html">
+            
+                <a href="../mm/linux-mm-1.html">
+            
+                    
+                    Memblock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../mm/linux-mm-2.html">
+            
+                <a href="../mm/linux-mm-2.html">
+            
+                    
+                    Fixmaps and ioremap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../mm/linux-mm-3.html">
+            
+                <a href="../mm/linux-mm-3.html">
+            
+                    
+                    kmemcheck
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../Cgroups/">
+            
+                <a href="../Cgroups/">
+            
+                    
+                    Cgroups
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../Cgroups/cgroups1.html">
+            
+                <a href="../Cgroups/cgroups1.html">
+            
+                    
+                    Introduction to Control Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    SMP
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../Concepts/">
+            
+                <a href="../Concepts/">
+            
+                    
+                    Concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../Concepts/per-cpu.html">
+            
+                <a href="../Concepts/per-cpu.html">
+            
+                    
+                    Per-CPU variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../Concepts/cpumask.html">
+            
+                <a href="../Concepts/cpumask.html">
+            
+                    
+                    Cpumasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../Concepts/initcall.html">
+            
+                <a href="../Concepts/initcall.html">
+            
+                    
+                    The initcall mechanism
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../DataStructures/">
+            
+                <a href="../DataStructures/">
+            
+                    
+                    Data Structures in the Linux Kernel
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../DataStructures/dlist.html">
+            
+                <a href="../DataStructures/dlist.html">
+            
+                    
+                    Doubly linked list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../DataStructures/radix-tree.html">
+            
+                <a href="../DataStructures/radix-tree.html">
+            
+                    
+                    Radix tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../DataStructures/bitmap.html">
+            
+                <a href="../DataStructures/bitmap.html">
+            
+                    
+                    Bit arrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../Theory/">
+            
+                <a href="../Theory/">
+            
+                    
+                    Theory
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../Theory/Paging.html">
+            
+                <a href="../Theory/Paging.html">
+            
+                    
+                    Paging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../Theory/ELF.html">
+            
+                <a href="../Theory/ELF.html">
+            
+                    
+                    Elf64
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../Theory/asm.html">
+            
+                <a href="../Theory/asm.html">
+            
+                    
+                    Inline assembly
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" >
+            
+                <span>
+            
+                    
+                    CPUID
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" >
+            
+                <span>
+            
+                    
+                    MSR
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" >
+            
+                <span>
+            
+                    
+                    Initial ram disk
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" >
+            
+                <span>
+            
+                    
+                    initrd
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../Misc/">
+            
+                <a href="../Misc/">
+            
+                    
+                    Misc
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../Misc/how_kernel_compiled.html">
+            
+                <a href="../Misc/how_kernel_compiled.html">
+            
+                    
+                    How the kernel is compiled
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../Misc/linkers.html">
+            
+                <a href="../Misc/linkers.html">
+            
+                    
+                    Linkers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.3" data-path="../Misc/contribute.html">
+            
+                <a href="../Misc/contribute.html">
+            
+                    
+                    Linux kernel development
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.4" data-path="../Misc/program_startup.html">
+            
+                <a href="../Misc/program_startup.html">
+            
+                    
+                    Program startup process in userspace
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.5" >
+            
+                <span>
+            
+                    
+                    Write and Submit your first Linux kernel Patch
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.6" >
+            
+                <span>
+            
+                    
+                    Data types in the kernel
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../KernelStructures/">
+            
+                <a href="../KernelStructures/">
+            
+                    
+                    KernelStructures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../KernelStructures/idt.html">
+            
+                <a href="../KernelStructures/idt.html">
+            
+                    
+                    IDT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../LINKS.html">
+            
+                <a href="../LINKS.html">
+            
+                    
+                    Useful links
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../contributors.html">
+            
+                <a href="../contributors.html">
+            
+                    
+                    Contributors
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >First steps in the kernel</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="kernel-initialization-part-1">Kernel initialization. Part 1.</h1>
+<h2 id="first-steps-in-the-kernel-code">First steps in the kernel code</h2>
+<p>The previous <a href="https://0xax.gitbooks.io/linux-insides/content/Booting/linux-bootstrap-5.html" target="_blank">post</a> was a last part of the Linux kernel <a href="https://0xax.gitbooks.io/linux-insides/content/Booting/index.html" target="_blank">booting process</a> chapter and now we are starting to dive into initialization process of the Linux kernel. After the image of the Linux kernel is decompressed and placed in a correct place in memory, it starts to work. All previous parts describe the work of the Linux kernel setup code which does preparation before the first bytes of the Linux kernel code will be executed. From now we are in the kernel and all parts of this chapter will be devoted to the initialization process of the kernel before it will launch process with <a href="https://en.wikipedia.org/wiki/Process_identifier" target="_blank">pid</a> <code>1</code>. There are many things to do before the kernel will start first <code>init</code> process. Hope we will see all of the preparations before kernel will start in this big chapter. We will start from the kernel entry point, which is located in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/kernel/head_64.S" target="_blank">arch/x86/kernel/head_64.S</a> and will move further and further. We will see first preparations like early page tables initialization, switch to a new descriptor in kernel space and many many more, before we will see the <code>start_kernel</code> function from the <a href="https://github.com/torvalds/linux/blob/master/init/main.c#L489" target="_blank">init/main.c</a> will be called.</p>
+<p>In the last <a href="https://0xax.gitbooks.io/linux-insides/content/Booting/linux-bootstrap-5.html" target="_blank">part</a> of the previous <a href="https://0xax.gitbooks.io/linux-insides/content/Booting/index.html" target="_blank">chapter</a> we stopped at the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/boot/compressed/head_64.S" target="_blank">jmp</a> instruction from the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/boot/compressed/head_64.S" target="_blank">arch/x86/boot/compressed/head_64.S</a> assembly source code file:</p>
+<pre><code class="lang-assembly">jmp    *%rax
+</code></pre>
+<p>At this moment the <code>rax</code> register contains address of the Linux kernel entry point which that was obtained as a result of the call of the <code>decompress_kernel</code> function from the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/boot/compressed/misc.c" target="_blank">arch/x86/boot/compressed/misc.c</a> source code file. So, our last instruction in the kernel setup code is a jump on the kernel entry point. We already know where is defined the entry point of the linux kernel, so we are able to start to learn what does the Linux kernel does after the start.</p>
+<h2 id="first-steps-in-the-kernel">First steps in the kernel</h2>
+<p>Okay, we got the address of the decompressed kernel image from the <code>decompress_kernel</code> function into <code>rax</code> register and just jumped there. As we already know the entry point of the decompressed kernel image starts in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/kernel/head_64.S" target="_blank">arch/x86/kernel/head_64.S</a> assembly source code file and at the beginning of it, we can see following definitions:</p>
+<pre><code class="lang-assembly">    .text
+    __HEAD
+    .code64
+    .globl startup_64
+startup_64:
+    ...
+    ...
+    ...
+</code></pre>
+<p>We can see definition of the <code>startup_64</code> routine that is defined in the <code>__HEAD</code> section, which is just a macro which expands to the definition of executable <code>.head.text</code> section:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> __HEAD        .section    <span class="hljs-string">&quot;.head.text&quot;</span>,<span class="hljs-string">&quot;ax&quot;</span></span>
+</code></pre>
+<p>We can see definition of this section in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/kernel/vmlinux.lds.S#L93" target="_blank">arch/x86/kernel/vmlinux.lds.S</a> linker script:</p>
+<pre><code>.text : AT(ADDR(.text) - LOAD_OFFSET) {
+    _text = .;
+    ...
+    ...
+    ...
+} :text = 0x9090
+</code></pre><p>Besides the definition of the <code>.text</code> section, we can understand default virtual and physical addresses from the linker script. Note that address of the <code>_text</code> is location counter which is defined as:</p>
+<pre><code>. = __START_KERNEL;
+</code></pre><p>for the <a href="https://en.wikipedia.org/wiki/X86-64" target="_blank">x86_64</a>. The definition of the <code>__START_KERNEL</code> macro is located in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/page_types.h" target="_blank">arch/x86/include/asm/page_types.h</a> header file and represented by the sum of the base virtual address of the kernel mapping and physical start:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> __START_KERNEL    (__START_KERNEL_map + __PHYSICAL_START)</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> __PHYSICAL_START  ALIGN(CONFIG_PHYSICAL_START, CONFIG_PHYSICAL_ALIGN)</span>
+</code></pre>
+<p>Or in other words:</p>
+<ul>
+<li>Base physical address of the Linux kernel - <code>0x1000000</code>;</li>
+<li>Base virtual address of the Linux kernel - <code>0xffffffff81000000</code>.</li>
+</ul>
+<p>Now we know default physical and virtual addresses of the <code>startup_64</code> routine, but to know actual addresses we must to calculate it with the following code:</p>
+<pre><code class="lang-assembly">    leaq    _text(%rip), %rbp
+    subq    $_text - __START_KERNEL_map, %rbp
+</code></pre>
+<p>Yes, it defined as <code>0x1000000</code>, but it may be different, for example if <a href="https://en.wikipedia.org/wiki/Address_space_layout_randomization#Linux" target="_blank">kASLR</a> is enabled. So our current goal is to calculate delta between <code>0x1000000</code> and where we actually loaded. Here we just put the <code>rip-relative</code> address to the <code>rbp</code> register and then subtract <code>$_text - __START_KERNEL_map</code> from it. We know that compiled virtual address of the <code>_text</code> is <code>0xffffffff81000000</code> and the physical address of it is <code>0x1000000</code>. The <code>__START_KERNEL_map</code> macro expands to the <code>0xffffffff80000000</code> address, so at the second line of the assembly code, we will get following expression:</p>
+<pre><code>rbp = 0x1000000 - (0xffffffff81000000 - 0xffffffff80000000)
+</code></pre><p>So, after the calculation,  the <code>rbp</code> will contain <code>0</code> which represents difference between addresses where we actually loaded and where the code was compiled. In our case <code>zero</code> means that the Linux kernel was loaded by default address and the <a href="https://en.wikipedia.org/wiki/Address_space_layout_randomization#Linux" target="_blank">kASLR</a> was disabled.</p>
+<p>After we got the address of the <code>startup_64</code>, we need to do a check that this address is correctly aligned. We will do it with the following code:</p>
+<pre><code class="lang-assembly">    testl    $~PMD_PAGE_MASK, %ebp
+    jnz    bad_address
+</code></pre>
+<p>Here we just compare low part of the <code>rbp</code> register with the complemented value of the <code>PMD_PAGE_MASK</code>. The <code>PMD_PAGE_MASK</code> indicates the mask for <code>Page middle directory</code> (read <a href="http://0xax.gitbooks.io/linux-insides/content/Theory/Paging.html" target="_blank">paging</a> about it) and defined as:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PMD_PAGE_MASK           (~(PMD_PAGE_SIZE-1))</span>
+</code></pre>
+<p>where <code>PMD_PAGE_SIZE</code> macro defined as:</p>
+<pre><code>#define PMD_PAGE_SIZE           (_AC(1, UL) &lt;&lt; PMD_SHIFT)
+#define PMD_SHIFT       21
+</code></pre><p>As we can easily calculate, <code>PMD_PAGE_SIZE</code> is <code>2</code> megabytes. Here we use standard formula for checking alignment and if <code>text</code> address is not aligned for <code>2</code> megabytes, we jump to <code>bad_address</code> label.</p>
+<p>After this we check address that it is not too large by the checking of highest <code>18</code> bits:</p>
+<pre><code class="lang-assembly">    leaq    _text(%rip), %rax
+    shrq    $MAX_PHYSMEM_BITS, %rax
+    jnz    bad_address
+</code></pre>
+<p>The address must not be greater than <code>46</code>-bits:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MAX_PHYSMEM_BITS       46</span>
+</code></pre>
+<p>Okay, we did some early checks and now we can move on.</p>
+<h2 id="fix-base-addresses-of-page-tables">Fix base addresses of page tables</h2>
+<p>The first step before we start to setup identity paging is to fixup following addresses:</p>
+<pre><code class="lang-assembly">    addq    %rbp, early_level4_pgt + (L4_START_KERNEL*8)(%rip)
+    addq    %rbp, level3_kernel_pgt + (510*8)(%rip)
+    addq    %rbp, level3_kernel_pgt + (511*8)(%rip)
+    addq    %rbp, level2_fixmap_pgt + (506*8)(%rip)
+</code></pre>
+<p>All of <code>early_level4_pgt</code>, <code>level3_kernel_pgt</code> and other address may be wrong if the <code>startup_64</code> is not equal to default <code>0x1000000</code> address. The <code>rbp</code> register contains the delta address so we add to the certain entries of the <code>early_level4_pgt</code>, the <code>level3_kernel_pgt</code> and the <code>level2_fixmap_pgt</code>. Let&apos;s try to understand what these labels mean. First of all let&apos;s look at their definition:</p>
+<pre><code class="lang-assembly">NEXT_PAGE(early_level4_pgt)
+    .fill    511,8,0
+    .quad    level3_kernel_pgt - __START_KERNEL_map + _PAGE_TABLE
+
+NEXT_PAGE(level3_kernel_pgt)
+    .fill    L3_START_KERNEL,8,0
+    .quad    level2_kernel_pgt - __START_KERNEL_map + _KERNPG_TABLE
+    .quad    level2_fixmap_pgt - __START_KERNEL_map + _PAGE_TABLE
+
+NEXT_PAGE(level2_kernel_pgt)
+    PMDS(0, __PAGE_KERNEL_LARGE_EXEC,
+        KERNEL_IMAGE_SIZE/PMD_SIZE)
+
+NEXT_PAGE(level2_fixmap_pgt)
+    .fill    506,8,0
+    .quad    level1_fixmap_pgt - __START_KERNEL_map + _PAGE_TABLE
+    .fill    5,8,0
+
+NEXT_PAGE(level1_fixmap_pgt)
+    .fill    512,8,0
+</code></pre>
+<p>Looks hard, but it isn&apos;t. First of all let&apos;s look at the <code>early_level4_pgt</code>. It starts with the (4096 - 8) bytes of zeros, it means that we don&apos;t use the first <code>511</code> entries. And after this we can see one <code>level3_kernel_pgt</code> entry. Note that we subtract <code>__START_KERNEL_map + _PAGE_TABLE</code> from it. As we know <code>__START_KERNEL_map</code> is a base virtual address of the kernel text, so if we subtract <code>__START_KERNEL_map</code>, we will get physical address of the <code>level3_kernel_pgt</code>. Now let&apos;s look at <code>_PAGE_TABLE</code>, it is just page entry access rights:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> _PAGE_TABLE     (_PAGE_PRESENT | _PAGE_RW | _PAGE_USER | \
+                         _PAGE_ACCESSED | _PAGE_DIRTY)</span>
+</code></pre>
+<p>You can read more about it in the <a href="http://0xax.gitbooks.io/linux-insides/content/Theory/Paging.html" target="_blank">paging</a> part.</p>
+<p>The <code>level3_kernel_pgt</code> - stores two entries which map kernel space. At the start of it&apos;s definition, we can see that it is filled with zeros <code>L3_START_KERNEL</code> or <code>510</code> times. Here the <code>L3_START_KERNEL</code> is the index in the page upper directory which contains <code>__START_KERNEL_map</code> address and it equals <code>510</code>. After this, we can see the definition of the two <code>level3_kernel_pgt</code> entries: <code>level2_kernel_pgt</code> and <code>level2_fixmap_pgt</code>. First is simple, it is page table entry which contains pointer to the page middle directory which maps kernel space and it has:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> _KERNPG_TABLE   (_PAGE_PRESENT | _PAGE_RW | _PAGE_ACCESSED | \
+                         _PAGE_DIRTY)</span>
+</code></pre>
+<p>access rights. The second - <code>level2_fixmap_pgt</code> is a virtual addresses which can refer to any physical addresses even under kernel space. They represented by the one <code>level2_fixmap_pgt</code> entry and <code>10</code> megabytes hole for the <a href="https://lwn.net/Articles/446528/" target="_blank">vsyscalls</a> mapping. The next <code>level2_kernel_pgt</code> calls the <code>PDMS</code> macro which creates <code>512</code> megabytes from the <code>__START_KERNEL_map</code> for kernel <code>.text</code> (after these <code>512</code> megabytes will be modules memory space).</p>
+<p>Now, after we saw definitions of these symbols, let&apos;s get back to the code which is described at the beginning of the section. Remember that the <code>rbp</code> register contains delta between the address of the <code>startup_64</code> symbol which was got during kernel <a href="https://en.wikipedia.org/wiki/Linker_%28computing%29" target="_blank">linking</a> and the actual address. So, for this moment, we just need to add this delta to the base address of some page table entries, that they&apos;ll have correct addresses. In our case these entries are:</p>
+<pre><code class="lang-assembly">    addq    %rbp, early_level4_pgt + (L4_START_KERNEL*8)(%rip)
+    addq    %rbp, level3_kernel_pgt + (510*8)(%rip)
+    addq    %rbp, level3_kernel_pgt + (511*8)(%rip)
+    addq    %rbp, level2_fixmap_pgt + (506*8)(%rip)
+</code></pre>
+<p>or the last entry of the <code>early_level4_pgt</code> which is the <code>level3_kernel_pgt</code>, last two entries of the <code>level3_kernel_pgt</code> which are the <code>level2_kernel_pgt</code> and the <code>level2_fixmap_pgt</code> and five hundreds seventh entry of the <code>level2_fixmap_pgt</code> which is <code>level1_fixmap_pgt</code> page directory.</p>
+<p>After all of this we will have:</p>
+<pre><code>early_level4_pgt[511] -&gt; level3_kernel_pgt[0]
+level3_kernel_pgt[510] -&gt; level2_kernel_pgt[0]
+level3_kernel_pgt[511] -&gt; level2_fixmap_pgt[0]
+level2_kernel_pgt[0]   -&gt; 512 MB kernel mapping
+level2_fixmap_pgt[507] -&gt; level1_fixmap_pgt
+</code></pre><p>Note that we didn&apos;t fixup base address of the <code>early_level4_pgt</code> and some of other page table directories, because we will see this during of building/filling of structures for these page tables. As we corrected base addresses of the page tables, we can start to build it.</p>
+<h2 id="identity-mapping-setup">Identity mapping setup</h2>
+<p>Now we can see the set up of identity mapping of early page tables. In Identity Mapped Paging, virtual addresses are mapped to physical addresses that have the same value, <code>1 : 1</code>. Let&apos;s look at it in detail. First of all we get the <code>rip-relative</code> address of the <code>_text</code> and <code>_early_level4_pgt</code> and put they into <code>rdi</code> and <code>rbx</code> registers:</p>
+<pre><code class="lang-assembly">    leaq    _text(%rip), %rdi
+    leaq    early_level4_pgt(%rip), %rbx
+</code></pre>
+<p>After this we store address of the <code>_text</code> in the <code>rax</code> and get the index of the page global directory entry which stores <code>_text</code> address, by shifting <code>_text</code> address on the <code>PGDIR_SHIFT</code>:</p>
+<pre><code class="lang-assembly">    movq    %rdi, %rax
+    shrq    $PGDIR_SHIFT, %rax
+</code></pre>
+<p>where <code>PGDIR_SHIFT</code> is <code>39</code>. <code>PGDIR_SHFT</code> indicates the mask for page global directory bits in a virtual address. There are macro for all types of page directories:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PGDIR_SHIFT     39</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PUD_SHIFT       30</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PMD_SHIFT       21</span>
+</code></pre>
+<p>After this we put the address of the first entry of the <code>early_dynamic_pgts</code> page table to the <code>rdx</code> register with the <code>_KERNPG_TABLE</code> access rights (see above) and fill the <code>early_level4_pgt</code> with the 2 <code>early_dynamic_pgts</code> entries:</p>
+<pre><code class="lang-assembly">    leaq    (4096 + _KERNPG_TABLE)(%rbx), %rdx
+    movq    %rdx, 0(%rbx,%rax,8)
+    movq    %rdx, 8(%rbx,%rax,8)
+</code></pre>
+<p>The <code>rbx</code> register contains address of the <code>early_level4_pgt</code> and <code>%rax * 8</code> here is index of a page global directory occupied by the <code>_text</code> address. So here we fill two entries of the <code>early_level4_pgt</code> with address of two entries of the <code>early_dynamic_pgts</code> which is related to <code>_text</code>. The <code>early_dynamic_pgts</code> is array of arrays:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">extern</span> <span class="hljs-keyword">pmd_t</span> early_dynamic_pgts[EARLY_DYNAMIC_PAGE_TABLES][PTRS_PER_PMD];
+</code></pre>
+<p>which will store temporary page tables for early kernel which we will not move to the <code>init_level4_pgt</code>.</p>
+<p>After this we add <code>4096</code> (size of the <code>early_level4_pgt</code>) to the <code>rdx</code> (it now contains the address of the first entry of the <code>early_dynamic_pgts</code>) and put <code>rdi</code> (it now contains physical address of the <code>_text</code>)  to the <code>rax</code>. Now we shift address of the <code>_text</code> ot <code>PUD_SHIFT</code> to get index of an entry from page upper directory which contains this address and clears high bits to get only <code>pud</code> related part:</p>
+<pre><code class="lang-assembly">    addq    $4096, %rdx
+    movq    %rdi, %rax
+    shrq    $PUD_SHIFT, %rax
+    andl    $(PTRS_PER_PUD-1), %eax
+</code></pre>
+<p>As we have index of a page upper directory we write two addresses of the second entry of the <code>early_dynamic_pgts</code> array to the first entry of this temporary page directory:</p>
+<pre><code class="lang-assembly">    movq    %rdx, 4096(%rbx,%rax,8)
+    incl    %eax
+    andl    $(PTRS_PER_PUD-1), %eax
+    movq    %rdx, 4096(%rbx,%rax,8)
+</code></pre>
+<p>In the next step we do the same operation for last page table directory, but filling not two entries, but all entries to cover full size of the kernel.</p>
+<p>After our early page table directories filled, we put physical address of the <code>early_level4_pgt</code> to the <code>rax</code> register and jump to label <code>1</code>:</p>
+<pre><code class="lang-assembly">    movq    $(early_level4_pgt - __START_KERNEL_map), %rax
+    jmp 1f
+</code></pre>
+<p>That&apos;s all for now. Our early paging is prepared and we just need to finish last preparation before we will jump into C code and kernel entry point later.</p>
+<h2 id="last-preparation-before-jump-at-the-kernel-entry-point">Last preparation before jump at the kernel entry point</h2>
+<p>After that we jump to the label <code>1</code> we enable <code>PAE</code>, <code>PGE</code> (Paging Global Extension) and put the physical address of the <code>phys_base</code> (see above) to the <code>rax</code> register and fill <code>cr3</code> register with it:</p>
+<pre><code class="lang-assembly">1:
+    movl    $(X86_CR4_PAE | X86_CR4_PGE), %ecx
+    movq    %rcx, %cr4
+
+    addq    phys_base(%rip), %rax
+    movq    %rax, %cr3
+</code></pre>
+<p>In the next step we check that CPU supports <a href="http://en.wikipedia.org/wiki/NX_bit" target="_blank">NX</a> bit with:</p>
+<pre><code class="lang-assembly">    movl    $0x80000001, %eax
+    cpuid
+    movl    %edx,%edi
+</code></pre>
+<p>We put <code>0x80000001</code> value to the <code>eax</code> and execute <code>cpuid</code> instruction for getting the extended processor info and feature bits. The result will be in the <code>edx</code> register which we put to the <code>edi</code>.</p>
+<p>Now we put <code>0xc0000080</code> or <code>MSR_EFER</code> to the <code>ecx</code> and call <code>rdmsr</code> instruction for the reading model specific register.</p>
+<pre><code class="lang-assembly">    movl    $MSR_EFER, %ecx
+    rdmsr
+</code></pre>
+<p>The result will be in the <code>edx:eax</code>. General view of the <code>EFER</code> is following:</p>
+<pre><code>63                                                                              32
+ --------------------------------------------------------------------------------
+|                                                                               |
+|                                Reserved MBZ                                   |
+|                                                                               |
+ --------------------------------------------------------------------------------
+31                            16  15      14      13   12  11   10  9  8 7  1   0
+ --------------------------------------------------------------------------------
+|                              | T |       |       |    |   |   |   |   |   |   |
+| Reserved MBZ                 | C | FFXSR | LMSLE |SVME|NXE|LMA|MBZ|LME|RAZ|SCE|
+|                              | E |       |       |    |   |   |   |   |   |   |
+ --------------------------------------------------------------------------------
+</code></pre><p>We will not see all fields in details here, but we will learn about this and other <code>MSRs</code> in a special part about it. As we read <code>EFER</code> to the <code>edx:eax</code>, we check <code>_EFER_SCE</code> or zero bit which is <code>System Call Extensions</code> with <code>btsl</code> instruction and set it to one. By the setting <code>SCE</code> bit we enable <code>SYSCALL</code> and <code>SYSRET</code> instructions. In the next step we check 20th bit in the <code>edi</code>, remember that this register stores result of the <code>cpuid</code> (see above). If <code>20</code> bit is set (<code>NX</code> bit) we just write <code>EFER_SCE</code> to the model specific register.</p>
+<pre><code class="lang-assembly">    btsl    $_EFER_SCE, %eax
+    btl        $20,%edi
+    jnc     1f
+    btsl    $_EFER_NX, %eax
+    btsq    $_PAGE_BIT_NX,early_pmd_flags(%rip)
+1:    wrmsr
+</code></pre>
+<p>If the <a href="https://en.wikipedia.org/wiki/NX_bit" target="_blank">NX</a> bit is supported we enable <code>_EFER_NX</code>  and write it too, with the <code>wrmsr</code> instruction. After the <a href="https://en.wikipedia.org/wiki/NX_bit" target="_blank">NX</a> bit is set, we set some bits in the <code>cr0</code> <a href="https://en.wikipedia.org/wiki/Control_register" target="_blank">control register</a>, namely:</p>
+<ul>
+<li><code>X86_CR0_PE</code> - system is in protected mode;</li>
+<li><code>X86_CR0_MP</code> - controls interaction of WAIT/FWAIT instructions with TS flag in CR0;</li>
+<li><code>X86_CR0_ET</code> - on the 386, it allowed to specify whether the external math coprocessor was an 80287 or 80387;</li>
+<li><code>X86_CR0_NE</code> - enable internal x87 floating point error reporting when set, else enables PC style x87 error detection;</li>
+<li><code>X86_CR0_WP</code> - when set, the CPU can&apos;t write to read-only pages when privilege level is 0;</li>
+<li><code>X86_CR0_AM</code> - alignment check enabled if AM set, AC flag (in EFLAGS register) set, and privilege level is 3;</li>
+<li><code>X86_CR0_PG</code> - enable paging.</li>
+</ul>
+<p>by the execution following assembly code:</p>
+<pre><code class="lang-assembly">#define CR0_STATE    (X86_CR0_PE | X86_CR0_MP | X86_CR0_ET | \
+             X86_CR0_NE | X86_CR0_WP | X86_CR0_AM | \
+             X86_CR0_PG)
+movl    $CR0_STATE, %eax
+movq    %rax, %cr0
+</code></pre>
+<p>We already know that to run any code, and even more <a href="https://en.wikipedia.org/wiki/C_%28programming_language%29" target="_blank">C</a> code from assembly, we need to setup a stack. As always, we are doing it by the setting of <a href="https://en.wikipedia.org/wiki/Stack_register" target="_blank">stack pointer</a> to a correct place in memory and resetting <a href="https://en.wikipedia.org/wiki/FLAGS_register" target="_blank">flags</a> register after this:</p>
+<pre><code class="lang-assembly">movq initial_stack(%rip), %rsp
+pushq $0
+popfq
+</code></pre>
+<p>The most interesting thing here is the <code>initial_stack</code>. This symbol is defined in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/kernel/head_64.S" target="_blank">source</a> code file and looks like:</p>
+<pre><code class="lang-assembly">GLOBAL(initial_stack)
+    .quad  init_thread_union+THREAD_SIZE-8
+</code></pre>
+<p>The <code>GLOBAL</code> is already familiar to us from. It defined in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/linkage.h" target="_blank">arch/x86/include/asm/linkage.h</a> header file expands to the <code>global</code> symbol definition:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> GLOBAL(name)    \
+         .globl name;           \
+         name:</span>
+</code></pre>
+<p>The <code>THREAD_SIZE</code> macro is defined in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/page_64_types.h" target="_blank">arch/x86/include/asm/page_64_types.h</a> header file and depends on value of the <code>KASAN_STACK_ORDER</code> macro:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> THREAD_SIZE_ORDER       (2 + KASAN_STACK_ORDER)</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> THREAD_SIZE  (PAGE_SIZE &lt;&lt; THREAD_SIZE_ORDER)</span>
+</code></pre>
+<p>We consider when the <a href="http://lxr.free-electrons.com/source/Documentation/kasan.txt" target="_blank">kasan</a> is disabled and the <code>PAGE_SIZE</code> is <code>4096</code> bytes. So the <code>THREAD_SIZE</code> will expands to <code>16</code> kilobytes and represents size of the stack of a thread. Why is <code>thread</code>? You may already know that each <a href="https://en.wikipedia.org/wiki/Process_%28computing%29" target="_blank">process</a> may have parent <a href="https://en.wikipedia.org/wiki/Parent_process" target="_blank">processes</a> and <a href="https://en.wikipedia.org/wiki/Child_process" target="_blank">child</a> processes. Actually, a parent process and child process differ in stack. A new kernel stack is allocated for a new process. In the Linux kernel this stack is represented by the <a href="https://en.wikipedia.org/wiki/Union_type#C.2FC.2B.2B" target="_blank">union</a> with the <code>thread_info</code> structure.</p>
+<p>And as we can see the <code>init_thread_union</code> is represented by the <code>thread_union</code> <a href="https://en.wikipedia.org/wiki/Union_type#C.2FC.2B.2B" target="_blank">union</a>. Earlier this union looked like:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">union</span> thread_union {
+         <span class="hljs-keyword">struct</span> thread_info thread_info;
+         <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> <span class="hljs-built_in">stack</span>[THREAD_SIZE/<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">long</span>)];
+};
+</code></pre>
+<p>but from the Linux kernel <code>4.9-rc1</code> release, <code>thread_info</code> was moved to the <code>task_struct</code> structure which represents a thread. So, for now <code>thread_union</code> looks like:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">union</span> thread_union {
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifndef</span> CONFIG_THREAD_INFO_IN_TASK</span>
+    <span class="hljs-keyword">struct</span> thread_info thread_info;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> <span class="hljs-built_in">stack</span>[THREAD_SIZE/<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">long</span>)];
+};
+</code></pre>
+<p>where the <code>CONFIG_THREAD_INFO_IN_TASK</code> kernel configuration option is enabled for <code>x86_64</code> architecture. So, as we consider only <code>x86_64</code> architecture in this book, an instance of <code>thread_union</code> will contain only stack and <code>thread_info</code> structure will be placed in the <code>task_struct</code>.</p>
+<p>The <code>init_thread_union</code> looks like:</p>
+<pre><code>union thread_union init_thread_union __init_task_data = {
+#ifndef CONFIG_THREAD_INFO_IN_TASK
+    INIT_THREAD_INFO(init_task)
+#endif
+};
+</code></pre><p>which represents just thread stack. Now we may understand this expression:</p>
+<pre><code class="lang-assembly">GLOBAL(initial_stack)
+    .quad  init_thread_union+THREAD_SIZE-8
+</code></pre>
+<p>that <code>initial_stack</code> symbol points to the start of the <code>thread_union.stack</code> array + <code>THREAD_SIZE</code> which is 16 killobytes and - 8 bytes. Here we need to subtract <code>8</code> bytes at the to of stack. This is necessary to guarantee illegal access of the next page memory.</p>
+<p>After the early boot stack is set, to update the <a href="https://en.wikipedia.org/wiki/Global_Descriptor_Table" target="_blank">Global Descriptor Table</a> with the <code>lgdt</code> instruction:</p>
+<pre><code class="lang-assembly">lgdt    early_gdt_descr(%rip)
+</code></pre>
+<p>where the <code>early_gdt_descr</code> is defined as:</p>
+<pre><code class="lang-assembly">early_gdt_descr:
+    .word    GDT_ENTRIES*8-1
+early_gdt_descr_base:
+    .quad    INIT_PER_CPU_VAR(gdt_page)
+</code></pre>
+<p>We need to reload <code>Global Descriptor Table</code> because now kernel works in the low userspace addresses, but soon kernel will work in its own space. Now let&apos;s look at the definition of <code>early_gdt_descr</code>. Global Descriptor Table contains <code>32</code> entries:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> GDT_ENTRIES 32</span>
+</code></pre>
+<p>for kernel code, data, thread local storage segments and etc... it&apos;s simple. Now let&apos;s look at the definition of the <code>early_gdt_descr_base</code>.</p>
+<p>First of <code>gdt_page</code> defined as:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">struct</span> gdt_page {
+    <span class="hljs-keyword">struct</span> desc_struct gdt[GDT_ENTRIES];
+} __attribute__((aligned(PAGE_SIZE)));
+</code></pre>
+<p>in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/desc.h" target="_blank">arch/x86/include/asm/desc.h</a>. It contains one field <code>gdt</code> which is array of the <code>desc_struct</code> structure which is defined as:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">struct</span> desc_struct {
+         <span class="hljs-keyword">union</span> {
+                 <span class="hljs-keyword">struct</span> {
+                         <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> a;
+                         <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> b;
+                 };
+                 <span class="hljs-keyword">struct</span> {
+                         u16 limit0;
+                         u16 base0;
+                         <span class="hljs-keyword">unsigned</span> base1: <span class="hljs-number">8</span>, type: <span class="hljs-number">4</span>, s: <span class="hljs-number">1</span>, dpl: <span class="hljs-number">2</span>, p: <span class="hljs-number">1</span>;
+                         <span class="hljs-keyword">unsigned</span> limit: <span class="hljs-number">4</span>, avl: <span class="hljs-number">1</span>, l: <span class="hljs-number">1</span>, d: <span class="hljs-number">1</span>, g: <span class="hljs-number">1</span>, base2: <span class="hljs-number">8</span>;
+                 };
+         };
+ } __attribute__((packed));
+</code></pre>
+<p>and presents familiar to us <code>GDT</code> descriptor. Also we can note that <code>gdt_page</code> structure aligned to <code>PAGE_SIZE</code> which is <code>4096</code> bytes. It means that <code>gdt</code> will occupy one page. Now let&apos;s try to understand what is <code>INIT_PER_CPU_VAR</code>. <code>INIT_PER_CPU_VAR</code> is a macro which defined in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/percpu.h" target="_blank">arch/x86/include/asm/percpu.h</a> and just concats <code>init_per_cpu__</code> with the given parameter:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> INIT_PER_CPU_VAR(var) init_per_cpu__##var</span>
+</code></pre>
+<p>After the <code>INIT_PER_CPU_VAR</code> macro will be expanded, we will have <code>init_per_cpu__gdt_page</code>. We can see in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/kernel/vmlinux.lds.S" target="_blank">linker script</a>:</p>
+<pre><code>#define INIT_PER_CPU(x) init_per_cpu__##x = x + __per_cpu_load
+INIT_PER_CPU(gdt_page);
+</code></pre><p>As we got <code>init_per_cpu__gdt_page</code> in <code>INIT_PER_CPU_VAR</code> and <code>INIT_PER_CPU</code> macro from linker script will be expanded we will get offset from the <code>__per_cpu_load</code>. After this calculations, we will have correct base address of the new GDT.</p>
+<p>Generally per-CPU variables is a 2.6 kernel feature. You can understand what it is from its name. When we create <code>per-CPU</code> variable, each CPU will have will have its own copy of this variable. Here we creating <code>gdt_page</code> per-CPU variable. There are many advantages for variables of this type, like there are no locks, because each CPU works with its own copy of variable and etc... So every core on multiprocessor will have its own <code>GDT</code> table and every entry in the table will represent a memory segment which can be accessed from the thread which ran on the core. You can read in details about <code>per-CPU</code> variables in the <a href="http://0xax.gitbooks.io/linux-insides/content/Concepts/per-cpu.html" target="_blank">Theory/per-cpu</a> post.</p>
+<p>As we loaded new Global Descriptor Table, we reload segments as we did it every time:</p>
+<pre><code class="lang-assembly">    xorl %eax,%eax
+    movl %eax,%ds
+    movl %eax,%ss
+    movl %eax,%es
+    movl %eax,%fs
+    movl %eax,%gs
+</code></pre>
+<p>After all of these steps we set up <code>gs</code> register that it post to the <code>irqstack</code> which represents special stack where <a href="https://en.wikipedia.org/wiki/Interrupt" target="_blank">interrupts</a> will be handled on:</p>
+<pre><code class="lang-assembly">    movl    $MSR_GS_BASE,%ecx
+    movl    initial_gs(%rip),%eax
+    movl    initial_gs+4(%rip),%edx
+    wrmsr
+</code></pre>
+<p>where <code>MSR_GS_BASE</code> is:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MSR_GS_BASE             0xc0000101</span>
+</code></pre>
+<p>We need to put <code>MSR_GS_BASE</code> to the <code>ecx</code> register and load data from the <code>eax</code> and <code>edx</code> (which are point to the <code>initial_gs</code>) with <code>wrmsr</code> instruction. We don&apos;t use <code>cs</code>, <code>fs</code>, <code>ds</code> and <code>ss</code> segment registers for addressing in the 64-bit mode, but <code>fs</code> and <code>gs</code> registers can be used. <code>fs</code> and <code>gs</code> have a hidden part (as we saw it in the real mode for <code>cs</code>) and this part contains descriptor which mapped to <a href="https://en.wikipedia.org/wiki/Model-specific_register" target="_blank">Model Specific Registers</a>. So we can see above <code>0xc0000101</code> is a <code>gs.base</code> MSR address. When a <a href="https://en.wikipedia.org/wiki/System_call" target="_blank">system call</a> or <a href="https://en.wikipedia.org/wiki/Interrupt" target="_blank">interrupt</a> occurred, there is no kernel stack at the entry point, so the value of the <code>MSR_GS_BASE</code> will store address of the interrupt stack.</p>
+<p>In the next step we put the address of the real mode bootparam structure to the <code>rdi</code> (remember <code>rsi</code> holds pointer to this structure from the start) and jump to the C code with:</p>
+<pre><code class="lang-assembly">    movq    initial_code(%rip), %rax
+    pushq    $__KERNEL_CS    # set correct cs
+    pushq    %rax        # target address in negative space
+    lretq
+</code></pre>
+<p>Here we put the address of the <code>initial_code</code> to the <code>rax</code> and push fake address, <code>__KERNEL_CS</code> and the address of the <code>initial_code</code> to the stack. After this we can see <code>lretq</code> instruction which means that after it return address will be extracted from stack (now there is address of the <code>initial_code</code>) and jump there. <code>initial_code</code> is defined in the same source code file and looks:</p>
+<pre><code class="lang-assembly">    .balign    8
+    GLOBAL(initial_code)
+    .quad    x86_64_start_kernel
+    ...
+    ...
+    ...
+</code></pre>
+<p>As we can see <code>initial_code</code> contains address of the <code>x86_64_start_kernel</code>, which is defined in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/kernel/head64.c" target="_blank">arch/x86/kerne/head64.c</a> and looks like this:</p>
+<pre><code class="lang-C">asmlinkage __visible <span class="hljs-keyword">void</span> __<span class="hljs-function">init <span class="hljs-title">x86_64_start_kernel</span><span class="hljs-params">(<span class="hljs-keyword">char</span> * real_mode_data)</span> </span>{
+    ...
+    ...
+    ...
+}
+</code></pre>
+<p>It has one argument is a <code>real_mode_data</code> (remember that we passed address of the real mode data to the <code>rdi</code> register previously).</p>
+<p>This is first C code in the kernel!</p>
+<h2 id="next-to-startkernel">Next to start_kernel</h2>
+<p>We need to see last preparations before we can see &quot;kernel entry point&quot; - start_kernel function from the <a href="https://github.com/torvalds/linux/blob/master/init/main.c#L489" target="_blank">init/main.c</a>.</p>
+<p>First of all we can see some checks in the <code>x86_64_start_kernel</code> function:</p>
+<pre><code class="lang-C">BUILD_BUG_ON(MODULES_VADDR &lt; __START_KERNEL_map);
+BUILD_BUG_ON(MODULES_VADDR - __START_KERNEL_map &lt; KERNEL_IMAGE_SIZE);
+BUILD_BUG_ON(MODULES_LEN + KERNEL_IMAGE_SIZE &gt; <span class="hljs-number">2</span>*PUD_SIZE);
+BUILD_BUG_ON((__START_KERNEL_map &amp; ~PMD_MASK) != <span class="hljs-number">0</span>);
+BUILD_BUG_ON((MODULES_VADDR &amp; ~PMD_MASK) != <span class="hljs-number">0</span>);
+BUILD_BUG_ON(!(MODULES_VADDR &gt; __START_KERNEL));
+BUILD_BUG_ON(!(((MODULES_END - <span class="hljs-number">1</span>) &amp; PGDIR_MASK) == (__START_KERNEL &amp; PGDIR_MASK)));
+BUILD_BUG_ON(__fix_to_virt(__end_of_fixed_addresses) &lt;= MODULES_END);
+</code></pre>
+<p>There are checks for different things like virtual addresses of modules space is not fewer than base address of the kernel text - <code>__STAT_KERNEL_map</code>, that kernel text with modules is not less than image of the kernel and etc... <code>BUILD_BUG_ON</code> is a macro which looks as:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> BUILD_BUG_ON(condition) ((void)sizeof(char[1 - 2*!!(condition)]))</span>
+</code></pre>
+<p>Let&apos;s try to understand how this trick works. Let&apos;s take for example first condition: <code>MODULES_VADDR &lt; __START_KERNEL_map</code>. <code>!!conditions</code> is the same that <code>condition != 0</code>. So it means if <code>MODULES_VADDR &lt; __START_KERNEL_map</code> is true, we will get <code>1</code> in the <code>!!(condition)</code> or zero if not. After <code>2*!!(condition)</code> we will get or <code>2</code> or <code>0</code>. In the end of calculations we can get two different behaviors:</p>
+<ul>
+<li>We will have compilation error, because try to get size of the char array with negative index (as can be in our case, because <code>MODULES_VADDR</code> can&apos;t be less than <code>__START_KERNEL_map</code> will be in our case);</li>
+<li>No compilation errors.</li>
+</ul>
+<p>That&apos;s all. So interesting C trick for getting compile error which depends on some constants.</p>
+<p>In the next step we can see call of the <code>cr4_init_shadow</code> function which stores shadow copy of the <code>cr4</code> per cpu. Context switches can change bits in the <code>cr4</code> so we need to store <code>cr4</code> for each CPU. And after this we can see call of the <code>reset_early_page_tables</code> function where we resets all page global directory entries and write new pointer to the PGT in <code>cr3</code>:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; PTRS_PER_PGD<span class="hljs-number">-1</span>; i++)
+    early_level4_pgt[i].pgd = <span class="hljs-number">0</span>;
+
+next_early_pgt = <span class="hljs-number">0</span>;
+
+write_cr3(__pa_nodebug(early_level4_pgt));
+</code></pre>
+<p>Soon we will build new page tables. Here we can see that we go through all Page Global Directory Entries (<code>PTRS_PER_PGD</code> is <code>512</code>) in the loop and make it zero. After this we set <code>next_early_pgt</code> to zero (we will see details about it in the next post) and write physical address of the <code>early_level4_pgt</code> to the <code>cr3</code>. <code>__pa_nodebug</code> is a macro which will be expanded to:</p>
+<pre><code class="lang-C">((<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span>)(x) - __START_KERNEL_map + phys_base)
+</code></pre>
+<p>After this we clear <code>_bss</code> from the <code>__bss_stop</code> to <code>__bss_start</code> and the next step will be setup of the early <code>IDT</code> handlers, but it&apos;s big concept so we will see it in the next part.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This is the end of the first part about linux kernel initialization.</p>
+<p>If you have questions or suggestions, feel free to ping me in twitter <a href="https://twitter.com/0xAX" target="_blank">0xAX</a>, drop me <a href="anotherworldofworld@gmail.com">email</a> or just create <a href="https://github.com/0xAX/linux-insides/issues/new" target="_blank">issue</a>.</p>
+<p>In the next part we will see initialization of the early interruption handlers, kernel space memory mapping and a lot more.</p>
+<p><strong>Please note that English is not my first language and I am really sorry for any inconvenience. If you found any mistakes please send me PR to <a href="https://github.com/0xAX/linux-insides" target="_blank">linux-insides</a>.</strong></p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Model-specific_register" target="_blank">Model Specific Register</a></li>
+<li><a href="http://0xax.gitbooks.io/linux-insides/content/Theory/Paging.html" target="_blank">Paging</a></li>
+<li><a href="http://0xax.gitbooks.io/linux-insides/content/Booting/linux-bootstrap-5.html" target="_blank">Previous part - Kernel decompression</a></li>
+<li><a href="http://en.wikipedia.org/wiki/NX_bit" target="_blank">NX</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Address_space_layout_randomization" target="_blank">ASLR</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Initialization">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="linux-initialization-2.html" class="navigation navigation-next " aria-label="Next page: Early interrupts handler">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"First steps in the kernel","level":"1.3.1","depth":2,"next":{"title":"Early interrupts handler","level":"1.3.2","depth":2,"path":"Initialization/linux-initialization-2.md","ref":"Initialization/linux-initialization-2.md","articles":[]},"previous":{"title":"Initialization","level":"1.3","depth":1,"path":"Initialization/README.md","ref":"Initialization/README.md","articles":[{"title":"First steps in the kernel","level":"1.3.1","depth":2,"path":"Initialization/linux-initialization-1.md","ref":"Initialization/linux-initialization-1.md","articles":[]},{"title":"Early interrupts handler","level":"1.3.2","depth":2,"path":"Initialization/linux-initialization-2.md","ref":"Initialization/linux-initialization-2.md","articles":[]},{"title":"Last preparations before the kernel entry point","level":"1.3.3","depth":2,"path":"Initialization/linux-initialization-3.md","ref":"Initialization/linux-initialization-3.md","articles":[]},{"title":"Kernel entry point","level":"1.3.4","depth":2,"path":"Initialization/linux-initialization-4.md","ref":"Initialization/linux-initialization-4.md","articles":[]},{"title":"Continue architecture-specific boot-time initializations","level":"1.3.5","depth":2,"path":"Initialization/linux-initialization-5.md","ref":"Initialization/linux-initialization-5.md","articles":[]},{"title":"Architecture-specific initializations, again...","level":"1.3.6","depth":2,"path":"Initialization/linux-initialization-6.md","ref":"Initialization/linux-initialization-6.md","articles":[]},{"title":"End of the architecture-specific initializations, almost...","level":"1.3.7","depth":2,"path":"Initialization/linux-initialization-7.md","ref":"Initialization/linux-initialization-7.md","articles":[]},{"title":"Scheduler initialization","level":"1.3.8","depth":2,"path":"Initialization/linux-initialization-8.md","ref":"Initialization/linux-initialization-8.md","articles":[]},{"title":"RCU initialization","level":"1.3.9","depth":2,"path":"Initialization/linux-initialization-9.md","ref":"Initialization/linux-initialization-9.md","articles":[]},{"title":"End of initialization","level":"1.3.10","depth":2,"path":"Initialization/linux-initialization-10.md","ref":"Initialization/linux-initialization-10.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Initialization/linux-initialization-1.md","mtime":"2019-03-28T07:54:50.389Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-28T07:57:01.662Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

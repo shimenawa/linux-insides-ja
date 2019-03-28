@@ -1,0 +1,1703 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Last preparations before the kernel entry point · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="linux-initialization-4.html" />
+    
+    
+    <link rel="prev" href="linux-initialization-2.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Summary</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Booting/">
+            
+                <a href="../Booting/">
+            
+                    
+                    Booting
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Booting/linux-bootstrap-1.html">
+            
+                <a href="../Booting/linux-bootstrap-1.html">
+            
+                    
+                    From bootloader to kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Booting/linux-bootstrap-2.html">
+            
+                <a href="../Booting/linux-bootstrap-2.html">
+            
+                    
+                    First steps in the kernel setup code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Booting/linux-bootstrap-3.html">
+            
+                <a href="../Booting/linux-bootstrap-3.html">
+            
+                    
+                    Video mode initialization and transition to protected mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../Booting/linux-bootstrap-4.html">
+            
+                <a href="../Booting/linux-bootstrap-4.html">
+            
+                    
+                    Transition to 64-bit mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../Booting/linux-bootstrap-5.html">
+            
+                <a href="../Booting/linux-bootstrap-5.html">
+            
+                    
+                    Kernel decompression
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Initialization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="linux-initialization-1.html">
+            
+                <a href="linux-initialization-1.html">
+            
+                    
+                    First steps in the kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="linux-initialization-2.html">
+            
+                <a href="linux-initialization-2.html">
+            
+                    
+                    Early interrupts handler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.3" data-path="linux-initialization-3.html">
+            
+                <a href="linux-initialization-3.html">
+            
+                    
+                    Last preparations before the kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="linux-initialization-4.html">
+            
+                <a href="linux-initialization-4.html">
+            
+                    
+                    Kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="linux-initialization-5.html">
+            
+                <a href="linux-initialization-5.html">
+            
+                    
+                    Continue architecture-specific boot-time initializations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="linux-initialization-6.html">
+            
+                <a href="linux-initialization-6.html">
+            
+                    
+                    Architecture-specific initializations, again...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="linux-initialization-7.html">
+            
+                <a href="linux-initialization-7.html">
+            
+                    
+                    End of the architecture-specific initializations, almost...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="linux-initialization-8.html">
+            
+                <a href="linux-initialization-8.html">
+            
+                    
+                    Scheduler initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="linux-initialization-9.html">
+            
+                <a href="linux-initialization-9.html">
+            
+                    
+                    RCU initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="linux-initialization-10.html">
+            
+                <a href="linux-initialization-10.html">
+            
+                    
+                    End of initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../interrupts/">
+            
+                <a href="../interrupts/">
+            
+                    
+                    Interrupts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../interrupts/interrupts-1.html">
+            
+                <a href="../interrupts/interrupts-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../interrupts/interrupts-2.html">
+            
+                <a href="../interrupts/interrupts-2.html">
+            
+                    
+                    Start to dive into interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../interrupts/interrupts-3.html">
+            
+                <a href="../interrupts/interrupts-3.html">
+            
+                    
+                    Interrupt handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../interrupts/interrupts-4.html">
+            
+                <a href="../interrupts/interrupts-4.html">
+            
+                    
+                    Initialization of non-early interrupt gates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../interrupts/interrupts-5.html">
+            
+                <a href="../interrupts/interrupts-5.html">
+            
+                    
+                    Implementation of some exception handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../interrupts/interrupts-6.html">
+            
+                <a href="../interrupts/interrupts-6.html">
+            
+                    
+                    Handling Non-Maskable interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../interrupts/interrupts-7.html">
+            
+                <a href="../interrupts/interrupts-7.html">
+            
+                    
+                    Dive into external hardware interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../interrupts/interrupts-8.html">
+            
+                <a href="../interrupts/interrupts-8.html">
+            
+                    
+                    Initialization of external hardware interrupts structures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../interrupts/interrupts-9.html">
+            
+                <a href="../interrupts/interrupts-9.html">
+            
+                    
+                    Softirq, Tasklets and Workqueues
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../interrupts/interrupts-10.html">
+            
+                <a href="../interrupts/interrupts-10.html">
+            
+                    
+                    Last part
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../SysCall/">
+            
+                <a href="../SysCall/">
+            
+                    
+                    System calls
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../SysCall/syscall-1.html">
+            
+                <a href="../SysCall/syscall-1.html">
+            
+                    
+                    Introduction to system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../SysCall/syscall-2.html">
+            
+                <a href="../SysCall/syscall-2.html">
+            
+                    
+                    How the Linux kernel handles a system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../SysCall/syscall-3.html">
+            
+                <a href="../SysCall/syscall-3.html">
+            
+                    
+                    vsyscall and vDSO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../SysCall/syscall-4.html">
+            
+                <a href="../SysCall/syscall-4.html">
+            
+                    
+                    How the Linux kernel runs a program
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../SysCall/syscall-5.html">
+            
+                <a href="../SysCall/syscall-5.html">
+            
+                    
+                    Implementation of the open system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Timers/">
+            
+                <a href="../Timers/">
+            
+                    
+                    Timers and time management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../Timers/timers-1.html">
+            
+                <a href="../Timers/timers-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Timers/timers-2.html">
+            
+                <a href="../Timers/timers-2.html">
+            
+                    
+                    Clocksource framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Timers/timers-3.html">
+            
+                <a href="../Timers/timers-3.html">
+            
+                    
+                    The tick broadcast framework and dyntick
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../Timers/timers-4.html">
+            
+                <a href="../Timers/timers-4.html">
+            
+                    
+                    Introduction to timers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Timers/timers-5.html">
+            
+                <a href="../Timers/timers-5.html">
+            
+                    
+                    Clockevents framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../Timers/timers-6.html">
+            
+                <a href="../Timers/timers-6.html">
+            
+                    
+                    x86 related clock sources
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../Timers/timers-7.html">
+            
+                <a href="../Timers/timers-7.html">
+            
+                    
+                    Time related system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../SyncPrim/">
+            
+                <a href="../SyncPrim/">
+            
+                    
+                    Synchronization primitives
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../SyncPrim/sync-1.html">
+            
+                <a href="../SyncPrim/sync-1.html">
+            
+                    
+                    Introduction to spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../SyncPrim/sync-2.html">
+            
+                <a href="../SyncPrim/sync-2.html">
+            
+                    
+                    Queued spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../SyncPrim/sync-3.html">
+            
+                <a href="../SyncPrim/sync-3.html">
+            
+                    
+                    Semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../SyncPrim/sync-4.html">
+            
+                <a href="../SyncPrim/sync-4.html">
+            
+                    
+                    Mutex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../SyncPrim/sync-5.html">
+            
+                <a href="../SyncPrim/sync-5.html">
+            
+                    
+                    Reader/Writer semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../SyncPrim/sync-6.html">
+            
+                <a href="../SyncPrim/sync-6.html">
+            
+                    
+                    SeqLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" >
+            
+                <span>
+            
+                    
+                    RCU
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" >
+            
+                <span>
+            
+                    
+                    Lockdep
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../mm/">
+            
+                <a href="../mm/">
+            
+                    
+                    Memory management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../mm/linux-mm-1.html">
+            
+                <a href="../mm/linux-mm-1.html">
+            
+                    
+                    Memblock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../mm/linux-mm-2.html">
+            
+                <a href="../mm/linux-mm-2.html">
+            
+                    
+                    Fixmaps and ioremap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../mm/linux-mm-3.html">
+            
+                <a href="../mm/linux-mm-3.html">
+            
+                    
+                    kmemcheck
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../Cgroups/">
+            
+                <a href="../Cgroups/">
+            
+                    
+                    Cgroups
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../Cgroups/cgroups1.html">
+            
+                <a href="../Cgroups/cgroups1.html">
+            
+                    
+                    Introduction to Control Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    SMP
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../Concepts/">
+            
+                <a href="../Concepts/">
+            
+                    
+                    Concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../Concepts/per-cpu.html">
+            
+                <a href="../Concepts/per-cpu.html">
+            
+                    
+                    Per-CPU variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../Concepts/cpumask.html">
+            
+                <a href="../Concepts/cpumask.html">
+            
+                    
+                    Cpumasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../Concepts/initcall.html">
+            
+                <a href="../Concepts/initcall.html">
+            
+                    
+                    The initcall mechanism
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../DataStructures/">
+            
+                <a href="../DataStructures/">
+            
+                    
+                    Data Structures in the Linux Kernel
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../DataStructures/dlist.html">
+            
+                <a href="../DataStructures/dlist.html">
+            
+                    
+                    Doubly linked list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../DataStructures/radix-tree.html">
+            
+                <a href="../DataStructures/radix-tree.html">
+            
+                    
+                    Radix tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../DataStructures/bitmap.html">
+            
+                <a href="../DataStructures/bitmap.html">
+            
+                    
+                    Bit arrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../Theory/">
+            
+                <a href="../Theory/">
+            
+                    
+                    Theory
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../Theory/Paging.html">
+            
+                <a href="../Theory/Paging.html">
+            
+                    
+                    Paging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../Theory/ELF.html">
+            
+                <a href="../Theory/ELF.html">
+            
+                    
+                    Elf64
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../Theory/asm.html">
+            
+                <a href="../Theory/asm.html">
+            
+                    
+                    Inline assembly
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" >
+            
+                <span>
+            
+                    
+                    CPUID
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" >
+            
+                <span>
+            
+                    
+                    MSR
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" >
+            
+                <span>
+            
+                    
+                    Initial ram disk
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" >
+            
+                <span>
+            
+                    
+                    initrd
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../Misc/">
+            
+                <a href="../Misc/">
+            
+                    
+                    Misc
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../Misc/how_kernel_compiled.html">
+            
+                <a href="../Misc/how_kernel_compiled.html">
+            
+                    
+                    How the kernel is compiled
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../Misc/linkers.html">
+            
+                <a href="../Misc/linkers.html">
+            
+                    
+                    Linkers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.3" data-path="../Misc/contribute.html">
+            
+                <a href="../Misc/contribute.html">
+            
+                    
+                    Linux kernel development
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.4" data-path="../Misc/program_startup.html">
+            
+                <a href="../Misc/program_startup.html">
+            
+                    
+                    Program startup process in userspace
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.5" >
+            
+                <span>
+            
+                    
+                    Write and Submit your first Linux kernel Patch
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.6" >
+            
+                <span>
+            
+                    
+                    Data types in the kernel
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../KernelStructures/">
+            
+                <a href="../KernelStructures/">
+            
+                    
+                    KernelStructures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../KernelStructures/idt.html">
+            
+                <a href="../KernelStructures/idt.html">
+            
+                    
+                    IDT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../LINKS.html">
+            
+                <a href="../LINKS.html">
+            
+                    
+                    Useful links
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../contributors.html">
+            
+                <a href="../contributors.html">
+            
+                    
+                    Contributors
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Last preparations before the kernel entry point</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="kernel-initialization-part-3">Kernel initialization. Part 3.</h1>
+<h2 id="last-preparations-before-the-kernel-entry-point">Last preparations before the kernel entry point</h2>
+<p>This is the third part of the Linux kernel initialization process series. In the previous <a href="https://github.com/0xAX/linux-insides/blob/master/Initialization/linux-initialization-2.md" target="_blank">part</a> we saw early interrupt and exception handling and will continue to dive into the linux kernel initialization process in the current part. Our next point is &apos;kernel entry point&apos; - <code>start_kernel</code> function from the <a href="https://github.com/torvalds/linux/blob/master/init/main.c" target="_blank">init/main.c</a> source code file. Yes, technically it is not kernel&apos;s entry point but the start of the generic kernel code which does not depend on certain architecture. But before we call the <code>start_kernel</code> function, we must do some preparations. So let&apos;s continue.</p>
+<h2 id="bootparams-again">boot_params again</h2>
+<p>In the previous part we stopped at setting Interrupt Descriptor Table and loading it in the <code>IDTR</code> register. At the next step after this we can see a call of the <code>copy_bootdata</code> function:</p>
+<pre><code class="lang-C">copy_bootdata(__va(real_mode_data));
+</code></pre>
+<p>This function takes one argument - virtual address of the <code>real_mode_data</code>. Remember that we passed the address of the <code>boot_params</code> structure from <a href="https://github.com/torvalds/linux/blob/master/arch/x86/include/uapi/asm/bootparam.h#L114" target="_blank">arch/x86/include/uapi/asm/bootparam.h</a>  to the <code>x86_64_start_kernel</code> function as first argument in <a href="https://github.com/torvalds/linux/blob/master/arch/x86/kernel/head_64.S" target="_blank">arch/x86/kernel/head_64.S</a>:</p>
+<pre><code>    /* rsi is pointer to real mode structure with interesting info.
+       pass it to C */
+    movq    %rsi, %rdi
+</code></pre><p>Now let&apos;s look at <code>__va</code> macro. This macro defined in <a href="https://github.com/torvalds/linux/blob/master/init/main.c" target="_blank">init/main.c</a>:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> __va(x)                 ((void *)((unsigned long)(x)+PAGE_OFFSET))</span>
+</code></pre>
+<p>where <code>PAGE_OFFSET</code> is <code>__PAGE_OFFSET</code> which is <code>0xffff880000000000</code> and the base virtual address of the direct mapping of all physical memory. So we&apos;re getting virtual address of the <code>boot_params</code> structure and pass it to the <code>copy_bootdata</code> function, where we copy <code>real_mod_data</code> to the <code>boot_params</code> which is declared in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/kernel/setup.h" target="_blank">arch/x86/kernel/setup.h</a></p>
+<pre><code class="lang-C"><span class="hljs-keyword">extern</span> <span class="hljs-keyword">struct</span> boot_params boot_params;
+</code></pre>
+<p>Let&apos;s look at the <code>copy_boot_data</code> implementation:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> __<span class="hljs-function">init <span class="hljs-title">copy_bootdata</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *real_mode_data)</span>
+</span>{
+    <span class="hljs-keyword">char</span> * command_line;
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> cmd_line_ptr;
+
+    <span class="hljs-built_in">memcpy</span>(&amp;boot_params, real_mode_data, <span class="hljs-keyword">sizeof</span> boot_params);
+    sanitize_boot_params(&amp;boot_params);
+    cmd_line_ptr = get_cmd_line_ptr();
+    <span class="hljs-keyword">if</span> (cmd_line_ptr) {
+        command_line = __va(cmd_line_ptr);
+        <span class="hljs-built_in">memcpy</span>(boot_command_line, command_line, COMMAND_LINE_SIZE);
+    }
+}
+</code></pre>
+<p>First of all, note that this function is declared with <code>__init</code> prefix. It means that this function will be used only during the initialization and used memory will be freed.</p>
+<p>We can see declaration of two variables for the kernel command line and copying <code>real_mode_data</code> to the <code>boot_params</code> with the <code>memcpy</code> function. The next call of the <code>sanitize_boot_params</code> function which fills some fields of the <code>boot_params</code> structure like <code>ext_ramdisk_image</code> and etc... if bootloaders which fail to initialize unknown fields in <code>boot_params</code> to zero. After this we&apos;re getting address of the command line with the call of the <code>get_cmd_line_ptr</code> function:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> cmd_line_ptr = boot_params.hdr.cmd_line_ptr;
+cmd_line_ptr |= (u64)boot_params.ext_cmd_line_ptr &lt;&lt; <span class="hljs-number">32</span>;
+<span class="hljs-keyword">return</span> cmd_line_ptr;
+</code></pre>
+<p>which gets the 64-bit address of the command line from the kernel boot header and returns it. In the last step we check <code>cmd_line_ptr</code>, getting its virtual address and copy it to the <code>boot_command_line</code> which is just an array of bytes:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">extern</span> <span class="hljs-keyword">char</span> __initdata boot_command_line[];
+</code></pre>
+<p>After this we will have copied kernel command line and <code>boot_params</code> structure. In the next step we can see call of the <code>load_ucode_bsp</code> function which loads processor microcode, but we will not see it here.</p>
+<p>After microcode was loaded we can see the check of the <code>console_loglevel</code> and the <code>early_printk</code> function which prints <code>Kernel Alive</code> string. But you&apos;ll never see this output because <code>early_printk</code> is not initialized yet. It is a minor bug in the kernel and i sent the patch - <a href="http://git.kernel.org/cgit/linux/kernel/git/tip/tip.git/commit/?id=91d8f0416f3989e248d3a3d3efb821eda10a85d2" target="_blank">commit</a> and you will see it in the mainline soon. So you can skip this code.</p>
+<h2 id="move-on-init-pages">Move on init pages</h2>
+<p>In the next step, as we have copied <code>boot_params</code> structure, we need to move from the early page tables to the page tables for initialization process. We already set early page tables for switchover, you can read about it in the previous <a href="http://0xax.gitbooks.io/linux-insides/content/Initialization/linux-initialization-1.html" target="_blank">part</a> and dropped all it in the <code>reset_early_page_tables</code> function (you can read about it in the previous part too) and kept only kernel high mapping. After this we call:</p>
+<pre><code class="lang-C">    clear_page(init_level4_pgt);
+</code></pre>
+<p>function and pass <code>init_level4_pgt</code> which also defined in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/kernel/head_64.S" target="_blank">arch/x86/kernel/head_64.S</a> and looks:</p>
+<pre><code class="lang-assembly">NEXT_PAGE(init_level4_pgt)
+    .quad   level3_ident_pgt - __START_KERNEL_map + _KERNPG_TABLE
+    .org    init_level4_pgt + L4_PAGE_OFFSET*8, 0
+    .quad   level3_ident_pgt - __START_KERNEL_map + _KERNPG_TABLE
+    .org    init_level4_pgt + L4_START_KERNEL*8, 0
+    .quad   level3_kernel_pgt - __START_KERNEL_map + _PAGE_TABLE
+</code></pre>
+<p>which maps first 2 gigabytes and 512 megabytes for the kernel code, data and bss. <code>clear_page</code> function defined in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/lib/clear_page_64.S" target="_blank">arch/x86/lib/clear_page_64.S</a> let&apos;s look on this function:</p>
+<pre><code class="lang-assembly">ENTRY(clear_page)
+    CFI_STARTPROC
+    xorl %eax,%eax
+    movl $4096/64,%ecx
+    .p2align 4
+    .Lloop:
+    decl    %ecx
+#define PUT(x) movq %rax,x*8(%rdi)
+    movq %rax,(%rdi)
+    PUT(1)
+    PUT(2)
+    PUT(3)
+    PUT(4)
+    PUT(5)
+    PUT(6)
+    PUT(7)
+    leaq 64(%rdi),%rdi
+    jnz    .Lloop
+    nop
+    ret
+    CFI_ENDPROC
+    .Lclear_page_end:
+    ENDPROC(clear_page)
+</code></pre>
+<p>As you can understand from the function name it clears or fills with zeros page tables. First of all note that this function starts with the <code>CFI_STARTPROC</code> and <code>CFI_ENDPROC</code> which are expands to GNU assembly directives:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> CFI_STARTPROC           .cfi_startproc</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> CFI_ENDPROC             .cfi_endproc</span>
+</code></pre>
+<p>and used for debugging. After <code>CFI_STARTPROC</code> macro we zero out <code>eax</code> register and put 64 to the <code>ecx</code> (it will be a counter). Next we can see loop which starts with the <code>.Lloop</code> label and it starts from the <code>ecx</code> decrement. After it we put zero from the <code>rax</code> register to the <code>rdi</code> which contains the base address of the <code>init_level4_pgt</code> now and do the same procedure seven times but every time move <code>rdi</code> offset on 8. After this we will have first 64 bytes of the <code>init_level4_pgt</code> filled with zeros. In the next step we put the address of the <code>init_level4_pgt</code> with 64-bytes offset to the <code>rdi</code> again and repeat all operations until <code>ecx</code> reaches zero. In the end we will have <code>init_level4_pgt</code> filled with zeros.</p>
+<p>As we have <code>init_level4_pgt</code> filled with zeros, we set the last <code>init_level4_pgt</code> entry to kernel high mapping with the:</p>
+<pre><code class="lang-C">init_level4_pgt[<span class="hljs-number">511</span>] = early_level4_pgt[<span class="hljs-number">511</span>];
+</code></pre>
+<p>Remember that we dropped all <code>early_level4_pgt</code> entries in the <code>reset_early_page_table</code> function and kept only kernel high mapping there.</p>
+<p>The last step in the <code>x86_64_start_kernel</code> function is the call of the:</p>
+<pre><code class="lang-C">x86_64_start_reservations(real_mode_data);
+</code></pre>
+<p>function with the <code>real_mode_data</code> as argument. The <code>x86_64_start_reservations</code> function defined in the same source code file as the <code>x86_64_start_kernel</code> function and looks:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">void</span> __<span class="hljs-function">init <span class="hljs-title">x86_64_start_reservations</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *real_mode_data)</span>
+</span>{
+    <span class="hljs-keyword">if</span> (!boot_params.hdr.version)
+        copy_bootdata(__va(real_mode_data));
+
+    reserve_ebda_region();
+
+    start_kernel();
+}
+</code></pre>
+<p>You can see that it is the last function before we are in the kernel entry point - <code>start_kernel</code> function. Let&apos;s look what it does and how it works.</p>
+<h2 id="last-step-before-kernel-entry-point">Last step before kernel entry point</h2>
+<p>First of all we can see in the <code>x86_64_start_reservations</code> function the check for <code>boot_params.hdr.version</code>:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (!boot_params.hdr.version)
+    copy_bootdata(__va(real_mode_data));
+</code></pre>
+<p>and if it is zero we call <code>copy_bootdata</code> function again with the virtual address of the <code>real_mode_data</code> (read about its implementation).</p>
+<p>In the next step we can see the call of the <code>reserve_ebda_region</code> function which defined in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/kernel/head.c" target="_blank">arch/x86/kernel/head.c</a>. This function reserves memory block for the <code>EBDA</code> or Extended BIOS Data Area. The Extended BIOS Data Area located in the top of conventional memory and contains data about ports, disk parameters and etc...</p>
+<p>Let&apos;s look on the <code>reserve_ebda_region</code> function. It starts from the checking is paravirtualization enabled or not:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (paravirt_enabled())
+    <span class="hljs-keyword">return</span>;
+</code></pre>
+<p>we exit from the <code>reserve_ebda_region</code> function if paravirtualization is enabled because if it enabled the extended bios data area is absent. In the next step we need to get the end of the low memory:</p>
+<pre><code class="lang-C">lowmem = *(<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">short</span> *)__va(BIOS_LOWMEM_KILOBYTES);
+lowmem &lt;&lt;= <span class="hljs-number">10</span>;
+</code></pre>
+<p>We&apos;re getting the virtual address of the BIOS low memory in kilobytes and convert it to bytes with shifting it on 10 (multiply on 1024 in other words). After this we need to get the address of the extended BIOS data are with the:</p>
+<pre><code class="lang-C">ebda_addr = get_bios_ebda();
+</code></pre>
+<p>where <code>get_bios_ebda</code> function defined in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/bios_ebda.h" target="_blank">arch/x86/include/asm/bios_ebda.h</a> and looks like:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> <span class="hljs-title">get_bios_ebda</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+</span>{
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> address = *(<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">short</span> *)phys_to_virt(<span class="hljs-number">0x40E</span>);
+    address &lt;&lt;= <span class="hljs-number">4</span>;
+    <span class="hljs-keyword">return</span> address;
+}
+</code></pre>
+<p>Let&apos;s try to understand how it works. Here we can see that we converting physical address <code>0x40E</code> to the virtual, where <code>0x0040:0x000e</code> is the segment which contains base address of the extended BIOS data area. Don&apos;t worry that we are using <code>phys_to_virt</code> function for converting a physical address to virtual address. You can note that previously we have used <code>__va</code> macro for the same point, but <code>phys_to_virt</code> is the same:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> *<span class="hljs-title">phys_to_virt</span><span class="hljs-params">(phys_addr_t address)</span>
+</span>{
+         <span class="hljs-keyword">return</span> __va(address);
+}
+</code></pre>
+<p>only with one difference: we pass argument with the <code>phys_addr_t</code> which depends on <code>CONFIG_PHYS_ADDR_T_64BIT</code>:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> CONFIG_PHYS_ADDR_T_64BIT</span>
+    <span class="hljs-keyword">typedef</span> u64 <span class="hljs-keyword">phys_addr_t</span>;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
+    <span class="hljs-keyword">typedef</span> u32 <span class="hljs-keyword">phys_addr_t</span>;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+</code></pre>
+<p>This configuration option is enabled by <code>CONFIG_PHYS_ADDR_T_64BIT</code>. After that we got virtual address of the segment which stores the base address of the extended BIOS data area, we shift it on 4 and return. After this <code>ebda_addr</code> variables contains the base address of the extended BIOS data area.</p>
+<p>In the next step we check that address of the extended BIOS data area and low memory is not less than <code>INSANE_CUTOFF</code> macro</p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (ebda_addr &lt; INSANE_CUTOFF)
+    ebda_addr = LOWMEM_CAP;
+
+<span class="hljs-keyword">if</span> (lowmem &lt; INSANE_CUTOFF)
+    lowmem = LOWMEM_CAP;
+</code></pre>
+<p>which is:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> INSANE_CUTOFF        0x20000U</span>
+</code></pre>
+<p>or 128 kilobytes. In the last step we get lower part in the low memory and extended bios data area and call <code>memblock_reserve</code> function which will reserve memory region for extended bios data between low memory and one megabyte mark:</p>
+<pre><code class="lang-C">lowmem = min(lowmem, ebda_addr);
+lowmem = min(lowmem, LOWMEM_CAP);
+memblock_reserve(lowmem, <span class="hljs-number">0x100000</span> - lowmem);
+</code></pre>
+<p><code>memblock_reserve</code> function is defined at <a href="https://github.com/torvalds/linux/blob/master/mm/block.c" target="_blank">mm/block.c</a> and takes two parameters:</p>
+<ul>
+<li>base physical address;</li>
+<li>region size.</li>
+</ul>
+<p>and reserves memory region for the given base address and size. <code>memblock_reserve</code> is the first function in this book from linux kernel memory manager framework. We will take a closer look on memory manager soon, but now let&apos;s look at its implementation.</p>
+<h2 id="first-touch-of-the-linux-kernel-memory-manager-framework">First touch of the linux kernel memory manager framework</h2>
+<p>In the previous paragraph we stopped at the call of the <code>memblock_reserve</code> function and as i sad before it is the first function from the memory manager framework. Let&apos;s try to understand how it works. <code>memblock_reserve</code> function just calls:</p>
+<pre><code class="lang-C">memblock_reserve_region(base, size, MAX_NUMNODES, <span class="hljs-number">0</span>);
+</code></pre>
+<p>function and passes 4 parameters there:</p>
+<ul>
+<li>physical base address of the memory region;</li>
+<li>size of the memory region;</li>
+<li>maximum number of numa nodes;</li>
+<li>flags.</li>
+</ul>
+<p>At the start of the <code>memblock_reserve_region</code> body we can see definition of the <code>memblock_type</code> structure:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">struct</span> memblock_type *_rgn = &amp;memblock.reserved;
+</code></pre>
+<p>which presents the type of the memory block and looks:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">struct</span> memblock_type {
+         <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> cnt;
+         <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> max;
+         <span class="hljs-keyword">phys_addr_t</span> total_size;
+         <span class="hljs-keyword">struct</span> memblock_region *regions;
+};
+</code></pre>
+<p>As we need to reserve memory block for extended bios data area, the type of the current memory region is reserved where <code>memblock</code> structure is:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">struct</span> memblock {
+         <span class="hljs-keyword">bool</span> bottom_up;
+         <span class="hljs-keyword">phys_addr_t</span> current_limit;
+         <span class="hljs-keyword">struct</span> memblock_type memory;
+         <span class="hljs-keyword">struct</span> memblock_type reserved;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> CONFIG_HAVE_MEMBLOCK_PHYS_MAP</span>
+         <span class="hljs-keyword">struct</span> memblock_type physmem;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+};
+</code></pre>
+<p>and describes generic memory block. You can see that we initialize <code>_rgn</code> by assigning it to the address of the <code>memblock.reserved</code>. <code>memblock</code> is the global variable which looks:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">struct</span> memblock memblock __initdata_memblock = {
+    .memory.regions        = memblock_memory_init_regions,
+    .memory.cnt        = <span class="hljs-number">1</span>,
+    .memory.max        = INIT_MEMBLOCK_REGIONS,
+    .reserved.regions    = memblock_reserved_init_regions,
+    .reserved.cnt        = <span class="hljs-number">1</span>,
+    .reserved.max        = INIT_MEMBLOCK_REGIONS,
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> CONFIG_HAVE_MEMBLOCK_PHYS_MAP</span>
+    .physmem.regions    = memblock_physmem_init_regions,
+    .physmem.cnt        = <span class="hljs-number">1</span>,
+    .physmem.max        = INIT_PHYSMEM_REGIONS,
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+    .bottom_up        = <span class="hljs-literal">false</span>,
+    .current_limit        = MEMBLOCK_ALLOC_ANYWHERE,
+};
+</code></pre>
+<p>We will not dive into detail of this variable, but we will see all details about it in the parts about memory manager. Just note that <code>memblock</code> variable defined with the <code>__initdata_memblock</code> which is:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> __initdata_memblock __meminitdata</span>
+</code></pre>
+<p>and <code>__meminit_data</code> is:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> __meminitdata    __section(.meminit.data)</span>
+</code></pre>
+<p>From this we can conclude that all memory blocks will be in the <code>.meminit.data</code> section. After we defined <code>_rgn</code> we print information about it with <code>memblock_dbg</code> macros. You can enable it by passing <code>memblock=debug</code> to the kernel command line.</p>
+<p>After debugging lines were printed next is the call of the following function:</p>
+<pre><code class="lang-C">memblock_add_range(_rgn, base, size, nid, flags);
+</code></pre>
+<p>which adds new memory block region into the <code>.meminit.data</code> section. As we do not initialize <code>_rgn</code> but it just contains <code>&amp;memblock.reserved</code>, we just fill passed <code>_rgn</code> with the base address of the extended BIOS data area region, size of this region and flags:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (type-&gt;regions[<span class="hljs-number">0</span>].size == <span class="hljs-number">0</span>) {
+    WARN_ON(type-&gt;cnt != <span class="hljs-number">1</span> || type-&gt;total_size);
+    type-&gt;regions[<span class="hljs-number">0</span>].base = base;
+    type-&gt;regions[<span class="hljs-number">0</span>].size = size;
+    type-&gt;regions[<span class="hljs-number">0</span>].flags = flags;
+    memblock_set_region_node(&amp;type-&gt;regions[<span class="hljs-number">0</span>], nid);
+    type-&gt;total_size = size;
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>After we filled our region we can see the call of the <code>memblock_set_region_node</code> function with two parameters:</p>
+<ul>
+<li>address of the filled memory region;</li>
+<li>NUMA node id.</li>
+</ul>
+<p>where our regions represented by the <code>memblock_region</code> structure:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">struct</span> memblock_region {
+    <span class="hljs-keyword">phys_addr_t</span> base;
+    <span class="hljs-keyword">phys_addr_t</span> size;
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> flags;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> CONFIG_HAVE_MEMBLOCK_NODE_MAP</span>
+    <span class="hljs-keyword">int</span> nid;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+};
+</code></pre>
+<p>NUMA node id depends on <code>MAX_NUMNODES</code> macro which is defined in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/numa.h" target="_blank">include/linux/numa.h</a>:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MAX_NUMNODES    (1 &lt;&lt; NODES_SHIFT)</span>
+</code></pre>
+<p>where <code>NODES_SHIFT</code> depends on <code>CONFIG_NODES_SHIFT</code> configuration parameter and defined as:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> CONFIG_NODES_SHIFT</span>
+  <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> NODES_SHIFT     CONFIG_NODES_SHIFT</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
+  <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> NODES_SHIFT     0</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+</code></pre>
+<p><code>memblick_set_region_node</code> function just fills <code>nid</code> field from <code>memblock_region</code> with the given value:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">memblock_set_region_node</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> memblock_region *r, <span class="hljs-keyword">int</span> nid)</span>
+</span>{
+         r-&gt;nid = nid;
+}
+</code></pre>
+<p>After this we will have first reserved <code>memblock</code> for the extended bios data area in the <code>.meminit.data</code> section. <code>reserve_ebda_region</code> function finished its work on this step and we can go back to the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/kernel/head64.c" target="_blank">arch/x86/kernel/head64.c</a>.</p>
+<p>We finished all preparations before the kernel entry point! The last step in the <code>x86_64_start_reservations</code> function is the call of the:</p>
+<pre><code class="lang-C">start_kernel()
+</code></pre>
+<p>function from <a href="https://github.com/torvalds/linux/blob/master/init/main.c" target="_blank">init/main.c</a> file.</p>
+<p>That&apos;s all for this part.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>It is the end of the third part about linux kernel insides. In next part we will see the first initialization steps in the kernel entry point - <code>start_kernel</code> function. It will be the first step before we will see launch of the first <code>init</code> process.</p>
+<p>If you have any questions or suggestions write me a comment or ping me at <a href="https://twitter.com/0xAX" target="_blank">twitter</a>.</p>
+<p><strong>Please note that English is not my first language, And I am really sorry for any inconvenience. If you find any mistakes please send me PR to <a href="https://github.com/0xAX/linux-insides" target="_blank">linux-insides</a>.</strong></p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="http://stanislavs.org/helppc/bios_data_area.html" target="_blank">BIOS data area</a></li>
+<li><a href="http://www.kryslix.com/nsfaq/Q.6.html" target="_blank">What is in the extended BIOS data area on a PC?</a></li>
+<li><a href="https://github.com/0xAX/linux-insides/blob/master/Initialization/linux-initialization-2.md" target="_blank">Previous part</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="linux-initialization-2.html" class="navigation navigation-prev " aria-label="Previous page: Early interrupts handler">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="linux-initialization-4.html" class="navigation navigation-next " aria-label="Next page: Kernel entry point">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Last preparations before the kernel entry point","level":"1.3.3","depth":2,"next":{"title":"Kernel entry point","level":"1.3.4","depth":2,"path":"Initialization/linux-initialization-4.md","ref":"Initialization/linux-initialization-4.md","articles":[]},"previous":{"title":"Early interrupts handler","level":"1.3.2","depth":2,"path":"Initialization/linux-initialization-2.md","ref":"Initialization/linux-initialization-2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Initialization/linux-initialization-3.md","mtime":"2019-03-28T07:54:50.389Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-28T08:02:31.511Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

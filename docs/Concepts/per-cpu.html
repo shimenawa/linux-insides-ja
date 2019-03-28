@@ -1,0 +1,1563 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Per-CPU variables · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="cpumask.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Summary</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Booting/">
+            
+                <a href="../Booting/">
+            
+                    
+                    Booting
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Booting/linux-bootstrap-1.html">
+            
+                <a href="../Booting/linux-bootstrap-1.html">
+            
+                    
+                    From bootloader to kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Booting/linux-bootstrap-2.html">
+            
+                <a href="../Booting/linux-bootstrap-2.html">
+            
+                    
+                    First steps in the kernel setup code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Booting/linux-bootstrap-3.html">
+            
+                <a href="../Booting/linux-bootstrap-3.html">
+            
+                    
+                    Video mode initialization and transition to protected mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../Booting/linux-bootstrap-4.html">
+            
+                <a href="../Booting/linux-bootstrap-4.html">
+            
+                    
+                    Transition to 64-bit mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../Booting/linux-bootstrap-5.html">
+            
+                <a href="../Booting/linux-bootstrap-5.html">
+            
+                    
+                    Kernel decompression
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Initialization/">
+            
+                <a href="../Initialization/">
+            
+                    
+                    Initialization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Initialization/linux-initialization-1.html">
+            
+                <a href="../Initialization/linux-initialization-1.html">
+            
+                    
+                    First steps in the kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Initialization/linux-initialization-2.html">
+            
+                <a href="../Initialization/linux-initialization-2.html">
+            
+                    
+                    Early interrupts handler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Initialization/linux-initialization-3.html">
+            
+                <a href="../Initialization/linux-initialization-3.html">
+            
+                    
+                    Last preparations before the kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Initialization/linux-initialization-4.html">
+            
+                <a href="../Initialization/linux-initialization-4.html">
+            
+                    
+                    Kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../Initialization/linux-initialization-5.html">
+            
+                <a href="../Initialization/linux-initialization-5.html">
+            
+                    
+                    Continue architecture-specific boot-time initializations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../Initialization/linux-initialization-6.html">
+            
+                <a href="../Initialization/linux-initialization-6.html">
+            
+                    
+                    Architecture-specific initializations, again...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../Initialization/linux-initialization-7.html">
+            
+                <a href="../Initialization/linux-initialization-7.html">
+            
+                    
+                    End of the architecture-specific initializations, almost...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../Initialization/linux-initialization-8.html">
+            
+                <a href="../Initialization/linux-initialization-8.html">
+            
+                    
+                    Scheduler initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../Initialization/linux-initialization-9.html">
+            
+                <a href="../Initialization/linux-initialization-9.html">
+            
+                    
+                    RCU initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../Initialization/linux-initialization-10.html">
+            
+                <a href="../Initialization/linux-initialization-10.html">
+            
+                    
+                    End of initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../interrupts/">
+            
+                <a href="../interrupts/">
+            
+                    
+                    Interrupts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../interrupts/interrupts-1.html">
+            
+                <a href="../interrupts/interrupts-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../interrupts/interrupts-2.html">
+            
+                <a href="../interrupts/interrupts-2.html">
+            
+                    
+                    Start to dive into interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../interrupts/interrupts-3.html">
+            
+                <a href="../interrupts/interrupts-3.html">
+            
+                    
+                    Interrupt handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../interrupts/interrupts-4.html">
+            
+                <a href="../interrupts/interrupts-4.html">
+            
+                    
+                    Initialization of non-early interrupt gates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../interrupts/interrupts-5.html">
+            
+                <a href="../interrupts/interrupts-5.html">
+            
+                    
+                    Implementation of some exception handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../interrupts/interrupts-6.html">
+            
+                <a href="../interrupts/interrupts-6.html">
+            
+                    
+                    Handling Non-Maskable interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../interrupts/interrupts-7.html">
+            
+                <a href="../interrupts/interrupts-7.html">
+            
+                    
+                    Dive into external hardware interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../interrupts/interrupts-8.html">
+            
+                <a href="../interrupts/interrupts-8.html">
+            
+                    
+                    Initialization of external hardware interrupts structures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../interrupts/interrupts-9.html">
+            
+                <a href="../interrupts/interrupts-9.html">
+            
+                    
+                    Softirq, Tasklets and Workqueues
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../interrupts/interrupts-10.html">
+            
+                <a href="../interrupts/interrupts-10.html">
+            
+                    
+                    Last part
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../SysCall/">
+            
+                <a href="../SysCall/">
+            
+                    
+                    System calls
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../SysCall/syscall-1.html">
+            
+                <a href="../SysCall/syscall-1.html">
+            
+                    
+                    Introduction to system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../SysCall/syscall-2.html">
+            
+                <a href="../SysCall/syscall-2.html">
+            
+                    
+                    How the Linux kernel handles a system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../SysCall/syscall-3.html">
+            
+                <a href="../SysCall/syscall-3.html">
+            
+                    
+                    vsyscall and vDSO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../SysCall/syscall-4.html">
+            
+                <a href="../SysCall/syscall-4.html">
+            
+                    
+                    How the Linux kernel runs a program
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../SysCall/syscall-5.html">
+            
+                <a href="../SysCall/syscall-5.html">
+            
+                    
+                    Implementation of the open system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Timers/">
+            
+                <a href="../Timers/">
+            
+                    
+                    Timers and time management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../Timers/timers-1.html">
+            
+                <a href="../Timers/timers-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Timers/timers-2.html">
+            
+                <a href="../Timers/timers-2.html">
+            
+                    
+                    Clocksource framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Timers/timers-3.html">
+            
+                <a href="../Timers/timers-3.html">
+            
+                    
+                    The tick broadcast framework and dyntick
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../Timers/timers-4.html">
+            
+                <a href="../Timers/timers-4.html">
+            
+                    
+                    Introduction to timers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Timers/timers-5.html">
+            
+                <a href="../Timers/timers-5.html">
+            
+                    
+                    Clockevents framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../Timers/timers-6.html">
+            
+                <a href="../Timers/timers-6.html">
+            
+                    
+                    x86 related clock sources
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../Timers/timers-7.html">
+            
+                <a href="../Timers/timers-7.html">
+            
+                    
+                    Time related system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../SyncPrim/">
+            
+                <a href="../SyncPrim/">
+            
+                    
+                    Synchronization primitives
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../SyncPrim/sync-1.html">
+            
+                <a href="../SyncPrim/sync-1.html">
+            
+                    
+                    Introduction to spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../SyncPrim/sync-2.html">
+            
+                <a href="../SyncPrim/sync-2.html">
+            
+                    
+                    Queued spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../SyncPrim/sync-3.html">
+            
+                <a href="../SyncPrim/sync-3.html">
+            
+                    
+                    Semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../SyncPrim/sync-4.html">
+            
+                <a href="../SyncPrim/sync-4.html">
+            
+                    
+                    Mutex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../SyncPrim/sync-5.html">
+            
+                <a href="../SyncPrim/sync-5.html">
+            
+                    
+                    Reader/Writer semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../SyncPrim/sync-6.html">
+            
+                <a href="../SyncPrim/sync-6.html">
+            
+                    
+                    SeqLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" >
+            
+                <span>
+            
+                    
+                    RCU
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" >
+            
+                <span>
+            
+                    
+                    Lockdep
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../mm/">
+            
+                <a href="../mm/">
+            
+                    
+                    Memory management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../mm/linux-mm-1.html">
+            
+                <a href="../mm/linux-mm-1.html">
+            
+                    
+                    Memblock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../mm/linux-mm-2.html">
+            
+                <a href="../mm/linux-mm-2.html">
+            
+                    
+                    Fixmaps and ioremap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../mm/linux-mm-3.html">
+            
+                <a href="../mm/linux-mm-3.html">
+            
+                    
+                    kmemcheck
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../Cgroups/">
+            
+                <a href="../Cgroups/">
+            
+                    
+                    Cgroups
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../Cgroups/cgroups1.html">
+            
+                <a href="../Cgroups/cgroups1.html">
+            
+                    
+                    Introduction to Control Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    SMP
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.11.1" data-path="per-cpu.html">
+            
+                <a href="per-cpu.html">
+            
+                    
+                    Per-CPU variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="cpumask.html">
+            
+                <a href="cpumask.html">
+            
+                    
+                    Cpumasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="initcall.html">
+            
+                <a href="initcall.html">
+            
+                    
+                    The initcall mechanism
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../DataStructures/">
+            
+                <a href="../DataStructures/">
+            
+                    
+                    Data Structures in the Linux Kernel
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../DataStructures/dlist.html">
+            
+                <a href="../DataStructures/dlist.html">
+            
+                    
+                    Doubly linked list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../DataStructures/radix-tree.html">
+            
+                <a href="../DataStructures/radix-tree.html">
+            
+                    
+                    Radix tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../DataStructures/bitmap.html">
+            
+                <a href="../DataStructures/bitmap.html">
+            
+                    
+                    Bit arrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../Theory/">
+            
+                <a href="../Theory/">
+            
+                    
+                    Theory
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../Theory/Paging.html">
+            
+                <a href="../Theory/Paging.html">
+            
+                    
+                    Paging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../Theory/ELF.html">
+            
+                <a href="../Theory/ELF.html">
+            
+                    
+                    Elf64
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../Theory/asm.html">
+            
+                <a href="../Theory/asm.html">
+            
+                    
+                    Inline assembly
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" >
+            
+                <span>
+            
+                    
+                    CPUID
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" >
+            
+                <span>
+            
+                    
+                    MSR
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" >
+            
+                <span>
+            
+                    
+                    Initial ram disk
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" >
+            
+                <span>
+            
+                    
+                    initrd
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../Misc/">
+            
+                <a href="../Misc/">
+            
+                    
+                    Misc
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../Misc/how_kernel_compiled.html">
+            
+                <a href="../Misc/how_kernel_compiled.html">
+            
+                    
+                    How the kernel is compiled
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../Misc/linkers.html">
+            
+                <a href="../Misc/linkers.html">
+            
+                    
+                    Linkers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.3" data-path="../Misc/contribute.html">
+            
+                <a href="../Misc/contribute.html">
+            
+                    
+                    Linux kernel development
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.4" data-path="../Misc/program_startup.html">
+            
+                <a href="../Misc/program_startup.html">
+            
+                    
+                    Program startup process in userspace
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.5" >
+            
+                <span>
+            
+                    
+                    Write and Submit your first Linux kernel Patch
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.6" >
+            
+                <span>
+            
+                    
+                    Data types in the kernel
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../KernelStructures/">
+            
+                <a href="../KernelStructures/">
+            
+                    
+                    KernelStructures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../KernelStructures/idt.html">
+            
+                <a href="../KernelStructures/idt.html">
+            
+                    
+                    IDT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../LINKS.html">
+            
+                <a href="../LINKS.html">
+            
+                    
+                    Useful links
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../contributors.html">
+            
+                <a href="../contributors.html">
+            
+                    
+                    Contributors
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Per-CPU variables</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="per-cpu-variables">Per-CPU variables</h1>
+<p>Per-CPU variables are one of the kernel features. You can understand the meaning of this feature by reading its name. We can create a variable and each processor core will have its own copy of this variable. In this part, we take a closer look at this feature and try to understand how it is implemented and how it works.</p>
+<p>The kernel provides an API for creating per-cpu variables - the <code>DEFINE_PER_CPU</code> macro:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> DEFINE_PER_CPU(type, name) \
+        DEFINE_PER_CPU_SECTION(type, name, <span class="hljs-string">&quot;&quot;</span>)</span>
+</code></pre>
+<p>This macro defined in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/percpu-defs.h" target="_blank">include/linux/percpu-defs.h</a> as many other macros for work with per-cpu variables. Now we will see how this feature is implemented.</p>
+<p>Take a look at the <code>DECLARE_PER_CPU</code> definition. We see that it takes 2 parameters: <code>type</code> and <code>name</code>, so we can use it to create per-cpu variables, for example like this:</p>
+<pre><code class="lang-C">DEFINE_PER_CPU(<span class="hljs-keyword">int</span>, per_cpu_n)
+</code></pre>
+<p>We pass the type and the name of our variable. <code>DEFINE_PER_CPU</code> calls the <code>DEFINE_PER_CPU_SECTION</code> macro and passes the same two parameters and empty string to it. Let&apos;s look at the definition of the <code>DEFINE_PER_CPU_SECTION</code>:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> DEFINE_PER_CPU_SECTION(type, name, sec)    \
+         __PCPU_ATTRS(sec) PER_CPU_DEF_ATTRIBUTES  \
+         __typeof__(type) name</span>
+</code></pre>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> __PCPU_ATTRS(sec)                                                \
+         __percpu __attribute__((section(PER_CPU_BASE_SECTION sec)))     \
+         PER_CPU_ATTRIBUTES</span>
+</code></pre>
+<p>where <code>section</code> is:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PER_CPU_BASE_SECTION <span class="hljs-string">&quot;.data..percpu&quot;</span></span>
+</code></pre>
+<p>After all macros are expanded we will get a global per-cpu variable:</p>
+<pre><code class="lang-C">__attribute__((section(<span class="hljs-string">&quot;.data..percpu&quot;</span>))) <span class="hljs-keyword">int</span> per_cpu_n
+</code></pre>
+<p>It means that we will have a <code>per_cpu_n</code> variable in the <code>.data..percpu</code> section. We can find this section in the <code>vmlinux</code>:</p>
+<pre><code>.data..percpu 00013a58  0000000000000000  0000000001a5c000  00e00000  2**12
+              CONTENTS, ALLOC, LOAD, DATA
+</code></pre><p>Ok, now we know that when we use the <code>DEFINE_PER_CPU</code> macro, a per-cpu variable in the <code>.data..percpu</code> section will be created. When the kernel initializes it calls the <code>setup_per_cpu_areas</code> function which loads the <code>.data..percpu</code> section multiple times, one section per CPU.</p>
+<p>Let&apos;s look at the per-CPU areas initialization process. It starts in the <a href="https://github.com/torvalds/linux/blob/master/init/main.c" target="_blank">init/main.c</a> from the call of the <code>setup_per_cpu_areas</code> function which is defined in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/kernel/setup_percpu.c" target="_blank">arch/x86/kernel/setup_percpu.c</a>.</p>
+<pre><code class="lang-C">pr_info(<span class="hljs-string">&quot;NR_CPUS:%d nr_cpumask_bits:%d nr_cpu_ids:%d nr_node_ids:%d\n&quot;</span>,
+        NR_CPUS, nr_cpumask_bits, nr_cpu_ids, nr_node_ids);
+</code></pre>
+<p>The <code>setup_per_cpu_areas</code> starts from the output information about the maximum number of CPUs set during kernel configuration with the <code>CONFIG_NR_CPUS</code> configuration option, actual number of CPUs, <code>nr_cpumask_bits</code> is the same that <code>NR_CPUS</code> bit for the new <code>cpumask</code> operators and number of <code>NUMA</code> nodes.</p>
+<p>We can see this output in the dmesg:</p>
+<pre><code>$ dmesg | grep percpu
+[    0.000000] setup_percpu: NR_CPUS:8 nr_cpumask_bits:8 nr_cpu_ids:8 nr_node_ids:1
+</code></pre><p>In the next step we check the <code>percpu</code> first chunk allocator. All percpu areas are allocated in chunks. The first chunk is used for the static percpu variables. The Linux kernel has <code>percpu_alloc</code> command line parameters which provides the type of the first chunk allocator. We can read about it in the kernel documentation:</p>
+<pre><code>percpu_alloc=    Select which percpu first chunk allocator to use.
+        Currently supported values are &quot;embed&quot; and &quot;page&quot;.
+        Archs may support subset or none of the    selections.
+        See comments in mm/percpu.c for details on each
+        allocator.  This parameter is primarily    for debugging
+        and performance comparison.
+</code></pre><p>The <a href="https://github.com/torvalds/linux/blob/master/mm/percpu.c" target="_blank">mm/percpu.c</a> contains the handler of this command line option:</p>
+<pre><code class="lang-C">early_param(<span class="hljs-string">&quot;percpu_alloc&quot;</span>, percpu_alloc_setup);
+</code></pre>
+<p>Where the <code>percpu_alloc_setup</code> function sets the <code>pcpu_chosen_fc</code> variable depends on the <code>percpu_alloc</code> parameter value. By default the first chunk allocator is <code>auto</code>:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">enum</span> pcpu_fc pcpu_chosen_fc __initdata = PCPU_FC_AUTO;
+</code></pre>
+<p>If the <code>percpu_alloc</code> parameter is not given to the kernel command line, the <code>embed</code> allocator will be used which embeds the first percpu chunk into bootmem with the <a href="http://0xax.gitbooks.io/linux-insides/content/mm/linux-mm-1.html" target="_blank">memblock</a>. The last allocator is the first chunk <code>page</code> allocator which maps the first chunk with <code>PAGE_SIZE</code> pages.</p>
+<p>As I wrote above, first of all we make a check of the first chunk allocator type in the <code>setup_per_cpu_areas</code>. We check that first chunk allocator is not page:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (pcpu_chosen_fc != PCPU_FC_PAGE) {
+    ...
+    ...
+    ...
+}
+</code></pre>
+<p>If it is not <code>PCPU_FC_PAGE</code>, we will use the <code>embed</code> allocator and allocate space for the first chunk with the <code>pcpu_embed_first_chunk</code> function:</p>
+<pre><code class="lang-C">rc = pcpu_embed_first_chunk(PERCPU_FIRST_CHUNK_RESERVE,
+                        dyn_size, atom_size,
+                        pcpu_cpu_distance,
+                        pcpu_fc_alloc, pcpu_fc_free);
+</code></pre>
+<p>As shown above, the <code>pcpu_embed_first_chunk</code> function embeds the first percpu chunk into bootmem then we pass a couple of parameters to the <code>pcup_embed_first_chunk</code>. They are as follows:</p>
+<ul>
+<li><code>PERCPU_FIRST_CHUNK_RESERVE</code> - the size of the reserved space for the static <code>percpu</code> variables;</li>
+<li><code>dyn_size</code> - minimum free size for dynamic allocation in bytes;</li>
+<li><code>atom_size</code> - all allocations are whole multiples of this and aligned to this parameter;</li>
+<li><code>pcpu_cpu_distance</code> - callback to determine distance between cpus;</li>
+<li><code>pcpu_fc_alloc</code> - function to allocate <code>percpu</code> page;</li>
+<li><code>pcpu_fc_free</code> - function to release <code>percpu</code> page.</li>
+</ul>
+<p>We calculate all of these parameters before the call of the <code>pcpu_embed_first_chunk</code>:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">const</span> <span class="hljs-keyword">size_t</span> dyn_size = PERCPU_MODULE_RESERVE + PERCPU_DYNAMIC_RESERVE - PERCPU_FIRST_CHUNK_RESERVE;
+<span class="hljs-keyword">size_t</span> atom_size;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> CONFIG_X86_64</span>
+        atom_size = PMD_SIZE;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
+        atom_size = PAGE_SIZE;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+</code></pre>
+<p>If the first chunk allocator is <code>PCPU_FC_PAGE</code>, we will use the <code>pcpu_page_first_chunk</code> instead of the <code>pcpu_embed_first_chunk</code>. After that <code>percpu</code> areas up, we setup <code>percpu</code> offset and its segment for every CPU with the <code>setup_percpu_segment</code> function (only for <code>x86</code> systems) and move some early data from the arrays to the <code>percpu</code> variables (<code>x86_cpu_to_apicid</code>, <code>irq_stack_ptr</code> and etc...). After the kernel finishes the initialization process, we will have loaded N <code>.data..percpu</code> sections, where N is the number of CPUs, and the section used by the bootstrap processor will contain an uninitialized variable created with the <code>DEFINE_PER_CPU</code> macro.</p>
+<p>The kernel provides an API for per-cpu variables manipulating:</p>
+<ul>
+<li>get_cpu_var(var)</li>
+<li>put_cpu_var(var)</li>
+</ul>
+<p>Let&apos;s look at the <code>get_cpu_var</code> implementation:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> get_cpu_var(var)     \
+(*({                         \
+         preempt_disable();  \
+         this_cpu_ptr(&amp;var); \
+}))</span>
+</code></pre>
+<p>The Linux kernel is preemptible and accessing a per-cpu variable requires us to know which processor the kernel is running on. So, current code must not be preempted and moved to the another CPU while accessing a per-cpu variable. That&apos;s why, first of all we can see a call of the <code>preempt_disable</code> function then a call of the <code>this_cpu_ptr</code> macro, which looks like:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> this_cpu_ptr(ptr) raw_cpu_ptr(ptr)</span>
+</code></pre>
+<p>and</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> raw_cpu_ptr(ptr)        per_cpu_ptr(ptr, 0)</span>
+</code></pre>
+<p>where <code>per_cpu_ptr</code> returns a pointer to the per-cpu variable for the given cpu (second parameter). After we&apos;ve created a per-cpu variable and made modifications to it, we must call the <code>put_cpu_var</code> macro which enables preemption with a call of <code>preempt_enable</code> function. So the typical usage of a per-cpu variable is as follows:</p>
+<pre><code class="lang-C">get_cpu_var(var);
+...
+<span class="hljs-comment">//Do something with the &apos;var&apos;</span>
+...
+put_cpu_var(var);
+</code></pre>
+<p>Let&apos;s look at the <code>per_cpu_ptr</code> macro:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> per_cpu_ptr(ptr, cpu)                             \
+({                                                        \
+        __verify_pcpu_ptr(ptr);                           \
+         SHIFT_PERCPU_PTR((ptr), per_cpu_offset((cpu)));  \
+})</span>
+</code></pre>
+<p>As I wrote above, this macro returns a per-cpu variable for the given cpu. First of all it calls <code>__verify_pcpu_ptr</code>:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> __verify_pcpu_ptr(ptr)</span>
+<span class="hljs-keyword">do</span> {
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">void</span> __percpu *__vpp_verify = (typeof((ptr) + <span class="hljs-number">0</span>))<span class="hljs-literal">NULL</span>;
+    (<span class="hljs-keyword">void</span>)__vpp_verify;
+} <span class="hljs-keyword">while</span> (<span class="hljs-number">0</span>)
+</code></pre>
+<p>which makes the given <code>ptr</code> type of <code>const void __percpu *</code>,</p>
+<p>After this we can see the call of the <code>SHIFT_PERCPU_PTR</code> macro with two parameters. As first parameter we pass our ptr and for second parameter we pass the cpu number to the <code>per_cpu_offset</code> macro:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> per_cpu_offset(x) (__per_cpu_offset[x])</span>
+</code></pre>
+<p>which expands to getting the <code>x</code> element from the <code>__per_cpu_offset</code> array:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">extern</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> __per_cpu_offset[NR_CPUS];
+</code></pre>
+<p>where <code>NR_CPUS</code> is the number of CPUs. The <code>__per_cpu_offset</code> array is filled with the distances between cpu-variable copies. For example all per-cpu data is <code>X</code> bytes in size, so if we access <code>__per_cpu_offset[Y]</code>, <code>X*Y</code> will be accessed. Let&apos;s look at the <code>SHIFT_PERCPU_PTR</code> implementation:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> SHIFT_PERCPU_PTR(__p, __offset)                                 \
+         RELOC_HIDE((typeof(*(__p)) __kernel __force *)(__p), (__offset))</span>
+</code></pre>
+<p><code>RELOC_HIDE</code> just returns offset <code>(typeof(ptr)) (__ptr + (off))</code> and it will return a pointer to the variable.</p>
+<p>That&apos;s all! Of course it is not the full API, but a general overview. It can be hard to start with, but to understand per-cpu variables you mainly need to understand the  <a href="https://github.com/torvalds/linux/blob/master/include/linux/percpu-defs.h" target="_blank">include/linux/percpu-defs.h</a> magic.</p>
+<p>Let&apos;s again look at the algorithm of getting a pointer to a per-cpu variable:</p>
+<ul>
+<li>The kernel creates multiple <code>.data..percpu</code> sections (one per-cpu) during initialization process;</li>
+<li>All variables created with the <code>DEFINE_PER_CPU</code> macro will be relocated to the first section or for CPU0;</li>
+<li><code>__per_cpu_offset</code> array filled with the distance (<code>BOOT_PERCPU_OFFSET</code>) between <code>.data..percpu</code> sections;</li>
+<li>When the <code>per_cpu_ptr</code> is called, for example for getting a pointer on a certain per-cpu variable for the third CPU, the <code>__per_cpu_offset</code> array will be accessed, where every index points to the required CPU.</li>
+</ul>
+<p>That&apos;s all.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Concepts">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="cpumask.html" class="navigation navigation-next " aria-label="Next page: Cpumasks">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Per-CPU variables","level":"1.11.1","depth":2,"next":{"title":"Cpumasks","level":"1.11.2","depth":2,"path":"Concepts/cpumask.md","ref":"Concepts/cpumask.md","articles":[]},"previous":{"title":"Concepts","level":"1.11","depth":1,"path":"Concepts/README.md","ref":"Concepts/README.md","articles":[{"title":"Per-CPU variables","level":"1.11.1","depth":2,"path":"Concepts/per-cpu.md","ref":"Concepts/per-cpu.md","articles":[]},{"title":"Cpumasks","level":"1.11.2","depth":2,"path":"Concepts/cpumask.md","ref":"Concepts/cpumask.md","articles":[]},{"title":"The initcall mechanism","level":"1.11.3","depth":2,"path":"Concepts/initcall.md","ref":"Concepts/initcall.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Concepts/per-cpu.md","mtime":"2019-03-28T07:54:50.386Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-28T08:02:31.511Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,1758 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Time related system calls · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../SyncPrim/" />
+    
+    
+    <link rel="prev" href="timers-6.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Summary</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Booting/">
+            
+                <a href="../Booting/">
+            
+                    
+                    Booting
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Booting/linux-bootstrap-1.html">
+            
+                <a href="../Booting/linux-bootstrap-1.html">
+            
+                    
+                    From bootloader to kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Booting/linux-bootstrap-2.html">
+            
+                <a href="../Booting/linux-bootstrap-2.html">
+            
+                    
+                    First steps in the kernel setup code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Booting/linux-bootstrap-3.html">
+            
+                <a href="../Booting/linux-bootstrap-3.html">
+            
+                    
+                    Video mode initialization and transition to protected mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../Booting/linux-bootstrap-4.html">
+            
+                <a href="../Booting/linux-bootstrap-4.html">
+            
+                    
+                    Transition to 64-bit mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../Booting/linux-bootstrap-5.html">
+            
+                <a href="../Booting/linux-bootstrap-5.html">
+            
+                    
+                    Kernel decompression
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Initialization/">
+            
+                <a href="../Initialization/">
+            
+                    
+                    Initialization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Initialization/linux-initialization-1.html">
+            
+                <a href="../Initialization/linux-initialization-1.html">
+            
+                    
+                    First steps in the kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Initialization/linux-initialization-2.html">
+            
+                <a href="../Initialization/linux-initialization-2.html">
+            
+                    
+                    Early interrupts handler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Initialization/linux-initialization-3.html">
+            
+                <a href="../Initialization/linux-initialization-3.html">
+            
+                    
+                    Last preparations before the kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Initialization/linux-initialization-4.html">
+            
+                <a href="../Initialization/linux-initialization-4.html">
+            
+                    
+                    Kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../Initialization/linux-initialization-5.html">
+            
+                <a href="../Initialization/linux-initialization-5.html">
+            
+                    
+                    Continue architecture-specific boot-time initializations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../Initialization/linux-initialization-6.html">
+            
+                <a href="../Initialization/linux-initialization-6.html">
+            
+                    
+                    Architecture-specific initializations, again...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../Initialization/linux-initialization-7.html">
+            
+                <a href="../Initialization/linux-initialization-7.html">
+            
+                    
+                    End of the architecture-specific initializations, almost...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../Initialization/linux-initialization-8.html">
+            
+                <a href="../Initialization/linux-initialization-8.html">
+            
+                    
+                    Scheduler initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../Initialization/linux-initialization-9.html">
+            
+                <a href="../Initialization/linux-initialization-9.html">
+            
+                    
+                    RCU initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../Initialization/linux-initialization-10.html">
+            
+                <a href="../Initialization/linux-initialization-10.html">
+            
+                    
+                    End of initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../interrupts/">
+            
+                <a href="../interrupts/">
+            
+                    
+                    Interrupts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../interrupts/interrupts-1.html">
+            
+                <a href="../interrupts/interrupts-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../interrupts/interrupts-2.html">
+            
+                <a href="../interrupts/interrupts-2.html">
+            
+                    
+                    Start to dive into interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../interrupts/interrupts-3.html">
+            
+                <a href="../interrupts/interrupts-3.html">
+            
+                    
+                    Interrupt handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../interrupts/interrupts-4.html">
+            
+                <a href="../interrupts/interrupts-4.html">
+            
+                    
+                    Initialization of non-early interrupt gates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../interrupts/interrupts-5.html">
+            
+                <a href="../interrupts/interrupts-5.html">
+            
+                    
+                    Implementation of some exception handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../interrupts/interrupts-6.html">
+            
+                <a href="../interrupts/interrupts-6.html">
+            
+                    
+                    Handling Non-Maskable interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../interrupts/interrupts-7.html">
+            
+                <a href="../interrupts/interrupts-7.html">
+            
+                    
+                    Dive into external hardware interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../interrupts/interrupts-8.html">
+            
+                <a href="../interrupts/interrupts-8.html">
+            
+                    
+                    Initialization of external hardware interrupts structures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../interrupts/interrupts-9.html">
+            
+                <a href="../interrupts/interrupts-9.html">
+            
+                    
+                    Softirq, Tasklets and Workqueues
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../interrupts/interrupts-10.html">
+            
+                <a href="../interrupts/interrupts-10.html">
+            
+                    
+                    Last part
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../SysCall/">
+            
+                <a href="../SysCall/">
+            
+                    
+                    System calls
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../SysCall/syscall-1.html">
+            
+                <a href="../SysCall/syscall-1.html">
+            
+                    
+                    Introduction to system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../SysCall/syscall-2.html">
+            
+                <a href="../SysCall/syscall-2.html">
+            
+                    
+                    How the Linux kernel handles a system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../SysCall/syscall-3.html">
+            
+                <a href="../SysCall/syscall-3.html">
+            
+                    
+                    vsyscall and vDSO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../SysCall/syscall-4.html">
+            
+                <a href="../SysCall/syscall-4.html">
+            
+                    
+                    How the Linux kernel runs a program
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../SysCall/syscall-5.html">
+            
+                <a href="../SysCall/syscall-5.html">
+            
+                    
+                    Implementation of the open system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Timers and time management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="timers-1.html">
+            
+                <a href="timers-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="timers-2.html">
+            
+                <a href="timers-2.html">
+            
+                    
+                    Clocksource framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="timers-3.html">
+            
+                <a href="timers-3.html">
+            
+                    
+                    The tick broadcast framework and dyntick
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="timers-4.html">
+            
+                <a href="timers-4.html">
+            
+                    
+                    Introduction to timers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="timers-5.html">
+            
+                <a href="timers-5.html">
+            
+                    
+                    Clockevents framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="timers-6.html">
+            
+                <a href="timers-6.html">
+            
+                    
+                    x86 related clock sources
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.7" data-path="timers-7.html">
+            
+                <a href="timers-7.html">
+            
+                    
+                    Time related system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../SyncPrim/">
+            
+                <a href="../SyncPrim/">
+            
+                    
+                    Synchronization primitives
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../SyncPrim/sync-1.html">
+            
+                <a href="../SyncPrim/sync-1.html">
+            
+                    
+                    Introduction to spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../SyncPrim/sync-2.html">
+            
+                <a href="../SyncPrim/sync-2.html">
+            
+                    
+                    Queued spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../SyncPrim/sync-3.html">
+            
+                <a href="../SyncPrim/sync-3.html">
+            
+                    
+                    Semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../SyncPrim/sync-4.html">
+            
+                <a href="../SyncPrim/sync-4.html">
+            
+                    
+                    Mutex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../SyncPrim/sync-5.html">
+            
+                <a href="../SyncPrim/sync-5.html">
+            
+                    
+                    Reader/Writer semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../SyncPrim/sync-6.html">
+            
+                <a href="../SyncPrim/sync-6.html">
+            
+                    
+                    SeqLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" >
+            
+                <span>
+            
+                    
+                    RCU
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" >
+            
+                <span>
+            
+                    
+                    Lockdep
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../mm/">
+            
+                <a href="../mm/">
+            
+                    
+                    Memory management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../mm/linux-mm-1.html">
+            
+                <a href="../mm/linux-mm-1.html">
+            
+                    
+                    Memblock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../mm/linux-mm-2.html">
+            
+                <a href="../mm/linux-mm-2.html">
+            
+                    
+                    Fixmaps and ioremap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../mm/linux-mm-3.html">
+            
+                <a href="../mm/linux-mm-3.html">
+            
+                    
+                    kmemcheck
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../Cgroups/">
+            
+                <a href="../Cgroups/">
+            
+                    
+                    Cgroups
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../Cgroups/cgroups1.html">
+            
+                <a href="../Cgroups/cgroups1.html">
+            
+                    
+                    Introduction to Control Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    SMP
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../Concepts/">
+            
+                <a href="../Concepts/">
+            
+                    
+                    Concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../Concepts/per-cpu.html">
+            
+                <a href="../Concepts/per-cpu.html">
+            
+                    
+                    Per-CPU variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../Concepts/cpumask.html">
+            
+                <a href="../Concepts/cpumask.html">
+            
+                    
+                    Cpumasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../Concepts/initcall.html">
+            
+                <a href="../Concepts/initcall.html">
+            
+                    
+                    The initcall mechanism
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../DataStructures/">
+            
+                <a href="../DataStructures/">
+            
+                    
+                    Data Structures in the Linux Kernel
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../DataStructures/dlist.html">
+            
+                <a href="../DataStructures/dlist.html">
+            
+                    
+                    Doubly linked list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../DataStructures/radix-tree.html">
+            
+                <a href="../DataStructures/radix-tree.html">
+            
+                    
+                    Radix tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../DataStructures/bitmap.html">
+            
+                <a href="../DataStructures/bitmap.html">
+            
+                    
+                    Bit arrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../Theory/">
+            
+                <a href="../Theory/">
+            
+                    
+                    Theory
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../Theory/Paging.html">
+            
+                <a href="../Theory/Paging.html">
+            
+                    
+                    Paging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../Theory/ELF.html">
+            
+                <a href="../Theory/ELF.html">
+            
+                    
+                    Elf64
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../Theory/asm.html">
+            
+                <a href="../Theory/asm.html">
+            
+                    
+                    Inline assembly
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" >
+            
+                <span>
+            
+                    
+                    CPUID
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" >
+            
+                <span>
+            
+                    
+                    MSR
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" >
+            
+                <span>
+            
+                    
+                    Initial ram disk
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" >
+            
+                <span>
+            
+                    
+                    initrd
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../Misc/">
+            
+                <a href="../Misc/">
+            
+                    
+                    Misc
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../Misc/how_kernel_compiled.html">
+            
+                <a href="../Misc/how_kernel_compiled.html">
+            
+                    
+                    How the kernel is compiled
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../Misc/linkers.html">
+            
+                <a href="../Misc/linkers.html">
+            
+                    
+                    Linkers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.3" data-path="../Misc/contribute.html">
+            
+                <a href="../Misc/contribute.html">
+            
+                    
+                    Linux kernel development
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.4" data-path="../Misc/program_startup.html">
+            
+                <a href="../Misc/program_startup.html">
+            
+                    
+                    Program startup process in userspace
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.5" >
+            
+                <span>
+            
+                    
+                    Write and Submit your first Linux kernel Patch
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.6" >
+            
+                <span>
+            
+                    
+                    Data types in the kernel
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../KernelStructures/">
+            
+                <a href="../KernelStructures/">
+            
+                    
+                    KernelStructures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../KernelStructures/idt.html">
+            
+                <a href="../KernelStructures/idt.html">
+            
+                    
+                    IDT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../LINKS.html">
+            
+                <a href="../LINKS.html">
+            
+                    
+                    Useful links
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../contributors.html">
+            
+                <a href="../contributors.html">
+            
+                    
+                    Contributors
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Time related system calls</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="timers-and-time-management-in-the-linux-kernel-part-7">Timers and time management in the Linux kernel. Part 7.</h1>
+<h2 id="time-related-system-calls-in-the-linux-kernel">Time related system calls in the Linux kernel</h2>
+<p>This is the seventh and last part <a href="https://0xax.gitbooks.io/linux-insides/content/Timers/index.html" target="_blank">chapter</a>, which describes timers and time management related stuff in the Linux kernel. In the previous <a href="https://0xax.gitbooks.io/linux-insides/content/Timers/timers-6.html" target="_blank">part</a>, we discussed timers in the context of <a href="https://en.wikipedia.org/wiki/X86-64" target="_blank">x86_64</a>: <a href="https://en.wikipedia.org/wiki/High_Precision_Event_Timer" target="_blank">High Precision Event Timer</a> and <a href="https://en.wikipedia.org/wiki/Time_Stamp_Counter" target="_blank">Time Stamp Counter</a>. Internal time management is an interesting part of the Linux kernel, but of course not only the kernel needs the <code>time</code> concept. Our programs also need to know time. In this part, we will consider implementation of some time management related <a href="https://en.wikipedia.org/wiki/System_call" target="_blank">system calls</a>. These system calls are:</p>
+<ul>
+<li><code>clock_gettime</code>;</li>
+<li><code>gettimeofday</code>;</li>
+<li><code>nanosleep</code>.</li>
+</ul>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+<h1 id="we-will-start-from-simple-userspace-c-program-and-see-all-way-from-the-call-of-the-standard-library-function-to-the-implementation-of-certain-system-call-as-each-architecture-provides-its-own-implementation-of-certain-system-call-we-will-consider-only-x8664-specific-implementations-of-system-calls-as-this-book-is-related-to-this-architecture">We will start from simple userspace <a href="https://en.wikipedia.org/wiki/C_%28programming_language%29" target="_blank">C</a> program and see all way from the call of the <a href="https://en.wikipedia.org/wiki/Standard_library" target="_blank">standard library</a> function to the implementation of certain system call. As each <a href="https://github.com/torvalds/linux/tree/master/arch" target="_blank">architecture</a> provides its own implementation of certain system call, we will consider only <a href="https://en.wikipedia.org/wiki/X86-64" target="_blank">x86_64</a> specific implementations of system calls, as this book is related to this architecture.</h1>
+<p>We will start from a simple userspace <a href="https://en.wikipedia.org/wiki/C_%28programming_language%29" target="_blank">C</a> program and see all way from the call of the <a href="https://en.wikipedia.org/wiki/Standard_library" target="_blank">standard library</a> function to the implementation of certain system calls. As each <a href="https://github.com/torvalds/linux/tree/master/arch" target="_blank">architecture</a> provides its own implementation of certain system calls, we will consider only <a href="https://en.wikipedia.org/wiki/X86-64" target="_blank">x86_64</a> specific implementations of system calls, as this book is related to this architecture.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>b9d8ea78bb41df5ffd2ea94b745298c91c8d171c</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Additionally, we will not consider the concept of system calls in this part, but only implementations of these three system calls in the Linux kernel. If you are interested in what is a <code>system call</code>, there is a special <a href="https://0xax.gitbooks.io/linux-insides/content/SysCall/index.html" target="_blank">chapter</a> about this.</p>
+<p>So, let&apos;s start from the <code>gettimeofday</code> system call.</p>
+<h2 id="implementation-of-the-gettimeofday-system-call">Implementation of the <code>gettimeofday</code> system call</h2>
+<p>As we can understand from the name <code>gettimeofday</code>, this function returns the current time. First of all, let&apos;s look at the following simple example:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;time.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;sys/time.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> **argv)</span>
+</span>{
+    <span class="hljs-keyword">char</span> buffer[<span class="hljs-number">40</span>];
+    <span class="hljs-keyword">struct</span> timeval time;
+
+    gettimeofday(&amp;time, <span class="hljs-literal">NULL</span>);
+
+    strftime(buffer, <span class="hljs-number">40</span>, <span class="hljs-string">&quot;Current date/time: %m-%d-%Y/%T&quot;</span>, localtime(&amp;time.tv_sec));
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%s\n&quot;</span>,buffer);
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>As you can see, here we call the <code>gettimeofday</code> function, which takes two parameters. The first parameter is a pointer to the <code>timeval</code> structure, which represents an elapsed time:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">struct</span> timeval {
+    <span class="hljs-keyword">time_t</span>      tv_sec;     <span class="hljs-comment">/* seconds */</span>
+    <span class="hljs-keyword">suseconds_t</span> tv_usec;    <span class="hljs-comment">/* microseconds */</span>
+};
+</code></pre>
+<p>The second parameter of the <code>gettimeofday</code> function is a pointer to the <code>timezone</code> structure which represents a timezone. In our example, we pass address of the <code>timeval time</code> to the <code>gettimeofday</code> function, the Linux kernel fills the given <code>timeval</code> structure and returns it back to us. Additionally, we format the time with the <code>strftime</code> function to get something more human readable than elapsed microseconds. Let&apos;s see the result:</p>
+<pre><code class="lang-C">~$ gcc date.c -o date
+~$ ./date
+Current date/time: <span class="hljs-number">03</span><span class="hljs-number">-26</span><span class="hljs-number">-2016</span>/<span class="hljs-number">16</span>:<span class="hljs-number">42</span>:<span class="hljs-number">02</span>
+</code></pre>
+<p>As you may already know, a userspace application does not call a system call directly from the kernel space. Before the actual system call entry will be called, we call a function from the standard library. In my case it is <a href="https://en.wikipedia.org/wiki/GNU_C_Library" target="_blank">glibc</a>, so I will consider this case. The implementation of the <code>gettimeofday</code> function is located in the <a href="https://sourceware.org/git/?p=glibc.git;a=blob;f=sysdeps/unix/sysv/linux/x86/gettimeofday.c;h=36f7c26ffb0e818709d032c605fec8c4bd22a14e;hb=HEAD" target="_blank">sysdeps/unix/sysv/linux/x86/gettimeofday.c</a> source code file. As you already may know, the <code>gettimeofday</code> is not a usual system call. It is located in the special area which is called <code>vDSO</code> (you can read more about it in the <a href="https://0xax.gitbooks.io/linux-insides/content/SysCall/syscall-3.html" target="_blank">part</a>, which describes this concept).</p>
+<p>The <code>glibc</code> implementation of <code>gettimeofday</code> tries to resolve the given symbol; in our case this symbol is <code>__vdso_gettimeofday</code> by the call of the <code>_dl_vdso_vsym</code> internal function. If the symbol cannot be resolved, it returns <code>NULL</code> and we fallback to the call of the usual system call:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">return</span> (_dl_vdso_vsym (<span class="hljs-string">&quot;__vdso_gettimeofday&quot;</span>, &amp;linux26)
+  ?: (<span class="hljs-keyword">void</span>*) (&amp;__gettimeofday_syscall));
+</code></pre>
+<p>The <code>gettimeofday</code> entry is located in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/entry/vdso/vclock_gettime.c" target="_blank">arch/x86/entry/vdso/vclock_gettime.c</a> source code file. As we can see the <code>gettimeofday</code> is a weak alias of the <code>__vdso_gettimeofday</code>:</p>
+<pre><code class="lang-C">int gettimeofday(struct timeval *, struct timezone *)
+    __attribute__((weak, alias(&quot;__vdso_gettimeofday&quot;)));
+</code></pre>
+<p>The <code>__vdso_gettimeofday</code> is defined in the same source code file and calls the <code>do_realtime</code> function if the given <code>timeval</code> is not null:</p>
+<pre><code class="lang-C">notrace <span class="hljs-keyword">int</span> __vdso_gettimeofday(<span class="hljs-keyword">struct</span> timeval *tv, <span class="hljs-keyword">struct</span> timezone *tz)
+{
+    <span class="hljs-keyword">if</span> (likely(tv != <span class="hljs-literal">NULL</span>)) {
+        <span class="hljs-keyword">if</span> (unlikely(do_realtime((<span class="hljs-keyword">struct</span> timespec *)tv) == VCLOCK_NONE))
+            <span class="hljs-keyword">return</span> vdso_fallback_gtod(tv, tz);
+        tv-&gt;tv_usec /= <span class="hljs-number">1000</span>;
+    }
+    <span class="hljs-keyword">if</span> (unlikely(tz != <span class="hljs-literal">NULL</span>)) {
+        tz-&gt;tz_minuteswest = gtod-&gt;tz_minuteswest;
+        tz-&gt;tz_dsttime = gtod-&gt;tz_dsttime;
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>If the <code>do_realtime</code> will fail, we fallback to the real system call via call the <code>syscall</code> instruction and passing the <code>__NR_gettimeofday</code> system call number and the given <code>timeval</code> and <code>timezone</code>:</p>
+<pre><code class="lang-C"><span class="hljs-function">notrace <span class="hljs-keyword">static</span> <span class="hljs-keyword">long</span> <span class="hljs-title">vdso_fallback_gtod</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> timeval *tv, <span class="hljs-keyword">struct</span> timezone *tz)</span>
+</span>{
+    <span class="hljs-keyword">long</span> ret;
+
+    <span class="hljs-keyword">asm</span>(<span class="hljs-string">&quot;syscall&quot;</span> : <span class="hljs-string">&quot;=a&quot;</span> (ret) :
+        <span class="hljs-string">&quot;0&quot;</span> (__NR_gettimeofday), <span class="hljs-string">&quot;D&quot;</span> (tv), <span class="hljs-string">&quot;S&quot;</span> (tz) : <span class="hljs-string">&quot;memory&quot;</span>);
+    <span class="hljs-keyword">return</span> ret;
+}
+</code></pre>
+<p>The <code>do_realtime</code> function gets the time data from the <code>vsyscall_gtod_data</code> structure which is defined in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/vgtod.h#L16" target="_blank">arch/x86/include/asm/vgtod.h</a> header file and contains mapping of the <code>timespec</code> structure and a couple of fields which are related to the current clock source in the system. This function fills the given <code>timeval</code> structure with values from the <code>vsyscall_gtod_data</code> which contains a time related data which is updated via timer interrupt.</p>
+<p>First of all we try to access the <code>gtod</code> or <code>global time of day</code> the <code>vsyscall_gtod_data</code> structure via the call of the <code>gtod_read_begin</code> and will continue to do it until it will be successful:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">do</span> {
+    seq = gtod_read_begin(gtod);
+    mode = gtod-&gt;vclock_mode;
+    ts-&gt;tv_sec = gtod-&gt;wall_time_sec;
+    ns = gtod-&gt;wall_time_snsec;
+    ns += vgetsns(&amp;mode);
+    ns &gt;&gt;= gtod-&gt;shift;
+} <span class="hljs-keyword">while</span> (unlikely(gtod_read_retry(gtod, seq)));
+
+ts-&gt;tv_sec += __iter_div_u64_rem(ns, NSEC_PER_SEC, &amp;ns);
+ts-&gt;tv_nsec = ns;
+</code></pre>
+<p>As we got access to the <code>gtod</code>, we fill the <code>ts-&gt;tv_sec</code> with the <code>gtod-&gt;wall_time_sec</code> which stores current time in seconds gotten from the <a href="https://en.wikipedia.org/wiki/Real-time_clock" target="_blank">real time clock</a> during initialization of the timekeeping subsystem in the Linux kernel and the same value but in nanoseconds. In the end of this code we just fill the given <code>timespec</code> structure with the resulted values.</p>
+<p>That&apos;s all about the <code>gettimeofday</code> system call. The next system call in our list is the <code>clock_gettime</code>.</p>
+<h2 id="implementation-of-the-clockgettime-system-call">Implementation of the clock_gettime system call</h2>
+<p>The <code>clock_gettime</code> function gets the time which is specified by the second parameter. Generally the <code>clock_gettime</code> function takes two parameters:</p>
+<ul>
+<li><code>clk_id</code> - clock identifier;</li>
+<li><code>timespec</code> - address of the <code>timespec</code> structure which represent elapsed time.</li>
+</ul>
+<p>Let&apos;s look on the following simple example:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;time.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;sys/time.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> **argv)</span>
+</span>{
+    <span class="hljs-keyword">struct</span> timespec elapsed_from_boot;
+
+    clock_gettime(CLOCK_BOOTTIME, &amp;elapsed_from_boot);
+
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d - seconds elapsed from boot\n&quot;</span>, elapsed_from_boot.tv_sec);
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>which prints <code>uptime</code> information:</p>
+<pre><code class="lang-C">~$ gcc uptime.c -o uptime
+~$ ./uptime
+<span class="hljs-number">14180</span> - seconds elapsed from boot
+</code></pre>
+<p>We can easily check the result with the help of the <a href="https://en.wikipedia.org/wiki/Uptime#Using_uptime" target="_blank">uptime</a> util:</p>
+<pre><code>~$ uptime
+up  3:56
+</code></pre><p>The <code>elapsed_from_boot.tv_sec</code> represents elapsed time in seconds, so:</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-number">14180</span> / <span class="hljs-number">60</span>
+<span class="hljs-number">236</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-number">14180</span> / <span class="hljs-number">60</span> / <span class="hljs-number">60</span>
+<span class="hljs-number">3</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-number">14180</span> / <span class="hljs-number">60</span> % <span class="hljs-number">60</span>
+<span class="hljs-number">56</span>
+</code></pre>
+<p>The <code>clock_id</code> maybe one of the following:</p>
+<ul>
+<li><code>CLOCK_REALTIME</code> - system wide clock which measures real or wall-clock time;</li>
+<li><code>CLOCK_REALTIME_COARSE</code> - faster version of the <code>CLOCK_REALTIME</code>;</li>
+<li><code>CLOCK_MONOTONIC</code> - represents monotonic time since some unspecified starting point; </li>
+<li><code>CLOCK_MONOTONIC_COARSE</code> - faster version of the <code>CLOCK_MONOTONIC</code>;</li>
+<li><code>CLOCK_MONOTONIC_RAW</code> - the same as the <code>CLOCK_MONOTONIC</code> but provides non <a href="https://en.wikipedia.org/wiki/Network_Time_Protocol" target="_blank">NTP</a> adjusted time. </li>
+<li><code>CLOCK_BOOTTIME</code> - the same as the <code>CLOCK_MONOTONIC</code> but plus time that the system was suspended;</li>
+<li><code>CLOCK_PROCESS_CPUTIME_ID</code> - per-process time consumed by all threads in the process;</li>
+<li><code>CLOCK_THREAD_CPUTIME_ID</code> - thread-specific clock.</li>
+</ul>
+<p>The <code>clock_gettime</code> is not usual syscall too, but as the <code>gettimeofday</code>, this system call is placed in the <code>vDSO</code> area. Entry of this system call is located in the same source code file - <a href="https://github.com/torvalds/linux/blob/master/arch/x86/entry/vdso/vclock_gettime.c" target="_blank">arch/x86/entry/vdso/vclock_gettime.c</a>) as for <code>gettimeofday</code>.</p>
+<p>The Implementation of the <code>clock_gettime</code> depends on the clock id. If we have passed the <code>CLOCK_REALTIME</code> clock id, the <code>do_realtime</code> function will be called:</p>
+<pre><code class="lang-C">notrace <span class="hljs-keyword">int</span> __vdso_clock_gettime(<span class="hljs-keyword">clockid_t</span> clock, <span class="hljs-keyword">struct</span> timespec *ts)
+{
+    <span class="hljs-keyword">switch</span> (clock) {
+    <span class="hljs-keyword">case</span> CLOCK_REALTIME:
+        <span class="hljs-keyword">if</span> (do_realtime(ts) == VCLOCK_NONE)
+            <span class="hljs-keyword">goto</span> fallback;
+        <span class="hljs-keyword">break</span>;
+    ...
+    ...
+    ...
+fallback:
+    <span class="hljs-keyword">return</span> vdso_fallback_gettime(clock, ts);
+}
+</code></pre>
+<p>In other cases, the <code>do_{name_of_clock_id}</code> function is called. Implementations of some of them is similar. For example if we will pass the <code>CLOCK_MONOTONIC</code> clock id:</p>
+<pre><code class="lang-C">...
+...
+...
+<span class="hljs-keyword">case</span> CLOCK_MONOTONIC:
+    <span class="hljs-keyword">if</span> (do_monotonic(ts) == VCLOCK_NONE)
+        <span class="hljs-keyword">goto</span> fallback;
+    <span class="hljs-keyword">break</span>;
+...
+...
+...
+</code></pre>
+<p>the <code>do_monotonic</code> function will be called which is very similar on the implementation of the <code>do_realtime</code>:</p>
+<pre><code class="lang-C">notrace <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> __<span class="hljs-function">always_inline <span class="hljs-title">do_monotonic</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> timespec *ts)</span>
+</span>{
+    <span class="hljs-keyword">do</span> {
+        seq = gtod_read_begin(gtod);
+        mode = gtod-&gt;vclock_mode;
+        ts-&gt;tv_sec = gtod-&gt;monotonic_time_sec;
+        ns = gtod-&gt;monotonic_time_snsec;
+        ns += vgetsns(&amp;mode);
+        ns &gt;&gt;= gtod-&gt;shift;
+    } <span class="hljs-keyword">while</span> (unlikely(gtod_read_retry(gtod, seq)));
+
+    ts-&gt;tv_sec += __iter_div_u64_rem(ns, NSEC_PER_SEC, &amp;ns);
+    ts-&gt;tv_nsec = ns;
+
+    <span class="hljs-keyword">return</span> mode;
+}
+</code></pre>
+<p>We already saw a little about the implementation of this function in the previous paragraph about the <code>gettimeofday</code>. There is only one difference here, that the <code>sec</code> and <code>nsec</code> of our <code>timespec</code> value will be based on the <code>gtod-&gt;monotonic_time_sec</code> instead of <code>gtod-&gt;wall_time_sec</code> which maps the value of the <code>tk-&gt;tkr_mono.xtime_nsec</code> or number of <a href="https://en.wikipedia.org/wiki/Nanosecond" target="_blank">nanoseconds</a> elapsed.</p>
+<p>That&apos;s all.</p>
+<h2 id="implementation-of-the-nanosleep-system-call">Implementation of the <code>nanosleep</code> system call</h2>
+<p>The last system call in our list is the <code>nanosleep</code>. As you can understand from its name, this function provides <code>sleeping</code> ability. Let&apos;s look on the following simple example:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;time.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span> <span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+</span>{    
+   <span class="hljs-keyword">struct</span> timespec ts = {<span class="hljs-number">5</span>,<span class="hljs-number">0</span>};
+
+   <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;sleep five seconds\n&quot;</span>);
+   nanosleep(&amp;ts, <span class="hljs-literal">NULL</span>);
+   <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;end of sleep\n&quot;</span>);
+
+   <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>If we will compile and run it, we will see the first line</p>
+<pre><code>~$ gcc sleep_test.c -o sleep
+~$ ./sleep
+sleep five seconds
+end of sleep
+</code></pre><p>and the second line after five seconds.</p>
+<p>The <code>nanosleep</code> is not located in the <code>vDSO</code> area like the <code>gettimeofday</code> and the <code>clock_gettime</code> functions. So, let&apos;s look how the <code>real</code> system call which is located in the kernel space will be called by the standard library. The implementation of the <code>nanosleep</code> system call will be called with the help of the <a href="http://www.felixcloutier.com/x86/SYSCALL.html" target="_blank">syscall</a> instruction. Before the execution of the <code>syscall</code> instruction, parameters of the system call must be put in processor <a href="https://en.wikipedia.org/wiki/Processor_register" target="_blank">registers</a> according to order which is described in the <a href="http://www.x86-64.org/documentation/abi.pdf" target="_blank">System V Application Binary Interface</a> or in other words:</p>
+<ul>
+<li><code>rdi</code> - first parameter;</li>
+<li><code>rsi</code> - second parameter;</li>
+<li><code>rdx</code> - third parameter;</li>
+<li><code>r10</code> - fourth parameter;</li>
+<li><code>r8</code> - fifth parameter;</li>
+<li><code>r9</code> - sixth parameter.</li>
+</ul>
+<p>The <code>nanosleep</code> system call has two parameters - two pointers to the <code>timespec</code> structures. The system call suspends the calling thread until the given timeout has elapsed. Additionally it will finish if a signal interrupts its execution. It takes two parameters, the first is <code>timespec</code> which represents timeout for the sleep. The second parameter is the pointer to the <code>timespec</code> structure too and it contains remainder of time if the call of the <code>nanosleep</code> was interrupted.</p>
+<p>As <code>nanosleep</code> has two parameters:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">nanosleep</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">struct</span> timespec *req, <span class="hljs-keyword">struct</span> timespec *rem)</span></span>;
+</code></pre>
+<p>To call system call, we need put the <code>req</code> to the <code>rdi</code> register, and the <code>rem</code> parameter to the <code>rsi</code> register. The <a href="https://en.wikipedia.org/wiki/GNU_C_Library" target="_blank">glibc</a> does these job in the <code>INTERNAL_SYSCALL</code> macro which is located in the <a href="https://sourceware.org/git/?p=glibc.git;a=blob;f=sysdeps/unix/sysv/linux/x86_64/sysdep.h;h=d023d68174d3dfb4e698160b31ae31ad291802e1;hb=HEAD" target="_blank">sysdeps/unix/sysv/linux/x86_64/sysdep.h</a> header file.</p>
+<pre><code class="lang-C"><span class="hljs-meta"># <span class="hljs-meta-keyword">define</span> INTERNAL_SYSCALL(name, err, nr, args...) \
+  INTERNAL_SYSCALL_NCS (__NR_##name, err, nr, ##args)</span>
+</code></pre>
+<p>which takes the name of the system call, storage for possible error during execution of system call, number of the system call (all <code>x86_64</code> system calls you can find in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/entry/syscalls/syscall_64.tbl" target="_blank">system calls table</a>) and arguments of certain system call. The <code>INTERNAL_SYSCALL</code> macro just expands to the call of the <code>INTERNAL_SYSCALL_NCS</code> macro, which prepares arguments of system call (puts them into the processor registers in correct order), executes <code>syscall</code> instruction and returns the result:</p>
+<pre><code class="lang-C"><span class="hljs-meta"># <span class="hljs-meta-keyword">define</span> INTERNAL_SYSCALL_NCS(name, err, nr, args...)      \
+  ({                                                                          \
+    unsigned long int resultvar;                                              \
+    LOAD_ARGS_##nr (args)                                                      \
+    LOAD_REGS_##nr                                                              \
+    asm volatile (                                                              \
+    <span class="hljs-string">&quot;syscall\n\t&quot;</span>                                                              \
+    : <span class="hljs-string">&quot;=a&quot;</span> (resultvar)                                                          \
+    : <span class="hljs-string">&quot;0&quot;</span> (name) ASM_ARGS_##nr : <span class="hljs-string">&quot;memory&quot;</span>, REGISTERS_CLOBBERED_BY_SYSCALL);   \
+    (long int) resultvar; })</span>
+</code></pre>
+<p>The <code>LOAD_ARGS_##nr</code> macro calls the <code>LOAD_ARGS_N</code> macro where the <code>N</code> is number of arguments of the system call. In our case, it will be the <code>LOAD_ARGS_2</code> macro. Ultimately all of these macros will be expanded to the following:</p>
+<pre><code class="lang-C"><span class="hljs-meta"># <span class="hljs-meta-keyword">define</span> LOAD_REGS_TYPES_1(t1, a1)                       \
+  register t1 _a1 asm (<span class="hljs-string">&quot;rdi&quot;</span>) = __arg1;                       \
+  LOAD_REGS_0</span>
+
+<span class="hljs-meta"># <span class="hljs-meta-keyword">define</span> LOAD_REGS_TYPES_2(t1, a1, t2, a2)                   \
+  register t2 _a2 asm (<span class="hljs-string">&quot;rsi&quot;</span>) = __arg2;                       \
+  LOAD_REGS_TYPES_1(t1, a1)</span>
+...
+...
+...
+</code></pre>
+<p>After the <code>syscall</code> instruction will be executed, the <a href="https://en.wikipedia.org/wiki/Context_switch" target="_blank">context switch</a> will occur and the kernel will transfer execution to the system call handler. The system call handler for the <code>nanosleep</code> system call is located in the <a href="https://github.com/torvalds/linux/blob/master/kernel/time/hrtimer.c" target="_blank">kernel/time/hrtimer.c</a> source code file and defined with the <code>SYSCALL_DEFINE2</code> macro helper:</p>
+<pre><code class="lang-C">SYSCALL_DEFINE2(nanosleep, <span class="hljs-keyword">struct</span> timespec __user *, rqtp,
+        <span class="hljs-keyword">struct</span> timespec __user *, rmtp)
+{
+    <span class="hljs-keyword">struct</span> timespec tu;
+
+    <span class="hljs-keyword">if</span> (copy_from_user(&amp;tu, rqtp, <span class="hljs-keyword">sizeof</span>(tu)))
+        <span class="hljs-keyword">return</span> -EFAULT;
+
+    <span class="hljs-keyword">if</span> (!timespec_valid(&amp;tu))
+        <span class="hljs-keyword">return</span> -EINVAL;
+
+    <span class="hljs-keyword">return</span> hrtimer_nanosleep(&amp;tu, rmtp, HRTIMER_MODE_REL, CLOCK_MONOTONIC);
+}
+</code></pre>
+<p>More about the <code>SYSCALL_DEFINE2</code> macro you may read in the <a href="https://0xax.gitbooks.io/linux-insides/content/SysCall/index.html" target="_blank">chapter</a> about system calls. If we look at the implementation of the <code>nanosleep</code> system call, first of all we will see that it starts from the call of the <code>copy_from_user</code> function. This function copies the given data from the userspace to kernelspace. In our case we copy timeout value to sleep to the kernelspace <code>timespec</code> structure and check that the given <code>timespec</code> is valid by the call of the <code>timesc_valid</code> function:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-keyword">bool</span> <span class="hljs-title">timespec_valid</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">struct</span> timespec *ts)</span>
+</span>{
+    <span class="hljs-keyword">if</span> (ts-&gt;tv_sec &lt; <span class="hljs-number">0</span>)
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">if</span> ((<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span>)ts-&gt;tv_nsec &gt;= NSEC_PER_SEC)
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+}
+</code></pre>
+<p>which just checks that the given <code>timespec</code> does not represent date before <code>1970</code> and nanoseconds does not overflow <code>1</code> second. The <code>nanosleep</code> function ends with the call of the <code>hrtimer_nanosleep</code> function from the same source code file. The <code>hrtimer_nanosleep</code> function creates a <a href="https://0xax.gitbooks.io/linux-insides/content/Timers/timers-4.html" target="_blank">timer</a> and calls the <code>do_nanosleep</code> function. The <code>do_nanosleep</code> does main job for us. This function provides loop:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">do</span> {
+    set_current_state(TASK_INTERRUPTIBLE);
+    hrtimer_start_expires(&amp;t-&gt;timer, mode);
+
+    <span class="hljs-keyword">if</span> (likely(t-&gt;task))
+        freezable_schedule();
+
+} <span class="hljs-keyword">while</span> (t-&gt;task &amp;&amp; !signal_pending(current));
+
+__set_current_state(TASK_RUNNING);
+<span class="hljs-keyword">return</span> t-&gt;task == <span class="hljs-literal">NULL</span>;
+</code></pre>
+<p>Which freezes current task during sleep. After we set <code>TASK_INTERRUPTIBLE</code> flag for the current task, the <code>hrtimer_start_expires</code> function starts the give high-resolution timer on the current processor. As the given high resolution timer will expire, the task will be again running.</p>
+<p>That&apos;s all.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This is the end of the seventh part of the <a href="https://0xax.gitbooks.io/linux-insides/content/Timers/index.html" target="_blank">chapter</a> that describes timers and timer management related stuff in the Linux kernel. In the previous part we saw <a href="https://en.wikipedia.org/wiki/X86-64" target="_blank">x86_64</a> specific clock sources. As I wrote in the beginning, this part is the last part of this chapter. We saw important time management related concepts like <code>clocksource</code> and <code>clockevents</code> frameworks, <code>jiffies</code> counter and etc., in this chpater. Of course this does not cover all of the time management in the Linux kernel. Many parts of this mostly related to the scheduling which we will see in other chapter. </p>
+<p>If you have questions or suggestions, feel free to ping me in twitter <a href="https://twitter.com/0xAX" target="_blank">0xAX</a>, drop me <a href="anotherworldofworld@gmail.com">email</a> or just create <a href="https://github.com/0xAX/linux-insides/issues/new" target="_blank">issue</a>.</p>
+<p><strong>Please note that English is not my first language and I am really sorry for any inconvenience. If you found any mistakes please send me PR to <a href="https://github.com/0xAX/linux-insides" target="_blank">linux-insides</a>.</strong></p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/System_call" target="_blank">system call</a></li>
+<li><a href="https://en.wikipedia.org/wiki/C_%28programming_language%29" target="_blank">C programming language</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Standard_library" target="_blank">standard library</a></li>
+<li><a href="https://en.wikipedia.org/wiki/GNU_C_Library" target="_blank">glibc</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Real-time_clock" target="_blank">real time clock</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Network_Time_Protocol" target="_blank">NTP</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Nanosecond" target="_blank">nanoseconds</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Processor_register" target="_blank">register</a></li>
+<li><a href="http://www.x86-64.org/documentation/abi.pdf" target="_blank">System V Application Binary Interface</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Context_switch" target="_blank">context switch</a></li>
+<li><a href="https://0xax.gitbooks.io/linux-insides/content/Timers/timers-4.html" target="_blank">Introduction to timers in the Linux kernel</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Uptime#Using_uptime" target="_blank">uptime</a></li>
+<li><a href="https://github.com/torvalds/linux/blob/master/arch/x86/entry/syscalls/syscall_64.tbl" target="_blank">system calls table for x86_64</a></li>
+<li><a href="https://en.wikipedia.org/wiki/High_Precision_Event_Timer" target="_blank">High Precision Event Timer</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Time_Stamp_Counter" target="_blank">Time Stamp Counter</a></li>
+<li><a href="https://en.wikipedia.org/wiki/X86-64" target="_blank">x86_64</a></li>
+<li><a href="https://0xax.gitbooks.io/linux-insides/content/Timers/timers-6.html" target="_blank">previous part</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="timers-6.html" class="navigation navigation-prev " aria-label="Previous page: x86 related clock sources">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../SyncPrim/" class="navigation navigation-next " aria-label="Next page: Synchronization primitives">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Time related system calls","level":"1.6.7","depth":2,"next":{"title":"Synchronization primitives","level":"1.7","depth":1,"path":"SyncPrim/README.md","ref":"SyncPrim/README.md","articles":[{"title":"Introduction to spinlocks","level":"1.7.1","depth":2,"path":"SyncPrim/sync-1.md","ref":"SyncPrim/sync-1.md","articles":[]},{"title":"Queued spinlocks","level":"1.7.2","depth":2,"path":"SyncPrim/sync-2.md","ref":"SyncPrim/sync-2.md","articles":[]},{"title":"Semaphores","level":"1.7.3","depth":2,"path":"SyncPrim/sync-3.md","ref":"SyncPrim/sync-3.md","articles":[]},{"title":"Mutex","level":"1.7.4","depth":2,"path":"SyncPrim/sync-4.md","ref":"SyncPrim/sync-4.md","articles":[]},{"title":"Reader/Writer semaphores","level":"1.7.5","depth":2,"path":"SyncPrim/sync-5.md","ref":"SyncPrim/sync-5.md","articles":[]},{"title":"SeqLock","level":"1.7.6","depth":2,"path":"SyncPrim/sync-6.md","ref":"SyncPrim/sync-6.md","articles":[]},{"title":"RCU","level":"1.7.7","depth":2,"ref":"","articles":[]},{"title":"Lockdep","level":"1.7.8","depth":2,"ref":"","articles":[]}]},"previous":{"title":"x86 related clock sources","level":"1.6.6","depth":2,"path":"Timers/timers-6.md","ref":"Timers/timers-6.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Timers/timers-7.md","mtime":"2019-03-28T07:54:50.412Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-28T07:57:01.662Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

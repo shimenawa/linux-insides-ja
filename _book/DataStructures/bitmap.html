@@ -1,0 +1,1696 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Bit arrays · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../Theory/" />
+    
+    
+    <link rel="prev" href="radix-tree.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Summary</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Booting/">
+            
+                <a href="../Booting/">
+            
+                    
+                    Booting
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Booting/linux-bootstrap-1.html">
+            
+                <a href="../Booting/linux-bootstrap-1.html">
+            
+                    
+                    From bootloader to kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Booting/linux-bootstrap-2.html">
+            
+                <a href="../Booting/linux-bootstrap-2.html">
+            
+                    
+                    First steps in the kernel setup code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Booting/linux-bootstrap-3.html">
+            
+                <a href="../Booting/linux-bootstrap-3.html">
+            
+                    
+                    Video mode initialization and transition to protected mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../Booting/linux-bootstrap-4.html">
+            
+                <a href="../Booting/linux-bootstrap-4.html">
+            
+                    
+                    Transition to 64-bit mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../Booting/linux-bootstrap-5.html">
+            
+                <a href="../Booting/linux-bootstrap-5.html">
+            
+                    
+                    Kernel decompression
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Initialization/">
+            
+                <a href="../Initialization/">
+            
+                    
+                    Initialization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Initialization/linux-initialization-1.html">
+            
+                <a href="../Initialization/linux-initialization-1.html">
+            
+                    
+                    First steps in the kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Initialization/linux-initialization-2.html">
+            
+                <a href="../Initialization/linux-initialization-2.html">
+            
+                    
+                    Early interrupts handler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Initialization/linux-initialization-3.html">
+            
+                <a href="../Initialization/linux-initialization-3.html">
+            
+                    
+                    Last preparations before the kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Initialization/linux-initialization-4.html">
+            
+                <a href="../Initialization/linux-initialization-4.html">
+            
+                    
+                    Kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../Initialization/linux-initialization-5.html">
+            
+                <a href="../Initialization/linux-initialization-5.html">
+            
+                    
+                    Continue architecture-specific boot-time initializations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../Initialization/linux-initialization-6.html">
+            
+                <a href="../Initialization/linux-initialization-6.html">
+            
+                    
+                    Architecture-specific initializations, again...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../Initialization/linux-initialization-7.html">
+            
+                <a href="../Initialization/linux-initialization-7.html">
+            
+                    
+                    End of the architecture-specific initializations, almost...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../Initialization/linux-initialization-8.html">
+            
+                <a href="../Initialization/linux-initialization-8.html">
+            
+                    
+                    Scheduler initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../Initialization/linux-initialization-9.html">
+            
+                <a href="../Initialization/linux-initialization-9.html">
+            
+                    
+                    RCU initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../Initialization/linux-initialization-10.html">
+            
+                <a href="../Initialization/linux-initialization-10.html">
+            
+                    
+                    End of initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../interrupts/">
+            
+                <a href="../interrupts/">
+            
+                    
+                    Interrupts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../interrupts/interrupts-1.html">
+            
+                <a href="../interrupts/interrupts-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../interrupts/interrupts-2.html">
+            
+                <a href="../interrupts/interrupts-2.html">
+            
+                    
+                    Start to dive into interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../interrupts/interrupts-3.html">
+            
+                <a href="../interrupts/interrupts-3.html">
+            
+                    
+                    Interrupt handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../interrupts/interrupts-4.html">
+            
+                <a href="../interrupts/interrupts-4.html">
+            
+                    
+                    Initialization of non-early interrupt gates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../interrupts/interrupts-5.html">
+            
+                <a href="../interrupts/interrupts-5.html">
+            
+                    
+                    Implementation of some exception handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../interrupts/interrupts-6.html">
+            
+                <a href="../interrupts/interrupts-6.html">
+            
+                    
+                    Handling Non-Maskable interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../interrupts/interrupts-7.html">
+            
+                <a href="../interrupts/interrupts-7.html">
+            
+                    
+                    Dive into external hardware interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../interrupts/interrupts-8.html">
+            
+                <a href="../interrupts/interrupts-8.html">
+            
+                    
+                    Initialization of external hardware interrupts structures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../interrupts/interrupts-9.html">
+            
+                <a href="../interrupts/interrupts-9.html">
+            
+                    
+                    Softirq, Tasklets and Workqueues
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../interrupts/interrupts-10.html">
+            
+                <a href="../interrupts/interrupts-10.html">
+            
+                    
+                    Last part
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../SysCall/">
+            
+                <a href="../SysCall/">
+            
+                    
+                    System calls
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../SysCall/syscall-1.html">
+            
+                <a href="../SysCall/syscall-1.html">
+            
+                    
+                    Introduction to system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../SysCall/syscall-2.html">
+            
+                <a href="../SysCall/syscall-2.html">
+            
+                    
+                    How the Linux kernel handles a system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../SysCall/syscall-3.html">
+            
+                <a href="../SysCall/syscall-3.html">
+            
+                    
+                    vsyscall and vDSO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../SysCall/syscall-4.html">
+            
+                <a href="../SysCall/syscall-4.html">
+            
+                    
+                    How the Linux kernel runs a program
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../SysCall/syscall-5.html">
+            
+                <a href="../SysCall/syscall-5.html">
+            
+                    
+                    Implementation of the open system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Timers/">
+            
+                <a href="../Timers/">
+            
+                    
+                    Timers and time management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../Timers/timers-1.html">
+            
+                <a href="../Timers/timers-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Timers/timers-2.html">
+            
+                <a href="../Timers/timers-2.html">
+            
+                    
+                    Clocksource framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Timers/timers-3.html">
+            
+                <a href="../Timers/timers-3.html">
+            
+                    
+                    The tick broadcast framework and dyntick
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../Timers/timers-4.html">
+            
+                <a href="../Timers/timers-4.html">
+            
+                    
+                    Introduction to timers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Timers/timers-5.html">
+            
+                <a href="../Timers/timers-5.html">
+            
+                    
+                    Clockevents framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../Timers/timers-6.html">
+            
+                <a href="../Timers/timers-6.html">
+            
+                    
+                    x86 related clock sources
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../Timers/timers-7.html">
+            
+                <a href="../Timers/timers-7.html">
+            
+                    
+                    Time related system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../SyncPrim/">
+            
+                <a href="../SyncPrim/">
+            
+                    
+                    Synchronization primitives
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../SyncPrim/sync-1.html">
+            
+                <a href="../SyncPrim/sync-1.html">
+            
+                    
+                    Introduction to spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../SyncPrim/sync-2.html">
+            
+                <a href="../SyncPrim/sync-2.html">
+            
+                    
+                    Queued spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../SyncPrim/sync-3.html">
+            
+                <a href="../SyncPrim/sync-3.html">
+            
+                    
+                    Semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../SyncPrim/sync-4.html">
+            
+                <a href="../SyncPrim/sync-4.html">
+            
+                    
+                    Mutex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../SyncPrim/sync-5.html">
+            
+                <a href="../SyncPrim/sync-5.html">
+            
+                    
+                    Reader/Writer semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../SyncPrim/sync-6.html">
+            
+                <a href="../SyncPrim/sync-6.html">
+            
+                    
+                    SeqLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" >
+            
+                <span>
+            
+                    
+                    RCU
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" >
+            
+                <span>
+            
+                    
+                    Lockdep
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../mm/">
+            
+                <a href="../mm/">
+            
+                    
+                    Memory management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../mm/linux-mm-1.html">
+            
+                <a href="../mm/linux-mm-1.html">
+            
+                    
+                    Memblock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../mm/linux-mm-2.html">
+            
+                <a href="../mm/linux-mm-2.html">
+            
+                    
+                    Fixmaps and ioremap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../mm/linux-mm-3.html">
+            
+                <a href="../mm/linux-mm-3.html">
+            
+                    
+                    kmemcheck
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../Cgroups/">
+            
+                <a href="../Cgroups/">
+            
+                    
+                    Cgroups
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../Cgroups/cgroups1.html">
+            
+                <a href="../Cgroups/cgroups1.html">
+            
+                    
+                    Introduction to Control Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    SMP
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../Concepts/">
+            
+                <a href="../Concepts/">
+            
+                    
+                    Concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../Concepts/per-cpu.html">
+            
+                <a href="../Concepts/per-cpu.html">
+            
+                    
+                    Per-CPU variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../Concepts/cpumask.html">
+            
+                <a href="../Concepts/cpumask.html">
+            
+                    
+                    Cpumasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../Concepts/initcall.html">
+            
+                <a href="../Concepts/initcall.html">
+            
+                    
+                    The initcall mechanism
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Data Structures in the Linux Kernel
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="dlist.html">
+            
+                <a href="dlist.html">
+            
+                    
+                    Doubly linked list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="radix-tree.html">
+            
+                <a href="radix-tree.html">
+            
+                    
+                    Radix tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.12.3" data-path="bitmap.html">
+            
+                <a href="bitmap.html">
+            
+                    
+                    Bit arrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../Theory/">
+            
+                <a href="../Theory/">
+            
+                    
+                    Theory
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../Theory/Paging.html">
+            
+                <a href="../Theory/Paging.html">
+            
+                    
+                    Paging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../Theory/ELF.html">
+            
+                <a href="../Theory/ELF.html">
+            
+                    
+                    Elf64
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../Theory/asm.html">
+            
+                <a href="../Theory/asm.html">
+            
+                    
+                    Inline assembly
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" >
+            
+                <span>
+            
+                    
+                    CPUID
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" >
+            
+                <span>
+            
+                    
+                    MSR
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" >
+            
+                <span>
+            
+                    
+                    Initial ram disk
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" >
+            
+                <span>
+            
+                    
+                    initrd
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../Misc/">
+            
+                <a href="../Misc/">
+            
+                    
+                    Misc
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../Misc/how_kernel_compiled.html">
+            
+                <a href="../Misc/how_kernel_compiled.html">
+            
+                    
+                    How the kernel is compiled
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../Misc/linkers.html">
+            
+                <a href="../Misc/linkers.html">
+            
+                    
+                    Linkers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.3" data-path="../Misc/contribute.html">
+            
+                <a href="../Misc/contribute.html">
+            
+                    
+                    Linux kernel development
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.4" data-path="../Misc/program_startup.html">
+            
+                <a href="../Misc/program_startup.html">
+            
+                    
+                    Program startup process in userspace
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.5" >
+            
+                <span>
+            
+                    
+                    Write and Submit your first Linux kernel Patch
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.6" >
+            
+                <span>
+            
+                    
+                    Data types in the kernel
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../KernelStructures/">
+            
+                <a href="../KernelStructures/">
+            
+                    
+                    KernelStructures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../KernelStructures/idt.html">
+            
+                <a href="../KernelStructures/idt.html">
+            
+                    
+                    IDT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../LINKS.html">
+            
+                <a href="../LINKS.html">
+            
+                    
+                    Useful links
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../contributors.html">
+            
+                <a href="../contributors.html">
+            
+                    
+                    Contributors
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Bit arrays</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="data-structures-in-the-linux-kernel">Data Structures in the Linux Kernel</h1>
+<h2 id="bit-arrays-and-bit-operations-in-the-linux-kernel">Bit arrays and bit operations in the Linux kernel</h2>
+<p>Besides different <a href="https://en.wikipedia.org/wiki/Linked_data_structure" target="_blank">linked</a> and <a href="https://en.wikipedia.org/wiki/Tree_%28data_structure%29" target="_blank">tree</a> based data structures, the Linux kernel provides <a href="https://en.wikipedia.org/wiki/Application_programming_interface" target="_blank">API</a> for <a href="https://en.wikipedia.org/wiki/Bit_array" target="_blank">bit arrays</a> or <code>bitmap</code>. Bit arrays are heavily used in the Linux kernel and following source code files contain common <code>API</code> for work with such structures:</p>
+<ul>
+<li><a href="https://github.com/torvalds/linux/blob/master/lib/bitmap.c" target="_blank">lib/bitmap.c</a></li>
+<li><a href="https://github.com/torvalds/linux/blob/master/include/linux/bitmap.h" target="_blank">include/linux/bitmap.h</a></li>
+</ul>
+<p>Besides these two files, there is also architecture-specific header file which provides optimized bit operations for certain architecture. We consider <a href="https://en.wikipedia.org/wiki/X86-64" target="_blank">x86_64</a> architecture, so in our case it will be: </p>
+<ul>
+<li><a href="https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/bitops.h" target="_blank">arch/x86/include/asm/bitops.h</a></li>
+</ul>
+<p>header file. As I just wrote above, the <code>bitmap</code> is heavily used in the Linux kernel. For example a <code>bit array</code> is used to store set of online/offline processors for systems which support <a href="https://www.kernel.org/doc/Documentation/cpu-hotplug.txt" target="_blank">hot-plug</a> cpu (more about this you can read in the <a href="https://0xax.gitbooks.io/linux-insides/content/Concepts/cpumask.html" target="_blank">cpumasks</a> part), a <code>bit array</code> stores set of allocated <a href="https://en.wikipedia.org/wiki/Interrupt_request_%28PC_architecture%29" target="_blank">irqs</a> during initialization of the Linux kernel and etc.</p>
+<p>So, the main goal of this part is to see how <code>bit arrays</code> are implemented in the Linux kernel. Let&apos;s start.</p>
+<h1 id="declaration-of-bit-array">Declaration of bit array</h1>
+<p>Before we will look on <code>API</code> for bitmaps manipulation, we must know how to declare it in the Linux kernel. There are two common method to declare own bit array. The first simple way to declare a bit array is to array of <code>unsigned long</code>. For example:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> my_bitmap[<span class="hljs-number">8</span>]
+</code></pre>
+<p>The second way is to use the <code>DECLARE_BITMAP</code> macro which is defined in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/types.h" target="_blank">include/linux/types.h</a> header file:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> DECLARE_BITMAP(name,bits) \
+    unsigned long name[BITS_TO_LONGS(bits)]</span>
+</code></pre>
+<p>We can see that <code>DECLARE_BITMAP</code> macro takes two parameters:</p>
+<ul>
+<li><code>name</code> - name of bitmap;</li>
+<li><code>bits</code> - amount of bits in bitmap;</li>
+</ul>
+<p>and just expands to the definition of <code>unsigned long</code> array with <code>BITS_TO_LONGS(bits)</code> elements, where the <code>BITS_TO_LONGS</code> macro converts a given number of bits to number of <code>longs</code> or in other words it calculates how many <code>8</code> byte elements in <code>bits</code>:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> BITS_PER_BYTE           8</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> DIV_ROUND_UP(n,d) (((n) + (d) - 1) / (d))</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> BITS_TO_LONGS(nr)       DIV_ROUND_UP(nr, BITS_PER_BYTE * sizeof(long))</span>
+</code></pre>
+<p>So, for example <code>DECLARE_BITMAP(my_bitmap, 64)</code> will produce:</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>(((<span class="hljs-number">64</span>) + (<span class="hljs-number">64</span>) - <span class="hljs-number">1</span>) / (<span class="hljs-number">64</span>))
+<span class="hljs-number">1</span>
+</code></pre>
+<p>and:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> my_bitmap[<span class="hljs-number">1</span>];
+</code></pre>
+<p>After we are able to declare a bit array, we can start to use it.</p>
+<h1 id="architecture-specific-bit-operations">Architecture-specific bit operations</h1>
+<p>We already saw above a couple of source code and header files which provide <a href="https://en.wikipedia.org/wiki/Application_programming_interface" target="_blank">API</a> for manipulation of bit arrays. The most important and widely used API of bit arrays is architecture-specific and located as we already know in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/bitops.h" target="_blank">arch/x86/include/asm/bitops.h</a> header file.</p>
+<p>First of all let&apos;s look at the two most important functions:</p>
+<ul>
+<li><code>set_bit</code>;</li>
+<li><code>clear_bit</code>.</li>
+</ul>
+<p>I think that there is no need to explain what these function do. This is already must be clear from their name. Let&apos;s look on their implementation. If you will look into the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/bitops.h" target="_blank">arch/x86/include/asm/bitops.h</a> header file, you will note that each of these functions represented by two variants: <a href="https://en.wikipedia.org/wiki/Linearizability" target="_blank">atomic</a> and not. Before we will start to dive into implementations of these functions, first of all we must to know a little about <code>atomic</code> operations.</p>
+<p>In simple words atomic operations guarantees that two or more operations will not be performed on the same data concurrently. The <code>x86</code> architecture provides a set of atomic instructions, for example <a href="http://x86.renejeschke.de/html/file_module_x86_id_328.html" target="_blank">xchg</a> instruction, <a href="http://x86.renejeschke.de/html/file_module_x86_id_41.html" target="_blank">cmpxchg</a> instruction and etc. Besides atomic instructions, some of non-atomic instructions can be made atomic with the help of the <a href="http://x86.renejeschke.de/html/file_module_x86_id_159.html" target="_blank">lock</a> instruction. It is enough to know about atomic operations for now, so we can begin to consider implementation of <code>set_bit</code> and <code>clear_bit</code> functions.</p>
+<p>First of all, let&apos;s start to consider <code>non-atomic</code> variants of this function. Names of non-atomic <code>set_bit</code> and <code>clear_bit</code> starts from double underscore. As we already know, all of these functions are defined in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/bitops.h" target="_blank">arch/x86/include/asm/bitops.h</a> header file and the first function is <code>__set_bit</code>:</p>
+<pre><code class="lang-C">static inline void __set_bit(long nr, volatile unsigned long *addr)
+{
+    asm volatile(&quot;bts %1,%0&quot; : ADDR : &quot;Ir&quot; (nr) : &quot;memory&quot;);
+}
+</code></pre>
+<p>As we can see it takes two arguments:</p>
+<ul>
+<li><code>nr</code> - number of bit in a bit array.</li>
+<li><code>addr</code> - address of a bit array where we need to set bit.</li>
+</ul>
+<p>Note that the <code>addr</code> parameter is defined with <code>volatile</code> keyword which tells to compiler that value maybe changed by the given address. The implementation of the <code>__set_bit</code> is pretty easy. As we can see, it just contains one line of <a href="https://en.wikipedia.org/wiki/Inline_assembler" target="_blank">inline assembler</a> code. In our case we are using the <a href="http://x86.renejeschke.de/html/file_module_x86_id_25.html" target="_blank">bts</a> instruction which selects a bit which is specified with the first operand (<code>nr</code> in our case) from the bit array, stores the value of the selected bit in the <a href="https://en.wikipedia.org/wiki/FLAGS_register" target="_blank">CF</a> flags register and set this bit.</p>
+<p>Note that we can see usage of the <code>nr</code>, but there is <code>addr</code> here. You already might guess that the secret is in <code>ADDR</code>. The <code>ADDR</code> is the macro which is defined in the same header code file and expands to the string which contains value of the given address and <code>+m</code> constraint:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ADDR                BITOP_ADDR(addr)</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> BITOP_ADDR(x) <span class="hljs-string">&quot;+m&quot;</span> (*(volatile long *) (x))</span>
+</code></pre>
+<p>Besides the <code>+m</code>, we can see other constraints in the <code>__set_bit</code> function. Let&apos;s look on they and try to understand what do they mean:</p>
+<ul>
+<li><code>+m</code> - represents memory operand where <code>+</code> tells that the given operand will be input and output operand;</li>
+<li><code>I</code> - represents integer constant;</li>
+<li><code>r</code> - represents register operand</li>
+</ul>
+<p>Besides these constraint, we also can see - the <code>memory</code> keyword which tells compiler that this code will change value in memory. That&apos;s all. Now let&apos;s look at the same function but at <code>atomic</code> variant. It looks more complex that its <code>non-atomic</code> variant:</p>
+<pre><code class="lang-C">static __always_inline void
+set_bit(long nr, volatile unsigned long *addr)
+{
+    if (IS_IMMEDIATE(nr)) {
+        asm volatile(LOCK_PREFIX &quot;orb %1,%0&quot;
+            : CONST_MASK_ADDR(nr, addr)
+            : &quot;iq&quot; ((u8)CONST_MASK(nr))
+            : &quot;memory&quot;);
+    } else {
+        asm volatile(LOCK_PREFIX &quot;bts %1,%0&quot;
+            : BITOP_ADDR(addr) : &quot;Ir&quot; (nr) : &quot;memory&quot;);
+    }
+}
+</code></pre>
+<p>First of all note that this function takes the same set of parameters that <code>__set_bit</code>, but additionally marked with the <code>__always_inline</code> attribute. The <code>__always_inline</code> is macro which defined in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/compiler-gcc.h" target="_blank">include/linux/compiler-gcc.h</a> and just expands to the <code>always_inline</code> attribute:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> __always_inline inline __attribute__((always_inline))</span>
+</code></pre>
+<p>which means that this function will be always inlined to reduce size of the Linux kernel image. Now let&apos;s try to understand implementation of the <code>set_bit</code> function. First of all we check a given number of bit at the beginning of the <code>set_bit</code> function. The <code>IS_IMMEDIATE</code> macro defined in the same <a href="https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/bitops.h" target="_blank">header</a> file and expands to the call of the builtin <a href="https://en.wikipedia.org/wiki/GNU_Compiler_Collection" target="_blank">gcc</a> function:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> IS_IMMEDIATE(nr)        (__builtin_constant_p(nr))</span>
+</code></pre>
+<p>The <code>__builtin_constant_p</code> builtin function returns <code>1</code> if the given parameter is known to be constant at compile-time and returns <code>0</code> in other case. We no need to use slow <code>bts</code> instruction to set bit if the given number of bit is known in compile time constant. We can just apply <a href="https://en.wikipedia.org/wiki/Bitwise_operation#OR" target="_blank">bitwise or</a> for byte from the give address which contains given bit and masked number of bits where high bit is <code>1</code> and other is zero. In other case if the given number of bit is not known constant at compile-time, we do the same as we did in the <code>__set_bit</code> function. The <code>CONST_MASK_ADDR</code> macro:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> CONST_MASK_ADDR(nr, addr)    BITOP_ADDR((void *)(addr) + ((nr)&gt;&gt;3))</span>
+</code></pre>
+<p>expands to the give address with offset to the byte which contains a given bit. For example we have address <code>0x1000</code> and the number of bit is <code>0x9</code>. So, as <code>0x9</code> is <code>one byte + one bit</code> our address with be <code>addr + 1</code>:</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>hex(<span class="hljs-number">0x1000</span> + (<span class="hljs-number">0x9</span> &gt;&gt; <span class="hljs-number">3</span>))
+<span class="hljs-string">&apos;0x1001&apos;</span>
+</code></pre>
+<p>The <code>CONST_MASK</code> macro represents our given number of bit as byte where high bit is <code>1</code> and other bits are <code>0</code>:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> CONST_MASK(nr)            (1 &lt;&lt; ((nr) &amp; 7))</span>
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>bin(<span class="hljs-number">1</span> &lt;&lt; (<span class="hljs-number">0x9</span> &amp; <span class="hljs-number">7</span>))
+<span class="hljs-string">&apos;0b10&apos;</span>
+</code></pre>
+<p>In the end we just apply bitwise <code>or</code> for these values. So, for example if our address will be <code>0x4097</code> and we need to set <code>0x9</code> bit:</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>bin(<span class="hljs-number">0x4097</span>)
+<span class="hljs-string">&apos;0b100000010010111&apos;</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>bin((<span class="hljs-number">0x4097</span> &gt;&gt; <span class="hljs-number">0x9</span>) | (<span class="hljs-number">1</span> &lt;&lt; (<span class="hljs-number">0x9</span> &amp; <span class="hljs-number">7</span>)))
+<span class="hljs-string">&apos;0b100010&apos;</span>
+</code></pre>
+<p>the <code>ninth</code> bit will be set.</p>
+<p>Note that all of these operations are marked with <code>LOCK_PREFIX</code> which is expands to the <a href="http://x86.renejeschke.de/html/file_module_x86_id_159.html" target="_blank">lock</a> instruction which guarantees atomicity of this operation.</p>
+<p>As we already know, besides the <code>set_bit</code> and <code>__set_bit</code> operations, the Linux kernel provides two inverse functions to clear bit in atomic and non-atomic context. They are <code>clear_bit</code> and <code>__clear_bit</code>. Both of these functions are defined in the same <a href="https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/bitops.h" target="_blank">header file</a> and takes the same set of arguments. But not only arguments are similar. Generally these functions are very similar on the <code>set_bit</code> and <code>__set_bit</code>. Let&apos;s look on the implementation of the non-atomic <code>__clear_bit</code> function:</p>
+<pre><code class="lang-C">static inline void __clear_bit(long nr, volatile unsigned long *addr)
+{
+    asm volatile(&quot;btr %1,%0&quot; : ADDR : &quot;Ir&quot; (nr));
+}
+</code></pre>
+<p>Yes. As we see, it takes the same set of arguments and contains very similar block of inline assembler. It just uses the <a href="http://x86.renejeschke.de/html/file_module_x86_id_24.html" target="_blank">btr</a> instruction instead of <code>bts</code>. As we can understand form the function&apos;s name, it clears a given bit by the given address. The <code>btr</code> instruction acts like <code>bts</code>. This instruction also selects a given bit which is specified in the first operand, stores its value in the <code>CF</code> flag register and clears this bit in the given bit array which is specified with second operand.</p>
+<p>The atomic variant of the <code>__clear_bit</code> is <code>clear_bit</code>:</p>
+<pre><code class="lang-C">static __always_inline void
+clear_bit(long nr, volatile unsigned long *addr)
+{
+    if (IS_IMMEDIATE(nr)) {
+        asm volatile(LOCK_PREFIX &quot;andb %1,%0&quot;
+            : CONST_MASK_ADDR(nr, addr)
+            : &quot;iq&quot; ((u8)~CONST_MASK(nr)));
+    } else {
+        asm volatile(LOCK_PREFIX &quot;btr %1,%0&quot;
+            : BITOP_ADDR(addr)
+            : &quot;Ir&quot; (nr));
+    }
+}
+</code></pre>
+<p>and as we can see it is very similar on <code>set_bit</code> and just contains two differences. The first difference it uses <code>btr</code> instruction to clear bit when the <code>set_bit</code> uses <code>bts</code> instruction to set bit. The second difference it uses negated mask and <code>and</code> instruction to clear bit in the given byte when the <code>set_bit</code> uses <code>or</code> instruction.</p>
+<p>That&apos;s all. Now we can set and clear bit in any bit array and and we can go to other operations on bitmasks.</p>
+<p>Most widely used operations on a bit arrays are set and clear bit in a bit array in the Linux kernel. But besides this operations it is useful to do additional operations on a bit array. Yet another widely used operation in the Linux kernel - is to know is a given bit set or not in a bit array. We can achieve this with the help of the <code>test_bit</code> macro. This macro is defined in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/bitops.h" target="_blank">arch/x86/include/asm/bitops.h</a> header file and expands to the call of the <code>constant_test_bit</code> or <code>variable_test_bit</code> depends on bit number:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> test_bit(nr, addr)            \
+    (__builtin_constant_p((nr))                 \
+     ? constant_test_bit((nr), (addr))            \
+     : variable_test_bit((nr), (addr)))</span>
+</code></pre>
+<p>So, if the <code>nr</code> is known in compile time constant, the <code>test_bit</code> will be expanded to the call of the <code>constant_test_bit</code> function or <code>variable_test_bit</code> in other case. Now let&apos;s look at implementations of these functions. Let&apos;s start from the <code>variable_test_bit</code>:</p>
+<pre><code class="lang-C">static inline int variable_test_bit(long nr, volatile const unsigned long *addr)
+{
+    int oldbit;
+
+    asm volatile(&quot;bt %2,%1\n\t&quot;
+             &quot;sbb %0,%0&quot;
+             : &quot;=r&quot; (oldbit)
+             : &quot;m&quot; (*(unsigned long *)addr), &quot;Ir&quot; (nr));
+
+    return oldbit;
+}
+</code></pre>
+<p>The <code>variable_test_bit</code> function takes similar set of arguments as <code>set_bit</code> and other function take. We also may see inline assembly code here which executes <a href="http://x86.renejeschke.de/html/file_module_x86_id_22.html" target="_blank">bt</a> and <a href="http://x86.renejeschke.de/html/file_module_x86_id_286.html" target="_blank">sbb</a> instruction. The <code>bt</code> or <code>bit test</code> instruction selects a given bit which is specified with first operand from the bit array which is specified with the second operand and stores its value in the <a href="https://en.wikipedia.org/wiki/FLAGS_register" target="_blank">CF</a> bit of flags register. The second <code>sbb</code> instruction subtracts first operand from second and subtracts value of the <code>CF</code>. So, here write a value of a given bit number from a given bit array to the <code>CF</code> bit of flags register and execute <code>sbb</code> instruction which calculates: <code>00000000 - CF</code> and writes the result to the <code>oldbit</code>.</p>
+<p>The <code>constant_test_bit</code> function does the same as we saw in the <code>set_bit</code>:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> __<span class="hljs-function">always_inline <span class="hljs-keyword">int</span> <span class="hljs-title">constant_test_bit</span><span class="hljs-params">(<span class="hljs-keyword">long</span> nr, <span class="hljs-keyword">const</span> <span class="hljs-keyword">volatile</span> <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> *addr)</span>
+</span>{
+    <span class="hljs-keyword">return</span> ((<span class="hljs-number">1U</span>L &lt;&lt; (nr &amp; (BITS_PER_LONG<span class="hljs-number">-1</span>))) &amp;
+        (addr[nr &gt;&gt; _BITOPS_LONG_SHIFT])) != <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>It generates a byte where high bit is <code>1</code> and other bits are <code>0</code> (as we saw in <code>CONST_MASK</code>) and applies bitwise <a href="https://en.wikipedia.org/wiki/Bitwise_operation#AND" target="_blank">and</a> to the byte which contains a given bit number.</p>
+<p>The next widely used bit array related operation is to change bit in a bit array. The Linux kernel provides two helper for this:</p>
+<ul>
+<li><code>__change_bit</code>;</li>
+<li><code>change_bit</code>.</li>
+</ul>
+<p>As you already can guess, these two variants are atomic and non-atomic as for example <code>set_bit</code> and <code>__set_bit</code>. For the start, let&apos;s look at the implementation of the <code>__change_bit</code> function:</p>
+<pre><code class="lang-C">static inline void __change_bit(long nr, volatile unsigned long *addr)
+{
+    asm volatile(&quot;btc %1,%0&quot; : ADDR : &quot;Ir&quot; (nr));
+}
+</code></pre>
+<p>Pretty easy, is not it? The implementation of the <code>__change_bit</code> is the same as <code>__set_bit</code>, but instead of <code>bts</code> instruction, we are using <a href="http://x86.renejeschke.de/html/file_module_x86_id_23.html" target="_blank">btc</a>. This instruction selects a given bit from a given bit array, stores its value in the <code>CF</code> and changes its value by the applying of complement operation. So, a bit with value <code>1</code> will be <code>0</code> and vice versa:</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>int(<span class="hljs-keyword">not</span> <span class="hljs-number">1</span>)
+<span class="hljs-number">0</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>int(<span class="hljs-keyword">not</span> <span class="hljs-number">0</span>)
+<span class="hljs-number">1</span>
+</code></pre>
+<p>The atomic version of the <code>__change_bit</code> is the <code>change_bit</code> function:</p>
+<pre><code class="lang-C">static inline void change_bit(long nr, volatile unsigned long *addr)
+{
+    if (IS_IMMEDIATE(nr)) {
+        asm volatile(LOCK_PREFIX &quot;xorb %1,%0&quot;
+            : CONST_MASK_ADDR(nr, addr)
+            : &quot;iq&quot; ((u8)CONST_MASK(nr)));
+    } else {
+        asm volatile(LOCK_PREFIX &quot;btc %1,%0&quot;
+            : BITOP_ADDR(addr)
+            : &quot;Ir&quot; (nr));
+    }
+}
+</code></pre>
+<p>It is similar on <code>set_bit</code> function, but also has two differences. The first difference is <code>xor</code> operation instead of <code>or</code> and the second is <code>btc</code> instead of <code>bts</code>.</p>
+<p>For this moment we know the most important architecture-specific operations with bit arrays. Time to look at generic bitmap API.</p>
+<h1 id="common-bit-operations">Common bit operations</h1>
+<p>Besides the architecture-specific API from the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/bitops.h" target="_blank">arch/x86/include/asm/bitops.h</a> header file, the Linux kernel provides common API for manipulation of bit arrays. As we know from the beginning of this part, we can find it in the  <a href="https://github.com/torvalds/linux/blob/master/include/linux/bitmap.h" target="_blank">include/linux/bitmap.h</a> header file and additionally in the * <a href="https://github.com/torvalds/linux/blob/master/lib/bitmap.c" target="_blank">lib/bitmap.c</a>  source code file. But before these source code files let&apos;s look into the <a href="https://github.com/torvalds/linux/blob/master/include/linux/bitops.h" target="_blank">include/linux/bitops.h</a> header file which provides a set of useful macro. Let&apos;s look on some of they.</p>
+<p>First of all let&apos;s look at following four macros:</p>
+<ul>
+<li><code>for_each_set_bit</code></li>
+<li><code>for_each_set_bit_from</code></li>
+<li><code>for_each_clear_bit</code></li>
+<li><code>for_each_clear_bit_from</code></li>
+</ul>
+<p>All of these macros provide iterator over certain set of bits in a bit array. The first macro iterates over bits which are set, the second does the same, but starts from a certain bits. The last two macros do the same, but iterates over clear bits. Let&apos;s look on implementation of the <code>for_each_set_bit</code> macro:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> for_each_set_bit(bit, addr, size) \
+    for ((bit) = find_first_bit((addr), (size));        \
+         (bit) &lt; (size);                    \
+         (bit) = find_next_bit((addr), (size), (bit) + 1))</span>
+</code></pre>
+<p>As we may see it takes three arguments and expands to the loop from first set bit which is returned as result of the <code>find_first_bit</code> function and to the last bit number while it is less than given size.</p>
+<p>Besides these four macros, the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/bitops.h" target="_blank">arch/x86/include/asm/bitops.h</a> provides API for rotation of <code>64-bit</code> or <code>32-bit</code> values and etc.</p>
+<p>The next <a href="https://github.com/torvalds/linux/blob/master/include/linux/bitmap.h" target="_blank">header</a> file which provides API for manipulation with a bit arrays. For example it provides two functions:</p>
+<ul>
+<li><code>bitmap_zero</code>;</li>
+<li><code>bitmap_fill</code>.</li>
+</ul>
+<p>To clear a bit array and fill it with <code>1</code>. Let&apos;s look on the implementation of the <code>bitmap_zero</code> function:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">bitmap_zero</span><span class="hljs-params">(<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> *dst, <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> nbits)</span>
+</span>{
+    <span class="hljs-keyword">if</span> (small_const_nbits(nbits))
+        *dst = <span class="hljs-number">0U</span>L;
+    <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> len = BITS_TO_LONGS(nbits) * <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span>);
+        <span class="hljs-built_in">memset</span>(dst, <span class="hljs-number">0</span>, len);
+    }
+}
+</code></pre>
+<p>First of all we can see the check for <code>nbits</code>. The <code>small_const_nbits</code> is macro which defined in the same header <a href="https://github.com/torvalds/linux/blob/master/include/linux/bitmap.h" target="_blank">file</a> and looks:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> small_const_nbits(nbits) \
+    (__builtin_constant_p(nbits) &amp;&amp; (nbits) &lt;= BITS_PER_LONG)</span>
+</code></pre>
+<p>As we may see it checks that <code>nbits</code> is known constant in compile time and <code>nbits</code> value does not overflow <code>BITS_PER_LONG</code> or <code>64</code>. If bits number does not overflow amount of bits in a <code>long</code> value we can just set to zero. In other case we need to calculate how many <code>long</code> values do we need to fill our bit array and fill it with <a href="http://man7.org/linux/man-pages/man3/memset.3.html" target="_blank">memset</a>.</p>
+<p>The implementation of the <code>bitmap_fill</code> function is similar on implementation of the <code>biramp_zero</code> function, except we fill a given bit array with <code>0xff</code> values or <code>0b11111111</code>:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">bitmap_fill</span><span class="hljs-params">(<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> *dst, <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> nbits)</span>
+</span>{
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> nlongs = BITS_TO_LONGS(nbits);
+    <span class="hljs-keyword">if</span> (!small_const_nbits(nbits)) {
+        <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span> len = (nlongs - <span class="hljs-number">1</span>) * <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span>);
+        <span class="hljs-built_in">memset</span>(dst, <span class="hljs-number">0xff</span>,  len);
+    }
+    dst[nlongs - <span class="hljs-number">1</span>] = BITMAP_LAST_WORD_MASK(nbits);
+}
+</code></pre>
+<p>Besides the <code>bitmap_fill</code> and <code>bitmap_zero</code> functions, the <a href="https://github.com/torvalds/linux/blob/master/include/linux/bitmap.h" target="_blank">include/linux/bitmap.h</a> header file provides <code>bitmap_copy</code> which is similar on the <code>bitmap_zero</code>, but just uses <a href="http://man7.org/linux/man-pages/man3/memcpy.3.html" target="_blank">memcpy</a> instead of <a href="http://man7.org/linux/man-pages/man3/memset.3.html" target="_blank">memset</a>. Also it provides bitwise operations for bit array like <code>bitmap_and</code>, <code>bitmap_or</code>, <code>bitamp_xor</code> and etc. We will not consider implementation of these functions because it is easy to understand implementations of these functions if you understood all from this part. Anyway if you are interested how did these function implemented, you may open <a href="https://github.com/torvalds/linux/blob/master/include/linux/bitmap.h" target="_blank">include/linux/bitmap.h</a> header file and start to research.</p>
+<p>That&apos;s all.</p>
+<h1 id="links">Links</h1>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Bit_array" target="_blank">bitmap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Linked_data_structure" target="_blank">linked data structures</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tree_%28data_structure%29" target="_blank">tree data structures</a> </li>
+<li><a href="https://www.kernel.org/doc/Documentation/cpu-hotplug.txt" target="_blank">hot-plug</a></li>
+<li><a href="https://0xax.gitbooks.io/linux-insides/content/Concepts/cpumask.html" target="_blank">cpumasks</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Interrupt_request_%28PC_architecture%29" target="_blank">IRQs</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Application_programming_interface" target="_blank">API</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Linearizability" target="_blank">atomic operations</a></li>
+<li><a href="http://x86.renejeschke.de/html/file_module_x86_id_328.html" target="_blank">xchg instruction</a></li>
+<li><a href="http://x86.renejeschke.de/html/file_module_x86_id_41.html" target="_blank">cmpxchg instruction</a></li>
+<li><a href="http://x86.renejeschke.de/html/file_module_x86_id_159.html" target="_blank">lock instruction</a></li>
+<li><a href="http://x86.renejeschke.de/html/file_module_x86_id_25.html" target="_blank">bts instruction</a></li>
+<li><a href="http://x86.renejeschke.de/html/file_module_x86_id_24.html" target="_blank">btr instruction</a></li>
+<li><a href="http://x86.renejeschke.de/html/file_module_x86_id_22.html" target="_blank">bt instruction</a></li>
+<li><a href="http://x86.renejeschke.de/html/file_module_x86_id_286.html" target="_blank">sbb instruction</a></li>
+<li><a href="http://x86.renejeschke.de/html/file_module_x86_id_23.html" target="_blank">btc instruction</a></li>
+<li><a href="http://man7.org/linux/man-pages/man3/memcpy.3.html" target="_blank">man memcpy</a> </li>
+<li><a href="http://man7.org/linux/man-pages/man3/memset.3.html" target="_blank">man memset</a></li>
+<li><a href="https://en.wikipedia.org/wiki/FLAGS_register" target="_blank">CF</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Inline_assembler" target="_blank">inline assembler</a></li>
+<li><a href="https://en.wikipedia.org/wiki/GNU_Compiler_Collection" target="_blank">gcc</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="radix-tree.html" class="navigation navigation-prev " aria-label="Previous page: Radix tree">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../Theory/" class="navigation navigation-next " aria-label="Next page: Theory">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Bit arrays","level":"1.12.3","depth":2,"next":{"title":"Theory","level":"1.13","depth":1,"path":"Theory/README.md","ref":"Theory/README.md","articles":[{"title":"Paging","level":"1.13.1","depth":2,"path":"Theory/Paging.md","ref":"Theory/Paging.md","articles":[]},{"title":"Elf64","level":"1.13.2","depth":2,"path":"Theory/ELF.md","ref":"Theory/ELF.md","articles":[]},{"title":"Inline assembly","level":"1.13.3","depth":2,"path":"Theory/asm.md","ref":"Theory/asm.md","articles":[]},{"title":"CPUID","level":"1.13.4","depth":2,"ref":"","articles":[]},{"title":"MSR","level":"1.13.5","depth":2,"ref":"","articles":[]}]},"previous":{"title":"Radix tree","level":"1.12.2","depth":2,"path":"DataStructures/radix-tree.md","ref":"DataStructures/radix-tree.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"DataStructures/bitmap.md","mtime":"2019-03-28T07:54:50.386Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-28T07:57:01.662Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

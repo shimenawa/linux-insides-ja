@@ -1,0 +1,1705 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>The initcall mechanism · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../DataStructures/" />
+    
+    
+    <link rel="prev" href="cpumask.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Summary</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Booting/">
+            
+                <a href="../Booting/">
+            
+                    
+                    Booting
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Booting/linux-bootstrap-1.html">
+            
+                <a href="../Booting/linux-bootstrap-1.html">
+            
+                    
+                    From bootloader to kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Booting/linux-bootstrap-2.html">
+            
+                <a href="../Booting/linux-bootstrap-2.html">
+            
+                    
+                    First steps in the kernel setup code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Booting/linux-bootstrap-3.html">
+            
+                <a href="../Booting/linux-bootstrap-3.html">
+            
+                    
+                    Video mode initialization and transition to protected mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../Booting/linux-bootstrap-4.html">
+            
+                <a href="../Booting/linux-bootstrap-4.html">
+            
+                    
+                    Transition to 64-bit mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../Booting/linux-bootstrap-5.html">
+            
+                <a href="../Booting/linux-bootstrap-5.html">
+            
+                    
+                    Kernel decompression
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Initialization/">
+            
+                <a href="../Initialization/">
+            
+                    
+                    Initialization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Initialization/linux-initialization-1.html">
+            
+                <a href="../Initialization/linux-initialization-1.html">
+            
+                    
+                    First steps in the kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Initialization/linux-initialization-2.html">
+            
+                <a href="../Initialization/linux-initialization-2.html">
+            
+                    
+                    Early interrupts handler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Initialization/linux-initialization-3.html">
+            
+                <a href="../Initialization/linux-initialization-3.html">
+            
+                    
+                    Last preparations before the kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Initialization/linux-initialization-4.html">
+            
+                <a href="../Initialization/linux-initialization-4.html">
+            
+                    
+                    Kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../Initialization/linux-initialization-5.html">
+            
+                <a href="../Initialization/linux-initialization-5.html">
+            
+                    
+                    Continue architecture-specific boot-time initializations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../Initialization/linux-initialization-6.html">
+            
+                <a href="../Initialization/linux-initialization-6.html">
+            
+                    
+                    Architecture-specific initializations, again...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../Initialization/linux-initialization-7.html">
+            
+                <a href="../Initialization/linux-initialization-7.html">
+            
+                    
+                    End of the architecture-specific initializations, almost...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../Initialization/linux-initialization-8.html">
+            
+                <a href="../Initialization/linux-initialization-8.html">
+            
+                    
+                    Scheduler initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../Initialization/linux-initialization-9.html">
+            
+                <a href="../Initialization/linux-initialization-9.html">
+            
+                    
+                    RCU initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../Initialization/linux-initialization-10.html">
+            
+                <a href="../Initialization/linux-initialization-10.html">
+            
+                    
+                    End of initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../interrupts/">
+            
+                <a href="../interrupts/">
+            
+                    
+                    Interrupts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../interrupts/interrupts-1.html">
+            
+                <a href="../interrupts/interrupts-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../interrupts/interrupts-2.html">
+            
+                <a href="../interrupts/interrupts-2.html">
+            
+                    
+                    Start to dive into interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../interrupts/interrupts-3.html">
+            
+                <a href="../interrupts/interrupts-3.html">
+            
+                    
+                    Interrupt handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../interrupts/interrupts-4.html">
+            
+                <a href="../interrupts/interrupts-4.html">
+            
+                    
+                    Initialization of non-early interrupt gates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../interrupts/interrupts-5.html">
+            
+                <a href="../interrupts/interrupts-5.html">
+            
+                    
+                    Implementation of some exception handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../interrupts/interrupts-6.html">
+            
+                <a href="../interrupts/interrupts-6.html">
+            
+                    
+                    Handling Non-Maskable interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../interrupts/interrupts-7.html">
+            
+                <a href="../interrupts/interrupts-7.html">
+            
+                    
+                    Dive into external hardware interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../interrupts/interrupts-8.html">
+            
+                <a href="../interrupts/interrupts-8.html">
+            
+                    
+                    Initialization of external hardware interrupts structures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../interrupts/interrupts-9.html">
+            
+                <a href="../interrupts/interrupts-9.html">
+            
+                    
+                    Softirq, Tasklets and Workqueues
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../interrupts/interrupts-10.html">
+            
+                <a href="../interrupts/interrupts-10.html">
+            
+                    
+                    Last part
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../SysCall/">
+            
+                <a href="../SysCall/">
+            
+                    
+                    System calls
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../SysCall/syscall-1.html">
+            
+                <a href="../SysCall/syscall-1.html">
+            
+                    
+                    Introduction to system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../SysCall/syscall-2.html">
+            
+                <a href="../SysCall/syscall-2.html">
+            
+                    
+                    How the Linux kernel handles a system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../SysCall/syscall-3.html">
+            
+                <a href="../SysCall/syscall-3.html">
+            
+                    
+                    vsyscall and vDSO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../SysCall/syscall-4.html">
+            
+                <a href="../SysCall/syscall-4.html">
+            
+                    
+                    How the Linux kernel runs a program
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../SysCall/syscall-5.html">
+            
+                <a href="../SysCall/syscall-5.html">
+            
+                    
+                    Implementation of the open system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Timers/">
+            
+                <a href="../Timers/">
+            
+                    
+                    Timers and time management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../Timers/timers-1.html">
+            
+                <a href="../Timers/timers-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Timers/timers-2.html">
+            
+                <a href="../Timers/timers-2.html">
+            
+                    
+                    Clocksource framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Timers/timers-3.html">
+            
+                <a href="../Timers/timers-3.html">
+            
+                    
+                    The tick broadcast framework and dyntick
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../Timers/timers-4.html">
+            
+                <a href="../Timers/timers-4.html">
+            
+                    
+                    Introduction to timers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Timers/timers-5.html">
+            
+                <a href="../Timers/timers-5.html">
+            
+                    
+                    Clockevents framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../Timers/timers-6.html">
+            
+                <a href="../Timers/timers-6.html">
+            
+                    
+                    x86 related clock sources
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../Timers/timers-7.html">
+            
+                <a href="../Timers/timers-7.html">
+            
+                    
+                    Time related system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../SyncPrim/">
+            
+                <a href="../SyncPrim/">
+            
+                    
+                    Synchronization primitives
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../SyncPrim/sync-1.html">
+            
+                <a href="../SyncPrim/sync-1.html">
+            
+                    
+                    Introduction to spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../SyncPrim/sync-2.html">
+            
+                <a href="../SyncPrim/sync-2.html">
+            
+                    
+                    Queued spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../SyncPrim/sync-3.html">
+            
+                <a href="../SyncPrim/sync-3.html">
+            
+                    
+                    Semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../SyncPrim/sync-4.html">
+            
+                <a href="../SyncPrim/sync-4.html">
+            
+                    
+                    Mutex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../SyncPrim/sync-5.html">
+            
+                <a href="../SyncPrim/sync-5.html">
+            
+                    
+                    Reader/Writer semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../SyncPrim/sync-6.html">
+            
+                <a href="../SyncPrim/sync-6.html">
+            
+                    
+                    SeqLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" >
+            
+                <span>
+            
+                    
+                    RCU
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" >
+            
+                <span>
+            
+                    
+                    Lockdep
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../mm/">
+            
+                <a href="../mm/">
+            
+                    
+                    Memory management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../mm/linux-mm-1.html">
+            
+                <a href="../mm/linux-mm-1.html">
+            
+                    
+                    Memblock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../mm/linux-mm-2.html">
+            
+                <a href="../mm/linux-mm-2.html">
+            
+                    
+                    Fixmaps and ioremap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../mm/linux-mm-3.html">
+            
+                <a href="../mm/linux-mm-3.html">
+            
+                    
+                    kmemcheck
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../Cgroups/">
+            
+                <a href="../Cgroups/">
+            
+                    
+                    Cgroups
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../Cgroups/cgroups1.html">
+            
+                <a href="../Cgroups/cgroups1.html">
+            
+                    
+                    Introduction to Control Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    SMP
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="per-cpu.html">
+            
+                <a href="per-cpu.html">
+            
+                    
+                    Per-CPU variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="cpumask.html">
+            
+                <a href="cpumask.html">
+            
+                    
+                    Cpumasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.11.3" data-path="initcall.html">
+            
+                <a href="initcall.html">
+            
+                    
+                    The initcall mechanism
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../DataStructures/">
+            
+                <a href="../DataStructures/">
+            
+                    
+                    Data Structures in the Linux Kernel
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../DataStructures/dlist.html">
+            
+                <a href="../DataStructures/dlist.html">
+            
+                    
+                    Doubly linked list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../DataStructures/radix-tree.html">
+            
+                <a href="../DataStructures/radix-tree.html">
+            
+                    
+                    Radix tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../DataStructures/bitmap.html">
+            
+                <a href="../DataStructures/bitmap.html">
+            
+                    
+                    Bit arrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../Theory/">
+            
+                <a href="../Theory/">
+            
+                    
+                    Theory
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../Theory/Paging.html">
+            
+                <a href="../Theory/Paging.html">
+            
+                    
+                    Paging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../Theory/ELF.html">
+            
+                <a href="../Theory/ELF.html">
+            
+                    
+                    Elf64
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../Theory/asm.html">
+            
+                <a href="../Theory/asm.html">
+            
+                    
+                    Inline assembly
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" >
+            
+                <span>
+            
+                    
+                    CPUID
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" >
+            
+                <span>
+            
+                    
+                    MSR
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" >
+            
+                <span>
+            
+                    
+                    Initial ram disk
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" >
+            
+                <span>
+            
+                    
+                    initrd
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../Misc/">
+            
+                <a href="../Misc/">
+            
+                    
+                    Misc
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../Misc/how_kernel_compiled.html">
+            
+                <a href="../Misc/how_kernel_compiled.html">
+            
+                    
+                    How the kernel is compiled
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../Misc/linkers.html">
+            
+                <a href="../Misc/linkers.html">
+            
+                    
+                    Linkers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.3" data-path="../Misc/contribute.html">
+            
+                <a href="../Misc/contribute.html">
+            
+                    
+                    Linux kernel development
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.4" data-path="../Misc/program_startup.html">
+            
+                <a href="../Misc/program_startup.html">
+            
+                    
+                    Program startup process in userspace
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.5" >
+            
+                <span>
+            
+                    
+                    Write and Submit your first Linux kernel Patch
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.6" >
+            
+                <span>
+            
+                    
+                    Data types in the kernel
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../KernelStructures/">
+            
+                <a href="../KernelStructures/">
+            
+                    
+                    KernelStructures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../KernelStructures/idt.html">
+            
+                <a href="../KernelStructures/idt.html">
+            
+                    
+                    IDT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../LINKS.html">
+            
+                <a href="../LINKS.html">
+            
+                    
+                    Useful links
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../contributors.html">
+            
+                <a href="../contributors.html">
+            
+                    
+                    Contributors
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >The initcall mechanism</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="the-initcall-mechanism">The initcall mechanism</h1>
+<h2 id="introduction">Introduction</h2>
+<p>As you may understand from the title, this part will cover an interesting and important concept in the Linux kernel which is called - <code>initcall</code>. We already saw definitions like these:</p>
+<pre><code class="lang-C">early_param(<span class="hljs-string">&quot;debug&quot;</span>, debug_kernel);
+</code></pre>
+<p>or</p>
+<pre><code class="lang-C">arch_initcall(init_pit_clocksource);
+</code></pre>
+<p>in some parts of the Linux kernel. Before we will see how this mechanism is implemented in the Linux kernel, we must know actually what is it and how the Linux kernel uses it. Definitions like these represent a <a href="https://en.wikipedia.org/wiki/Callback_%28computer_programming%29" target="_blank">callback</a> function which is will be called during initialization of the Linux kernel of right after. Actually the main point of the <code>initcall</code> mechanism is to determine correct order of the built-in modules and subsystems initialization. For example let&apos;s look at the following function:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> __<span class="hljs-function">init <span class="hljs-title">nmi_warning_debugfs</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+</span>{
+    debugfs_create_u64(<span class="hljs-string">&quot;nmi_longest_ns&quot;</span>, <span class="hljs-number">0644</span>,
+                       arch_debugfs_dir, &amp;nmi_longest_ns);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>from the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/kernel/nmi.c" target="_blank">arch/x86/kernel/nmi.c</a> source code file. As we may see it just creates the <code>nmi_longest_ns</code> <a href="https://en.wikipedia.org/wiki/Debugfs" target="_blank">debugfs</a> file in the <code>arch_debugfs_dir</code> directory. Actually, this <code>debugfs</code> file may be created only after the <code>arch_debugfs_dir</code> will be created. Creation of this directory occurs during the architecture-specific initialization of the Linux kernel. Actually this directory will be created in the <code>arch_kdebugfs_init</code> function from the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/kernel/kdebugfs.c" target="_blank">arch/x86/kernel/kdebugfs.c</a> source code file. Note that the <code>arch_kdebugfs_init</code> function is marked as <code>initcall</code> too:</p>
+<pre><code class="lang-C">arch_initcall(arch_kdebugfs_init);
+</code></pre>
+<p>The Linux kernel calls all architecture-specific <code>initcalls</code> before the <code>fs</code> related <code>initcalls</code>. So, our <code>nmi_longest_ns</code> file will be created only after the <code>arch_kdebugfs_dir</code> directory will be created. Actually, the Linux kernel provides eight levels of main <code>initcalls</code>:</p>
+<ul>
+<li><code>early</code>;</li>
+<li><code>core</code>;</li>
+<li><code>postcore</code>;</li>
+<li><code>arch</code>;</li>
+<li><code>susys</code>;</li>
+<li><code>fs</code>;</li>
+<li><code>device</code>;</li>
+<li><code>late</code>.</li>
+</ul>
+<p>All of their names are represented by the <code>initcall_level_names</code> array which is defined in the <a href="https://github.com/torvalds/linux/blob/master/init/main.c" target="_blank">init/main.c</a> source code file:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> <span class="hljs-keyword">char</span> *initcall_level_names[] __initdata = {
+    <span class="hljs-string">&quot;early&quot;</span>,
+    <span class="hljs-string">&quot;core&quot;</span>,
+    <span class="hljs-string">&quot;postcore&quot;</span>,
+    <span class="hljs-string">&quot;arch&quot;</span>,
+    <span class="hljs-string">&quot;subsys&quot;</span>,
+    <span class="hljs-string">&quot;fs&quot;</span>,
+    <span class="hljs-string">&quot;device&quot;</span>,
+    <span class="hljs-string">&quot;late&quot;</span>,
+};
+</code></pre>
+<p>All functions which are marked as <code>initcall</code> by these identifiers, will be called in the same order or at first <code>early initcalls</code> will be called, at second <code>core initcalls</code> and etc. From this moment we know a little about <code>initcall</code> mechanism, so we can start to dive into the source code of the Linux kernel to see how this mechanism is implemented.</p>
+<h2 id="implementation-initcall-mechanism-in-the-linux-kernel">Implementation initcall mechanism in the Linux kernel</h2>
+<p>The Linux kernel provides a set of macros from the <a href="https://github.com/torvalds/linux/blob/master/include/linux/init.h" target="_blank">include/linux/init.h</a> header file to mark a given function as <code>initcall</code>. All of these macros are pretty simple:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> early_initcall(fn)        __define_initcall(fn, early)</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> core_initcall(fn)        __define_initcall(fn, 1)</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> postcore_initcall(fn)        __define_initcall(fn, 2)</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> arch_initcall(fn)        __define_initcall(fn, 3)</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> subsys_initcall(fn)        __define_initcall(fn, 4)</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> fs_initcall(fn)            __define_initcall(fn, 5)</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> device_initcall(fn)        __define_initcall(fn, 6)</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> late_initcall(fn)        __define_initcall(fn, 7)</span>
+</code></pre>
+<p>and as we may see these macros just expand to the call of the <code>__define_initcall</code> macro from the same header file. Moreover, the <code>__define_initcall</code> macro takes two arguments:</p>
+<ul>
+<li><code>fn</code> - callback function which will be called during call of <code>initcalls</code> of the certain level;</li>
+<li><code>id</code> - identifier to identify <code>initcall</code> to prevent error when two the same <code>initcalls</code> point to the same handler.</li>
+</ul>
+<p>The implementation of the <code>__define_initcall</code> macro looks like:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> __define_initcall(fn, id) \
+    static initcall_t __initcall_##fn##id __used \
+    __attribute__((__section__(<span class="hljs-string">&quot;.initcall&quot;</span> #id <span class="hljs-string">&quot;.init&quot;</span>))) = fn; \
+    LTO_REFERENCE_INITCALL(__initcall_##fn##id)</span>
+</code></pre>
+<p>To understand the <code>__define_initcall</code> macro, first of all let&apos;s look at the <code>initcall_t</code> type. This type is defined in the same <a href="">header</a> file and it represents pointer to a function which returns pointer to <a href="https://en.wikipedia.org/wiki/Integer" target="_blank">integer</a> which will be result of the <code>initcall</code>:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">typedef</span> <span class="hljs-title">int</span> <span class="hljs-params">(*initcall_t)</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span>;
+</code></pre>
+<p>Now let&apos;s return to the <code>_-define_initcall</code> macro. The <a href="https://gcc.gnu.org/onlinedocs/cpp/Concatenation.html" target="_blank">##</a> provides ability to concatenate two symbols. In our case, the first line of the <code>__define_initcall</code> macro produces definition of the given function which is located in the <code>.initcall id .init</code> <a href="http://www.skyfree.org/linux/references/ELF_Format.pdf" target="_blank">ELF section</a> and marked with the following <a href="https://en.wikipedia.org/wiki/GNU_Compiler_Collection" target="_blank">gcc</a> attributes: <code>__initcall_function_name_id</code> and <code>__used</code>. If we will look in the <a href="https://github.com/torvalds/linux/blob/master/include/asm-generic/vmlinux.lds.h" target="_blank">include/asm-generic/vmlinux.lds.h</a> header file which represents data for the kernel <a href="https://en.wikipedia.org/wiki/Linker_%28computing%29" target="_blank">linker</a> script, we will see that all of <code>initcalls</code> sections will be placed in the <code>.data</code> section:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> INIT_CALLS                    \
+        VMLINUX_SYMBOL(__initcall_start) = .;    \
+        *(.initcallearly.init)                    \
+        INIT_CALLS_LEVEL(0)                        \
+        INIT_CALLS_LEVEL(1)                        \
+        INIT_CALLS_LEVEL(2)                        \
+        INIT_CALLS_LEVEL(3)                        \
+        INIT_CALLS_LEVEL(4)                        \
+        INIT_CALLS_LEVEL(5)                        \
+        INIT_CALLS_LEVEL(rootfs)                \
+        INIT_CALLS_LEVEL(6)                        \
+        INIT_CALLS_LEVEL(7)                        \
+        VMLINUX_SYMBOL(__initcall_end) = .;</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> INIT_DATA_SECTION(initsetup_align)    \
+    .init.data : AT(ADDR(.init.data) - LOAD_OFFSET) {       \
+        ...                                                \
+        INIT_CALLS                                           \
+        ...                                                \
+    }</span>
+</code></pre>
+<p>The second attribute - <code>__used</code> is defined in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/compiler-gcc.h" target="_blank">include/linux/compiler-gcc.h</a> header file and it expands to the definition of the following <code>gcc</code> attribute:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> __used   __attribute__((__used__))</span>
+</code></pre>
+<p>which prevents <code>variable defined but not used</code> warning. The last line of the <code>__define_initcall</code> macro is:</p>
+<pre><code class="lang-C">LTO_REFERENCE_INITCALL(__initcall_<span class="hljs-meta">##fn##id)</span>
+</code></pre>
+<p>depends on the <code>CONFIG_LTO</code> kernel configuration option and just provides stub for the compiler <a href="https://gcc.gnu.org/wiki/LinkTimeOptimization" target="_blank">Link time optimization</a>:</p>
+<pre><code>#ifdef CONFIG_LTO
+#define LTO_REFERENCE_INITCALL(x) \
+        static __used __exit void *reference_##x(void)  \
+        {                                               \
+                return &amp;x;                              \
+        }
+#else
+#define LTO_REFERENCE_INITCALL(x)
+#endif
+</code></pre><p>In order to prevent any problem when there is no reference to a variable in a module, it will be moved to the end of the program. That&apos;s all about the <code>__define_initcall</code> macro. So, all of the <code>*_initcall</code> macros will be expanded during compilation of the Linux kernel, and all <code>initcalls</code> will be placed in their sections and all of them will be available from the <code>.data</code> section and the Linux kernel will know where to find a certain <code>initcall</code> to call it during initialization process.</p>
+<p>As <code>initcalls</code> can be called by the Linux kernel, let&apos;s look how the Linux kernel does this. This process starts in the <code>do_basic_setup</code> function from the <a href="https://github.com/torvalds/linux/blob/master/init/main.c" target="_blank">init/main.c</a> source code file:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> __<span class="hljs-function">init <span class="hljs-title">do_basic_setup</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+</span>{
+    ...
+    ...
+    ...
+       do_initcalls();
+    ...
+    ...
+    ...
+}
+</code></pre>
+<p>which is called during the initialization of the Linux kernel, right after main steps of initialization like memory manager related initialization, <code>CPU</code> subsystem and other already finished. The <code>do_initcalls</code> function just goes through the array of <code>initcall</code> levels and call the <code>do_initcall_level</code> function for each level:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> __<span class="hljs-function">init <span class="hljs-title">do_initcalls</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+</span>{
+    <span class="hljs-keyword">int</span> level;
+
+    <span class="hljs-keyword">for</span> (level = <span class="hljs-number">0</span>; level &lt; ARRAY_SIZE(initcall_levels) - <span class="hljs-number">1</span>; level++)
+        do_initcall_level(level);
+}
+</code></pre>
+<p>The <code>initcall_levels</code> array is defined in the same source code <a href="https://github.com/torvalds/linux/blob/master/init/main.c" target="_blank">file</a> and contains pointers to the sections which were defined in the <code>__define_initcall</code> macro:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> <span class="hljs-keyword">initcall_t</span> *initcall_levels[] __initdata = {
+    __initcall0_start,
+    __initcall1_start,
+    __initcall2_start,
+    __initcall3_start,
+    __initcall4_start,
+    __initcall5_start,
+    __initcall6_start,
+    __initcall7_start,
+    __initcall_end,
+};
+</code></pre>
+<p>If you are interested, you can find these sections in the <code>arch/x86/kernel/vmlinux.lds</code> linker script which is generated after the Linux kernel compilation:</p>
+<pre><code>.init.data : AT(ADDR(.init.data) - 0xffffffff80000000) {
+    ...
+    ...
+    ...
+    ...
+    __initcall_start = .;
+    *(.initcallearly.init)
+    __initcall0_start = .;
+    *(.initcall0.init)
+    *(.initcall0s.init)
+    __initcall1_start = .;
+    ...
+    ...
+}
+</code></pre><p>If you are not familiar with this then you can know more about <a href="https://en.wikipedia.org/wiki/Linker_%28computing%29" target="_blank">linkers</a> in the special <a href="https://0xax.gitbooks.io/linux-insides/content/Misc/linkers.html" target="_blank">part</a> of this book.</p>
+<p>As we just saw, the <code>do_initcall_level</code> function takes one parameter - level of <code>initcall</code> and does following two things: First of all this function parses the <code>initcall_command_line</code> which is copy of usual kernel <a href="https://www.kernel.org/doc/Documentation/kernel-parameters.txt" target="_blank">command line</a> which may contain parameters for modules with the <code>parse_args</code> function from the <a href="https://github.com/torvalds/linux/blob/master/kernel/params.c" target="_blank">kernel/params.c</a> source code file and call the <code>do_on_initcall</code> function for each level:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">for</span> (fn = initcall_levels[level]; fn &lt; initcall_levels[level+<span class="hljs-number">1</span>]; fn++)
+        do_one_initcall(*fn);
+</code></pre>
+<p>The <code>do_on_initcall</code> does  main job for us. As we may see, this function takes one parameter which represent <code>initcall</code> callback function and does the call of the given callback:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">int</span> __<span class="hljs-function">init_or_module <span class="hljs-title">do_one_initcall</span><span class="hljs-params">(initcall_t fn)</span>
+</span>{
+    <span class="hljs-keyword">int</span> count = preempt_count();
+    <span class="hljs-keyword">int</span> ret;
+    <span class="hljs-keyword">char</span> msgbuf[<span class="hljs-number">64</span>];
+
+    <span class="hljs-keyword">if</span> (initcall_blacklisted(fn))
+        <span class="hljs-keyword">return</span> -EPERM;
+
+    <span class="hljs-keyword">if</span> (initcall_debug)
+        ret = do_one_initcall_debug(fn);
+    <span class="hljs-keyword">else</span>
+        ret = fn();
+
+    msgbuf[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;
+
+    <span class="hljs-keyword">if</span> (preempt_count() != count) {
+        <span class="hljs-built_in">sprintf</span>(msgbuf, <span class="hljs-string">&quot;preemption imbalance &quot;</span>);
+        preempt_count_set(count);
+    }
+    <span class="hljs-keyword">if</span> (irqs_disabled()) {
+        strlcat(msgbuf, <span class="hljs-string">&quot;disabled interrupts &quot;</span>, <span class="hljs-keyword">sizeof</span>(msgbuf));
+        local_irq_enable();
+    }
+    WARN(msgbuf[<span class="hljs-number">0</span>], <span class="hljs-string">&quot;initcall %pF returned with %s\n&quot;</span>, fn, msgbuf);
+
+    <span class="hljs-keyword">return</span> ret;
+}
+</code></pre>
+<p>Let&apos;s try to understand what does the <code>do_on_initcall</code> function does. First of all we increase <a href="https://en.wikipedia.org/wiki/Preemption_%28computing%29" target="_blank">preemption</a> counter so that we can check it later to be sure that it is not imbalanced. After this step we can see the call of the <code>initcall_backlist</code> function which
+goes over the <code>blacklisted_initcalls</code> list which stores blacklisted <code>initcalls</code> and releases the given <code>initcall</code> if it is located in this list:</p>
+<pre><code class="lang-C">list_for_each_entry(entry, &amp;blacklisted_initcalls, next) {
+    <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">strcmp</span>(fn_name, entry-&gt;buf)) {
+        pr_debug(<span class="hljs-string">&quot;initcall %s blacklisted\n&quot;</span>, fn_name);
+        kfree(fn_name);
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    }
+}
+</code></pre>
+<p>The blacklisted <code>initcalls</code> stored in the <code>blacklisted_initcalls</code> list and this list is filled during early Linux kernel initialization from the Linux kernel command line.</p>
+<p>After the blacklisted <code>initcalls</code> will be handled, the next part of code does directly the call of the <code>initcall</code>:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (initcall_debug)
+    ret = do_one_initcall_debug(fn);
+<span class="hljs-keyword">else</span>
+    ret = fn();
+</code></pre>
+<p>Depends on the value of the <code>initcall_debug</code> variable, the <code>do_one_initcall_debug</code> function will call <code>initcall</code> or this function will do it directly via <code>fn()</code>. The <code>initcall_debug</code> variable is defined in the <a href="https://github.com/torvalds/linux/blob/master/init/main.c" target="_blank">same</a> source code file:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">bool</span> initcall_debug;
+</code></pre>
+<p>and provides ability to print some information to the kernel <a href="https://en.wikipedia.org/wiki/Dmesg" target="_blank">log buffer</a>. The value of the variable can be set from the kernel commands via the <code>initcall_debug</code> parameter. As we can read from the <a href="https://www.kernel.org/doc/Documentation/kernel-parameters.txt" target="_blank">documentation</a> of the Linux kernel command line:</p>
+<pre><code>initcall_debug    [KNL] Trace initcalls as they are executed.  Useful
+                      for working out where the kernel is dying during
+                      startup.
+</code></pre><p>And that&apos;s true. If we will look at the implementation of the <code>do_one_initcall_debug</code> function, we will see that it does the same as the <code>do_one_initcall</code> function or i.e. the <code>do_one_initcall_debug</code> function calls the given <code>initcall</code> and prints some information (like the <a href="https://en.wikipedia.org/wiki/Process_identifier" target="_blank">pid</a> of the currently running task, duration of execution of the <code>initcall</code> and etc.) related to the execution of the given <code>initcall</code>:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> __<span class="hljs-function">init_or_module <span class="hljs-title">do_one_initcall_debug</span><span class="hljs-params">(initcall_t fn)</span>
+</span>{
+    <span class="hljs-keyword">ktime_t</span> calltime, delta, rettime;
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> duration;
+    <span class="hljs-keyword">int</span> ret;
+
+    printk(KERN_DEBUG <span class="hljs-string">&quot;calling  %pF @ %i\n&quot;</span>, fn, task_pid_nr(current));
+    calltime = ktime_get();
+    ret = fn();
+    rettime = ktime_get();
+    delta = ktime_sub(rettime, calltime);
+    duration = (<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>) ktime_to_ns(delta) &gt;&gt; <span class="hljs-number">10</span>;
+    printk(KERN_DEBUG <span class="hljs-string">&quot;initcall %pF returned %d after %lld usecs\n&quot;</span>,
+         fn, ret, duration);
+
+    <span class="hljs-keyword">return</span> ret;
+}
+</code></pre>
+<p>As an <code>initcall</code> was called by the one of the <code>do_one_initcall</code> or <code>do_one_initcall_debug</code> functions, we may see two checks in the end of the <code>do_one_initcall</code> function. The first one checks the amount of possible <code>__preempt_count_add</code> and <code>__preempt_count_sub</code> calls inside of the executed initcall, and if this value is not equal to the previous value of the preemptible counter, we add the <code>preemption imbalance</code> string to the message buffer and set correct value of the preemptible counter:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (preempt_count() != count) {
+    <span class="hljs-built_in">sprintf</span>(msgbuf, <span class="hljs-string">&quot;preemption imbalance &quot;</span>);
+    preempt_count_set(count);
+}
+</code></pre>
+<p>Later this error string will be printed. The last check the state of local <a href="https://en.wikipedia.org/wiki/Interrupt_request_%28PC_architecture%29" target="_blank">IRQs</a> and if they are disabled, we add the <code>disabled interrupts</code> strings to the our message buffer and enable <code>IRQs</code> for the current processor to prevent the state when <code>IRQs</code> were disabled by an <code>initcall</code> and didn&apos;t enable again:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (irqs_disabled()) {
+    strlcat(msgbuf, <span class="hljs-string">&quot;disabled interrupts &quot;</span>, <span class="hljs-keyword">sizeof</span>(msgbuf));
+    local_irq_enable();
+}
+</code></pre>
+<p>That&apos;s all. In this way the Linux kernel does initialization of many subsystems in a correct order. From now on, we know what is the <code>initcall</code> mechanism in the Linux kernel. In this part, we covered main general portion of the <code>initcall</code> mechanism but we left some important concepts. Let&apos;s make a short look at these concepts.</p>
+<p>First of all, we have missed one level of <code>initcalls</code>, this is <code>rootfs initcalls</code>. You can find definition of the <code>rootfs_initcall</code> in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/init.h" target="_blank">include/linux/init.h</a> header file along with all similar macros which we saw in this part:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> rootfs_initcall(fn)        __define_initcall(fn, rootfs)</span>
+</code></pre>
+<p>As we may understand from the macro&apos;s name, its main purpose is to store callbacks which are related to the <a href="https://en.wikipedia.org/wiki/Initramfs" target="_blank">rootfs</a>. Besides this goal, it may be useful to initialize other stuffs after initialization related to filesystems level only if devices related stuff are not initialized. For example, the decompression of the <a href="https://en.wikipedia.org/wiki/Initramfs" target="_blank">initramfs</a> which occurred in the <code>populate_rootfs</code> function from the <a href="https://github.com/torvalds/linux/blob/master/init/initramfs.c" target="_blank">init/initramfs.c</a> source code file:</p>
+<pre><code class="lang-C">rootfs_initcall(populate_rootfs);
+</code></pre>
+<p>From this place, we may see familiar output:</p>
+<pre><code>[    0.199960] Unpacking initramfs...
+</code></pre><p>Besides the <code>rootfs_initcall</code> level, there are additional <code>console_initcall</code>, <code>security_initcall</code> and other secondary <code>initcall</code> levels. The last thing that we have missed is the set of the <code>*_initcall_sync</code> levels. Almost each <code>*_initcall</code> macro that we have seen in this part, has macro companion with the <code>_sync</code> prefix:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> core_initcall_sync(fn)        __define_initcall(fn, 1s)</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> postcore_initcall_sync(fn)    __define_initcall(fn, 2s)</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> arch_initcall_sync(fn)        __define_initcall(fn, 3s)</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> subsys_initcall_sync(fn)    __define_initcall(fn, 4s)</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> fs_initcall_sync(fn)        __define_initcall(fn, 5s)</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> device_initcall_sync(fn)    __define_initcall(fn, 6s)</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> late_initcall_sync(fn)        __define_initcall(fn, 7s)</span>
+</code></pre>
+<p>The main goal of these additional levels is to wait for completion of all a module related initialization routines for a certain level.</p>
+<p>That&apos;s all.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>In this part we saw the important mechanism of the Linux kernel which allows to call a function which depends on the current state of the Linux kernel during its initialization.</p>
+<p>If you have questions or suggestions, feel free to ping me in twitter <a href="https://twitter.com/0xAX" target="_blank">0xAX</a>, drop me <a href="anotherworldofworld@gmail.com">email</a> or just create <a href="https://github.com/0xAX/linux-insides/issues/new" target="_blank">issue</a>.</p>
+<p><strong>Please note that English is not my first language and I am really sorry for any inconvenience. If you found any mistakes please send me PR to <a href="https://github.com/0xAX/linux-insides" target="_blank">linux-insides</a>.</strong>.</p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Callback_%28computer_programming%29" target="_blank">callback</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Debugfs" target="_blank">debugfs</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Integer" target="_blank">integer type</a></li>
+<li><a href="https://gcc.gnu.org/onlinedocs/cpp/Concatenation.html" target="_blank">symbols concatenation</a></li>
+<li><a href="https://en.wikipedia.org/wiki/GNU_Compiler_Collection" target="_blank">GCC</a></li>
+<li><a href="https://gcc.gnu.org/wiki/LinkTimeOptimization" target="_blank">Link time optimization</a></li>
+<li><a href="https://0xax.gitbooks.io/linux-insides/content/Misc/linkers.html" target="_blank">Introduction to linkers</a></li>
+<li><a href="https://www.kernel.org/doc/Documentation/kernel-parameters.txt" target="_blank">Linux kernel command line</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Process_identifier" target="_blank">Process identifier</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Interrupt_request_%28PC_architecture%29" target="_blank">IRQs</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Initramfs" target="_blank">rootfs</a></li>
+<li><a href="https://0xax.gitbooks.io/linux-insides/content/Concepts/cpumask.html" target="_blank">previous part</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="cpumask.html" class="navigation navigation-prev " aria-label="Previous page: Cpumasks">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../DataStructures/" class="navigation navigation-next " aria-label="Next page: Data Structures in the Linux Kernel">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"The initcall mechanism","level":"1.11.3","depth":2,"next":{"title":"Data Structures in the Linux Kernel","level":"1.12","depth":1,"path":"DataStructures/README.md","ref":"DataStructures/README.md","articles":[{"title":"Doubly linked list","level":"1.12.1","depth":2,"path":"DataStructures/dlist.md","ref":"DataStructures/dlist.md","articles":[]},{"title":"Radix tree","level":"1.12.2","depth":2,"path":"DataStructures/radix-tree.md","ref":"DataStructures/radix-tree.md","articles":[]},{"title":"Bit arrays","level":"1.12.3","depth":2,"path":"DataStructures/bitmap.md","ref":"DataStructures/bitmap.md","articles":[]}]},"previous":{"title":"Cpumasks","level":"1.11.2","depth":2,"path":"Concepts/cpumask.md","ref":"Concepts/cpumask.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Concepts/initcall.md","mtime":"2019-03-28T07:54:50.386Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-28T08:02:31.511Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

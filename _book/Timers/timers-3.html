@@ -1,0 +1,1735 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>The tick broadcast framework and dyntick · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="timers-4.html" />
+    
+    
+    <link rel="prev" href="timers-2.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Summary</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Booting/">
+            
+                <a href="../Booting/">
+            
+                    
+                    Booting
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Booting/linux-bootstrap-1.html">
+            
+                <a href="../Booting/linux-bootstrap-1.html">
+            
+                    
+                    From bootloader to kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Booting/linux-bootstrap-2.html">
+            
+                <a href="../Booting/linux-bootstrap-2.html">
+            
+                    
+                    First steps in the kernel setup code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Booting/linux-bootstrap-3.html">
+            
+                <a href="../Booting/linux-bootstrap-3.html">
+            
+                    
+                    Video mode initialization and transition to protected mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../Booting/linux-bootstrap-4.html">
+            
+                <a href="../Booting/linux-bootstrap-4.html">
+            
+                    
+                    Transition to 64-bit mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../Booting/linux-bootstrap-5.html">
+            
+                <a href="../Booting/linux-bootstrap-5.html">
+            
+                    
+                    Kernel decompression
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Initialization/">
+            
+                <a href="../Initialization/">
+            
+                    
+                    Initialization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Initialization/linux-initialization-1.html">
+            
+                <a href="../Initialization/linux-initialization-1.html">
+            
+                    
+                    First steps in the kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Initialization/linux-initialization-2.html">
+            
+                <a href="../Initialization/linux-initialization-2.html">
+            
+                    
+                    Early interrupts handler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Initialization/linux-initialization-3.html">
+            
+                <a href="../Initialization/linux-initialization-3.html">
+            
+                    
+                    Last preparations before the kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Initialization/linux-initialization-4.html">
+            
+                <a href="../Initialization/linux-initialization-4.html">
+            
+                    
+                    Kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../Initialization/linux-initialization-5.html">
+            
+                <a href="../Initialization/linux-initialization-5.html">
+            
+                    
+                    Continue architecture-specific boot-time initializations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../Initialization/linux-initialization-6.html">
+            
+                <a href="../Initialization/linux-initialization-6.html">
+            
+                    
+                    Architecture-specific initializations, again...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../Initialization/linux-initialization-7.html">
+            
+                <a href="../Initialization/linux-initialization-7.html">
+            
+                    
+                    End of the architecture-specific initializations, almost...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../Initialization/linux-initialization-8.html">
+            
+                <a href="../Initialization/linux-initialization-8.html">
+            
+                    
+                    Scheduler initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../Initialization/linux-initialization-9.html">
+            
+                <a href="../Initialization/linux-initialization-9.html">
+            
+                    
+                    RCU initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../Initialization/linux-initialization-10.html">
+            
+                <a href="../Initialization/linux-initialization-10.html">
+            
+                    
+                    End of initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../interrupts/">
+            
+                <a href="../interrupts/">
+            
+                    
+                    Interrupts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../interrupts/interrupts-1.html">
+            
+                <a href="../interrupts/interrupts-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../interrupts/interrupts-2.html">
+            
+                <a href="../interrupts/interrupts-2.html">
+            
+                    
+                    Start to dive into interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../interrupts/interrupts-3.html">
+            
+                <a href="../interrupts/interrupts-3.html">
+            
+                    
+                    Interrupt handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../interrupts/interrupts-4.html">
+            
+                <a href="../interrupts/interrupts-4.html">
+            
+                    
+                    Initialization of non-early interrupt gates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../interrupts/interrupts-5.html">
+            
+                <a href="../interrupts/interrupts-5.html">
+            
+                    
+                    Implementation of some exception handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../interrupts/interrupts-6.html">
+            
+                <a href="../interrupts/interrupts-6.html">
+            
+                    
+                    Handling Non-Maskable interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../interrupts/interrupts-7.html">
+            
+                <a href="../interrupts/interrupts-7.html">
+            
+                    
+                    Dive into external hardware interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../interrupts/interrupts-8.html">
+            
+                <a href="../interrupts/interrupts-8.html">
+            
+                    
+                    Initialization of external hardware interrupts structures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../interrupts/interrupts-9.html">
+            
+                <a href="../interrupts/interrupts-9.html">
+            
+                    
+                    Softirq, Tasklets and Workqueues
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../interrupts/interrupts-10.html">
+            
+                <a href="../interrupts/interrupts-10.html">
+            
+                    
+                    Last part
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../SysCall/">
+            
+                <a href="../SysCall/">
+            
+                    
+                    System calls
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../SysCall/syscall-1.html">
+            
+                <a href="../SysCall/syscall-1.html">
+            
+                    
+                    Introduction to system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../SysCall/syscall-2.html">
+            
+                <a href="../SysCall/syscall-2.html">
+            
+                    
+                    How the Linux kernel handles a system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../SysCall/syscall-3.html">
+            
+                <a href="../SysCall/syscall-3.html">
+            
+                    
+                    vsyscall and vDSO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../SysCall/syscall-4.html">
+            
+                <a href="../SysCall/syscall-4.html">
+            
+                    
+                    How the Linux kernel runs a program
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../SysCall/syscall-5.html">
+            
+                <a href="../SysCall/syscall-5.html">
+            
+                    
+                    Implementation of the open system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Timers and time management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="timers-1.html">
+            
+                <a href="timers-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="timers-2.html">
+            
+                <a href="timers-2.html">
+            
+                    
+                    Clocksource framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.3" data-path="timers-3.html">
+            
+                <a href="timers-3.html">
+            
+                    
+                    The tick broadcast framework and dyntick
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="timers-4.html">
+            
+                <a href="timers-4.html">
+            
+                    
+                    Introduction to timers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="timers-5.html">
+            
+                <a href="timers-5.html">
+            
+                    
+                    Clockevents framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="timers-6.html">
+            
+                <a href="timers-6.html">
+            
+                    
+                    x86 related clock sources
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="timers-7.html">
+            
+                <a href="timers-7.html">
+            
+                    
+                    Time related system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../SyncPrim/">
+            
+                <a href="../SyncPrim/">
+            
+                    
+                    Synchronization primitives
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../SyncPrim/sync-1.html">
+            
+                <a href="../SyncPrim/sync-1.html">
+            
+                    
+                    Introduction to spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../SyncPrim/sync-2.html">
+            
+                <a href="../SyncPrim/sync-2.html">
+            
+                    
+                    Queued spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../SyncPrim/sync-3.html">
+            
+                <a href="../SyncPrim/sync-3.html">
+            
+                    
+                    Semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../SyncPrim/sync-4.html">
+            
+                <a href="../SyncPrim/sync-4.html">
+            
+                    
+                    Mutex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../SyncPrim/sync-5.html">
+            
+                <a href="../SyncPrim/sync-5.html">
+            
+                    
+                    Reader/Writer semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../SyncPrim/sync-6.html">
+            
+                <a href="../SyncPrim/sync-6.html">
+            
+                    
+                    SeqLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" >
+            
+                <span>
+            
+                    
+                    RCU
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" >
+            
+                <span>
+            
+                    
+                    Lockdep
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../mm/">
+            
+                <a href="../mm/">
+            
+                    
+                    Memory management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../mm/linux-mm-1.html">
+            
+                <a href="../mm/linux-mm-1.html">
+            
+                    
+                    Memblock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../mm/linux-mm-2.html">
+            
+                <a href="../mm/linux-mm-2.html">
+            
+                    
+                    Fixmaps and ioremap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../mm/linux-mm-3.html">
+            
+                <a href="../mm/linux-mm-3.html">
+            
+                    
+                    kmemcheck
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../Cgroups/">
+            
+                <a href="../Cgroups/">
+            
+                    
+                    Cgroups
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../Cgroups/cgroups1.html">
+            
+                <a href="../Cgroups/cgroups1.html">
+            
+                    
+                    Introduction to Control Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    SMP
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../Concepts/">
+            
+                <a href="../Concepts/">
+            
+                    
+                    Concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../Concepts/per-cpu.html">
+            
+                <a href="../Concepts/per-cpu.html">
+            
+                    
+                    Per-CPU variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../Concepts/cpumask.html">
+            
+                <a href="../Concepts/cpumask.html">
+            
+                    
+                    Cpumasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../Concepts/initcall.html">
+            
+                <a href="../Concepts/initcall.html">
+            
+                    
+                    The initcall mechanism
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../DataStructures/">
+            
+                <a href="../DataStructures/">
+            
+                    
+                    Data Structures in the Linux Kernel
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../DataStructures/dlist.html">
+            
+                <a href="../DataStructures/dlist.html">
+            
+                    
+                    Doubly linked list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../DataStructures/radix-tree.html">
+            
+                <a href="../DataStructures/radix-tree.html">
+            
+                    
+                    Radix tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../DataStructures/bitmap.html">
+            
+                <a href="../DataStructures/bitmap.html">
+            
+                    
+                    Bit arrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../Theory/">
+            
+                <a href="../Theory/">
+            
+                    
+                    Theory
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../Theory/Paging.html">
+            
+                <a href="../Theory/Paging.html">
+            
+                    
+                    Paging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../Theory/ELF.html">
+            
+                <a href="../Theory/ELF.html">
+            
+                    
+                    Elf64
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../Theory/asm.html">
+            
+                <a href="../Theory/asm.html">
+            
+                    
+                    Inline assembly
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" >
+            
+                <span>
+            
+                    
+                    CPUID
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" >
+            
+                <span>
+            
+                    
+                    MSR
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" >
+            
+                <span>
+            
+                    
+                    Initial ram disk
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" >
+            
+                <span>
+            
+                    
+                    initrd
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../Misc/">
+            
+                <a href="../Misc/">
+            
+                    
+                    Misc
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../Misc/how_kernel_compiled.html">
+            
+                <a href="../Misc/how_kernel_compiled.html">
+            
+                    
+                    How the kernel is compiled
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../Misc/linkers.html">
+            
+                <a href="../Misc/linkers.html">
+            
+                    
+                    Linkers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.3" data-path="../Misc/contribute.html">
+            
+                <a href="../Misc/contribute.html">
+            
+                    
+                    Linux kernel development
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.4" data-path="../Misc/program_startup.html">
+            
+                <a href="../Misc/program_startup.html">
+            
+                    
+                    Program startup process in userspace
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.5" >
+            
+                <span>
+            
+                    
+                    Write and Submit your first Linux kernel Patch
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.6" >
+            
+                <span>
+            
+                    
+                    Data types in the kernel
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../KernelStructures/">
+            
+                <a href="../KernelStructures/">
+            
+                    
+                    KernelStructures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../KernelStructures/idt.html">
+            
+                <a href="../KernelStructures/idt.html">
+            
+                    
+                    IDT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../LINKS.html">
+            
+                <a href="../LINKS.html">
+            
+                    
+                    Useful links
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../contributors.html">
+            
+                <a href="../contributors.html">
+            
+                    
+                    Contributors
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >The tick broadcast framework and dyntick</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="timers-and-time-management-in-the-linux-kernel-part-3">Timers and time management in the Linux kernel. Part 3.</h1>
+<h2 id="the-tick-broadcast-framework-and-dyntick">The tick broadcast framework and dyntick</h2>
+<p>This is third part of the <a href="https://0xax.gitbooks.io/linux-insides/content/Timers/index.html" target="_blank">chapter</a> which describes timers and time management related stuff in the Linux kernel and we stopped on the <code>clocksource</code> framework in the previous <a href="https://0xax.gitbooks.io/linux-insides/content/Timers/timers-2.html" target="_blank">part</a>. We have started to consider this framework because it is closely related to the special counters which are provided by the Linux kernel. One of these counters which we already saw in the first <a href="https://0xax.gitbooks.io/linux-insides/content/Timers/timers-1.html" target="_blank">part</a> of this chapter is - <code>jiffies</code>. As I already wrote in the first part of this chapter, we will consider time management related stuff step by step during the Linux kernel initialization. Previous step was call of the:</p>
+<pre><code class="lang-C">register_refined_jiffies(CLOCK_TICK_RATE);
+</code></pre>
+<p>function which defined in the <a href="https://github.com/torvalds/linux/blob/master/kernel/time/jiffies.c" target="_blank">kernel/time/jiffies.c</a> source code file and executes initialization of the <code>refined_jiffies</code> clock source for us. Recall that this function is called from the <code>setup_arch</code> function that defined in the <a href="arch/x86/kernel/setup.c">https://github.com/torvalds/linux/blob/master/arch/x86/kernel/setup.c</a> source code and executes architecture-specific (<a href="https://en.wikipedia.org/wiki/X86-64" target="_blank">x86_64</a> in our case) initialization. Look on the implementation of the <code>setup_arch</code> and you will note that the call of the <code>register_refined_jiffies</code> is the last step before the <code>setup_arch</code> function will finish its work.</p>
+<p>There are many different <code>x86_64</code> specific things already configured after the end of the <code>setup_arch</code> execution. For example some early <a href="https://en.wikipedia.org/wiki/Interrupt" target="_blank">interrupt</a> handlers already able to handle interrupts, memory space reserved for the <a href="https://en.wikipedia.org/wiki/Initrd" target="_blank">initrd</a>, <a href="https://en.wikipedia.org/wiki/Desktop_Management_Interface" target="_blank">DMI</a> scanned, the Linux kernel log buffer is already set and this means that the <a href="https://en.wikipedia.org/wiki/Printk" target="_blank">printk</a> function is able to work, <a href="https://en.wikipedia.org/wiki/E820" target="_blank">e820</a> parsed and the Linux kernel already knows about available memory and and many many other architecture specific things (if you are interesting, you can read more about the <code>setup_arch</code> function and Linux kernel initialization process in the second <a href="https://0xax.gitbooks.io/linux-insides/content/Initialization/index.html" target="_blank">chapter</a> of this book).</p>
+<p>Now, the <code>setup_arch</code> finished its work and we can back to the generic Linux kernel code. Recall that the <code>setup_arch</code> function was called from the <code>start_kernel</code> function which is defined in the <a href="https://github.com/torvalds/linux/blob/master/init/main.c" target="_blank">init/main.c</a> source code file. So, we shall return to this function. You can see that there are many different function are called right after <code>setup_arch</code> function inside of the <code>start_kernel</code> function, but since our chapter is devoted to timers and time management related stuff, we will skip all code which is not related to this topic. The first function which is related to the time management in the Linux kernel is:</p>
+<pre><code class="lang-C">tick_init();
+</code></pre>
+<p>in the <code>start_kernel</code>. The <code>tick_init</code> function defined in the <a href="https://github.com/torvalds/linux/blob/master/kernel/time/tick-common.c" target="_blank">kernel/time/tick-common.c</a> source code file and does two things:</p>
+<ul>
+<li>Initialization of <code>tick broadcast</code> framework related data structures;</li>
+<li>Initialization of <code>full</code> tickless mode related data structures.</li>
+</ul>
+<p>We didn&apos;t see anything related to the <code>tick broadcast</code> framework in this book and didn&apos;t know anything about tickless mode in the Linux kernel. So, the main point of this part is to look on these concepts and to know what are they.</p>
+<h2 id="the-idle-process">The idle process</h2>
+<p>First of all, let&apos;s look on the implementation of the <code>tick_init</code> function. As I already wrote, this function defined in the <a href="https://github.com/torvalds/linux/blob/master/kernel/time/tick-common.c" target="_blank">kernel/time/tick-common.c</a> source code file and consists from the two calls of following functions:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">void</span> __<span class="hljs-function">init <span class="hljs-title">tick_init</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+</span>{
+    tick_broadcast_init();
+    tick_nohz_init();
+}
+</code></pre>
+<p>As you can understand from the paragraph&apos;s title, we are interesting only in the <code>tick_broadcast_init</code> function for now. This function defined in the <a href="https://github.com/torvalds/linux/blob/master/kernel/time/tick-broadcast.c" target="_blank">kernel/time/tick-broadcast.c</a> source code file and executes initialization of the <code>tick broadcast</code> framework related data structures. Before we will look on the implementation of the <code>tick_broadcast_init</code> function and will try to understand what does this function do, we need to know about <code>tick broadcast</code> framework.</p>
+<p>Main point of a central processor is to execute programs. But sometimes a processor may be in a special state when it is not being used by any program. This special state is called - <a href="https://en.wikipedia.org/wiki/Idle_%28CPU%29" target="_blank">idle</a>. When the processor has no anything to execute, the Linux kernel launches <code>idle</code> task. We already saw a little about this in the last part of the <a href="https://0xax.gitbooks.io/linux-insides/content/Initialization/linux-initialization-10.html" target="_blank">Linux kernel initialization process</a>. When the Linux kernel will finish all initialization processes in the <code>start_kernel</code> function from the <a href="https://github.com/torvalds/linux/blob/master/init/main.c" target="_blank">init/main.c</a> source code file, it will call the <code>rest_init</code> function from the same source code file. Main point of this function is to launch kernel <code>init</code> thread and the <code>kthreadd</code> thread, to call the <code>schedule</code> function to start task scheduling and to go to sleep by calling the <code>cpu_idle_loop</code> function that defined in the <a href="https://github.com/torvalds/linux/blob/master/kernel/sched/idle.c" target="_blank">kernel/sched/idle.c</a> source code file.</p>
+<p>The <code>cpu_idle_loop</code> function represents infinite loop which checks the need for rescheduling on each iteration. After the scheduler finds something to execute, the <code>idle</code> process will finish its work and the control will be moved to a new runnable task with the call of the <code>schedule_preempt_disabled</code> function:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">cpu_idle_loop</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+</span>{
+    <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>) {
+        <span class="hljs-keyword">while</span> (!need_resched()) {
+        ...
+        ...
+        ...
+        <span class="hljs-comment">/* the main idle function */</span>
+        cpuidle_idle_call();
+    }
+    ...
+    ...
+    ...
+    schedule_preempt_disabled();
+}
+</code></pre>
+<p>Of course, we will not consider full implementation of the <code>cpu_idle_loop</code> function and details of the <code>idle</code> state in this part, because it is not related to our topic. But there is one interesting moment for us. We know that the processor can execute only one task in one time. How does the Linux kernel decide to reschedule and stop <code>idle</code> process if the processor executes infinite loop in the <code>cpu_idle_loop</code>? The answer is system timer interrupts. When an interrupt occurs, the processor stops the <code>idle</code> thread and transfers control to an interrupt handler. After the system timer interrupt handler will be handled, the <code>need_resched</code> will return true and the Linux kernel will stop <code>idle</code> process and will transfer control to the current runnable task. But handling of the system timer interrupts is not effective for <a href="https://en.wikipedia.org/wiki/Power_management" target="_blank">power management</a>, because if a processor is in <code>idle</code> state,  there is little point in sending it a system timer interrupt.</p>
+<p>By default, there is the <code>CONFIG_HZ_PERIODIC</code> kernel configuration option which is enabled in the Linux kernel and tells to handle each interrupt of the system timer. To solve this problem, the Linux kernel provides two additional ways of managing scheduling-clock interrupts:</p>
+<p>The first is to omit scheduling-clock ticks on idle processors. To enable this behaviour in the Linux kernel, we need to enable the <code>CONFIG_NO_HZ_IDLE</code> kernel configuration option. This option allows Linux kernel to avoid sending timer interrupts to idle processors. In this case periodic timer interrupts will be replaced with on-demand interrupts. This mode is called - <code>dyntick-idle</code> mode. But if the kernel does not handle interrupts of a system timer, how can the kernel decide if the system has nothing to do?</p>
+<p>Whenever the idle task is selected to run, the periodic tick is disabled with the call of the <code>tick_nohz_idle_enter</code> function that defined in the <a href="https://github.com/torvalds/linux/blob/master/kernel/time/tich-sched.c" target="_blank">kernel/time/tick-sched.c</a> source code file and enabled with the call of the <code>tick_nohz_idle_exit</code> function. There is special concept in the Linux kernel which is called - <code>clock event devices</code> that are used to schedule the next interrupt. This concept provides API for devices which can deliver interrupts at a specific time in the future and represented by the <code>clock_event_device</code> structure in the Linux kernel. We will not dive into implementation of the <code>clock_event_device</code> structure now. We will see it in the next part of this chapter. But there is one interesting moment for us right now.</p>
+<p>The second way is to omit scheduling-clock ticks on processors that are either in <code>idle</code> state or that have only one runnable task or in other words busy processor. We can enable this feature with the <code>CONFIG_NO_HZ_FULL</code> kernel configuration option and it allows to reduce the number of timer interrupts significantly.</p>
+<p>Besides the <code>cpu_idle_loop</code>, idle processor can be in a sleeping state. The Linux kernel provides special <code>cpuidle</code> framework. Main point of this framework is to put an idle processor to sleeping states. The name of the set of these states is - <code>C-states</code>. But how does a processor will be woken if local timer is disabled? The linux kernel provides <code>tick broadcast</code> framework for this. The main point of this framework is assign a timer which is not affected by the <code>C-states</code>. This timer will wake a sleeping processor.</p>
+<p>Now, after some theory we can return to the implementation of our function. Let&apos;s recall that the <code>tick_init</code> function just calls two following functions:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">void</span> __<span class="hljs-function">init <span class="hljs-title">tick_init</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+</span>{
+    tick_broadcast_init();
+    tick_nohz_init();
+}
+</code></pre>
+<p>Let&apos;s consider the first function. The first <code>tick_broadcast_init</code> function defined in the <a href="https://github.com/torvalds/linux/blob/master/kernel/time/tick-broadcast.c" target="_blank">kernel/time/tick-broadcast.c</a> source code file and executes initialization of the <code>tick broadcast</code> framework related data structures. Let&apos;s look on the implementation of the <code>tick_broadcast_init</code> function:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">void</span> __<span class="hljs-function">init <span class="hljs-title">tick_broadcast_init</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+</span>{
+        zalloc_cpumask_var(&amp;tick_broadcast_mask, GFP_NOWAIT);
+        zalloc_cpumask_var(&amp;tick_broadcast_on, GFP_NOWAIT);
+        zalloc_cpumask_var(&amp;tmpmask, GFP_NOWAIT);
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> CONFIG_TICK_ONESHOT</span>
+         zalloc_cpumask_var(&amp;tick_broadcast_oneshot_mask, GFP_NOWAIT);
+         zalloc_cpumask_var(&amp;tick_broadcast_pending_mask, GFP_NOWAIT);
+         zalloc_cpumask_var(&amp;tick_broadcast_force_mask, GFP_NOWAIT);
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+}
+</code></pre>
+<p>As we can see, the <code>tick_broadcast_init</code> function allocates different <a href="https://0xax.gitbooks.io/linux-insides/content/Concepts/cpumask.html" target="_blank">cpumasks</a> with the help of the <code>zalloc_cpumask_var</code> function. The <code>zalloc_cpumask_var</code> function defined in the <a href="https://github.com/torvalds/linux/blob/master/lib/cpumask.c" target="_blank">lib/cpumask.c</a> source code file and expands to the call of the following function:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">zalloc_cpumask_var</span><span class="hljs-params">(cpumask_var_t *mask, gfp_t flags)</span>
+</span>{
+        <span class="hljs-keyword">return</span> alloc_cpumask_var(mask, flags | __GFP_ZERO);
+}
+</code></pre>
+<p>Ultimately, the memory space will be allocated for the given <code>cpumask</code> with the certain flags with the help of the <code>kmalloc_node</code> function:</p>
+<pre><code class="lang-C">*mask = kmalloc_node(cpumask_size(), flags, node);
+</code></pre>
+<p>Now let&apos;s look on the <code>cpumasks</code> that will be initialized in the <code>tick_broadcast_init</code> function. As we can see, the <code>tick_broadcast_init</code> function will initialize six <code>cpumasks</code>, and moreover, initialization of the last three <code>cpumasks</code> will be depended on the <code>CONFIG_TICK_ONESHOT</code> kernel configuration option.</p>
+<p>The first three <code>cpumasks</code> are:</p>
+<ul>
+<li><code>tick_broadcast_mask</code> - the bitmap which represents list of processors that are in a sleeping mode;</li>
+<li><code>tick_broadcast_on</code> - the bitmap that stores numbers of processors which are in a periodic broadcast state;</li>
+<li><code>tmpmask</code> - this bitmap for temporary usage.</li>
+</ul>
+<p>As we already know, the next three <code>cpumasks</code> depends on the <code>CONFIG_TICK_ONESHOT</code> kernel configuration option. Actually each clock event devices can be in one of two modes:</p>
+<ul>
+<li><code>periodic</code> - clock events devices that support periodic events;</li>
+<li><code>oneshot</code>  - clock events devices that capable of issuing events that happen only once.</li>
+</ul>
+<p>The linux kernel defines two mask for such clock events devices in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/clockchips.h" target="_blank">include/linux/clockchips.h</a> header file:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> CLOCK_EVT_FEAT_PERIODIC        0x000001</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> CLOCK_EVT_FEAT_ONESHOT         0x000002</span>
+</code></pre>
+<p>So, the last three <code>cpumasks</code> are:</p>
+<ul>
+<li><code>tick_broadcast_oneshot_mask</code> - stores numbers of processors that must be notified;</li>
+<li><code>tick_broadcast_pending_mask</code> - stores numbers of processors that pending broadcast;</li>
+<li><code>tick_broadcast_force_mask</code>   - stores numbers of processors with enforced broadcast.</li>
+</ul>
+<p>We have initialized six <code>cpumasks</code> in the <code>tick broadcast</code> framework, and now we can proceed to implementation of this framework.</p>
+<h2 id="the-tick-broadcast-framework">The <code>tick broadcast</code> framework</h2>
+<p>Hardware may provide some clock source devices. When a processor sleeps and its local timer stopped, there must be additional clock source device that will handle awakening of a processor. The Linux kernel uses these <code>special</code> clock source devices which can raise an interrupt at a specified time. We already know that such timers called <code>clock events</code> devices in the Linux kernel. Besides <code>clock events</code> devices. Actually, each processor in the system has its own local timer which is programmed to issue interrupt at the time of the next deferred task. Also these timers can be programmed to do a periodical job, like updating <code>jiffies</code> and etc. These timers represented by the <code>tick_device</code> structure in the Linux kernel. This structure defined in the <a href="https://github.com/torvalds/linux/blob/master/kernel/time/tick-sched.h" target="_blank">kernel/time/tick-sched.h</a> header file and looks:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">struct</span> tick_device {
+        <span class="hljs-keyword">struct</span> clock_event_device *evtdev;
+        <span class="hljs-keyword">enum</span> tick_device_mode mode;
+};
+</code></pre>
+<p>Note, that the <code>tick_device</code> structure contains two fields. The first field - <code>evtdev</code> represents pointer to the <code>clock_event_device</code> structure that defined in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/clockchips.h" target="_blank">include/linux/clockchips.h</a> header file and represents descriptor of a clock event device. A <code>clock event</code> device allows to register an event that will happen in the future. As I already wrote, we will not consider <code>clock_event_device</code> structure and related API in this part, but will see it in the next part.</p>
+<p>The second field of the <code>tick_device</code> structure represents mode of the <code>tick_device</code>. As we already know, the mode can be one of the:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">enum</span> tick_device_mode {
+        TICKDEV_MODE_PERIODIC,
+        TICKDEV_MODE_ONESHOT,
+};
+</code></pre>
+<p>Each <code>clock events</code> device in the system registers itself by the call of the <code>clockevents_register_device</code> function or <code>clockevents_config_and_register</code> function during initialization process of the Linux kernel. During the registration of a new <code>clock events</code> device, the Linux kernel calls the <code>tick_check_new_device</code> function that defined in the <a href="https://github.com/torvalds/linux/blob/master/kernel/tick-common.c" target="_blank">kernel/time/tick-common.c</a> source code file and checks the given <code>clock events</code> device should be used by the Linux kernel. After all checks, the <code>tick_check_new_device</code> function executes a call of the:</p>
+<pre><code class="lang-C">tick_install_broadcast_device(newdev);
+</code></pre>
+<p>function that checks that the given <code>clock event</code> device can be broadcast device and install it, if the given device can be broadcast device. Let&apos;s look on the implementation of the <code>tick_install_broadcast_device</code> function:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">tick_install_broadcast_device</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> clock_event_device *dev)</span>
+</span>{
+    <span class="hljs-keyword">struct</span> clock_event_device *cur = tick_broadcast_device.evtdev;
+
+    <span class="hljs-keyword">if</span> (!tick_check_broadcast_device(cur, dev))
+        <span class="hljs-keyword">return</span>;
+
+    <span class="hljs-keyword">if</span> (!try_module_get(dev-&gt;owner))
+        <span class="hljs-keyword">return</span>;
+
+    clockevents_exchange_device(cur, dev);
+
+    <span class="hljs-keyword">if</span> (cur)
+        cur-&gt;event_handler = clockevents_handle_noop;
+
+    tick_broadcast_device.evtdev = dev;
+
+    <span class="hljs-keyword">if</span> (!cpumask_empty(tick_broadcast_mask))
+        tick_broadcast_start_periodic(dev);
+
+    <span class="hljs-keyword">if</span> (dev-&gt;features &amp; CLOCK_EVT_FEAT_ONESHOT)
+        tick_clock_notify();
+}
+</code></pre>
+<p>First of all we get the current <code>clock event</code> device from the <code>tick_broadcast_device</code>. The <code>tick_broadcast_device</code> defined in the <a href="https://github.com/torvalds/linux/blob/master/kernel/tick-common.c" target="_blank">kernel/time/tick-common.c</a> source code file:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> <span class="hljs-keyword">struct</span> tick_device tick_broadcast_device;
+</code></pre>
+<p>and represents external clock device that keeps track of events for a processor. The first step after we got the current clock device is the call of the <code>tick_check_broadcast_device</code> function which checks that a given clock events device can be utilized as broadcast device. The main point of the <code>tick_check_broadcast_device</code> function is to check value of the <code>features</code> field of the given <code>clock events</code> device. As we can understand from the name of this field, the <code>features</code> field contains a clock event device features. Available values defined in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/clockchips.h" target="_blank">include/linux/clockchips.h</a> header file and can be one of the <code>CLOCK_EVT_FEAT_PERIODIC</code> - which represents a clock events device which supports periodic events and etc. So, the <code>tick_check_broadcast_device</code> function check <code>features</code> flags for <code>CLOCK_EVT_FEAT_ONESHOT</code>, <code>CLOCK_EVT_FEAT_DUMMY</code> and other flags and returns <code>false</code> if the given clock events device has one of these features. In other way the <code>tick_check_broadcast_device</code> function compares <code>ratings</code> of the given clock event device and current clock event device and returns the best.</p>
+<p>After the <code>tick_check_broadcast_device</code> function, we can see the call of the <code>try_module_get</code> function that checks module owner of the clock events. We need to do it to be sure that the given <code>clock events</code> device was correctly initialized. The next step is the call of the <code>clockevents_exchange_device</code> function that defined in the <a href="https://github.com/torvalds/linux/blob/master/kernel/time/clockevents.c" target="_blank">kernel/time/clockevents.c</a> source code file and will release old clock events device and replace the previous functional handler with a dummy handler.</p>
+<p>In the last step of the <code>tick_install_broadcast_device</code> function we check that the <code>tick_broadcast_mask</code> is not empty and start the given <code>clock events</code> device in periodic mode with the call of the <code>tick_broadcast_start_periodic</code> function:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (!cpumask_empty(tick_broadcast_mask))
+    tick_broadcast_start_periodic(dev);
+
+<span class="hljs-keyword">if</span> (dev-&gt;features &amp; CLOCK_EVT_FEAT_ONESHOT)
+    tick_clock_notify();
+</code></pre>
+<p>The <code>tick_broadcast_mask</code> filled in the <code>tick_device_uses_broadcast</code> function that checks a <code>clock events</code> device during registration of this <code>clock events</code> device:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">int</span> cpu = smp_processor_id();
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">tick_device_uses_broadcast</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> clock_event_device *dev, <span class="hljs-keyword">int</span> cpu)</span>
+</span>{
+    ...
+    ...
+    ...
+    <span class="hljs-keyword">if</span> (!tick_device_is_functional(dev)) {
+        ...
+        cpumask_set_cpu(cpu, tick_broadcast_mask);
+        ...
+    }
+    ...
+    ...
+    ...
+}
+</code></pre>
+<p>More about the <code>smp_processor_id</code> macro you can read in the fourth <a href="https://0xax.gitbooks.io/linux-insides/content/Initialization/linux-initialization-4.html" target="_blank">part</a> of the Linux kernel initialization process chapter.</p>
+<p>The <code>tick_broadcast_start_periodic</code> function check the given <code>clock event</code> device and call the <code>tick_setup_periodic</code> function:</p>
+<pre><code>static void tick_broadcast_start_periodic(struct clock_event_device *bc)
+{
+    if (bc)
+        tick_setup_periodic(bc, 1);
+}
+</code></pre><p>that defined in the <a href="https://github.com/torvalds/linux/blob/master/kernel/time/tick-common.c" target="_blank">kernel/time/tick-common.c</a> source code file and sets broadcast handler for the given <code>clock event</code> device by the call of the following function:</p>
+<pre><code class="lang-C">tick_set_periodic_handler(dev, broadcast);
+</code></pre>
+<p>This function checks the second parameter which represents broadcast state (<code>on</code> or <code>off</code>) and sets the broadcast handler depends on its value:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">tick_set_periodic_handler</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> clock_event_device *dev, <span class="hljs-keyword">int</span> broadcast)</span>
+</span>{
+    <span class="hljs-keyword">if</span> (!broadcast)
+        dev-&gt;event_handler = tick_handle_periodic;
+    <span class="hljs-keyword">else</span>
+        dev-&gt;event_handler = tick_handle_periodic_broadcast;
+}
+</code></pre>
+<p>When an <code>clock event</code> device will issue an interrupt, the <code>dev-&gt;event_handler</code> will be called. For example, let&apos;s look on the interrupt handler of the <a href="https://en.wikipedia.org/wiki/High_Precision_Event_Timer" target="_blank">high precision event timer</a> which is located in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/kernel/hpet.c" target="_blank">arch/x86/kernel/hpet.c</a> source code file:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> irqreturn_t <span class="hljs-title">hpet_interrupt_handler</span><span class="hljs-params">(<span class="hljs-keyword">int</span> irq, <span class="hljs-keyword">void</span> *data)</span>
+</span>{
+    <span class="hljs-keyword">struct</span> hpet_dev *dev = (<span class="hljs-keyword">struct</span> hpet_dev *)data;
+    <span class="hljs-keyword">struct</span> clock_event_device *hevt = &amp;dev-&gt;evt;
+
+    <span class="hljs-keyword">if</span> (!hevt-&gt;event_handler) {
+        printk(KERN_INFO <span class="hljs-string">&quot;Spurious HPET timer interrupt on HPET timer %d\n&quot;</span>,
+                dev-&gt;num);
+        <span class="hljs-keyword">return</span> IRQ_HANDLED;
+    }
+
+    hevt-&gt;event_handler(hevt);
+    <span class="hljs-keyword">return</span> IRQ_HANDLED;
+}
+</code></pre>
+<p>The <code>hpet_interrupt_handler</code> gets the <a href="https://en.wikipedia.org/wiki/Interrupt_request_%28PC_architecture%29" target="_blank">irq</a> specific data and check the event handler of the <code>clock event</code> device. Recall that we just set in the <code>tick_set_periodic_handler</code> function. So the <code>tick_handler_periodic_broadcast</code> function will be called in the end of the high precision event timer interrupt handler.</p>
+<p>The <code>tick_handler_periodic_broadcast</code> function calls the</p>
+<pre><code class="lang-C">bc_local = tick_do_periodic_broadcast();
+</code></pre>
+<p>function which stores numbers of processors which have asked to be woken up in the temporary <code>cpumask</code> and call the <code>tick_do_broadcast</code> function:</p>
+<pre><code>cpumask_and(tmpmask, cpu_online_mask, tick_broadcast_mask);
+return tick_do_broadcast(tmpmask);
+</code></pre><p>The <code>tick_do_broadcast</code> calls the <code>broadcast</code> function of the given clock events which sends <a href="https://en.wikipedia.org/wiki/Inter-processor_interrupt" target="_blank">IPI</a> interrupt to the set of the processors. In the end we can call the event handler of the given <code>tick_device</code>:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (bc_local)
+    td-&gt;evtdev-&gt;event_handler(td-&gt;evtdev);
+</code></pre>
+<p>which actually represents interrupt handler of the local timer of a processor. After this a processor will wake up. That is all about <code>tick broadcast</code> framework in the Linux kernel. We have missed some aspects of this framework, for example reprogramming of a <code>clock event</code> device and broadcast with the oneshot timer and etc. But the Linux kernel is very big, it is not real to cover all aspects of it. I think it will be interesting to dive into with yourself.</p>
+<p>If you remember, we have started this part with the call of the <code>tick_init</code> function. We just consider the <code>tick_broadcast_init</code> function and releated theory, but the <code>tick_init</code> function contains another call of a function and this function is - <code>tick_nohz_init</code>. Let&apos;s look on the implementation of this function.</p>
+<h2 id="initialization-of-dyntick-related-data-structures">Initialization of dyntick related data structures</h2>
+<p>We already saw some information about <code>dyntick</code> concept in this part and we know that this concept allows kernel to disable system timer interrupts in the <code>idle</code> state. The <code>tick_nohz_init</code> function makes initialization of the different data structures which are related to this concept. This function defined in the <a href="https://github.com/torvalds/linux/blob/master/kernel/time/tich-sched.c" target="_blank">kernel/time/tick-sched.c</a> source code file and starts from the check of the value of the <code>tick_nohz_full_running</code> variable which represents state of the tick-less mode for the <code>idle</code> state and the state when system timer interrups are disabled during a processor has only one runnable task:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (!tick_nohz_full_running) {
+    <span class="hljs-keyword">if</span> (tick_nohz_init_all() &lt; <span class="hljs-number">0</span>)
+    <span class="hljs-keyword">return</span>;
+}
+</code></pre>
+<p>If this mode is not running we call the <code>tick_nohz_init_all</code> function that defined in the same source code file and check its result. The <code>tick_nohz_init_all</code> function tries to allocate the <code>tick_nohz_full_mask</code> with the call of the <code>alloc_cpumask_var</code> that will allocate space for a <code>tick_nohz_full_mask</code>. The <code>tick_nohz_full_mask</code> will store numbers of processors that have enabled full <code>NO_HZ</code>. After successful allocation of the <code>tick_nohz_full_mask</code> we set all bits in the <code>tick_nohz_full_mask</code>, set the <code>tick_nohz_full_running</code> and return result to the <code>tick_nohz_init</code> function:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">tick_nohz_init_all</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+</span>{
+        <span class="hljs-keyword">int</span> err = <span class="hljs-number">-1</span>;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> CONFIG_NO_HZ_FULL_ALL</span>
+        <span class="hljs-keyword">if</span> (!alloc_cpumask_var(&amp;tick_nohz_full_mask, GFP_KERNEL)) {
+                WARN(<span class="hljs-number">1</span>, <span class="hljs-string">&quot;NO_HZ: Can&apos;t allocate full dynticks cpumask\n&quot;</span>);
+                <span class="hljs-keyword">return</span> err;
+        }
+        err = <span class="hljs-number">0</span>;
+        cpumask_setall(tick_nohz_full_mask);
+        tick_nohz_full_running = <span class="hljs-literal">true</span>;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+        <span class="hljs-keyword">return</span> err;
+}
+</code></pre>
+<p>In the next step we try to allocate a memory space for the <code>housekeeping_mask</code>:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (!alloc_cpumask_var(&amp;housekeeping_mask, GFP_KERNEL)) {
+    WARN(<span class="hljs-number">1</span>, <span class="hljs-string">&quot;NO_HZ: Can&apos;t allocate not-full dynticks cpumask\n&quot;</span>);
+    cpumask_clear(tick_nohz_full_mask);
+    tick_nohz_full_running = <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">return</span>;
+}
+</code></pre>
+<p>This <code>cpumask</code> will store number of processor for <code>housekeeping</code> or in other words we need at least in one processor that will not be in <code>NO_HZ</code> mode, because it will do timekeeping and etc. After this we check the result of the architecture-specific <code>arch_irq_work_has_interrupt</code> function. This function checks ability to send inter-processor interrupt for the certain architecture. We need to check this, because system timer of a processor will be disabled during <code>NO_HZ</code> mode, so there must be at least one online processor which can send inter-processor interrupt to awake offline processor. This function defined in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/irq_work.h" target="_blank">arch/x86/include/asm/irq_work.h</a> header file for the <a href="https://en.wikipedia.org/wiki/X86-64" target="_blank">x86_64</a> and just checks that a processor has <a href="https://en.wikipedia.org/wiki/Advanced_Programmable_Interrupt_Controller" target="_blank">APIC</a> from the <a href="https://en.wikipedia.org/wiki/CPUID" target="_blank">CPUID</a>:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-keyword">bool</span> <span class="hljs-title">arch_irq_work_has_interrupt</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+</span>{
+    <span class="hljs-keyword">return</span> cpu_has_apic;
+}
+</code></pre>
+<p>If a processor has not <code>APIC</code>, the Linux kernel prints warning message, clears the <code>tick_nohz_full_mask</code> cpumask, copies numbers of all possible processors in the system to the <code>housekeeping_mask</code> and resets the value of the <code>tick_nohz_full_running</code> variable:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (!arch_irq_work_has_interrupt()) {
+    pr_warning(<span class="hljs-string">&quot;NO_HZ: Can&apos;t run full dynticks because arch doesn&apos;t &quot;</span>
+           <span class="hljs-string">&quot;support irq work self-IPIs\n&quot;</span>);
+    cpumask_clear(tick_nohz_full_mask);
+    cpumask_copy(housekeeping_mask, cpu_possible_mask);
+    tick_nohz_full_running = <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">return</span>;
+}
+</code></pre>
+<p>After this step, we get the number of the current processor by the call of the <code>smp_processor_id</code> and check this processor in the <code>tick_nohz_full_mask</code>. If the <code>tick_nohz_full_mask</code> contains a given processor we clear appropriate bit in the <code>tick_nohz_full_mask</code>:</p>
+<pre><code class="lang-C">cpu = smp_processor_id();
+
+<span class="hljs-keyword">if</span> (cpumask_test_cpu(cpu, tick_nohz_full_mask)) {
+    pr_warning(<span class="hljs-string">&quot;NO_HZ: Clearing %d from nohz_full range for timekeeping\n&quot;</span>, cpu);
+    cpumask_clear_cpu(cpu, tick_nohz_full_mask);
+}
+</code></pre>
+<p>Because this processor will be used for timekeeping. After this step we put all numbers of processors that are in the <code>cpu_possible_mask</code> and not in the <code>tick_nohz_full_mask</code>:</p>
+<pre><code class="lang-C">cpumask_andnot(housekeeping_mask,
+           cpu_possible_mask, tick_nohz_full_mask);
+</code></pre>
+<p>After this operation, the <code>housekeeping_mask</code> will contain all processors of the system except a processor for timekeeping. In the last step of the <code>tick_nohz_init_all</code> function, we are going through all processors that are defined in the <code>tick_nohz_full_mask</code> and call the following function for an each processor:</p>
+<pre><code class="lang-C">for_each_cpu(cpu, tick_nohz_full_mask)
+    context_tracking_cpu_set(cpu);
+</code></pre>
+<p>The <code>context_tracking_cpu_set</code> function defined in the <a href="https://github.com/torvalds/linux/blob/master/kernel/context_tracking.c" target="_blank">kernel/context_tracking.c</a> source code file and main point of this function is to set the <code>context_tracking.active</code> <a href="https://0xax.gitbooks.io/linux-insides/content/Concepts/per-cpu.html" target="_blank">percpu</a> variable to <code>true</code>. When the <code>active</code> field will be set to <code>true</code> for the certain processor, all <a href="https://en.wikipedia.org/wiki/Context_switch" target="_blank">context switches</a> will be ignored by the Linux kernel context tracking subsystem for this processor.</p>
+<p>That&apos;s all. This is the end of the <code>tick_nohz_init</code> function. After this <code>NO_HZ</code> related data structures will be initialzed. We didn&apos;t see API of the <code>NO_HZ</code> mode, but will see it soon.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This is the end of the third part of the chapter that describes timers and timer management related stuff in the Linux kernel. In the previous part got acquainted with the <code>clocksource</code> concept in the Linux kernel which represents framework for managing different clock source in a interrupt and hardware characteristics independent way. We continued to look on the Linux kernel initialization process in a time management context in this part and got acquainted with two new concepts for us: the <code>tick broadcast</code> framework and <code>tick-less</code> mode. The first concept helps the Linux kernel to deal with processors which are in deep sleep and the second concept represents the mode in which kernel may work to improve power management of <code>idle</code> processors.</p>
+<p>In the next part we will continue to dive into timer management related things in the Linux kernel and will see new concept for us - <code>timers</code>.</p>
+<p>If you have questions or suggestions, feel free to ping me in twitter <a href="https://twitter.com/0xAX" target="_blank">0xAX</a>, drop me <a href="anotherworldofworld@gmail.com">email</a> or just create <a href="https://github.com/0xAX/linux-insides/issues/new" target="_blank">issue</a>.</p>
+<p><strong>Please note that English is not my first language and I am really sorry for any inconvenience. If you found any mistakes please send me PR to <a href="https://github.com/0xAX/linux-insides" target="_blank">linux-insides</a>.</strong></p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/X86-64" target="_blank">x86_64</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Initrd" target="_blank">initrd</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Interrupt" target="_blank">interrupt</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Desktop_Management_Interface" target="_blank">DMI</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Printk" target="_blank">printk</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Idle_%28CPU%29" target="_blank">CPU idle</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Power_management" target="_blank">power management</a></li>
+<li><a href="https://github.com/torvalds/linux/blob/master/Documentation/timers/NO_HZ.txt" target="_blank">NO_HZ documentation</a></li>
+<li><a href="https://0xax.gitbooks.io/linux-insides/content/Concepts/cpumask.html" target="_blank">cpumasks</a></li>
+<li><a href="https://en.wikipedia.org/wiki/High_Precision_Event_Timer" target="_blank">high precision event timer</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Interrupt_request_%28PC_architecture%29" target="_blank">irq</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Inter-processor_interrupt" target="_blank">IPI</a></li>
+<li><a href="https://en.wikipedia.org/wiki/CPUID" target="_blank">CPUID</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Advanced_Programmable_Interrupt_Controller" target="_blank">APIC</a></li>
+<li><a href="https://0xax.gitbooks.io/linux-insides/content/Concepts/per-cpu.html" target="_blank">percpu</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Context_switch" target="_blank">context switches</a></li>
+<li><a href="https://0xax.gitbooks.io/linux-insides/content/Timers/timers-2.html" target="_blank">Previous part</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="timers-2.html" class="navigation navigation-prev " aria-label="Previous page: Clocksource framework">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="timers-4.html" class="navigation navigation-next " aria-label="Next page: Introduction to timers">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"The tick broadcast framework and dyntick","level":"1.6.3","depth":2,"next":{"title":"Introduction to timers","level":"1.6.4","depth":2,"path":"Timers/timers-4.md","ref":"Timers/timers-4.md","articles":[]},"previous":{"title":"Clocksource framework","level":"1.6.2","depth":2,"path":"Timers/timers-2.md","ref":"Timers/timers-2.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Timers/timers-3.md","mtime":"2019-03-28T07:54:50.409Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-28T07:57:01.662Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

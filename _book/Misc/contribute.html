@@ -1,0 +1,1714 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Linux kernel development · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="program_startup.html" />
+    
+    
+    <link rel="prev" href="linkers.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Summary</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Booting/">
+            
+                <a href="../Booting/">
+            
+                    
+                    Booting
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Booting/linux-bootstrap-1.html">
+            
+                <a href="../Booting/linux-bootstrap-1.html">
+            
+                    
+                    From bootloader to kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Booting/linux-bootstrap-2.html">
+            
+                <a href="../Booting/linux-bootstrap-2.html">
+            
+                    
+                    First steps in the kernel setup code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Booting/linux-bootstrap-3.html">
+            
+                <a href="../Booting/linux-bootstrap-3.html">
+            
+                    
+                    Video mode initialization and transition to protected mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../Booting/linux-bootstrap-4.html">
+            
+                <a href="../Booting/linux-bootstrap-4.html">
+            
+                    
+                    Transition to 64-bit mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../Booting/linux-bootstrap-5.html">
+            
+                <a href="../Booting/linux-bootstrap-5.html">
+            
+                    
+                    Kernel decompression
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Initialization/">
+            
+                <a href="../Initialization/">
+            
+                    
+                    Initialization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Initialization/linux-initialization-1.html">
+            
+                <a href="../Initialization/linux-initialization-1.html">
+            
+                    
+                    First steps in the kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Initialization/linux-initialization-2.html">
+            
+                <a href="../Initialization/linux-initialization-2.html">
+            
+                    
+                    Early interrupts handler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Initialization/linux-initialization-3.html">
+            
+                <a href="../Initialization/linux-initialization-3.html">
+            
+                    
+                    Last preparations before the kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Initialization/linux-initialization-4.html">
+            
+                <a href="../Initialization/linux-initialization-4.html">
+            
+                    
+                    Kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../Initialization/linux-initialization-5.html">
+            
+                <a href="../Initialization/linux-initialization-5.html">
+            
+                    
+                    Continue architecture-specific boot-time initializations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../Initialization/linux-initialization-6.html">
+            
+                <a href="../Initialization/linux-initialization-6.html">
+            
+                    
+                    Architecture-specific initializations, again...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../Initialization/linux-initialization-7.html">
+            
+                <a href="../Initialization/linux-initialization-7.html">
+            
+                    
+                    End of the architecture-specific initializations, almost...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../Initialization/linux-initialization-8.html">
+            
+                <a href="../Initialization/linux-initialization-8.html">
+            
+                    
+                    Scheduler initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../Initialization/linux-initialization-9.html">
+            
+                <a href="../Initialization/linux-initialization-9.html">
+            
+                    
+                    RCU initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../Initialization/linux-initialization-10.html">
+            
+                <a href="../Initialization/linux-initialization-10.html">
+            
+                    
+                    End of initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../interrupts/">
+            
+                <a href="../interrupts/">
+            
+                    
+                    Interrupts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../interrupts/interrupts-1.html">
+            
+                <a href="../interrupts/interrupts-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../interrupts/interrupts-2.html">
+            
+                <a href="../interrupts/interrupts-2.html">
+            
+                    
+                    Start to dive into interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../interrupts/interrupts-3.html">
+            
+                <a href="../interrupts/interrupts-3.html">
+            
+                    
+                    Interrupt handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../interrupts/interrupts-4.html">
+            
+                <a href="../interrupts/interrupts-4.html">
+            
+                    
+                    Initialization of non-early interrupt gates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../interrupts/interrupts-5.html">
+            
+                <a href="../interrupts/interrupts-5.html">
+            
+                    
+                    Implementation of some exception handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../interrupts/interrupts-6.html">
+            
+                <a href="../interrupts/interrupts-6.html">
+            
+                    
+                    Handling Non-Maskable interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../interrupts/interrupts-7.html">
+            
+                <a href="../interrupts/interrupts-7.html">
+            
+                    
+                    Dive into external hardware interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../interrupts/interrupts-8.html">
+            
+                <a href="../interrupts/interrupts-8.html">
+            
+                    
+                    Initialization of external hardware interrupts structures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../interrupts/interrupts-9.html">
+            
+                <a href="../interrupts/interrupts-9.html">
+            
+                    
+                    Softirq, Tasklets and Workqueues
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../interrupts/interrupts-10.html">
+            
+                <a href="../interrupts/interrupts-10.html">
+            
+                    
+                    Last part
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../SysCall/">
+            
+                <a href="../SysCall/">
+            
+                    
+                    System calls
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../SysCall/syscall-1.html">
+            
+                <a href="../SysCall/syscall-1.html">
+            
+                    
+                    Introduction to system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../SysCall/syscall-2.html">
+            
+                <a href="../SysCall/syscall-2.html">
+            
+                    
+                    How the Linux kernel handles a system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../SysCall/syscall-3.html">
+            
+                <a href="../SysCall/syscall-3.html">
+            
+                    
+                    vsyscall and vDSO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../SysCall/syscall-4.html">
+            
+                <a href="../SysCall/syscall-4.html">
+            
+                    
+                    How the Linux kernel runs a program
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../SysCall/syscall-5.html">
+            
+                <a href="../SysCall/syscall-5.html">
+            
+                    
+                    Implementation of the open system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Timers/">
+            
+                <a href="../Timers/">
+            
+                    
+                    Timers and time management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../Timers/timers-1.html">
+            
+                <a href="../Timers/timers-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Timers/timers-2.html">
+            
+                <a href="../Timers/timers-2.html">
+            
+                    
+                    Clocksource framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Timers/timers-3.html">
+            
+                <a href="../Timers/timers-3.html">
+            
+                    
+                    The tick broadcast framework and dyntick
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../Timers/timers-4.html">
+            
+                <a href="../Timers/timers-4.html">
+            
+                    
+                    Introduction to timers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Timers/timers-5.html">
+            
+                <a href="../Timers/timers-5.html">
+            
+                    
+                    Clockevents framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../Timers/timers-6.html">
+            
+                <a href="../Timers/timers-6.html">
+            
+                    
+                    x86 related clock sources
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../Timers/timers-7.html">
+            
+                <a href="../Timers/timers-7.html">
+            
+                    
+                    Time related system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../SyncPrim/">
+            
+                <a href="../SyncPrim/">
+            
+                    
+                    Synchronization primitives
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../SyncPrim/sync-1.html">
+            
+                <a href="../SyncPrim/sync-1.html">
+            
+                    
+                    Introduction to spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../SyncPrim/sync-2.html">
+            
+                <a href="../SyncPrim/sync-2.html">
+            
+                    
+                    Queued spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../SyncPrim/sync-3.html">
+            
+                <a href="../SyncPrim/sync-3.html">
+            
+                    
+                    Semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../SyncPrim/sync-4.html">
+            
+                <a href="../SyncPrim/sync-4.html">
+            
+                    
+                    Mutex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../SyncPrim/sync-5.html">
+            
+                <a href="../SyncPrim/sync-5.html">
+            
+                    
+                    Reader/Writer semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../SyncPrim/sync-6.html">
+            
+                <a href="../SyncPrim/sync-6.html">
+            
+                    
+                    SeqLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" >
+            
+                <span>
+            
+                    
+                    RCU
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" >
+            
+                <span>
+            
+                    
+                    Lockdep
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../mm/">
+            
+                <a href="../mm/">
+            
+                    
+                    Memory management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../mm/linux-mm-1.html">
+            
+                <a href="../mm/linux-mm-1.html">
+            
+                    
+                    Memblock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../mm/linux-mm-2.html">
+            
+                <a href="../mm/linux-mm-2.html">
+            
+                    
+                    Fixmaps and ioremap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../mm/linux-mm-3.html">
+            
+                <a href="../mm/linux-mm-3.html">
+            
+                    
+                    kmemcheck
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../Cgroups/">
+            
+                <a href="../Cgroups/">
+            
+                    
+                    Cgroups
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../Cgroups/cgroups1.html">
+            
+                <a href="../Cgroups/cgroups1.html">
+            
+                    
+                    Introduction to Control Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    SMP
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../Concepts/">
+            
+                <a href="../Concepts/">
+            
+                    
+                    Concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../Concepts/per-cpu.html">
+            
+                <a href="../Concepts/per-cpu.html">
+            
+                    
+                    Per-CPU variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../Concepts/cpumask.html">
+            
+                <a href="../Concepts/cpumask.html">
+            
+                    
+                    Cpumasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../Concepts/initcall.html">
+            
+                <a href="../Concepts/initcall.html">
+            
+                    
+                    The initcall mechanism
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../DataStructures/">
+            
+                <a href="../DataStructures/">
+            
+                    
+                    Data Structures in the Linux Kernel
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../DataStructures/dlist.html">
+            
+                <a href="../DataStructures/dlist.html">
+            
+                    
+                    Doubly linked list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../DataStructures/radix-tree.html">
+            
+                <a href="../DataStructures/radix-tree.html">
+            
+                    
+                    Radix tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../DataStructures/bitmap.html">
+            
+                <a href="../DataStructures/bitmap.html">
+            
+                    
+                    Bit arrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../Theory/">
+            
+                <a href="../Theory/">
+            
+                    
+                    Theory
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../Theory/Paging.html">
+            
+                <a href="../Theory/Paging.html">
+            
+                    
+                    Paging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../Theory/ELF.html">
+            
+                <a href="../Theory/ELF.html">
+            
+                    
+                    Elf64
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../Theory/asm.html">
+            
+                <a href="../Theory/asm.html">
+            
+                    
+                    Inline assembly
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" >
+            
+                <span>
+            
+                    
+                    CPUID
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" >
+            
+                <span>
+            
+                    
+                    MSR
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" >
+            
+                <span>
+            
+                    
+                    Initial ram disk
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" >
+            
+                <span>
+            
+                    
+                    initrd
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Misc
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="how_kernel_compiled.html">
+            
+                <a href="how_kernel_compiled.html">
+            
+                    
+                    How the kernel is compiled
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="linkers.html">
+            
+                <a href="linkers.html">
+            
+                    
+                    Linkers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.15.3" data-path="contribute.html">
+            
+                <a href="contribute.html">
+            
+                    
+                    Linux kernel development
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.4" data-path="program_startup.html">
+            
+                <a href="program_startup.html">
+            
+                    
+                    Program startup process in userspace
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.5" >
+            
+                <span>
+            
+                    
+                    Write and Submit your first Linux kernel Patch
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.6" >
+            
+                <span>
+            
+                    
+                    Data types in the kernel
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../KernelStructures/">
+            
+                <a href="../KernelStructures/">
+            
+                    
+                    KernelStructures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../KernelStructures/idt.html">
+            
+                <a href="../KernelStructures/idt.html">
+            
+                    
+                    IDT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../LINKS.html">
+            
+                <a href="../LINKS.html">
+            
+                    
+                    Useful links
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../contributors.html">
+            
+                <a href="../contributors.html">
+            
+                    
+                    Contributors
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Linux kernel development</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="linux-kernel-development">Linux kernel development</h1>
+<h2 id="introduction">Introduction</h2>
+<p>As you already may know, I&apos;ve started a series of <a href="http://0xax.github.io/categories/assembly/" target="_blank">blog posts</a> about assembler programming for <code>x86_64</code> architecture in the last year. I have never written a line of low-level code before this moment, except for a couple of toy <code>Hello World</code> examples in university. It was a long time ago and, as I already said, I didn&apos;t write low-level code at all. Some time ago I became interested in such things. I understood that I can write programs, but didn&apos;t actually understand how my program is arranged.</p>
+<p>After writing some assembler code I began to understand how my program looks after compilation, <strong>approximately</strong>. But anyway, I didn&apos;t understand many other things. For example: what occurs when the <code>syscall</code> instruction is executed in my assembler, what occurs when the <code>printf</code> function starts to work or how can my program talk with other computers via network. <a href="https://en.wikipedia.org/wiki/Assembly_language#Assembler" target="_blank">Assembler</a> programming language didn&apos;t give me answers to my questions and I decided to go deeper in my research. I started to learn from the source code of the Linux kernel and tried to understand the things that I&apos;m interested in. The source code of the Linux kernel didn&apos;t give me the answers to <strong>all</strong> of my questions, but now my knowledge about the Linux kernel and the processes around it is much better.</p>
+<p>I&apos;m writing this part nine and a half months after I&apos;ve started to learn from the source code of the Linux kernel and published the first <a href="https://0xax.gitbooks.io/linux-insides/content/Booting/linux-bootstrap-1.html" target="_blank">part</a> of this book. Now it contains forty parts and it is not the end. I decided to write this series about the Linux kernel mostly for myself. As you know the Linux kernel is very huge piece of code and it is easy to forget what does this or that part of the Linux kernel mean and how does it implement something. But soon the <a href="https://github.com/0xAX/linux-insides" target="_blank">linux-insides</a> repo became popular and after nine months it has <code>9096</code> stars:</p>
+<p><img src="http://s2.postimg.org/jjb3s4frt/stars.png" alt="github"></p>
+<p>It seems that people are interested in the insides of the Linux kernel. Besides this, in all the time that I have been writing <code>linux-insides</code>, I have received many questions from different people about how to begin contributing to the Linux kernel. Generally people are interested in contributing to open source projects and the Linux kernel is not an exception:</p>
+<p><img src="http://s4.postimg.org/yg9z5zx0d/google_linux.png" alt="google-linux"></p>
+<p>So, it seems that people are interested in the Linux kernel development process. I thought it would be strange if a book about the Linux kernel would not contain a part describing how to take a part in the Linux kernel development and that&apos;s why I decided to write it. You will not find information about why you should be interested in contributing to the Linux kernel in this part. But if you are interested how to start with Linux kernel development, this part is for you.</p>
+<p>Let&apos;s start.</p>
+<h2 id="how-to-start-with-linux-kernel">How to start with Linux kernel</h2>
+<p>First of all, let&apos;s see how to get, build, and run the Linux kernel. You can run your custom build of the Linux kernel in two ways:</p>
+<ul>
+<li>Run the Linux kernel on a virtual machine;</li>
+<li>Run the Linux kernel on real hardware.</li>
+</ul>
+<p>I&apos;ll provide descriptions for both methods. Before we start doing anything with the Linux kernel, we need to get it. There are a couple of ways to do this depending on your purpose. If you just want to update the current version of the Linux kernel on your computer, you can use the instructions specific to your Linux <a href="https://en.wikipedia.org/wiki/Linux_distribution" target="_blank">distro</a>.</p>
+<p>In the first case you just need to download new version of the Linux kernel with the <a href="https://en.wikipedia.org/wiki/Package_manager" target="_blank">package manager</a>. For example, to upgrade the version of the Linux kernel to <code>4.1</code> for <a href="http://releases.ubuntu.com/15.04/" target="_blank">Ubuntu (Vivid Vervet)</a>, you will just need to execute the following commands:</p>
+<pre><code>$ sudo add-apt-repository ppa:kernel-ppa/ppa
+$ sudo apt-get update
+</code></pre><p>After this execute this command:</p>
+<pre><code>$ apt-cache showpkg linux-headers
+</code></pre><p>and choose the version of the Linux kernel in which you are interested. In the end execute the next command and replace <code>${version}</code> with the version that you chose in the output of the previous command:</p>
+<pre><code>$ sudo apt-get install linux-headers-${version} linux-headers-${version}-generic linux-image-${version}-generic --fix-missing
+</code></pre><p>and reboot your system. After the reboot you will see the new kernel in the <a href="https://en.wikipedia.org/wiki/GNU_GRUB" target="_blank">grub</a> menu.</p>
+<p>In the other way if you are interested in the Linux kernel development, you will need to get the source code of the Linux kernel. You can find it on the <a href="https://kernel.org/" target="_blank">kernel.org</a> website and download an archive with the Linux kernel source code. Actually the Linux kernel development process is fully built around <code>git</code> <a href="https://en.wikipedia.org/wiki/Version_control" target="_blank">version control system</a>. So you can get it with <code>git</code> from the <code>kernel.org</code>:</p>
+<pre><code>$ git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+</code></pre><p>I don&apos;t know how about you, but I prefer <code>github</code>. There is a <a href="https://github.com/torvalds/linux" target="_blank">mirror</a> of the Linux kernel mainline repository, so you can clone it with:</p>
+<pre><code>$ git clone git@github.com:torvalds/linux.git
+</code></pre><p>I  use my own <a href="https://github.com/0xAX/linux" target="_blank">fork</a> for development and when I want to pull updates from the main repository I just execute the following command:</p>
+<pre><code>$ git checkout master
+$ git pull upstream master
+</code></pre><p>Note that the remote name of the main repository is <code>upstream</code>. To add a new remote with the main Linux repository you can execute:</p>
+<pre><code>git remote add upstream git@github.com:torvalds/linux.git
+</code></pre><p>After this you will have two remotes:</p>
+<pre><code>~/dev/linux (master) $ git remote -v
+origin    git@github.com:0xAX/linux.git (fetch)
+origin    git@github.com:0xAX/linux.git (push)
+upstream    https://github.com/torvalds/linux.git (fetch)
+upstream    https://github.com/torvalds/linux.git (push)
+</code></pre><p>One is of your fork (<code>origin</code>) and the second is for the main repository (<code>upstream</code>).</p>
+<p>Now that we have a local copy of the Linux kernel source code, we need to configure and build it. The Linux kernel can be configured in different ways. The simplest way is to just copy the configuration file of the already installed kernel that is located in the <code>/boot</code> directory:</p>
+<pre><code>$ sudo cp /boot/config-$(uname -r) ~/dev/linux/.config
+</code></pre><p>If your current Linux kernel was built with the support for access to the <code>/proc/config.gz</code> file, you can copy your actual kernel configuration file with this command:</p>
+<pre><code>$ cat /proc/config.gz | gunzip &gt; ~/dev/linux/.config
+</code></pre><p>If you are not satisfied with the standard kernel configuration that is provided by the maintainers of your distro, you can configure the Linux kernel manually. There are a couple of ways to do it. The Linux kernel root <a href="https://github.com/torvalds/linux/blob/master/Makefile" target="_blank">Makefile</a> provides a set of targets that allows you to configure it. For example <code>menuconfig</code> provides a menu-driven interface for the kernel configuration:</p>
+<p><img src="http://s21.postimg.org/zcz48p7yf/menucnonfig.png" alt="menuconfig"></p>
+<p>The <code>defconfig</code> argument generates the default kernel configuration file for the current architecture, for example <a href="https://github.com/torvalds/linux/blob/master/arch/x86/configs/x86_64_defconfig" target="_blank">x86_64 defconfig</a>. You can pass the <code>ARCH</code> command line argument to <code>make</code> to build <code>defconfig</code> for the given architecture:</p>
+<pre><code>$ make ARCH=arm64 defconfig
+</code></pre><p>The <code>allnoconfig</code>, <code>allyesconfig</code> and <code>allmodconfig</code> arguments allow you to generate a new configuration file where all options will be disabled, enabled, and enabled as modules respectively. The <code>nconfig</code> command line arguments that provides <code>ncurses</code> based program with menu to configure Linux kernel:</p>
+<p><img src="http://s29.postimg.org/hpghikp4n/nconfig.png" alt="nconfig"></p>
+<p>And even <code>randconfig</code> to generate random Linux kernel configuration file. I will not write about how to configure the Linux kernel or which options to enable because it makes no sense to do so for two reasons: First of all I do not know your hardware and second, if you know your hardware, the only remaining task is to find out how to use programs for kernel configuration, and all of them are pretty simple to use.</p>
+<p>OK, we now have the source code of the Linux kernel and configured it. The next step is the compilation of the Linux kernel. The simplest way to compile Linux kernel is to just execute:</p>
+<pre><code>$ make
+scripts/kconfig/conf  --silentoldconfig Kconfig
+#
+# configuration written to .config
+#
+  CHK     include/config/kernel.release
+  UPD     include/config/kernel.release
+  CHK     include/generated/uapi/linux/version.h
+  CHK     include/generated/utsrelease.h
+  ...
+  ...
+  ...
+  OBJCOPY arch/x86/boot/vmlinux.bin
+  AS      arch/x86/boot/header.o
+  LD      arch/x86/boot/setup.elf
+  OBJCOPY arch/x86/boot/setup.bin
+  BUILD   arch/x86/boot/bzImage
+  Setup is 15740 bytes (padded to 15872 bytes).
+System is 4342 kB
+CRC 82703414
+Kernel: arch/x86/boot/bzImage is ready  (#73)
+</code></pre><p>To increase the speed of kernel compilation you can pass <code>-jN</code> command line argument to <code>make</code>, where <code>N</code> specifies the number of commands to run simultaneously:</p>
+<pre><code>$ make -j8
+</code></pre><p>If you want to build Linux kernel for an architecture that differs from your current, the simplest way to do it pass two arguments:</p>
+<ul>
+<li><code>ARCH</code> command line argument and the name of the target architecture;</li>
+<li><code>CROSS_COMPILER</code> command line argument and the cross-compiler tool prefix;</li>
+</ul>
+<p>For example if we want to compile the Linux kernel for the <a href="https://en.wikipedia.org/wiki/ARM_architecture#AArch64_features" target="_blank">arm64</a> with default kernel configuration file, we need to execute following command:</p>
+<pre><code>$ make -j4 ARCH=arm64 CROSS_COMPILER=aarch64-linux-gnu- defconfig
+$ make -j4 ARCH=arm64 CROSS_COMPILER=aarch64-linux-gnu-
+</code></pre><p>As result of compilation we can see the compressed kernel - <code>arch/x86/boot/bzImage</code>. Now that we have compiled the kernel, we can either install it on our computer or just run it in an emulator.</p>
+<h2 id="installing-linux-kernel">Installing Linux kernel</h2>
+<p>As I already wrote we will consider two ways how to launch new kernel: In the first case we can install and run the new version of the Linux kernel on the real hardware and the second is launch the Linux kernel on a virtual machine. In the previous paragraph we saw how to build the Linux kernel from source code and as a result we have got compressed image:</p>
+<pre><code>...
+...
+...
+Kernel: arch/x86/boot/bzImage is ready  (#73)
+</code></pre><p>After we have got the <a href="https://en.wikipedia.org/wiki/Vmlinux#bzImage" target="_blank">bzImage</a> we need to install <code>headers</code>, <code>modules</code> of the new Linux kernel with the:</p>
+<pre><code>$ sudo make headers_install
+$ sudo make modules_install
+</code></pre><p>and directly the kernel itself:</p>
+<pre><code>$ sudo make install
+</code></pre><p>From this moment we have installed new version of the Linux kernel and now we must tell the <code>bootloader</code> about it. Of course we can add it manually by the editing of the <code>/boot/grub2/grub.cfg</code> configuration file, but I prefer to use a script for this purpose. I&apos;m using two different Linux distros: Fedora and Ubuntu. There are two different ways to update the <a href="https://en.wikipedia.org/wiki/GNU_GRUB" target="_blank">grub</a> configuration file. I&apos;m using following script for this purpose:</p>
+<pre><code class="lang-shell">#!/bin/bash
+
+source &quot;term-colors&quot;
+
+DISTRIBUTIVE=$(cat /etc/*-release | grep NAME | head -1 | sed -n -e &apos;s/NAME\=//p&apos;)
+echo -e &quot;Distributive: ${Green}${DISTRIBUTIVE}${Color_Off}&quot;
+
+if [[ &quot;$DISTRIBUTIVE&quot; == &quot;Fedora&quot; ]] ;
+then
+    su -c &apos;grub2-mkconfig -o /boot/grub2/grub.cfg&apos;
+else
+    sudo update-grub
+fi
+
+echo &quot;${Green}Done.${Color_Off}&quot;
+</code></pre>
+<p>This is the last step of the new Linux kernel installation and after this you can reboot your computer and select new version of the kernel during boot.</p>
+<p>The second case is to launch new Linux kernel in the virtual machine. I prefer <a href="https://en.wikipedia.org/wiki/QEMU" target="_blank">qemu</a>. First of all we need to build initial ramdisk - <a href="https://en.wikipedia.org/wiki/Initrd" target="_blank">initrd</a> for this. The <code>initrd</code> is a temporary root file system that is used by the Linux kernel during initialization process while other filesystems are not mounted. We can build <code>initrd</code> with the following commands:</p>
+<p>First of all we need to download <a href="https://en.wikipedia.org/wiki/BusyBox" target="_blank">busybox</a> and run <code>menuconfig</code> for its configuration:</p>
+<pre><code class="lang-shell">$ mkdir initrd
+$ cd initrd
+$ curl http://busybox.net/downloads/busybox-1.23.2.tar.bz2 | tar xjf -
+$ cd busybox-1.23.2/
+$ make menuconfig
+$ make -j4
+</code></pre>
+<p><code>busybox</code> is an executable file - <code>/bin/busybox</code> that contains a set of standard tools like <a href="https://en.wikipedia.org/wiki/GNU_Core_Utilities" target="_blank">coreutils</a>. In the <code>busysbox</code> menu we need to enable: <code>Build BusyBox as a static binary (no shared libs)</code> option:</p>
+<p><img src="http://s18.postimg.org/sj92uoweh/busybox.png" alt="busysbox menu"></p>
+<p>We can find this menu in the:</p>
+<pre><code>Busybox Settings
+--&gt; Build Options
+</code></pre><p>After this we exit from the <code>busysbox</code> configuration menu and execute following commands for building and installation of it:</p>
+<pre><code>$ make -j4
+$ sudo make install
+</code></pre><p>Now that <code>busybox</code> is installed, we can begin building our <code>initrd</code>. To do this, we go to the previous <code>initrd</code> directory and:</p>
+<pre><code>$ cd ..
+$ mkdir -p initramfs
+$ cd initramfs
+$ mkdir -pv {bin,sbin,etc,proc,sys,usr/{bin,sbin}}
+$ cp -av ../busybox-1.23.2/_install/* .
+</code></pre><p>copy <code>busybox</code> fields to the <code>bin</code>, <code>sbin</code> and other directories. Now we need to create executable <code>init</code> file that will be executed as a first process in the system. My <code>init</code> file just mounts <a href="https://en.wikipedia.org/wiki/Procfs" target="_blank">procfs</a> and <a href="https://en.wikipedia.org/wiki/Sysfs" target="_blank">sysfs</a> filesystems and executed shell:</p>
+<pre><code class="lang-shell">#!/bin/sh
+
+mount -t proc none /proc
+mount -t sysfs none /sys
+
+exec /bin/sh
+</code></pre>
+<p>Now we can create an archive that will be our <code>initrd</code>:</p>
+<pre><code>$ find . -print0 | cpio --null -ov --format=newc | gzip -9 &gt; ~/dev/initrd_x86_64.gz
+</code></pre><p>We can now run our kernel in the virtual machine. As I already wrote I prefer <a href="https://en.wikipedia.org/wiki/QEMU" target="_blank">qemu</a> for this. We can run our kernel with the following command:</p>
+<pre><code>$ qemu-system-x86_64 -snapshot -m 8GB -serial stdio -kernel ~/dev/linux/arch/x86_64/boot/bzImage -initrd ~/dev/initrd_x86_64.gz -append &quot;root=/dev/sda1 ignore_loglevel&quot;
+</code></pre><p><img src="http://s22.postimg.org/b8ttyigup/qemu.png" alt="qemu"></p>
+<p>From now we can run the Linux kernel in the virtual machine and this means that we can begin to change and test the kernel.</p>
+<p>Consider using <a href="https://github.com/ivandavidov/minimal" target="_blank">ivandaviov/minimal</a> or <a href="https://buildroot.org/" target="_blank">Buildroot</a> to automate the process of generating initrd.</p>
+<h2 id="getting-started-with-the-linux-kernel-development">Getting started with the Linux Kernel Development</h2>
+<p>The main point of this paragraph is to answer two questions: What to do and what not to do before sending your first patch to the Linux kernel. Please, do not confuse this <code>to do</code> with <code>todo</code>. I have no answer what you can fix in the Linux kernel. I just want to tell you my workflow during experimenting with the Linux kernel source code.</p>
+<p>First of all I pull the latest updates from Linus&apos;s repo with the following commands:</p>
+<pre><code>$ git checkout master
+$ git pull upstream master
+</code></pre><p>After this my local repository with the Linux kernel source code is synced with the <a href="https://github.com/torvalds/linux" target="_blank">mainline</a> repository. Now we can make some changes in the source code. As I already wrote, I have no advice for you where you can start and what <code>TODO</code> in the Linux kernel. But the best place for newbies is <code>staging</code> tree. In other words the set of drivers from the <a href="https://github.com/torvalds/linux/tree/master/drivers/staging" target="_blank">drivers/staging</a>. The maintainer of the <code>staging</code> tree is <a href="https://en.wikipedia.org/wiki/Greg_Kroah-Hartman" target="_blank">Greg Kroah-Hartman</a> and the <code>staging</code> tree is that place where your trivial patch can be accepted. Let&apos;s look on a simple example that describes how to generate patch, check it and send to the <a href="https://lkml.org/" target="_blank">Linux kernel mail listing</a>.</p>
+<p>If we look in the driver for the <a href="https://github.com/torvalds/linux/tree/master/drivers/staging/dgap" target="_blank">Digi International EPCA PCI</a> based devices, we will see the <code>dgap_sindex</code> function on line 295:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">char</span> *<span class="hljs-title">dgap_sindex</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *<span class="hljs-built_in">string</span>, <span class="hljs-keyword">char</span> *group)</span>
+</span>{
+    <span class="hljs-keyword">char</span> *ptr;
+
+    <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">string</span> || !group)
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;
+
+    <span class="hljs-keyword">for</span> (; *<span class="hljs-built_in">string</span>; <span class="hljs-built_in">string</span>++) {
+        <span class="hljs-keyword">for</span> (ptr = group; *ptr; ptr++) {
+            <span class="hljs-keyword">if</span> (*ptr == *<span class="hljs-built_in">string</span>)
+                <span class="hljs-keyword">return</span> <span class="hljs-built_in">string</span>;
+        }
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;
+}
+</code></pre>
+<p>This function looks for a match of any character in the group and returns that position. During research of source code of the Linux kernel, I have noted that the <a href="https://github.com/torvalds/linux/blob/master/lib/string.c#L473" target="_blank">lib/string.c</a> source code file contains the implementation of the <code>strpbrk</code> function that does the same thing as <code>dgap_sinidex</code>. It is not a good idea to use a custom implementation of a function that already exists, so we can remove the <code>dgap_sindex</code> function from the <a href="https://github.com/torvalds/linux/blob/master/drivers/staging/dgap/dgap.c" target="_blank">drivers/staging/dgap/dgap.c</a> source code file and use the <code>strpbrk</code> instead.</p>
+<p>First of all let&apos;s create new <code>git</code> branch based on the current master that synced with the Linux kernel mainline repo:</p>
+<pre><code>$ git checkout -b &quot;dgap-remove-dgap_sindex&quot;
+</code></pre><p>And now we can replace the <code>dgap_sindex</code> with the <code>strpbrk</code>. After we did all changes we need to recompile the Linux kernel or just <a href="https://github.com/torvalds/linux/tree/master/drivers/staging/dgap" target="_blank">dgap</a> directory. Do not forget to enable this driver in the kernel configuration. You can find it in the:</p>
+<pre><code>Device Drivers
+--&gt; Staging drivers
+----&gt; Digi EPCA PCI products
+</code></pre><p><img src="http://s4.postimg.org/d3pozpge5/digi.png" alt="dgap menu"></p>
+<p>Now is time to make commit. I&apos;m using following combination for this:</p>
+<pre><code>$ git add .
+$ git commit -s -v
+</code></pre><p>After the last command an editor will be opened that will be chosen from <code>$GIT_EDITOR</code> or <code>$EDITOR</code> environment variable. The <code>-s</code> command line argument will add <code>Signed-off-by</code> line by the committer at the end of the commit log message. You can find this line in the end of each commit message, for example - <a href="https://github.com/torvalds/linux/commit/00cc1633816de8c95f337608a1ea64e228faf771" target="_blank">00cc1633</a>. The main point of this line is the tracking of who did a change. The <code>-v</code> option show unified diff between the HEAD commit and what would be committed at the bottom of the commit message. It is not necessary, but very useful sometimes. A couple of words about commit message. Actually a commit message consists from two parts:</p>
+<p>The first part is on the first line and contains short description of changes. It starts from the <code>[PATCH]</code> prefix followed by a subsystem, driver or architecture name and after <code>:</code> symbol short description. In our case it will be something like this:</p>
+<pre><code>[PATCH] staging/dgap: Use strpbrk() instead of dgap_sindex()
+</code></pre><p>After short description usually we have an empty line and full description of the commit. In our case it will be:</p>
+<pre><code>The &lt;linux/string.h&gt; provides strpbrk() function that does the same that the
+dgap_sindex(). Let&apos;s use already defined function instead of writing custom.
+</code></pre><p>And the <code>Sign-off-by</code> line in the end of the commit message. Note that each line of a commit message must no be longer than <code>80</code> symbols and commit message must describe your changes in details. Do not just write a commit message like: <code>Custom function removed</code>, you need to describe what you did and why. The patch reviewers must know what they review. Besides this commit messages in this view are very helpful. Each time when we can&apos;t understand something, we can use <a href="http://git-scm.com/docs/git-blame" target="_blank">git blame</a> to read description of changes.</p>
+<p>After we have committed changes time to generate patch. We can do it with the <code>format-patch</code> command:</p>
+<pre><code>$ git format-patch master
+0001-staging-dgap-Use-strpbrk-instead-of-dgap_sindex.patch
+</code></pre><p>We&apos;ve passed name of the branch (<code>master</code> in this case) to the <code>format-patch</code> command that will generate a patch with the last changes that are in the <code>dgap-remove-dgap_sindex</code> branch and not are in the <code>master</code> branch. As you can note, the <code>format-patch</code> command generates file that contains last changes and has name that is based on the commit short description. If you want to generate a patch with the custom name, you can use <code>--stdout</code> option:</p>
+<pre><code>$ git format-patch master --stdout &gt; dgap-patch-1.patch
+</code></pre><p>The last step after we have generated our patch is to send it to the Linux kernel mailing list. Of course, you can use any email client, <code>git</code> provides a special command for this: <code>git send-email</code>. Before you send your patch, you need to know where to send it. Yes, you can just send it to the Linux kernel mailing list address which is <code>linux-kernel@vger.kernel.org</code>, but it is very likely that the patch will be ignored, because of the large flow of messages. The better choice would be to send the patch to the maintainers of the subsystem where you have made changes. To find the names of these maintainers use the <code>get_maintainer.pl</code> script. All you need to do is pass the file or directory where you wrote code.</p>
+<pre><code>$ ./scripts/get_maintainer.pl -f drivers/staging/dgap/dgap.c
+Lidza Louina &lt;lidza.louina@gmail.com&gt; (maintainer:DIGI EPCA PCI PRODUCTS)
+Mark Hounschell &lt;markh@compro.net&gt; (maintainer:DIGI EPCA PCI PRODUCTS)
+Daeseok Youn &lt;daeseok.youn@gmail.com&gt; (maintainer:DIGI EPCA PCI PRODUCTS)
+Greg Kroah-Hartman &lt;gregkh@linuxfoundation.org&gt; (supporter:STAGING SUBSYSTEM)
+driverdev-devel@linuxdriverproject.org (open list:DIGI EPCA PCI PRODUCTS)
+devel@driverdev.osuosl.org (open list:STAGING SUBSYSTEM)
+linux-kernel@vger.kernel.org (open list)
+</code></pre><p>You will see the set of the names and related emails. Now we can send our patch with:</p>
+<pre><code>$ git send-email --to &quot;Lidza Louina &lt;lidza.louina@gmail.com&gt;&quot; \
+  --cc &quot;Mark Hounschell &lt;markh@compro.net&gt;&quot;                   \
+  --cc &quot;Daeseok Youn &lt;daeseok.youn@gmail.com&gt;&quot;                \
+  --cc &quot;Greg Kroah-Hartman &lt;gregkh@linuxfoundation.org&gt;&quot;      \
+  --cc &quot;driverdev-devel@linuxdriverproject.org&quot;               \
+  --cc &quot;devel@driverdev.osuosl.org&quot;                           \
+  --cc &quot;linux-kernel@vger.kernel.org&quot;
+</code></pre><p>That&apos;s all. The patch is sent and now you only have to wait for feedback from the Linux kernel developers. After you send a patch and a maintainer accepts it, you will find it in the maintainer&apos;s repository (for example <a href="https://git.kernel.org/cgit/linux/kernel/git/gregkh/staging.git/commit/?h=staging-testing&amp;id=b9f7f1d0846f15585b8af64435b6b706b25a5c0b" target="_blank">patch</a> that you saw in this part) and after some time the maintainer will send a pull request to Linus and you will see your patch in the mainline repository.</p>
+<p>That&apos;s all.</p>
+<h2 id="some-advice">Some advice</h2>
+<p>In the end of this part I want to give you some advice that will describe what to do and what not to do during development of the Linux kernel:</p>
+<ul>
+<li><p>Think, Think, Think. And think again before you decide to send a patch.</p>
+</li>
+<li><p>Each time when you have changed something in the Linux kernel source code - compile it. After any changes. Again and again. Nobody likes changes that don&apos;t even compile.</p>
+</li>
+<li><p>The Linux kernel has a coding style <a href="https://github.com/torvalds/linux/blob/master/Documentation/CodingStyle" target="_blank">guide</a> and you need to comply with it. There is great script which can help to check your changes. This script is - <a href="https://github.com/torvalds/linux/blob/master/scripts/checkpatch.pl" target="_blank">scripts/checkpatch.pl</a>. Just pass source code file with changes to it and you will see:</p>
+</li>
+</ul>
+<pre><code>$ ./scripts/checkpatch.pl -f drivers/staging/dgap/dgap.c
+WARNING: Block comments use * on subsequent lines
+#94: FILE: drivers/staging/dgap/dgap.c:94:
++/*
++     SUPPORTED PRODUCTS
+
+CHECK: spaces preferred around that &apos;|&apos; (ctx:VxV)
+#143: FILE: drivers/staging/dgap/dgap.c:143:
++    { PPCM,        PCI_DEV_XEM_NAME,     64, (T_PCXM|T_PCLITE|T_PCIBUS) },
+</code></pre><p>Also you can see problematic places with the help of the <code>git diff</code>:</p>
+<p><img src="http://oi60.tinypic.com/2u91rgn.jpg" alt="git diff"></p>
+<ul>
+<li><p><a href="https://github.com/torvalds/linux/pull/17#issuecomment-5654674" target="_blank">Linus doesn&apos;t accept github pull requests</a></p>
+</li>
+<li><p>If your change consists from some different and unrelated changes, you need to split the changes via separate commits. The <code>git format-patch</code> command will generate patches for each commit and the subject of each patch will contain a <code>vN</code> prefix where the <code>N</code> is the number of the patch. If you are planning to send a series of patches it will be helpful to pass the <code>--cover-letter</code> option to the <code>git format-patch</code> command. This will generate an additional file that will contain the cover letter that you can use to describe what your patchset changes. It is also a good idea to use the <code>--in-reply-to</code> option in the <code>git send-email</code> command. This option allows you to send your patch series in reply to your cover message. The structure of the your patch will look like this for a maintainer:</p>
+</li>
+</ul>
+<pre><code>|--&gt; cover letter
+  |----&gt; patch_1
+  |----&gt; patch_2
+</code></pre><p>You need to pass <code>message-id</code> as an argument of the <code>--in-reply-to</code> option that you can find in the output of the <code>git send-email</code>:</p>
+<p>It&apos;s important that your email be in the <a href="https://en.wikipedia.org/wiki/Plain_text" target="_blank">plain text</a> format. Generally, <code>send-email</code> and <code>format-patch</code> are very useful during development, so look at the documentation for the commands and you&apos;ll find some useful options such as: <a href="http://git-scm.com/docs/git-send-email" target="_blank">git send-email</a> and <a href="http://git-scm.com/docs/git-format-patch" target="_blank">git format-patch</a>.</p>
+<ul>
+<li><p>Do not be surprised if you do not get an immediate answer after you send your patch. Maintainers can be very busy.</p>
+</li>
+<li><p>The <a href="https://github.com/torvalds/linux/tree/master/scripts" target="_blank">scripts</a> directory contains many different useful scripts that are related to Linux kernel development. We already saw two scripts from this directory: the <code>checkpatch.pl</code> and the <code>get_maintainer.pl</code> scripts. Outside of those scripts, you can find the <a href="https://github.com/torvalds/linux/blob/master/scripts/stackusage" target="_blank">stackusage</a> script that will print usage of the stack, <a href="https://github.com/torvalds/linux/blob/master/scripts/extract-vmlinux" target="_blank">extract-vmlinux</a> for extracting an uncompressed kernel image, and many others. Outside of the <code>scripts</code> directory you can find some very useful <a href="https://github.com/lorenzo-stoakes/kernel-scripts" target="_blank">scripts</a> by <a href="https://twitter.com/ljsloz" target="_blank">Lorenzo Stoakes</a> for kernel development.</p>
+</li>
+<li><p>Subscribe to the Linux kernel mailing list. There are a large number of letters every day on <code>lkml</code>, but it is very useful to read them and understand things such as the current state of the Linux kernel. Other than <code>lkml</code> there are <a href="http://vger.kernel.org/vger-lists.html" target="_blank">set</a> mailing listings which are related to the different Linux kernel subsystems.</p>
+</li>
+<li><p>If your patch is not accepted the first time and you receive feedback from Linux kernel developers, make your changes and resend the patch with the <code>[PATCH vN]</code> prefix (where <code>N</code> is the number of patch version). For example:</p>
+</li>
+</ul>
+<pre><code>[PATCH v2] staging/dgap: Use strpbrk() instead of dgap_sindex()
+</code></pre><p>Also it must contain a changelog that describes all changes from previous patch versions. Of course, this is not an exhaustive list of requirements for Linux kernel development, but some of the most important items were addressed.</p>
+<p>Happy Hacking!</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>I hope this will help others join the Linux kernel community!
+If you have any questions or suggestions, write me at <a href="kuleshovmail@gmail.com">email</a> or ping <a href="https://twitter.com/0xAX" target="_blank">me</a> on twitter.</p>
+<p>Please note that English is not my first language, and I am really sorry for any inconvenience. If you find any mistakes please let me know via email or send a PR.</p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="http://0xax.github.io/categories/assembly/" target="_blank">blog posts about assembly programming for x86_64</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Assembly_language#Assembler" target="_blank">Assembler</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Linux_distribution" target="_blank">distro</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Package_manager" target="_blank">package manager</a></li>
+<li><a href="https://en.wikipedia.org/wiki/GNU_GRUB" target="_blank">grub</a></li>
+<li><a href="https://kernel.org/" target="_blank">kernel.org</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Version_control" target="_blank">version control system</a></li>
+<li><a href="https://en.wikipedia.org/wiki/ARM_architecture#AArch64_features" target="_blank">arm64</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Vmlinux#bzImage" target="_blank">bzImage</a></li>
+<li><a href="https://en.wikipedia.org/wiki/QEMU" target="_blank">qemu</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Initrd" target="_blank">initrd</a></li>
+<li><a href="https://en.wikipedia.org/wiki/BusyBox" target="_blank">busybox</a></li>
+<li><a href="https://en.wikipedia.org/wiki/GNU_Core_Utilities" target="_blank">coreutils</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Procfs" target="_blank">procfs</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sysfs" target="_blank">sysfs</a></li>
+<li><a href="https://lkml.org/" target="_blank">Linux kernel mail listing archive</a></li>
+<li><a href="https://github.com/torvalds/linux/blob/master/Documentation/CodingStyle" target="_blank">Linux kernel coding style guide</a></li>
+<li><a href="https://github.com/torvalds/linux/blob/master/Documentation/SubmittingPatches" target="_blank">How to Get Your Change Into the Linux Kernel</a></li>
+<li><a href="http://kernelnewbies.org/" target="_blank">Linux Kernel Newbies</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Plain_text" target="_blank">plain text</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="linkers.html" class="navigation navigation-prev " aria-label="Previous page: Linkers">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="program_startup.html" class="navigation navigation-next " aria-label="Next page: Program startup process in userspace">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Linux kernel development","level":"1.15.3","depth":2,"next":{"title":"Program startup process in userspace","level":"1.15.4","depth":2,"path":"Misc/program_startup.md","ref":"Misc/program_startup.md","articles":[]},"previous":{"title":"Linkers","level":"1.15.2","depth":2,"path":"Misc/linkers.md","ref":"Misc/linkers.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Misc/contribute.md","mtime":"2019-03-28T07:54:50.396Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-28T07:57:01.662Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

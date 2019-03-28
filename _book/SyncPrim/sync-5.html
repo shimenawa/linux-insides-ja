@@ -1,0 +1,1734 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Reader/Writer semaphores · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="sync-6.html" />
+    
+    
+    <link rel="prev" href="sync-4.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Summary</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Booting/">
+            
+                <a href="../Booting/">
+            
+                    
+                    Booting
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Booting/linux-bootstrap-1.html">
+            
+                <a href="../Booting/linux-bootstrap-1.html">
+            
+                    
+                    From bootloader to kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Booting/linux-bootstrap-2.html">
+            
+                <a href="../Booting/linux-bootstrap-2.html">
+            
+                    
+                    First steps in the kernel setup code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Booting/linux-bootstrap-3.html">
+            
+                <a href="../Booting/linux-bootstrap-3.html">
+            
+                    
+                    Video mode initialization and transition to protected mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../Booting/linux-bootstrap-4.html">
+            
+                <a href="../Booting/linux-bootstrap-4.html">
+            
+                    
+                    Transition to 64-bit mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../Booting/linux-bootstrap-5.html">
+            
+                <a href="../Booting/linux-bootstrap-5.html">
+            
+                    
+                    Kernel decompression
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Initialization/">
+            
+                <a href="../Initialization/">
+            
+                    
+                    Initialization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Initialization/linux-initialization-1.html">
+            
+                <a href="../Initialization/linux-initialization-1.html">
+            
+                    
+                    First steps in the kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Initialization/linux-initialization-2.html">
+            
+                <a href="../Initialization/linux-initialization-2.html">
+            
+                    
+                    Early interrupts handler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Initialization/linux-initialization-3.html">
+            
+                <a href="../Initialization/linux-initialization-3.html">
+            
+                    
+                    Last preparations before the kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Initialization/linux-initialization-4.html">
+            
+                <a href="../Initialization/linux-initialization-4.html">
+            
+                    
+                    Kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../Initialization/linux-initialization-5.html">
+            
+                <a href="../Initialization/linux-initialization-5.html">
+            
+                    
+                    Continue architecture-specific boot-time initializations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../Initialization/linux-initialization-6.html">
+            
+                <a href="../Initialization/linux-initialization-6.html">
+            
+                    
+                    Architecture-specific initializations, again...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../Initialization/linux-initialization-7.html">
+            
+                <a href="../Initialization/linux-initialization-7.html">
+            
+                    
+                    End of the architecture-specific initializations, almost...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../Initialization/linux-initialization-8.html">
+            
+                <a href="../Initialization/linux-initialization-8.html">
+            
+                    
+                    Scheduler initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../Initialization/linux-initialization-9.html">
+            
+                <a href="../Initialization/linux-initialization-9.html">
+            
+                    
+                    RCU initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../Initialization/linux-initialization-10.html">
+            
+                <a href="../Initialization/linux-initialization-10.html">
+            
+                    
+                    End of initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../interrupts/">
+            
+                <a href="../interrupts/">
+            
+                    
+                    Interrupts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../interrupts/interrupts-1.html">
+            
+                <a href="../interrupts/interrupts-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../interrupts/interrupts-2.html">
+            
+                <a href="../interrupts/interrupts-2.html">
+            
+                    
+                    Start to dive into interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../interrupts/interrupts-3.html">
+            
+                <a href="../interrupts/interrupts-3.html">
+            
+                    
+                    Interrupt handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../interrupts/interrupts-4.html">
+            
+                <a href="../interrupts/interrupts-4.html">
+            
+                    
+                    Initialization of non-early interrupt gates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../interrupts/interrupts-5.html">
+            
+                <a href="../interrupts/interrupts-5.html">
+            
+                    
+                    Implementation of some exception handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../interrupts/interrupts-6.html">
+            
+                <a href="../interrupts/interrupts-6.html">
+            
+                    
+                    Handling Non-Maskable interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../interrupts/interrupts-7.html">
+            
+                <a href="../interrupts/interrupts-7.html">
+            
+                    
+                    Dive into external hardware interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../interrupts/interrupts-8.html">
+            
+                <a href="../interrupts/interrupts-8.html">
+            
+                    
+                    Initialization of external hardware interrupts structures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../interrupts/interrupts-9.html">
+            
+                <a href="../interrupts/interrupts-9.html">
+            
+                    
+                    Softirq, Tasklets and Workqueues
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../interrupts/interrupts-10.html">
+            
+                <a href="../interrupts/interrupts-10.html">
+            
+                    
+                    Last part
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../SysCall/">
+            
+                <a href="../SysCall/">
+            
+                    
+                    System calls
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../SysCall/syscall-1.html">
+            
+                <a href="../SysCall/syscall-1.html">
+            
+                    
+                    Introduction to system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../SysCall/syscall-2.html">
+            
+                <a href="../SysCall/syscall-2.html">
+            
+                    
+                    How the Linux kernel handles a system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../SysCall/syscall-3.html">
+            
+                <a href="../SysCall/syscall-3.html">
+            
+                    
+                    vsyscall and vDSO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../SysCall/syscall-4.html">
+            
+                <a href="../SysCall/syscall-4.html">
+            
+                    
+                    How the Linux kernel runs a program
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../SysCall/syscall-5.html">
+            
+                <a href="../SysCall/syscall-5.html">
+            
+                    
+                    Implementation of the open system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Timers/">
+            
+                <a href="../Timers/">
+            
+                    
+                    Timers and time management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../Timers/timers-1.html">
+            
+                <a href="../Timers/timers-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Timers/timers-2.html">
+            
+                <a href="../Timers/timers-2.html">
+            
+                    
+                    Clocksource framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Timers/timers-3.html">
+            
+                <a href="../Timers/timers-3.html">
+            
+                    
+                    The tick broadcast framework and dyntick
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../Timers/timers-4.html">
+            
+                <a href="../Timers/timers-4.html">
+            
+                    
+                    Introduction to timers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Timers/timers-5.html">
+            
+                <a href="../Timers/timers-5.html">
+            
+                    
+                    Clockevents framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../Timers/timers-6.html">
+            
+                <a href="../Timers/timers-6.html">
+            
+                    
+                    x86 related clock sources
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../Timers/timers-7.html">
+            
+                <a href="../Timers/timers-7.html">
+            
+                    
+                    Time related system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Synchronization primitives
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="sync-1.html">
+            
+                <a href="sync-1.html">
+            
+                    
+                    Introduction to spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="sync-2.html">
+            
+                <a href="sync-2.html">
+            
+                    
+                    Queued spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="sync-3.html">
+            
+                <a href="sync-3.html">
+            
+                    
+                    Semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="sync-4.html">
+            
+                <a href="sync-4.html">
+            
+                    
+                    Mutex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7.5" data-path="sync-5.html">
+            
+                <a href="sync-5.html">
+            
+                    
+                    Reader/Writer semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="sync-6.html">
+            
+                <a href="sync-6.html">
+            
+                    
+                    SeqLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" >
+            
+                <span>
+            
+                    
+                    RCU
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" >
+            
+                <span>
+            
+                    
+                    Lockdep
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../mm/">
+            
+                <a href="../mm/">
+            
+                    
+                    Memory management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../mm/linux-mm-1.html">
+            
+                <a href="../mm/linux-mm-1.html">
+            
+                    
+                    Memblock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../mm/linux-mm-2.html">
+            
+                <a href="../mm/linux-mm-2.html">
+            
+                    
+                    Fixmaps and ioremap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../mm/linux-mm-3.html">
+            
+                <a href="../mm/linux-mm-3.html">
+            
+                    
+                    kmemcheck
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../Cgroups/">
+            
+                <a href="../Cgroups/">
+            
+                    
+                    Cgroups
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../Cgroups/cgroups1.html">
+            
+                <a href="../Cgroups/cgroups1.html">
+            
+                    
+                    Introduction to Control Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    SMP
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../Concepts/">
+            
+                <a href="../Concepts/">
+            
+                    
+                    Concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../Concepts/per-cpu.html">
+            
+                <a href="../Concepts/per-cpu.html">
+            
+                    
+                    Per-CPU variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../Concepts/cpumask.html">
+            
+                <a href="../Concepts/cpumask.html">
+            
+                    
+                    Cpumasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../Concepts/initcall.html">
+            
+                <a href="../Concepts/initcall.html">
+            
+                    
+                    The initcall mechanism
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../DataStructures/">
+            
+                <a href="../DataStructures/">
+            
+                    
+                    Data Structures in the Linux Kernel
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../DataStructures/dlist.html">
+            
+                <a href="../DataStructures/dlist.html">
+            
+                    
+                    Doubly linked list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../DataStructures/radix-tree.html">
+            
+                <a href="../DataStructures/radix-tree.html">
+            
+                    
+                    Radix tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../DataStructures/bitmap.html">
+            
+                <a href="../DataStructures/bitmap.html">
+            
+                    
+                    Bit arrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../Theory/">
+            
+                <a href="../Theory/">
+            
+                    
+                    Theory
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../Theory/Paging.html">
+            
+                <a href="../Theory/Paging.html">
+            
+                    
+                    Paging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../Theory/ELF.html">
+            
+                <a href="../Theory/ELF.html">
+            
+                    
+                    Elf64
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../Theory/asm.html">
+            
+                <a href="../Theory/asm.html">
+            
+                    
+                    Inline assembly
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" >
+            
+                <span>
+            
+                    
+                    CPUID
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" >
+            
+                <span>
+            
+                    
+                    MSR
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" >
+            
+                <span>
+            
+                    
+                    Initial ram disk
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" >
+            
+                <span>
+            
+                    
+                    initrd
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../Misc/">
+            
+                <a href="../Misc/">
+            
+                    
+                    Misc
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../Misc/how_kernel_compiled.html">
+            
+                <a href="../Misc/how_kernel_compiled.html">
+            
+                    
+                    How the kernel is compiled
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../Misc/linkers.html">
+            
+                <a href="../Misc/linkers.html">
+            
+                    
+                    Linkers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.3" data-path="../Misc/contribute.html">
+            
+                <a href="../Misc/contribute.html">
+            
+                    
+                    Linux kernel development
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.4" data-path="../Misc/program_startup.html">
+            
+                <a href="../Misc/program_startup.html">
+            
+                    
+                    Program startup process in userspace
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.5" >
+            
+                <span>
+            
+                    
+                    Write and Submit your first Linux kernel Patch
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.6" >
+            
+                <span>
+            
+                    
+                    Data types in the kernel
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../KernelStructures/">
+            
+                <a href="../KernelStructures/">
+            
+                    
+                    KernelStructures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../KernelStructures/idt.html">
+            
+                <a href="../KernelStructures/idt.html">
+            
+                    
+                    IDT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../LINKS.html">
+            
+                <a href="../LINKS.html">
+            
+                    
+                    Useful links
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../contributors.html">
+            
+                <a href="../contributors.html">
+            
+                    
+                    Contributors
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Reader/Writer semaphores</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="synchronization-primitives-in-the-linux-kernel-part-5">Synchronization primitives in the Linux kernel. Part 5.</h1>
+<h2 id="introduction">Introduction</h2>
+<p>This is the fifth part of the <a href="https://0xax.gitbooks.io/linux-insides/content/SyncPrim/index.html" target="_blank">chapter</a> which describes synchronization primitives in the Linux kernel and in the previous parts we finished to consider different types <a href="https://en.wikipedia.org/wiki/Spinlock" target="_blank">spinlocks</a>, <a href="https://en.wikipedia.org/wiki/Semaphore_%28programming%29" target="_blank">semaphore</a> and <a href="https://en.wikipedia.org/wiki/Mutual_exclusion" target="_blank">mutex</a> synchronization primitives. We will continue to learn <a href="https://en.wikipedia.org/wiki/Synchronization_%28computer_science%29" target="_blank">synchronization primitives</a> in this part and start to consider special type of synchronization primitives - <a href="https://en.wikipedia.org/wiki/Readers%E2%80%93writer_lock" target="_blank">readers&#x2013;writer lock</a>.</p>
+<p>The first synchronization primitive of this type will be already familiar for us - <a href="https://en.wikipedia.org/wiki/Semaphore_%28programming%29" target="_blank">semaphore</a>. As in all previous parts of this <a href="https://0xax.gitbooks.io/linux-insides/content" target="_blank">book</a>, before we will consider implementation of the <code>reader/writer semaphores</code> in the Linux kernel, we will start from the theoretical side and will try to understand what is the difference between <code>reader/writer semaphores</code> and <code>normal semaphores</code>.</p>
+<p>So, let&apos;s start.</p>
+<h2 id="readerwriter-semaphore">Reader/Writer semaphore</h2>
+<p>Actually there are two types of operations may be performed on the data. We may read data and make changes in data. Two fundamental operations - <code>read</code> and <code>write</code>. Usually (but not always), <code>read</code> operation is performed more often than <code>write</code> operation. In this case, it would be logical to we may lock data in such way, that some processes may read locked data in one time, on condition that no one will not change the data. The <a href="https://en.wikipedia.org/wiki/Readers%E2%80%93writer_lock" target="_blank">readers/writer lock</a> allows us to get this lock.</p>
+<p>When a process which wants to write something into data, all other <code>writer</code> and <code>reader</code> processes will be blocked until the process which acquired a lock, will not release it. When a process reads data, other processes which want to read the same data too, will not be locked and will be able to do this. As you may guess, implementation of the <code>reader/writer semaphore</code> is based on the implementation of the <code>normal semaphore</code>. We already familiar with the <a href="https://en.wikipedia.org/wiki/Semaphore_%28programming%29" target="_blank">semaphore</a> synchronization primitive from the third <a href="(https:/0xax.gitbooks.io/linux-insides/content/SyncPrim/sync-4.html">part</a> of this chapter. From the theoretical side everything looks pretty simple. Let&apos;s look how <code>reader/writer semaphore</code> is represented in the Linux kernel.</p>
+<p>The <code>semaphore</code> is represented by the:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">struct</span> semaphore {
+    <span class="hljs-keyword">raw_spinlock_t</span>        lock;
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span>        count;
+    <span class="hljs-keyword">struct</span> list_head    wait_list;
+};
+</code></pre>
+<p>structure. If you will look in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/rwsem.h" target="_blank">include/linux/rwsem.h</a> header file, you will find definition of the <code>rw_semaphore</code> structure which represents <code>reader/writer semaphore</code> in the Linux kernel. Let&apos;s look at the definition of this structure:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> CONFIG_RWSEM_GENERIC_SPINLOCK</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;linux/rwsem-spinlock.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
+<span class="hljs-keyword">struct</span> rw_semaphore {
+        <span class="hljs-keyword">long</span> count;
+        <span class="hljs-keyword">struct</span> list_head wait_list;
+        <span class="hljs-keyword">raw_spinlock_t</span> wait_lock;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> CONFIG_RWSEM_SPIN_ON_OWNER</span>
+        <span class="hljs-keyword">struct</span> optimistic_spin_queue osq;
+        <span class="hljs-keyword">struct</span> task_struct *owner;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> CONFIG_DEBUG_LOCK_ALLOC</span>
+        <span class="hljs-keyword">struct</span> lockdep_map      dep_map;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+};
+</code></pre>
+<p>Before we will consider fields of the <code>rw_semaphore</code> structure, we may notice, that declaration of the <code>rw_semaphore</code> structure depends on the <code>CONFIG_RWSEM_GENERIC_SPINLOCK</code> kernel configuration option. This option is disabled for the <a href="https://en.wikipedia.org/wiki/X86-64" target="_blank">x86_64</a> architecture by default. We can be sure in this by looking at the corresponding kernel configuration file. In our case, this configuration file is - <a href="https://github.com/torvalds/linux/blob/master/arch/x86/um/Kconfig" target="_blank">arch/x86/um/Kconfig</a>:</p>
+<pre><code>config RWSEM_XCHGADD_ALGORITHM
+    def_bool 64BIT
+
+config RWSEM_GENERIC_SPINLOCK
+    def_bool !RWSEM_XCHGADD_ALGORITHM
+</code></pre><p>So, as this <a href="https://0xax.gitbooks.io/linux-insides/content" target="_blank">book</a> describes only <a href="https://en.wikipedia.org/wiki/X86-64" target="_blank">x86_64</a> architecture related stuff, we will skip the case when the <code>CONFIG_RWSEM_GENERIC_SPINLOCK</code> kernel configuration is enabled and consider definition of the <code>rw_semaphore</code> structure only from the <a href="https://github.com/torvalds/linux/blob/master/include/linux/rwsem.h" target="_blank">include/linux/rwsem.h</a> header file.</p>
+<p>If we will take a look at the definition of the <code>rw_semaphore</code> structure, we will notice that first three fields are the same that in the <code>semaphore</code> structure. It contains <code>count</code> field which represents amount of available resources, the <code>wait_list</code> field which represents <a href="https://0xax.gitbooks.io/linux-insides/content/DataStructures/dlist.html" target="_blank">doubly linked list</a> of processes which are waiting to acquire a lock and <code>wait_lock</code> <a href="https://en.wikipedia.org/wiki/Spinlock" target="_blank">spinlock</a> for protection of this list. Notice that <code>rw_semaphore.count</code> field is <code>long</code> type unlike the same field in the <code>semaphore</code> structure.</p>
+<p>The <code>count</code> field of a <code>rw_semaphore</code> structure may have following values:</p>
+<ul>
+<li><code>0x0000000000000000</code> - <code>reader/writer semaphore</code> is in unlocked state and no one is waiting for a lock;</li>
+<li><code>0x000000000000000X</code> - <code>X</code> readers are active or attempting to acquire a lock and no writer waiting;</li>
+<li><code>0xffffffff0000000X</code> - may represent different cases. The first is - <code>X</code> readers are active or attempting to acquire a lock with waiters for the lock. The second is - one writer attempting a lock, no waiters for the lock. And the last - one writer is active and no waiters for the lock;</li>
+<li><code>0xffffffff00000001</code> - may represented two different cases. The first is - one reader is active or attempting to acquire a lock and exist waiters for the lock. The second case is one writer is active or attempting to acquire a lock and no waiters for the lock;</li>
+<li><code>0xffffffff00000000</code> - represents situation when there are readers or writers are queued, but no one is active or is in the process of acquire of a lock;</li>
+<li><code>0xfffffffe00000001</code> - a writer is active or attempting to acquire a lock and waiters are in queue.</li>
+</ul>
+<p>So, besides the <code>count</code> field, all of these fields are similar to fields of the <code>semaphore</code> structure. Last three fields depend on the two configuration options of the Linux kernel: the <code>CONFIG_RWSEM_SPIN_ON_OWNER</code> and <code>CONFIG_DEBUG_LOCK_ALLOC</code>. The first two fields may be familiar us by declaration of the <a href="https://en.wikipedia.org/wiki/Mutual_exclusion" target="_blank">mutex</a> structure from the <a href="https://0xax.gitbooks.io/linux-insides/content/SyncPrim/sync-4.html" target="_blank">previous part</a>. The first <code>osq</code> field represents <a href="http://www.cs.rochester.edu/~scott/papers/1991_TOCS_synch.pdf" target="_blank">MCS lock</a> spinner for <code>optimistic spinning</code> and the second represents process which is current owner of a lock.</p>
+<p>The last field of the <code>rw_semaphore</code> structure is - <code>dep_map</code> - debugging related, and as I already wrote in previous parts, we will skip debugging related stuff in this chapter.</p>
+<p>That&apos;s all. Now we know a little about what is it <code>reader/writer lock</code> in general and <code>reader/writer semaphore</code> in particular. Additionally we saw how a <code>reader/writer semaphore</code> is represented in the Linux kernel. In this case, we may go ahead and start to look at the <a href="https://en.wikipedia.org/wiki/Application_programming_interface" target="_blank">API</a> which the Linux kernel provides for manipulation of <code>reader/writer semaphores</code>.</p>
+<h2 id="readerwriter-semaphore-api">Reader/Writer semaphore API</h2>
+<p>So, we know a little about <code>reader/writer semaphores</code> from theoretical side, let&apos;s look on its implementation in the Linux kernel. All <code>reader/writer semaphores</code> related <a href="https://en.wikipedia.org/wiki/Application_programming_interface" target="_blank">API</a> is located in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/rwsem.h" target="_blank">include/linux/rwsem.h</a> header file.</p>
+<p>As always Before we will consider an <a href="https://en.wikipedia.org/wiki/Application_programming_interface" target="_blank">API</a> of the <code>reader/writer semaphore</code> mechanism in the Linux kernel, we need to know how to initialize the <code>rw_semaphore</code> structure. As we already saw in previous parts of this <a href="https://0xax.gitbooks.io/linux-insides/content/SyncPrim/index.html" target="_blank">chapter</a>, all <a href="https://en.wikipedia.org/wiki/Synchronization_%28computer_science%29" target="_blank">synchronization primitives</a> may be initialized in two ways:</p>
+<ul>
+<li><code>statically</code>;</li>
+<li><code>dynamically</code>.</li>
+</ul>
+<p>And <code>reader/writer semaphore</code> is not an exception. First of all, let&apos;s take a look at the first approach. We may initialize <code>rw_semaphore</code> structure with the help of the <code>DECLARE_RWSEM</code> macro in compile time. This macro is defined in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/rwsem.h" target="_blank">include/linux/rwsem.h</a> header file and looks:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> DECLARE_RWSEM(name) \
+        struct rw_semaphore name = __RWSEM_INITIALIZER(name)</span>
+</code></pre>
+<p>As we may see, the <code>DECLARE_RWSEM</code> macro just expands to the definition of the <code>rw_semaphore</code> structure with the given name. Additionally new <code>rw_semaphore</code> structure is initialized with the value of the <code>__RWSEM_INITIALIZER</code> macro:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> __RWSEM_INITIALIZER(name)              \
+{                                                              \
+        .count = RWSEM_UNLOCKED_VALUE,                         \
+        .wait_list = LIST_HEAD_INIT((name).wait_list),         \
+        .wait_lock = __RAW_SPIN_LOCK_UNLOCKED(name.wait_lock)  \
+         __RWSEM_OPT_INIT(name)                                \
+         __RWSEM_DEP_MAP_INIT(name)</span>
+}
+</code></pre>
+<p>and expands to the initialization of fields of <code>rw_semaphore</code> structure. First of all we initialize <code>count</code> field of the <code>rw_semaphore</code> structure to the <code>unlocked</code> state with <code>RWSEM_UNLOCKED_VALUE</code> macro from the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/rwsem.h" target="_blank">arch/x86/include/asm/rwsem.h</a> architecture specific header file:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> RWSEM_UNLOCKED_VALUE            0x00000000L</span>
+</code></pre>
+<p>After this we initialize list of a lock waiters with the empty linked list and <a href="https://en.wikipedia.org/wiki/Spinlock" target="_blank">spinlock</a> for protection of this list with the <code>unlocked</code> state too. The <code>__RWSEM_OPT_INIT</code> macro depends on the state of the <code>CONFIG_RWSEM_SPIN_ON_OWNER</code> kernel configuration option and if this option is enabled it expands to the initialization of the <code>osq</code> and <code>owner</code> fields of the <code>rw_semaphore</code> structure. As we already saw above, the <code>CONFIG_RWSEM_SPIN_ON_OWNER</code> kernel configuration option is enabled by default for <a href="https://en.wikipedia.org/wiki/X86-64" target="_blank">x86_64</a> architecture, so let&apos;s take a look at the definition of the <code>__RWSEM_OPT_INIT</code> macro:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> CONFIG_RWSEM_SPIN_ON_OWNER</span>
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> __RWSEM_OPT_INIT(lockname) , .osq = OSQ_LOCK_UNLOCKED, .owner = NULL</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> __RWSEM_OPT_INIT(lockname)</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+</code></pre>
+<p>As we may see, the <code>__RWSEM_OPT_INIT</code> macro initializes the <a href="http://www.cs.rochester.edu/~scott/papers/1991_TOCS_synch.pdf" target="_blank">MCS lock</a> lock with <code>unlocked</code> state and initial <code>owner</code> of a lock with <code>NULL</code>. From this moment, a <code>rw_semaphore</code> structure will be initialized in a compile time and may be used for data protection.</p>
+<p>The second way to initialize a <code>rw_semaphore</code> structure is <code>dynamically</code> or use the <code>init_rwsem</code> macro from the <a href="https://github.com/torvalds/linux/blob/master/include/linux/rwsem.h" target="_blank">include/linux/rwsem.h</a> header file. This macro declares an instance of the <code>lock_class_key</code> which is related to the <a href="https://www.kernel.org/doc/Documentation/locking/lockdep-design.txt" target="_blank">lock validator</a> of the Linux kernel and to the call of the <code>__init_rwsem</code> function with the given <code>reader/writer semaphore</code>:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> init_rwsem(sem)                         \
+do {                                                            \
+        static struct lock_class_key __key;                     \
+                                                                \
+        __init_rwsem((sem), #sem, &amp;__key);                      \
+} while (0)</span>
+</code></pre>
+<p>If you will start definition of the <code>__init_rwsem</code> function, you will notice that there are couple of source code files which contain it. As you may guess, sometimes we need to initialize additional fields of the <code>rw_semaphore</code> structure, like the <code>osq</code> and <code>owner</code>. But sometimes not. All of this depends on some kernel configuration options. If we will look at the <a href="https://github.com/torvalds/linux/blob/master/kernel/locking/Makefile" target="_blank">kernel/locking/Makefile</a> makefile, we will see following lines:</p>
+<pre><code class="lang-Makefile">obj-$(CONFIG_RWSEM_GENERIC_SPINLOCK) += rwsem-spinlock.o
+obj-$(CONFIG_RWSEM_XCHGADD_ALGORITHM) += rwsem-xadd.o
+</code></pre>
+<p>As we already know, the Linux kernel for <code>x86_64</code> architecture has enabled <code>CONFIG_RWSEM_XCHGADD_ALGORITHM</code> kernel configuration option by default:</p>
+<pre><code>config RWSEM_XCHGADD_ALGORITHM
+    def_bool 64BIT
+</code></pre><p>in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/um/Kconfig" target="_blank">arch/x86/um/Kconfig</a> kernel configuration file. In this case, implementation of the <code>__init_rwsem</code> function will be located in the <a href="https://github.com/torvalds/linux/blob/master/locking/rwsem-xadd.c" target="_blank">kernel/locking/rwsem-xadd.c</a> source code file for us. Let&apos;s take a look at this function:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">void</span> __init_rwsem(<span class="hljs-keyword">struct</span> rw_semaphore *sem, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *name,
+                    <span class="hljs-keyword">struct</span> lock_class_key *key)
+{
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> CONFIG_DEBUG_LOCK_ALLOC</span>
+        debug_check_no_locks_freed((<span class="hljs-keyword">void</span> *)sem, <span class="hljs-keyword">sizeof</span>(*sem));
+        lockdep_init_map(&amp;sem-&gt;dep_map, name, key, <span class="hljs-number">0</span>);
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+        sem-&gt;count = RWSEM_UNLOCKED_VALUE;
+        raw_spin_lock_init(&amp;sem-&gt;wait_lock);
+        INIT_LIST_HEAD(&amp;sem-&gt;wait_list);
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> CONFIG_RWSEM_SPIN_ON_OWNER</span>
+        sem-&gt;owner = <span class="hljs-literal">NULL</span>;
+        osq_lock_init(&amp;sem-&gt;osq);
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+}
+</code></pre>
+<p>We may see here almost the same as in <code>__RWSEM_INITIALIZER</code> macro with difference that all of this will be executed in <a href="https://en.wikipedia.org/wiki/Run_time_%28program_lifecycle_phase%29" target="_blank">runtime</a>.</p>
+<p>So, from now we are able to initialize a <code>reader/writer semaphore</code> let&apos;s look at the <code>lock</code> and <code>unlock</code> API. The Linux kernel provides following primary <a href="https://en.wikipedia.org/wiki/Application_programming_interface" target="_blank">API</a> to manipulate <code>reader/writer semaphores</code>:</p>
+<ul>
+<li><code>void down_read(struct rw_semaphore *sem)</code> - lock for reading;</li>
+<li><code>int down_read_trylock(struct rw_semaphore *sem)</code> - try lock for reading;</li>
+<li><code>void down_write(struct rw_semaphore *sem)</code> - lock for writing;</li>
+<li><code>int down_write_trylock(struct rw_semaphore *sem)</code> - try lock for writing;</li>
+<li><code>void up_read(struct rw_semaphore *sem)</code> - release a read lock;</li>
+<li><code>void up_write(struct rw_semaphore *sem)</code> - release a write lock;</li>
+</ul>
+<p>Let&apos;s start as always from the locking. First of all let&apos;s consider implementation of the <code>down_write</code> function which executes a try of acquiring of a lock for <code>write</code>. This function is <a href="https://github.com/torvalds/linux/blob/master/kernel/locking/rwsem.c" target="_blank">kernel/locking/rwsem.c</a> source code file and starts from the call of the macro from the <a href="https://github.com/torvalds/linux/blob/master/include/linux/kernel.h" target="_blank">include/linux/kernel.h</a> header file:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">void</span> __<span class="hljs-function">sched <span class="hljs-title">down_write</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> rw_semaphore *sem)</span>
+</span>{
+        might_sleep();
+        rwsem_acquire(&amp;sem-&gt;dep_map, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, _RET_IP_);
+
+        LOCK_CONTENDED(sem, __down_write_trylock, __down_write);
+        rwsem_set_owner(sem);
+}
+</code></pre>
+<p>We already met the <code>might_sleep</code> macro in the <a href="https://0xax.gitbooks.io/linux-insides/content/SyncPrim/sync-4.html" target="_blank">previous part</a>. In short words, Implementation of the <code>might_sleep</code> macro depends on the <code>CONFIG_DEBUG_ATOMIC_SLEEP</code> kernel configuration option and if this option is enabled, this macro just prints a stack trace if it was executed in <a href="https://en.wikipedia.org/wiki/Linearizability" target="_blank">atomic</a> context. As this macro is mostly for debugging purpose we will skip it and will go ahead. Additionally we will skip the next macro from the <code>down_read</code> function - <code>rwsem_acquire</code> which is related to the <a href="https://www.kernel.org/doc/Documentation/locking/lockdep-design.txt" target="_blank">lock validator</a> of the Linux kernel, because this is topic of other part.</p>
+<p>The only two things that remained in the <code>down_write</code> function is the call of the <code>LOCK_CONTENDED</code> macro which is defined in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/lockdep.h" target="_blank">include/linux/lockdep.h</a> header file and setting of owner of a lock with the <code>rwsem_set_owner</code> function which sets owner to currently running process:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">rwsem_set_owner</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> rw_semaphore *sem)</span>
+</span>{
+        sem-&gt;owner = current;
+}
+</code></pre>
+<p>As you already may guess, the <code>LOCK_CONTENDED</code> macro does all job for us. Let&apos;s look at the implementation of the <code>LOCK_CONTENDED</code> macro:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> LOCK_CONTENDED(_lock, try, lock) \
+        lock(_lock)</span>
+</code></pre>
+<p>As we may see it just calls the <code>lock</code> function which is third parameter of the <code>LOCK_CONTENDED</code> macro with the given <code>rw_semaphore</code>. In our case the third parameter of the <code>LOCK_CONTENDED</code> macro is the <code>__down_write</code> function which is architecture specific function and located in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/rwsem.h" target="_blank">arch/x86/include/asm/rwsem.h</a> header file. Let&apos;s look at the implementation of the <code>__down_write</code> function:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> __down_write(<span class="hljs-keyword">struct</span> rw_semaphore *sem)
+{
+        __down_write_nested(sem, <span class="hljs-number">0</span>);
+}
+</code></pre>
+<p>which just executes a call of the <code>__down_write_nested</code> function from the same source code file. Let&apos;s take a look at the implementation of the <code>__down_write_nested</code> function:</p>
+<pre><code class="lang-C">static inline void __down_write_nested(struct rw_semaphore *sem, int subclass)
+{
+        long tmp;
+
+        asm volatile(&quot;# beginning down_write\n\t&quot;
+                     LOCK_PREFIX &quot;  xadd      %1,(%2)\n\t&quot;
+                     &quot;  test &quot; __ASM_SEL(%w1,%k1) &quot;,&quot; __ASM_SEL(%w1,%k1) &quot;\n\t&quot;
+                     &quot;  jz        1f\n&quot;
+                     &quot;  call call_rwsem_down_write_failed\n&quot;
+                     &quot;1:\n&quot;
+                     &quot;# ending down_write&quot;
+                     : &quot;+m&quot; (sem-&gt;count), &quot;=d&quot; (tmp)
+                     : &quot;a&quot; (sem), &quot;1&quot; (RWSEM_ACTIVE_WRITE_BIAS)
+                     : &quot;memory&quot;, &quot;cc&quot;);
+}
+</code></pre>
+<p>As for other synchronization primitives which we saw in this chapter, usually <code>lock/unlock</code> functions consists only from an <a href="https://0xax.gitbooks.io/linux-insides/content/Theory/asm.html" target="_blank">inline assembly</a> statement. As we may see, in our case the same for <code>__down_write_nested</code> function. Let&apos;s try to understand what does this function do. The first line of our assembly statement is just a comment, let&apos;s skip it. The second like contains <code>LOCK_PREFIX</code> which will be expanded to the <a href="http://x86.renejeschke.de/html/file_module_x86_id_159.html" target="_blank">LOCK</a> instruction as we already know. The next <a href="http://x86.renejeschke.de/html/file_module_x86_id_327.html" target="_blank">xadd</a> instruction executes <code>add</code> and <code>exchange</code> operations. In other words, <code>xadd</code> instruction adds value of the <code>RWSEM_ACTIVE_WRITE_BIAS</code>:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> RWSEM_ACTIVE_WRITE_BIAS         (RWSEM_WAITING_BIAS + RWSEM_ACTIVE_BIAS)</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> RWSEM_WAITING_BIAS              (-RWSEM_ACTIVE_MASK-1)</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> RWSEM_ACTIVE_BIAS               0x00000001L</span>
+</code></pre>
+<p>or <code>0xffffffff00000001</code> to the <code>count</code> of the given <code>reader/writer semaphore</code> and returns previous value of it. After this we check the active mask in the <code>rw_semaphore-&gt;count</code>. If it was zero before, this means that there were no-one writer before, so we acquired a lock. In other way we call the <code>call_rwsem_down_write_failed</code> function from the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/lib/rwsem.S" target="_blank">arch/x86/lib/rwsem.S</a> assembly file. The the <code>call_rwsem_down_write_failed</code> function just calls the <code>rwsem_down_write_failed</code> function from the <a href="https://github.com/torvalds/linux/blob/master/locking/rwsem-xadd.c" target="_blank">kernel/locking/rwsem-xadd.c</a> source code file anticipatorily save general purpose registers:</p>
+<pre><code class="lang-assembly">ENTRY(call_rwsem_down_write_failed)
+    FRAME_BEGIN
+    save_common_regs
+    movq %rax,%rdi
+    call rwsem_down_write_failed
+    restore_common_regs
+    FRAME_END
+    ret
+    ENDPROC(call_rwsem_down_write_failed)
+</code></pre>
+<p>The <code>rwsem_down_write_failed</code> function starts from the <a href="https://en.wikipedia.org/wiki/Linearizability" target="_blank">atomic</a> update of the <code>count</code> value:</p>
+<pre><code class="lang-C"> __visible
+<span class="hljs-keyword">struct</span> rw_semaphore __<span class="hljs-function">sched *<span class="hljs-title">rwsem_down_write_failed</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> rw_semaphore *sem)</span>
+</span>{
+    count = rwsem_atomic_update(-RWSEM_ACTIVE_WRITE_BIAS, sem);
+    ...
+    ...
+    ...
+}
+</code></pre>
+<p>with the <code>-RWSEM_ACTIVE_WRITE_BIAS</code> value. The <code>rwsem_atomic_update</code> function is defined in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/rwsem.h" target="_blank">arch/x86/include/asm/rwsem.h</a> header file and implement exchange and add logic:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-keyword">long</span> <span class="hljs-title">rwsem_atomic_update</span><span class="hljs-params">(<span class="hljs-keyword">long</span> delta, <span class="hljs-keyword">struct</span> rw_semaphore *sem)</span>
+</span>{
+        <span class="hljs-keyword">return</span> delta + xadd(&amp;sem-&gt;count, delta);
+}
+</code></pre>
+<p>This function atomically adds the given delta to the <code>count</code> and returns old value of the count. After this it just returns sum of the given <code>delta</code> and old value of the <code>count</code> field. In our case we undo write bias from the <code>count</code> as we didn&apos;t acquire a lock. After this step we try to do <code>optimistic spinning</code> by the call of the <code>rwsem_optimistic_spin</code> function:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (rwsem_optimistic_spin(sem))
+      <span class="hljs-keyword">return</span> sem;
+</code></pre>
+<p>We will skip implementation of the <code>rwsem_optimistic_spin</code> function, as it is similar on the <code>mutex_optimistic_spin</code> function which we saw in the <a href="https://0xax.gitbooks.io/linux-insides/content/SyncPrim/sync-4.html" target="_blank">previous part</a>. In short words we check existence other tasks ready to run that have higher priority in the <code>rwsem_optimistic_spin</code> function. If there are such tasks, the process will be added to the <a href="http://www.cs.rochester.edu/~scott/papers/1991_TOCS_synch.pdf" target="_blank">MCS</a> <code>waitqueue</code> and start to spin in the loop until a lock will be able to be acquired. If <code>optimistic spinning</code> is disabled, a process will be added to the and marked as waiting for write:</p>
+<pre><code class="lang-C">waiter.task = current;
+waiter.type = RWSEM_WAITING_FOR_WRITE;
+
+<span class="hljs-keyword">if</span> (list_empty(&amp;sem-&gt;wait_list))
+    waiting = <span class="hljs-literal">false</span>;
+
+list_add_tail(&amp;waiter.<span class="hljs-built_in">list</span>, &amp;sem-&gt;wait_list);
+</code></pre>
+<p>waiters list and start to wait until it will successfully acquire the lock. After we have added a process to the waiters list which was empty before this moment, we update the value of the <code>rw_semaphore-&gt;count</code> with the <code>RWSEM_WAITING_BIAS</code>:</p>
+<pre><code class="lang-C">count = rwsem_atomic_update(RWSEM_WAITING_BIAS, sem);
+</code></pre>
+<p>with this we mark <code>rw_semaphore-&gt;counter</code> that it is already locked and exists/waits one <code>writer</code> which wants to acquire the lock. In other way we try to wake <code>reader</code> processes from the <code>wait queue</code> that were queued before this <code>writer</code> process and there are no active readers. In the end of the <code>rwsem_down_write_failed</code> a <code>writer</code> process will go to sleep which didn&apos;t acquire a lock in the following loop:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) {
+    <span class="hljs-keyword">if</span> (rwsem_try_write_lock(count, sem))
+        <span class="hljs-keyword">break</span>;
+    raw_spin_unlock_irq(&amp;sem-&gt;wait_lock);
+    <span class="hljs-keyword">do</span> {
+        schedule();
+        set_current_state(TASK_UNINTERRUPTIBLE);
+    } <span class="hljs-keyword">while</span> ((count = sem-&gt;count) &amp; RWSEM_ACTIVE_MASK);
+    raw_spin_lock_irq(&amp;sem-&gt;wait_lock);
+}
+</code></pre>
+<p>I will skip explanation of this loop as we already met similar functional in the <a href="https://0xax.gitbooks.io/linux-insides/content/SyncPrim/sync-4.html" target="_blank">previous part</a>.</p>
+<p>That&apos;s all. From this moment, our <code>writer</code> process will acquire or not acquire a lock depends on the value of the <code>rw_semaphore-&gt;count</code> field. Now if we will look at the implementation of the <code>down_read</code> function which executes a try of acquiring of a lock. We will see similar actions which we saw in the <code>down_write</code> function. This function calls different debugging and lock validator related functions/macros:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">void</span> __<span class="hljs-function">sched <span class="hljs-title">down_read</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> rw_semaphore *sem)</span>
+</span>{
+        might_sleep();
+        rwsem_acquire_read(&amp;sem-&gt;dep_map, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, _RET_IP_);
+
+        LOCK_CONTENDED(sem, __down_read_trylock, __down_read);
+}
+</code></pre>
+<p>and does all job in the <code>__down_read</code> function. The <code>__down_read</code> consists of inline assembly statement:</p>
+<pre><code class="lang-C">static inline void __down_read(struct rw_semaphore *sem)
+{
+         asm volatile(&quot;# beginning down_read\n\t&quot;
+                     LOCK_PREFIX _ASM_INC &quot;(%1)\n\t&quot;
+                     &quot;  jns        1f\n&quot;
+                     &quot;  call call_rwsem_down_read_failed\n&quot;
+                     &quot;1:\n\t&quot;
+                     &quot;# ending down_read\n\t&quot;
+                     : &quot;+m&quot; (sem-&gt;count)
+                     : &quot;a&quot; (sem)
+                     : &quot;memory&quot;, &quot;cc&quot;);
+}
+</code></pre>
+<p>which increments value of the given <code>rw_semaphore-&gt;count</code> and call the <code>call_rwsem_down_read_failed</code> if this value is negative. In other way we jump at the label <code>1:</code> and exit. After this <code>read</code> lock will be successfully acquired. Notice that we check a sign of the <code>count</code> value as it may be negative, because as you may remember most significant <a href="https://en.wikipedia.org/wiki/Word_%28computer_architecture%29" target="_blank">word</a> of the <code>rw_semaphore-&gt;count</code> contains negated number of active writers.</p>
+<p>Let&apos;s consider case when a process wants to acquire a lock for <code>read</code> operation, but it is already locked. In this case the <code>call_rwsem_down_read_failed</code> function from the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/lib/rwsem.S" target="_blank">arch/x86/lib/rwsem.S</a>  assembly file will be called. If you will look at the implementation of this function, you will notice that it does the same that <code>call_rwsem_down_read_failed</code> function does. Except it calls the <code>rwsem_down_read_failed</code> function instead of <code>rwsem_dow_write_failed</code>. Now let&apos;s consider implementation of the <code>rwsem_down_read_failed</code> function. It starts from the adding a process to the <code>wait queue</code> and updating of value of the <code>rw_semaphore-&gt;counter</code>:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">long</span> adjustment = -RWSEM_ACTIVE_READ_BIAS;
+
+waiter.task = tsk;
+waiter.type = RWSEM_WAITING_FOR_READ;
+
+<span class="hljs-keyword">if</span> (list_empty(&amp;sem-&gt;wait_list))
+    adjustment += RWSEM_WAITING_BIAS;
+list_add_tail(&amp;waiter.<span class="hljs-built_in">list</span>, &amp;sem-&gt;wait_list);
+
+count = rwsem_atomic_update(adjustment, sem);
+</code></pre>
+<p>Notice that if the <code>wait queue</code> was empty before we clear the <code>rw_semaphore-&gt;counter</code> and undo <code>read</code> bias in other way. At the next step we check that there are no active locks and we are first in the <code>wait queue</code> we need to join currently active <code>reader</code> processes. In other way we go to sleep until a lock will not be able to acquired.</p>
+<p>That&apos;s all. Now we know how <code>reader</code> and <code>writer</code> processes will behave in different cases during a lock acquisition. Now let&apos;s take a short look at <code>unlock</code> operations. The <code>up_read</code> and <code>up_write</code> functions allows us to unlock a <code>reader</code> or <code>writer</code> lock. First of all let&apos;s take a look at the implementation of the <code>up_write</code> function which is defined in the <a href="https://github.com/torvalds/linux/blob/master/kernel/locking/rwsem.c" target="_blank">kernel/locking/rwsem.c</a> source code file:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">up_write</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> rw_semaphore *sem)</span>
+</span>{
+        rwsem_release(&amp;sem-&gt;dep_map, <span class="hljs-number">1</span>, _RET_IP_);
+
+        rwsem_clear_owner(sem);
+        __up_write(sem);
+}
+</code></pre>
+<p>First of all it calls the <code>rwsem_release</code> macro which is related to the lock validator of the Linux kernel, so we will skip it now. And at the next line the <code>rwsem_clear_owner</code> function which as you may understand from the name of this function, just clears the <code>owner</code> field of the given <code>rw_semaphore</code>:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">rwsem_clear_owner</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> rw_semaphore *sem)</span>
+</span>{
+    sem-&gt;owner = <span class="hljs-literal">NULL</span>;
+}
+</code></pre>
+<p>The <code>__up_write</code> function does all job of unlocking of the lock. The <code>_up_write</code> is architecture-specific function, so for our case it will be located in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/rwsem.h" target="_blank">arch/x86/include/asm/rwsem.h</a> source code file. If we will take a look at the implementation of this function, we will see that it does almost the same that <code>__down_write</code> function, but conversely. Instead of adding of the <code>RWSEM_ACTIVE_WRITE_BIAS</code> to the <code>count</code>, we subtract the same value and check the <code>sign</code> of the previous value.</p>
+<p>If the previous value of the <code>rw_semaphore-&gt;count</code> is not negative, a writer process released a lock and now it may be acquired by someone else. In other case, the <code>rw_semaphore-&gt;count</code> will contain negative values. This means that there is at least one <code>writer</code> in a wait queue. In this case the <code>call_rwsem_wake</code> function will be called. This function acts like similar functions which we already saw above. It store general purpose registers at the stack for preserving and call the <code>rwsem_wake</code> function.</p>
+<p>First of all the <code>rwsem_wake</code> function checks if a spinner is present. In this case it will just acquire a lock which is just released by lock owner. In other case there must be someone in the <code>wait queue</code> and we need to wake or writer process if it exists at the top of the <code>wait queue</code> or all <code>reader</code> processes. The <code>up_read</code> function which release a <code>reader</code> lock acts in similar way like <code>up_write</code>, but with a little difference. Instead of subtracting of <code>RWSEM_ACTIVE_WRITE_BIAS</code> from the <code>rw_semaphore-&gt;count</code>, it subtracts <code>1</code> from it, because less significant word of the <code>count</code> contains number active locks. After this it checks <code>sign</code> of the <code>count</code> and calls the <code>rwsem_wake</code> like <code>__up_write</code> if the <code>count</code> is negative or in other way lock will be successfully released.</p>
+<p>That&apos;s all. We have considered API for manipulation with <code>reader/writer semaphore</code>: <code>up_read/up_write</code> and <code>down_read/down_write</code>. We saw that the Linux kernel provides additional API, besides this functions, like the <code>,</code> and etc. But I will not consider implementation of these function in this part because it must be similar on that we have seen in this part of except few subtleties.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This is the end of the fifth part of the <a href="https://en.wikipedia.org/wiki/Synchronization_%28computer_science%29" target="_blank">synchronization primitives</a> chapter in the Linux kernel. In this part we met with special type of <code>semaphore</code> - <code>readers/writer</code> semaphore which provides access to data for multiply process to read or for one process to writer. In the next part we will continue to dive into synchronization primitives in the Linux kernel.</p>
+<p>If you have questions or suggestions, feel free to ping me in twitter <a href="https://twitter.com/0xAX" target="_blank">0xAX</a>, drop me <a href="anotherworldofworld@gmail.com">email</a> or just create <a href="https://github.com/0xAX/linux-insides/issues/new" target="_blank">issue</a>.</p>
+<p><strong>Please note that English is not my first language and I am really sorry for any inconvenience. If you found any mistakes please send me PR to <a href="https://github.com/0xAX/linux-insides" target="_blank">linux-insides</a>.</strong></p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Synchronization_%28computer_science%29" target="_blank">Synchronization primitives</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Readers%E2%80%93writer_lock" target="_blank">Readers/Writer lock</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Spinlock" target="_blank">Spinlocks</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Semaphore_%28programming%29" target="_blank">Semaphore</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Mutual_exclusion" target="_blank">Mutex</a></li>
+<li><a href="https://en.wikipedia.org/wiki/X86-64" target="_blank">x86_64 architecture</a></li>
+<li><a href="https://0xax.gitbooks.io/linux-insides/content/DataStructures/dlist.html" target="_blank">Doubly linked list</a></li>
+<li><a href="http://www.cs.rochester.edu/~scott/papers/1991_TOCS_synch.pdf" target="_blank">MCS lock</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Application_programming_interface" target="_blank">API</a></li>
+<li><a href="https://www.kernel.org/doc/Documentation/locking/lockdep-design.txt" target="_blank">Linux kernel lock validator</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Linearizability" target="_blank">Atomic operations</a></li>
+<li><a href="https://0xax.gitbooks.io/linux-insides/content/Theory/asm.html" target="_blank">Inline assembly</a></li>
+<li><a href="http://x86.renejeschke.de/html/file_module_x86_id_327.html" target="_blank">XADD instruction</a></li>
+<li><a href="http://x86.renejeschke.de/html/file_module_x86_id_159.html" target="_blank">LOCK instruction</a></li>
+<li><a href="https://0xax.gitbooks.io/linux-insides/content/SyncPrim/sync-4.html" target="_blank">Previous part</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="sync-4.html" class="navigation navigation-prev " aria-label="Previous page: Mutex">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="sync-6.html" class="navigation navigation-next " aria-label="Next page: SeqLock">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Reader/Writer semaphores","level":"1.7.5","depth":2,"next":{"title":"SeqLock","level":"1.7.6","depth":2,"path":"SyncPrim/sync-6.md","ref":"SyncPrim/sync-6.md","articles":[]},"previous":{"title":"Mutex","level":"1.7.4","depth":2,"path":"SyncPrim/sync-4.md","ref":"SyncPrim/sync-4.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"SyncPrim/sync-5.md","mtime":"2019-03-28T07:54:50.402Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-28T07:57:01.662Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

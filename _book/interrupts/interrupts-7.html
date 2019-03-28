@@ -1,0 +1,1756 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Dive into external hardware interrupts · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="interrupts-8.html" />
+    
+    
+    <link rel="prev" href="interrupts-6.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Summary</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../Booting/">
+            
+                <a href="../Booting/">
+            
+                    
+                    Booting
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../Booting/linux-bootstrap-1.html">
+            
+                <a href="../Booting/linux-bootstrap-1.html">
+            
+                    
+                    From bootloader to kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Booting/linux-bootstrap-2.html">
+            
+                <a href="../Booting/linux-bootstrap-2.html">
+            
+                    
+                    First steps in the kernel setup code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../Booting/linux-bootstrap-3.html">
+            
+                <a href="../Booting/linux-bootstrap-3.html">
+            
+                    
+                    Video mode initialization and transition to protected mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../Booting/linux-bootstrap-4.html">
+            
+                <a href="../Booting/linux-bootstrap-4.html">
+            
+                    
+                    Transition to 64-bit mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../Booting/linux-bootstrap-5.html">
+            
+                <a href="../Booting/linux-bootstrap-5.html">
+            
+                    
+                    Kernel decompression
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../Initialization/">
+            
+                <a href="../Initialization/">
+            
+                    
+                    Initialization
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Initialization/linux-initialization-1.html">
+            
+                <a href="../Initialization/linux-initialization-1.html">
+            
+                    
+                    First steps in the kernel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Initialization/linux-initialization-2.html">
+            
+                <a href="../Initialization/linux-initialization-2.html">
+            
+                    
+                    Early interrupts handler
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Initialization/linux-initialization-3.html">
+            
+                <a href="../Initialization/linux-initialization-3.html">
+            
+                    
+                    Last preparations before the kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Initialization/linux-initialization-4.html">
+            
+                <a href="../Initialization/linux-initialization-4.html">
+            
+                    
+                    Kernel entry point
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../Initialization/linux-initialization-5.html">
+            
+                <a href="../Initialization/linux-initialization-5.html">
+            
+                    
+                    Continue architecture-specific boot-time initializations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../Initialization/linux-initialization-6.html">
+            
+                <a href="../Initialization/linux-initialization-6.html">
+            
+                    
+                    Architecture-specific initializations, again...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../Initialization/linux-initialization-7.html">
+            
+                <a href="../Initialization/linux-initialization-7.html">
+            
+                    
+                    End of the architecture-specific initializations, almost...
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../Initialization/linux-initialization-8.html">
+            
+                <a href="../Initialization/linux-initialization-8.html">
+            
+                    
+                    Scheduler initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../Initialization/linux-initialization-9.html">
+            
+                <a href="../Initialization/linux-initialization-9.html">
+            
+                    
+                    RCU initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../Initialization/linux-initialization-10.html">
+            
+                <a href="../Initialization/linux-initialization-10.html">
+            
+                    
+                    End of initialization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Interrupts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="interrupts-1.html">
+            
+                <a href="interrupts-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="interrupts-2.html">
+            
+                <a href="interrupts-2.html">
+            
+                    
+                    Start to dive into interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="interrupts-3.html">
+            
+                <a href="interrupts-3.html">
+            
+                    
+                    Interrupt handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="interrupts-4.html">
+            
+                <a href="interrupts-4.html">
+            
+                    
+                    Initialization of non-early interrupt gates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="interrupts-5.html">
+            
+                <a href="interrupts-5.html">
+            
+                    
+                    Implementation of some exception handlers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="interrupts-6.html">
+            
+                <a href="interrupts-6.html">
+            
+                    
+                    Handling Non-Maskable interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.7" data-path="interrupts-7.html">
+            
+                <a href="interrupts-7.html">
+            
+                    
+                    Dive into external hardware interrupts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="interrupts-8.html">
+            
+                <a href="interrupts-8.html">
+            
+                    
+                    Initialization of external hardware interrupts structures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="interrupts-9.html">
+            
+                <a href="interrupts-9.html">
+            
+                    
+                    Softirq, Tasklets and Workqueues
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="interrupts-10.html">
+            
+                <a href="interrupts-10.html">
+            
+                    
+                    Last part
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../SysCall/">
+            
+                <a href="../SysCall/">
+            
+                    
+                    System calls
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../SysCall/syscall-1.html">
+            
+                <a href="../SysCall/syscall-1.html">
+            
+                    
+                    Introduction to system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../SysCall/syscall-2.html">
+            
+                <a href="../SysCall/syscall-2.html">
+            
+                    
+                    How the Linux kernel handles a system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../SysCall/syscall-3.html">
+            
+                <a href="../SysCall/syscall-3.html">
+            
+                    
+                    vsyscall and vDSO
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../SysCall/syscall-4.html">
+            
+                <a href="../SysCall/syscall-4.html">
+            
+                    
+                    How the Linux kernel runs a program
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../SysCall/syscall-5.html">
+            
+                <a href="../SysCall/syscall-5.html">
+            
+                    
+                    Implementation of the open system call
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Timers/">
+            
+                <a href="../Timers/">
+            
+                    
+                    Timers and time management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../Timers/timers-1.html">
+            
+                <a href="../Timers/timers-1.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../Timers/timers-2.html">
+            
+                <a href="../Timers/timers-2.html">
+            
+                    
+                    Clocksource framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../Timers/timers-3.html">
+            
+                <a href="../Timers/timers-3.html">
+            
+                    
+                    The tick broadcast framework and dyntick
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../Timers/timers-4.html">
+            
+                <a href="../Timers/timers-4.html">
+            
+                    
+                    Introduction to timers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../Timers/timers-5.html">
+            
+                <a href="../Timers/timers-5.html">
+            
+                    
+                    Clockevents framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../Timers/timers-6.html">
+            
+                <a href="../Timers/timers-6.html">
+            
+                    
+                    x86 related clock sources
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../Timers/timers-7.html">
+            
+                <a href="../Timers/timers-7.html">
+            
+                    
+                    Time related system calls
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../SyncPrim/">
+            
+                <a href="../SyncPrim/">
+            
+                    
+                    Synchronization primitives
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../SyncPrim/sync-1.html">
+            
+                <a href="../SyncPrim/sync-1.html">
+            
+                    
+                    Introduction to spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../SyncPrim/sync-2.html">
+            
+                <a href="../SyncPrim/sync-2.html">
+            
+                    
+                    Queued spinlocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../SyncPrim/sync-3.html">
+            
+                <a href="../SyncPrim/sync-3.html">
+            
+                    
+                    Semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../SyncPrim/sync-4.html">
+            
+                <a href="../SyncPrim/sync-4.html">
+            
+                    
+                    Mutex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../SyncPrim/sync-5.html">
+            
+                <a href="../SyncPrim/sync-5.html">
+            
+                    
+                    Reader/Writer semaphores
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../SyncPrim/sync-6.html">
+            
+                <a href="../SyncPrim/sync-6.html">
+            
+                    
+                    SeqLock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" >
+            
+                <span>
+            
+                    
+                    RCU
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" >
+            
+                <span>
+            
+                    
+                    Lockdep
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../mm/">
+            
+                <a href="../mm/">
+            
+                    
+                    Memory management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../mm/linux-mm-1.html">
+            
+                <a href="../mm/linux-mm-1.html">
+            
+                    
+                    Memblock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../mm/linux-mm-2.html">
+            
+                <a href="../mm/linux-mm-2.html">
+            
+                    
+                    Fixmaps and ioremap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../mm/linux-mm-3.html">
+            
+                <a href="../mm/linux-mm-3.html">
+            
+                    
+                    kmemcheck
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../Cgroups/">
+            
+                <a href="../Cgroups/">
+            
+                    
+                    Cgroups
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../Cgroups/cgroups1.html">
+            
+                <a href="../Cgroups/cgroups1.html">
+            
+                    
+                    Introduction to Control Groups
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    SMP
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../Concepts/">
+            
+                <a href="../Concepts/">
+            
+                    
+                    Concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../Concepts/per-cpu.html">
+            
+                <a href="../Concepts/per-cpu.html">
+            
+                    
+                    Per-CPU variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../Concepts/cpumask.html">
+            
+                <a href="../Concepts/cpumask.html">
+            
+                    
+                    Cpumasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../Concepts/initcall.html">
+            
+                <a href="../Concepts/initcall.html">
+            
+                    
+                    The initcall mechanism
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../DataStructures/">
+            
+                <a href="../DataStructures/">
+            
+                    
+                    Data Structures in the Linux Kernel
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../DataStructures/dlist.html">
+            
+                <a href="../DataStructures/dlist.html">
+            
+                    
+                    Doubly linked list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../DataStructures/radix-tree.html">
+            
+                <a href="../DataStructures/radix-tree.html">
+            
+                    
+                    Radix tree
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../DataStructures/bitmap.html">
+            
+                <a href="../DataStructures/bitmap.html">
+            
+                    
+                    Bit arrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../Theory/">
+            
+                <a href="../Theory/">
+            
+                    
+                    Theory
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../Theory/Paging.html">
+            
+                <a href="../Theory/Paging.html">
+            
+                    
+                    Paging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../Theory/ELF.html">
+            
+                <a href="../Theory/ELF.html">
+            
+                    
+                    Elf64
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../Theory/asm.html">
+            
+                <a href="../Theory/asm.html">
+            
+                    
+                    Inline assembly
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" >
+            
+                <span>
+            
+                    
+                    CPUID
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" >
+            
+                <span>
+            
+                    
+                    MSR
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" >
+            
+                <span>
+            
+                    
+                    Initial ram disk
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" >
+            
+                <span>
+            
+                    
+                    initrd
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../Misc/">
+            
+                <a href="../Misc/">
+            
+                    
+                    Misc
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../Misc/how_kernel_compiled.html">
+            
+                <a href="../Misc/how_kernel_compiled.html">
+            
+                    
+                    How the kernel is compiled
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../Misc/linkers.html">
+            
+                <a href="../Misc/linkers.html">
+            
+                    
+                    Linkers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.3" data-path="../Misc/contribute.html">
+            
+                <a href="../Misc/contribute.html">
+            
+                    
+                    Linux kernel development
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.4" data-path="../Misc/program_startup.html">
+            
+                <a href="../Misc/program_startup.html">
+            
+                    
+                    Program startup process in userspace
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.5" >
+            
+                <span>
+            
+                    
+                    Write and Submit your first Linux kernel Patch
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.6" >
+            
+                <span>
+            
+                    
+                    Data types in the kernel
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../KernelStructures/">
+            
+                <a href="../KernelStructures/">
+            
+                    
+                    KernelStructures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" data-path="../KernelStructures/idt.html">
+            
+                <a href="../KernelStructures/idt.html">
+            
+                    
+                    IDT
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../LINKS.html">
+            
+                <a href="../LINKS.html">
+            
+                    
+                    Useful links
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../contributors.html">
+            
+                <a href="../contributors.html">
+            
+                    
+                    Contributors
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Dive into external hardware interrupts</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="interrupts-and-interrupt-handling-part-7">Interrupts and Interrupt Handling. Part 7.</h1>
+<h2 id="introduction-to-external-interrupts">Introduction to external interrupts</h2>
+<p>This is the seventh part of the Interrupts and Interrupt Handling in the Linux kernel <a href="http://0xax.gitbooks.io/linux-insides/content/interrupts/index.html" target="_blank">chapter</a> and in the previous <a href="http://0xax.gitbooks.io/linux-insides/content/interrupts/interrupts-6.html" target="_blank">part</a> we have finished with the exceptions which are generated by the processor. In this part we will continue to dive to the interrupt handling and will start with the external hardware interrupt handling. As you can remember, in the previous part we have finished with the <code>trap_init</code> function from the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/kernel/traps.c" target="_blank">arch/x86/kernel/trap.c</a> and the next step is the call of the <code>early_irq_init</code> function from the <a href="https://github.com/torvalds/linux/blob/master/init/main.c" target="_blank">init/main.c</a>.</p>
+<p>Interrupts are signal that are sent across <a href="https://en.wikipedia.org/wiki/Interrupt_request_%28PC_architecture%29" target="_blank">IRQ</a> or <code>Interrupt Request Line</code> by a hardware or software. External hardware interrupts allow devices like keyboard, mouse and etc, to indicate that it needs attention of the processor. Once the processor receives the <code>Interrupt Request</code>, it will temporary stop execution of the running program and invoke special routine which depends on an interrupt. We already know that this routine is called interrupt handler (or how we will call it <code>ISR</code> or <code>Interrupt Service Routine</code> from this part). The <code>ISR</code> or <code>Interrupt Handler Routine</code> can be found in Interrupt Vector table that is located at fixed address in the memory. After the interrupt is handled processor resumes the interrupted process. At the boot/initialization time, the Linux kernel identifies all devices in the machine, and appropriate interrupt handlers are loaded into the interrupt table. As we saw in the previous parts, most exceptions are handled simply by the sending a <a href="https://en.wikipedia.org/wiki/Unix_signal" target="_blank">Unix signal</a> to the interrupted process. That&apos;s why kernel is can handle an exception quickly. Unfortunately we can not use this approach for the external hardware interrupts, because often they arrive after (and sometimes long after) the process to which they are related has been suspended. So it would make no sense to send a Unix signal to the current process. External interrupt handling depends on the type of an interrupt:</p>
+<ul>
+<li><code>I/O</code> interrupts;</li>
+<li>Timer interrupts;</li>
+<li>Interprocessor interrupts.</li>
+</ul>
+<p>I will try to describe all types of interrupts in this book.</p>
+<p>Generally, a handler of an <code>I/O</code> interrupt must be flexible enough to service several devices at the same time. For example in the <a href="https://en.wikipedia.org/wiki/Conventional_PCI" target="_blank">PCI</a> bus architecture several devices may share the same <code>IRQ</code> line. In the simplest way the Linux kernel must do following thing when an <code>I/O</code> interrupt occurred:</p>
+<ul>
+<li>Save the value of an <code>IRQ</code> and the register&apos;s contents on the kernel stack;</li>
+<li>Send an acknowledgment to the hardware controller which is servicing the <code>IRQ</code> line;</li>
+<li>Execute the interrupt service routine (next we will call it <code>ISR</code>) which is associated with the device;</li>
+<li>Restore registers and return from an interrupt;</li>
+</ul>
+<p>Ok, we know a little theory and now let&apos;s start with the <code>early_irq_init</code> function. The implementation of the <code>early_irq_init</code> function is in the <a href="https://github.com/torvalds/linux/blob/master/kernel/irq/irqdesc.c" target="_blank">kernel/irq/irqdesc.c</a>. This function make early initialization of the <code>irq_desc</code> structure. The <code>irq_desc</code> structure is the foundation of interrupt management code in the Linux kernel. An array of this structure, which has the same name - <code>irq_desc</code>, keeps track of every interrupt request source in the Linux kernel. This structure defined in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/irqdesc.h" target="_blank">include/linux/irqdesc.h</a> and as you can note it depends on the <code>CONFIG_SPARSE_IRQ</code> kernel configuration option. This kernel configuration option enables support for sparse irqs. The <code>irq_desc</code> structure contains many different files:</p>
+<ul>
+<li><code>irq_common_data</code> - per irq and chip data passed down to chip functions;</li>
+<li><code>status_use_accessors</code> - contains status of the interrupt source which is combination of the values from the <code>enum</code> from the <a href="https://github.com/torvalds/linux/blob/master/include/linux/irq.h" target="_blank">include/linux/irq.h</a> and different macros which are defined in the same source code file;</li>
+<li><code>kstat_irqs</code> - irq stats per-cpu;</li>
+<li><code>handle_irq</code> - highlevel irq-events handler;</li>
+<li><code>action</code> - identifies the interrupt service routines to be invoked when the <a href="https://en.wikipedia.org/wiki/Interrupt_request_%28PC_architecture%29" target="_blank">IRQ</a> occurs;</li>
+<li><code>irq_count</code> - counter of interrupt occurrences on the IRQ line;</li>
+<li><code>depth</code> - <code>0</code> if the IRQ line is enabled and a positive value if it has been disabled at least once; </li>
+<li><code>last_unhandled</code> - aging timer for unhandled count;</li>
+<li><code>irqs_unhandled</code> - count of the unhandled interrupts;</li>
+<li><code>lock</code>  - a spin lock used to serialize the accesses to the <code>IRQ</code> descriptor;</li>
+<li><code>pending_mask</code> - pending rebalanced interrupts;</li>
+<li><code>owner</code> - an owner of interrupt descriptor. Interrupt descriptors can be allocated from modules. This field is need to proved refcount on the module which provides the interrupts;</li>
+<li>and etc.</li>
+</ul>
+<p>Of course it is not all fields of the <code>irq_desc</code> structure, because it is too long to describe each field of this structure, but we will see it all soon. Now let&apos;s start to dive into the implementation of the <code>early_irq_init</code> function.</p>
+<h2 id="early-external-interrupts-initialization">Early external interrupts initialization</h2>
+<p>Now, let&apos;s look on the implementation of the <code>early_irq_init</code> function. Note that implementation of the <code>early_irq_init</code> function depends on the <code>CONFIG_SPARSE_IRQ</code> kernel configuration option. Now we consider implementation of the <code>early_irq_init</code> function when the <code>CONFIG_SPARSE_IRQ</code> kernel configuration option is not set. This function starts from the declaration of the following variables: <code>irq</code> descriptors counter, loop counter, memory node and the <code>irq_desc</code> descriptor:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">int</span> __<span class="hljs-function">init <span class="hljs-title">early_irq_init</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+</span>{
+        <span class="hljs-keyword">int</span> count, i, node = first_online_node;
+        <span class="hljs-keyword">struct</span> irq_desc *desc;
+        ...
+        ...
+        ...
+}
+</code></pre>
+<p>The <code>node</code> is an online <a href="https://en.wikipedia.org/wiki/Non-uniform_memory_access" target="_blank">NUMA</a> node which depends on the <code>MAX_NUMNODES</code> value which depends on the <code>CONFIG_NODES_SHIFT</code> kernel configuration parameter:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MAX_NUMNODES    (1 &lt;&lt; NODES_SHIFT)</span>
+...
+...
+...
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> CONFIG_NODES_SHIFT</span>
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> NODES_SHIFT     CONFIG_NODES_SHIFT</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> NODES_SHIFT     0</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+</code></pre>
+<p>As I already wrote, implementation of the <code>first_online_node</code> macro depends on the <code>MAX_NUMNODES</code> value:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> MAX_NUMNODES &gt; 1</span>
+  <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> first_online_node       first_node(node_states[N_ONLINE])</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
+  <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> first_online_node       0</span>
+</code></pre>
+<p>The <code>node_states</code> is the <a href="https://en.wikipedia.org/wiki/Enumerated_type" target="_blank">enum</a> which defined in the <a href="https://github.com/torvalds/linux/blob/master/include/linux/nodemask.h" target="_blank">include/linux/nodemask.h</a> and represent the set of the states of a node. In our case we are searching an online node and it will be <code>0</code> if <code>MAX_NUMNODES</code> is one or zero. If the <code>MAX_NUMNODES</code> is greater than one, the <code>node_states[N_ONLINE]</code> will return <code>1</code> and the <code>first_node</code> macro will be expands to the call of the <code>__first_node</code> function which will return <code>minimal</code> or the first online node:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> first_node(src) __first_node(&amp;(src))</span>
+
+<span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-keyword">int</span> __first_node(<span class="hljs-keyword">const</span> <span class="hljs-keyword">nodemask_t</span> *srcp)
+{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">min_t</span>(<span class="hljs-keyword">int</span>, MAX_NUMNODES, find_first_bit(srcp-&gt;bits, MAX_NUMNODES));
+}
+</code></pre>
+<p>More about this will be in the another chapter about the <code>NUMA</code>. The next step after the declaration of these local variables is the call of the:</p>
+<pre><code class="lang-C">init_irq_default_affinity();
+</code></pre>
+<p>function. The <code>init_irq_default_affinity</code> function defined in the same source code file and depends on the <code>CONFIG_SMP</code> kernel configuration option allocates a given <a href="http://0xax.gitbooks.io/linux-insides/content/Concepts/cpumask.html" target="_blank">cpumask</a> structure (in our case it is the <code>irq_default_affinity</code>):</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> defined(CONFIG_SMP)</span>
+<span class="hljs-keyword">cpumask_var_t</span> irq_default_affinity;
+
+<span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> __<span class="hljs-function">init <span class="hljs-title">init_irq_default_affinity</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+</span>{
+        alloc_cpumask_var(&amp;irq_default_affinity, GFP_NOWAIT);
+        cpumask_setall(irq_default_affinity);
+}
+<span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
+<span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> __<span class="hljs-function">init <span class="hljs-title">init_irq_default_affinity</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+</span>{
+}
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+</code></pre>
+<p>We know that when a hardware, such as disk controller or keyboard, needs attention from the processor, it throws an interrupt. The interrupt tells to the processor that something has happened and that the processor should interrupt current process and handle an incoming event. In order to prevent multiple devices from sending the same interrupts, the <a href="https://en.wikipedia.org/wiki/Interrupt_request_%28PC_architecture%29" target="_blank">IRQ</a> system was established where each device in a computer system is assigned its own special IRQ so that its interrupts are unique. Linux kernel can assign certain <code>IRQs</code> to specific processors. This is known as <code>SMP IRQ affinity</code>, and it allows you control how your system will respond to various hardware events (that&apos;s why it has certain implementation only if the <code>CONFIG_SMP</code> kernel configuration option is set). After we allocated <code>irq_default_affinity</code> cpumask, we can see <code>printk</code> output:</p>
+<pre><code class="lang-C">printk(KERN_INFO <span class="hljs-string">&quot;NR_IRQS:%d\n&quot;</span>, NR_IRQS);
+</code></pre>
+<p>which prints <code>NR_IRQS</code>:</p>
+<pre><code class="lang-C">~$ dmesg | grep NR_IRQS
+[    <span class="hljs-number">0.000000</span>] NR_IRQS:<span class="hljs-number">4352</span>
+</code></pre>
+<p>The <code>NR_IRQS</code> is the maximum number of the <code>irq</code> descriptors or in another words maximum number of interrupts. Its value depends on the state of the <code>CONFIG_X86_IO_APIC</code> kernel configuration option. If the <code>CONFIG_X86_IO_APIC</code> is not set and the Linux kernel uses an old <a href="https://en.wikipedia.org/wiki/Programmable_Interrupt_Controller" target="_blank">PIC</a> chip, the <code>NR_IRQS</code> is:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> NR_IRQS_LEGACY                    16</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> CONFIG_X86_IO_APIC</span>
+...
+...
+...
+<span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
+<span class="hljs-meta"># <span class="hljs-meta-keyword">define</span> NR_IRQS                        NR_IRQS_LEGACY</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+</code></pre>
+<p>In other way, when the <code>CONFIG_X86_IO_APIC</code> kernel configuration option is set, the <code>NR_IRQS</code> depends on the amount of the processors and amount of the interrupt vectors:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> CPU_VECTOR_LIMIT               (64 * NR_CPUS)</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> NR_VECTORS                     256</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> IO_APIC_VECTOR_LIMIT           ( 32 * MAX_IO_APICS )</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MAX_IO_APICS                   128</span>
+
+<span class="hljs-meta"># <span class="hljs-meta-keyword">define</span> NR_IRQS                                       \
+        (CPU_VECTOR_LIMIT &gt; IO_APIC_VECTOR_LIMIT ?     \
+                (NR_VECTORS + CPU_VECTOR_LIMIT)  :     \
+                (NR_VECTORS + IO_APIC_VECTOR_LIMIT))</span>
+...
+...
+...
+</code></pre>
+<p>We remember from the previous parts, that the amount of processors we can set during Linux kernel configuration process with the <code>CONFIG_NR_CPUS</code> configuration option:</p>
+<p><img src="http://oi60.tinypic.com/1zdm1dt.jpg" alt="kernel"></p>
+<p>In the first case (<code>CPU_VECTOR_LIMIT &gt; IO_APIC_VECTOR_LIMIT</code>), the <code>NR_IRQS</code> will be <code>4352</code>, in the second case (<code>CPU_VECTOR_LIMIT &lt; IO_APIC_VECTOR_LIMIT</code>), the <code>NR_IRQS</code> will be <code>768</code>. In my case the <code>NR_CPUS</code> is <code>8</code> as you can see in the my configuration, the <code>CPU_VECTOR_LIMIT</code> is <code>512</code> and the <code>IO_APIC_VECTOR_LIMIT</code> is <code>4096</code>. So <code>NR_IRQS</code> for my configuration is <code>4352</code>:</p>
+<pre><code>~$ dmesg | grep NR_IRQS
+[    0.000000] NR_IRQS:4352
+</code></pre><p>In the next step we assign array of the IRQ descriptors to the <code>irq_desc</code> variable which we defined in the start of the <code>early_irq_init</code> function and calculate count of the <code>irq_desc</code> array with the <code>ARRAY_SIZE</code> macro:</p>
+<pre><code class="lang-C">desc = irq_desc;
+count = ARRAY_SIZE(irq_desc);
+</code></pre>
+<p>The <code>irq_desc</code> array defined in the same source code file and looks like:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">struct</span> irq_desc irq_desc[NR_IRQS] __cacheline_aligned_in_smp = {
+        [<span class="hljs-number">0</span> ... NR_IRQS<span class="hljs-number">-1</span>] = {
+                .handle_irq     = handle_bad_irq,
+                .depth          = <span class="hljs-number">1</span>,
+                .lock           = __RAW_SPIN_LOCK_UNLOCKED(irq_desc-&gt;lock),
+        }
+};
+</code></pre>
+<p>The <code>irq_desc</code> is array of the <code>irq</code> descriptors. It has three already initialized fields:</p>
+<ul>
+<li><code>handle_irq</code> - as I already wrote above, this field is the highlevel irq-event handler. In our case it initialized with the <code>handle_bad_irq</code> function that defined in the <a href="https://github.com/torvalds/linux/blob/master/kernel/irq/handle.c" target="_blank">kernel/irq/handle.c</a> source code file and handles spurious and unhandled irqs;</li>
+<li><code>depth</code> - <code>0</code> if the IRQ line is enabled and a positive value if it has been disabled at least once;</li>
+<li><code>lock</code> - A spin lock used to serialize the accesses to the <code>IRQ</code> descriptor.</li>
+</ul>
+<p>As we calculated count of the interrupts and initialized our <code>irq_desc</code> array, we start to fill descriptors in the loop:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; count; i++) {
+    desc[i].kstat_irqs = alloc_percpu(<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span>);
+    alloc_masks(&amp;desc[i], GFP_KERNEL, node);
+    raw_spin_lock_init(&amp;desc[i].lock);
+    lockdep_set_class(&amp;desc[i].lock, &amp;irq_desc_lock_class);
+    desc_set_defaults(i, &amp;desc[i], node, <span class="hljs-literal">NULL</span>);
+}
+</code></pre>
+<p>We are going through the all interrupt descriptors and do the following things:</p>
+<p>First of all we allocate <a href="http://0xax.gitbooks.io/linux-insides/content/Concepts/per-cpu.html" target="_blank">percpu</a> variable for the <code>irq</code> kernel statistic with the <code>alloc_percpu</code> macro. This macro allocates one instance of an object of the given type for every processor on the system. You can access kernel statistic from the userspace via <code>/proc/stat</code>:</p>
+<pre><code>~$ cat /proc/stat
+cpu  207907 68 53904 5427850 14394 0 394 0 0 0
+cpu0 25881 11 6684 679131 1351 0 18 0 0 0
+cpu1 24791 16 5894 679994 2285 0 24 0 0 0
+cpu2 26321 4 7154 678924 664 0 71 0 0 0
+cpu3 26648 8 6931 678891 414 0 244 0 0 0
+...
+...
+...
+</code></pre><p>Where the sixth column is the servicing interrupts. After this we allocate <a href="http://0xax.gitbooks.io/linux-insides/content/Concepts/cpumask.html" target="_blank">cpumask</a> for the given irq descriptor affinity and initialize the <a href="https://en.wikipedia.org/wiki/Spinlock" target="_blank">spinlock</a> for the given interrupt descriptor. After this before the <a href="https://en.wikipedia.org/wiki/Critical_section" target="_blank">critical section</a>, the lock will be acquired with a call of the <code>raw_spin_lock</code> and unlocked with the call of the <code>raw_spin_unlock</code>. In the next step we call the <code>lockdep_set_class</code> macro which set the <a href="https://lwn.net/Articles/185666/" target="_blank">Lock validator</a> <code>irq_desc_lock_class</code> class for the lock of the given interrupt descriptor. More about <code>lockdep</code>, <code>spinlock</code> and other synchronization primitives will be described in the separate chapter.</p>
+<p>In the end of the loop we call the <code>desc_set_defaults</code> function from the <a href="https://github.com/torvalds/linux/blob/master/kernel/irq/irqdesc.c" target="_blank">kernel/irq/irqdesc.c</a>. This function takes four parameters:</p>
+<ul>
+<li>number of a irq;</li>
+<li>interrupt descriptor;</li>
+<li>online <code>NUMA</code> node;</li>
+<li>owner of interrupt descriptor. Interrupt descriptors can be allocated from modules. This field is need to proved refcount on the module which provides the interrupts;</li>
+</ul>
+<p>and fills the rest of the <code>irq_desc</code> fields. The <code>desc_set_defaults</code> function fills interrupt number, <code>irq</code> chip, platform-specific per-chip private data for the chip methods, per-IRQ data for the <code>irq_chip</code> methods and <a href="https://en.wikipedia.org/wiki/Message_Signaled_Interrupts" target="_blank">MSI</a> descriptor for the per <code>irq</code> and <code>irq</code> chip data:</p>
+<pre><code class="lang-C">desc-&gt;irq_data.irq = irq;
+desc-&gt;irq_data.chip = &amp;no_irq_chip;
+desc-&gt;irq_data.chip_data = <span class="hljs-literal">NULL</span>;
+desc-&gt;irq_data.handler_data = <span class="hljs-literal">NULL</span>;
+desc-&gt;irq_data.msi_desc = <span class="hljs-literal">NULL</span>;
+...
+...
+...
+</code></pre>
+<p>The <code>irq_data.chip</code> structure provides general <code>API</code> like the <code>irq_set_chip</code>, <code>irq_set_irq_type</code> and etc, for the irq controller <a href="https://github.com/torvalds/linux/tree/master/drivers/irqchip" target="_blank">drivers</a>. You can find it in the <a href="https://github.com/torvalds/linux/blob/master/kernel/irq/chip.c" target="_blank">kernel/irq/chip.c</a> source code file.</p>
+<p>After this we set the status of the accessor for the given descriptor and set disabled state of the interrupts:</p>
+<pre><code class="lang-C">...
+...
+...
+irq_settings_clr_and_set(desc, ~<span class="hljs-number">0</span>, _IRQ_DEFAULT_INIT_FLAGS);
+irqd_set(&amp;desc-&gt;irq_data, IRQD_IRQ_DISABLED);
+...
+...
+...
+</code></pre>
+<p>In the next step we set the high level interrupt handlers to the <code>handle_bad_irq</code> which handles spurious and unhandled irqs (as the hardware stuff is not initialized yet, we set this handler), set <code>irq_desc.desc</code> to <code>1</code> which means that an <code>IRQ</code> is disabled, reset count of the unhandled interrupts and interrupts in general:</p>
+<pre><code class="lang-C">...
+...
+...
+desc-&gt;handle_irq = handle_bad_irq;
+desc-&gt;depth = <span class="hljs-number">1</span>;
+desc-&gt;irq_count = <span class="hljs-number">0</span>;
+desc-&gt;irqs_unhandled = <span class="hljs-number">0</span>;
+desc-&gt;name = <span class="hljs-literal">NULL</span>;
+desc-&gt;owner = owner;
+...
+...
+...
+</code></pre>
+<p>After this we go through the all <a href="http://0xax.gitbooks.io/linux-insides/content/Concepts/cpumask.html" target="_blank">possible</a> processor with the <a href="https://github.com/torvalds/linux/blob/master/include/linux/cpumask.h#L714" target="_blank">for_each_possible_cpu</a> helper and set the <code>kstat_irqs</code> to zero for the given interrupt descriptor:</p>
+<pre><code class="lang-C">    for_each_possible_cpu(cpu)
+        *per_cpu_ptr(desc-&gt;kstat_irqs, cpu) = <span class="hljs-number">0</span>;
+</code></pre>
+<p>and call the <code>desc_smp_init</code> function from the <a href="https://github.com/torvalds/linux/blob/master/kernel/irq/irqdesc.c" target="_blank">kernel/irq/irqdesc.c</a> that initializes <code>NUMA</code> node of the given interrupt descriptor, sets default <code>SMP</code> affinity and clears the <code>pending_mask</code> of the given interrupt descriptor depends on the value of the <code>CONFIG_GENERIC_PENDING_IRQ</code> kernel configuration option:</p>
+<pre><code class="lang-C"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">desc_smp_init</span><span class="hljs-params">(<span class="hljs-keyword">struct</span> irq_desc *desc, <span class="hljs-keyword">int</span> node)</span>
+</span>{
+        desc-&gt;irq_data.node = node;
+        cpumask_copy(desc-&gt;irq_data.affinity, irq_default_affinity);
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> CONFIG_GENERIC_PENDING_IRQ</span>
+        cpumask_clear(desc-&gt;pending_mask);
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+}
+</code></pre>
+<p>In the end of the <code>early_irq_init</code> function we return the return value of the <code>arch_early_irq_init</code> function:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">return</span> arch_early_irq_init();
+</code></pre>
+<p>This function defined in the <a href="https://github.com/torvalds/linux/blob/master/kernel/apic/vector.c" target="_blank">kernel/apic/vector.c</a> and contains only one call of the <code>arch_early_ioapic_init</code> function from the <a href="https://github.com/torvalds/linux/blob/master/kernel/apic/io_apic.c" target="_blank">kernel/apic/io_apic.c</a>. As we can understand from the <code>arch_early_ioapic_init</code> function&apos;s name, this function makes early initialization of the <a href="https://en.wikipedia.org/wiki/Advanced_Programmable_Interrupt_Controller" target="_blank">I/O APIC</a>. First of all it make a check of the number of the legacy interrupts with the call of the <code>nr_legacy_irqs</code> function. If we have no legacy interrupts with the <a href="https://en.wikipedia.org/wiki/Intel_8259" target="_blank">Intel 8259</a> programmable interrupt controller we set <code>io_apic_irqs</code> to the <code>0xffffffffffffffff</code>: </p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (!nr_legacy_irqs())
+    io_apic_irqs = ~<span class="hljs-number">0U</span>L;
+</code></pre>
+<p>After this we are going through the all <code>I/O APICs</code> and allocate space for the registers with the call of the <code>alloc_ioapic_saved_registers</code>:</p>
+<pre><code class="lang-C">for_each_ioapic(i)
+    alloc_ioapic_saved_registers(i);
+</code></pre>
+<p>And in the end of the <code>arch_early_ioapic_init</code> function we are going through the all legacy irqs (from <code>IRQ0</code> to <code>IRQ15</code>) in the loop and allocate space for the <code>irq_cfg</code> which represents configuration of an irq on the given <code>NUMA</code> node:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; nr_legacy_irqs(); i++) {
+    cfg = alloc_irq_and_cfg_at(i, node);
+    cfg-&gt;<span class="hljs-built_in">vector</span> = IRQ0_VECTOR + i;
+    cpumask_setall(cfg-&gt;domain);
+}
+</code></pre>
+<p>That&apos;s all.</p>
+<h2 id="sparse-irqs">Sparse IRQs</h2>
+<p>We already saw in the beginning of this part that implementation of the <code>early_irq_init</code> function depends on the <code>CONFIG_SPARSE_IRQ</code> kernel configuration option. Previously we saw implementation of the <code>early_irq_init</code> function when the <code>CONFIG_SPARSE_IRQ</code> configuration option is not set, now let&apos;s look on the its implementation when this option is set. Implementation of this function very similar, but little differ. We can see the same definition of variables and call of the <code>init_irq_default_affinity</code> in the beginning of the <code>early_irq_init</code> function:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> CONFIG_SPARSE_IRQ</span>
+<span class="hljs-keyword">int</span> __<span class="hljs-function">init <span class="hljs-title">early_irq_init</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span>
+</span>{
+    <span class="hljs-keyword">int</span> i, initcnt, node = first_online_node;
+    <span class="hljs-keyword">struct</span> irq_desc *desc;
+
+    init_irq_default_affinity();
+    ...
+    ...
+    ...
+}
+<span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
+...
+...
+...
+</code></pre>
+<p>But after this we can see the following call:</p>
+<pre><code class="lang-C">initcnt = arch_probe_nr_irqs();
+</code></pre>
+<p>The <code>arch_probe_nr_irqs</code> function defined in the <a href="https://github.com/torvalds/linux/blob/master/arch/x86/kernel/apic/vector.c" target="_blank">arch/x86/kernel/apic/vector.c</a> and calculates count of the pre-allocated irqs and update <code>nr_irqs</code> with its number. But stop. Why there are pre-allocated irqs? There is alternative form of interrupts called - <a href="https://en.wikipedia.org/wiki/Message_Signaled_Interrupts" target="_blank">Message Signaled Interrupts</a> available in the <a href="https://en.wikipedia.org/wiki/Conventional_PCI" target="_blank">PCI</a>. Instead of assigning a fixed number of the interrupt request, the device is allowed to record a message at a particular address of RAM, in fact, the display on the <a href="https://en.wikipedia.org/wiki/Advanced_Programmable_Interrupt_Controller#Integrated_local_APICs" target="_blank">Local APIC</a>. <code>MSI</code> permits a device to allocate <code>1</code>, <code>2</code>, <code>4</code>, <code>8</code>, <code>16</code> or <code>32</code> interrupts and <code>MSI-X</code> permits a device to allocate up to <code>2048</code> interrupts. Now we know that irqs can be pre-allocated. More about <code>MSI</code> will be in a next part, but now let&apos;s look on the <code>arch_probe_nr_irqs</code> function. We can see the check which assign amount of the interrupt vectors for the each processor in the system to the <code>nr_irqs</code> if it is greater and calculate the <code>nr</code> which represents number of <code>MSI</code> interrupts:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">int</span> nr_irqs = NR_IRQS;
+
+<span class="hljs-keyword">if</span> (nr_irqs &gt; (NR_VECTORS * nr_cpu_ids))
+    nr_irqs = NR_VECTORS * nr_cpu_ids;
+
+nr = (gsi_top + nr_legacy_irqs()) + <span class="hljs-number">8</span> * nr_cpu_ids;
+</code></pre>
+<p>Take a look on the <code>gsi_top</code> variable. Each <code>APIC</code> is identified with its own <code>ID</code> and with the offset where its <code>IRQ</code> starts. It is called <code>GSI</code> base or <code>Global System Interrupt</code> base. So the <code>gsi_top</code> represents it. We get the <code>Global System Interrupt</code> base from the <a href="https://en.wikipedia.org/wiki/MultiProcessor_Specification" target="_blank">MultiProcessor Configuration Table</a> table (you can remember that we have parsed this table in the sixth <a href="http://0xax.gitbooks.io/linux-insides/content/Initialization/linux-initialization-6.html" target="_blank">part</a> of the Linux Kernel initialization process chapter).</p>
+<p>After this we update the <code>nr</code> depends on the value of the <code>gsi_top</code>:</p>
+<pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> defined(CONFIG_PCI_MSI) || defined(CONFIG_HT_IRQ)</span>
+        <span class="hljs-keyword">if</span> (gsi_top &lt;= NR_IRQS_LEGACY)
+                nr +=  <span class="hljs-number">8</span> * nr_cpu_ids;
+        <span class="hljs-keyword">else</span>
+                nr += gsi_top * <span class="hljs-number">16</span>;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+</code></pre>
+<p>Update the <code>nr_irqs</code> if it less than <code>nr</code> and return the number of the legacy irqs:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (nr &lt; nr_irqs)
+    nr_irqs = nr;
+
+<span class="hljs-keyword">return</span> nr_legacy_irqs();
+}
+</code></pre>
+<p>The next after the <code>arch_probe_nr_irqs</code> is printing information about number of <code>IRQs</code>:</p>
+<pre><code class="lang-C">printk(KERN_INFO <span class="hljs-string">&quot;NR_IRQS:%d nr_irqs:%d %d\n&quot;</span>, NR_IRQS, nr_irqs, initcnt);
+</code></pre>
+<p>We can find it in the <a href="https://en.wikipedia.org/wiki/Dmesg" target="_blank">dmesg</a> output:</p>
+<pre><code>$ dmesg | grep NR_IRQS
+[    0.000000] NR_IRQS:4352 nr_irqs:488 16
+</code></pre><p>After this we do some checks that <code>nr_irqs</code> and <code>initcnt</code> values is not greater than maximum allowable number of <code>irqs</code>:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">if</span> (WARN_ON(nr_irqs &gt; IRQ_BITMAP_BITS))
+    nr_irqs = IRQ_BITMAP_BITS;
+
+<span class="hljs-keyword">if</span> (WARN_ON(initcnt &gt; IRQ_BITMAP_BITS))
+    initcnt = IRQ_BITMAP_BITS;
+</code></pre>
+<p>where <code>IRQ_BITMAP_BITS</code> is equal to the <code>NR_IRQS</code> if the <code>CONFIG_SPARSE_IRQ</code> is not set and <code>NR_IRQS + 8196</code> in other way. In the next step we are going over all interrupt descriptors which need to be allocated in the loop and allocate space for the descriptor and insert to the <code>irq_desc_tree</code> <a href="http://0xax.gitbooks.io/linux-insides/content/DataStructures/radix-tree.html" target="_blank">radix tree</a>:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; initcnt; i++) {
+    desc = alloc_desc(i, node, <span class="hljs-literal">NULL</span>);
+    set_bit(i, allocated_irqs);
+    irq_insert_desc(i, desc);
+}
+</code></pre>
+<p>In the end of the <code>early_irq_init</code> function we return the value of the call of the <code>arch_early_irq_init</code> function as we did it already in the previous variant when the <code>CONFIG_SPARSE_IRQ</code> option was not set:</p>
+<pre><code class="lang-C"><span class="hljs-keyword">return</span> arch_early_irq_init();
+</code></pre>
+<p>That&apos;s all.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>It is the end of the seventh part of the <a href="http://0xax.gitbooks.io/linux-insides/content/interrupts/index.html" target="_blank">Interrupts and Interrupt Handling</a> chapter and we started to dive into external hardware interrupts in this part. We saw early initialization of the <code>irq_desc</code> structure which represents description of an external interrupt and contains information about it like list of irq actions, information about interrupt handler, interrupt&apos;s owner, count of the unhandled interrupt and etc. In the next part we will continue to research external interrupts.</p>
+<p>If you have any questions or suggestions write me a comment or ping me at <a href="https://twitter.com/0xAX" target="_blank">twitter</a>.</p>
+<p><strong>Please note that English is not my first language, And I am really sorry for any inconvenience. If you find any mistakes please send me PR to <a href="https://github.com/0xAX/linux-insides" target="_blank">linux-insides</a>.</strong></p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Interrupt_request_%28PC_architecture%29" target="_blank">IRQ</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Non-uniform_memory_access" target="_blank">numa</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Enumerated_type" target="_blank">Enum type</a></li>
+<li><a href="http://0xax.gitbooks.io/linux-insides/content/Concepts/cpumask.html" target="_blank">cpumask</a></li>
+<li><a href="http://0xax.gitbooks.io/linux-insides/content/Concepts/per-cpu.html" target="_blank">percpu</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Spinlock" target="_blank">spinlock</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Critical_section" target="_blank">critical section</a></li>
+<li><a href="https://lwn.net/Articles/185666/" target="_blank">Lock validator</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Message_Signaled_Interrupts" target="_blank">MSI</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Advanced_Programmable_Interrupt_Controller" target="_blank">I/O APIC</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Advanced_Programmable_Interrupt_Controller#Integrated_local_APICs" target="_blank">Local APIC</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Intel_8259" target="_blank">Intel 8259</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Programmable_Interrupt_Controller" target="_blank">PIC</a></li>
+<li><a href="https://en.wikipedia.org/wiki/MultiProcessor_Specification" target="_blank">MultiProcessor Configuration Table</a></li>
+<li><a href="http://0xax.gitbooks.io/linux-insides/content/DataStructures/radix-tree.html" target="_blank">radix tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dmesg" target="_blank">dmesg</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="interrupts-6.html" class="navigation navigation-prev " aria-label="Previous page: Handling Non-Maskable interrupts">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="interrupts-8.html" class="navigation navigation-next " aria-label="Next page: Initialization of external hardware interrupts structures">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Dive into external hardware interrupts","level":"1.4.7","depth":2,"next":{"title":"Initialization of external hardware interrupts structures","level":"1.4.8","depth":2,"path":"interrupts/interrupts-8.md","ref":"interrupts/interrupts-8.md","articles":[]},"previous":{"title":"Handling Non-Maskable interrupts","level":"1.4.6","depth":2,"path":"interrupts/interrupts-6.md","ref":"interrupts/interrupts-6.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"interrupts/interrupts-7.md","mtime":"2019-03-28T07:54:50.429Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-28T07:57:01.662Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
